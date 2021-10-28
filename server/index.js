@@ -20,11 +20,11 @@ app.use((req, res) => {
   })
   .then((response) => {
     console.log('here is your stuff: ', response.data);
-    res.status(200).send(response.data);
+    res.status(response.status).send(response.data);
   })
   .catch((err) => {
     console.log(err);
-    res.status(400).send(err)
+    res.status(response.status).send(err)
   })
 })
 
