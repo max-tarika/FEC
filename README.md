@@ -1,1 +1,1 @@
-Team  _Italic_ DJ2daMaxX _Italic_
+**Team**  _DJ2daMaxX_
