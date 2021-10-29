@@ -1,8 +1,9 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 
-import Overview from './components/Overview/Overview.jsx';
-import Related from './components/Related/Related.jsx';
-import Reviews from './components/Reviews/Reviews.jsx';
+import Overview from './components/overview/Overview.jsx';
+import Related from './components/related/Related.jsx';
+import Reviews from './components/reviews/Reviews.jsx';
 
 const App = () => (
   <div>
