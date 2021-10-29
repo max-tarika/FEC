@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
 const path = require('path');
 const express = require('express'); // npm installed
 const axios = require('axios');
@@ -27,7 +25,7 @@ app.use((req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(response.status).send(err);
+      res.status(400).send(err);
     });
 });
 
