@@ -39,6 +39,17 @@ const App = () => {
       );
   }, []);
 
+  function getAvgRating() {
+    let sum = 0;
+    let totalRatings = 0;
+    const ratingsObj = currentRatings.ratings;
+    Object.keys(ratingsObj).forEach((rating) => {
+      sum += rating * ratingsObj[rating];
+      totalRatings += Number(ratingsObj[rating]);
+    });
+    return sum / totalRatings;
+  }
+
   return (
     <div>
       <h1>Da Island Bois</h1>
@@ -54,6 +65,7 @@ const App = () => {
               console.log('ALL PRODUCTS:', products);
               console.log('CURRENT REVIEW DEETS:', currentRatings);
               console.log('CURRENT PRODUCT DEETS:', currentProduct);
+              console.log('AVERAGE RATING:', getAvgRating());
             }}
           >
             Click me to see some sweet, sweet data...
