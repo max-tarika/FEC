@@ -20,7 +20,7 @@ app.use((req, res) => {
     },
   })
     .then((response) => {
-      console.log('here is your stuff: ', response.data);
+      //console.log('here is your stuff: ', response.data);
       res.status(response.status).send(response.data);
     })
     .catch((err) => {
