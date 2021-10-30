@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Overview from './components/Overview/Overview.jsx';
 import Related from './components/Related/Related.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
+import AppContext from './context.js';
 
 const axios = require('axios');
 
@@ -51,29 +52,35 @@ const App = () => {
   }
 
   return (
-    <div>
-      <h1>Da Island Bois</h1>
-      <Overview />
-      <Related />
-      <Reviews />
+    <AppContext.Provider value={{
+      currentProduct,
+      averageRating: getAvgRating(),
+    }}
+    >
       <div>
-        <form>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              console.log('ALL PRODUCTS:', products);
-              console.log('CURRENT REVIEW DEETS:', currentRatings);
-              console.log('CURRENT PRODUCT DEETS:', currentProduct);
-              console.log('AVERAGE RATING:', getAvgRating());
-            }}
-          >
-            Click me to see some sweet, sweet data...
+        <h1>Da Island Bois</h1>
+        <Overview />
+        <Related />
+        <Reviews />
+        <div>
+          <form>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                console.log('ALL PRODUCTS:', products);
+                console.log('CURRENT REVIEW DEETS:', currentRatings);
+                console.log('CURRENT PRODUCT DEETS:', currentProduct);
+                console.log('AVERAGE RATING:', getAvgRating());
+              }}
+            >
+              Click me to see some sweet, sweet data...
 
-          </button>
-        </form>
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </AppContext.Provider>
   );
 };
 
