@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Stars from './Stars.jsx';
+
 const Review = () => (
   <div id="review">
     <div id="reviewTopBar">
-      <span id="stars">Stars component goes here</span>
+      <Stars />
       <div id="userAndDate">Username&amp;DatePosted</div>
     </div>
     <h3 id="reviewTitle">Review title/summary</h3>
