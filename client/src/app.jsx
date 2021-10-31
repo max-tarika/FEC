@@ -53,6 +53,7 @@ const App = () => {
   return (
     <AppContext.Provider value={{
       currentProduct,
+      averageRating,
     }}
     >
       <div>

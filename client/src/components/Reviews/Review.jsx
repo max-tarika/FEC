@@ -1,10 +1,12 @@
 import React from 'react';
 
 const Review = () => (
-  <div>
-    <span id="stars">*****</span>
-    <div id="userAndDate">Username&amp;DatePosted</div>
-    <h3 id="reviewTitle">Review title</h3>
+  <div id="review">
+    <div id="reviewTopBar">
+      <span id="stars">Stars component goes here</span>
+      <div id="userAndDate">Username&amp;DatePosted</div>
+    </div>
+    <h3 id="reviewTitle">Review title/summary</h3>
     <p id="reviewBody">
       Review Body goes here. This is where we will be able to read abaout whether or not
       a particular reivew is helpful and/or island worthy.
@@ -18,6 +20,9 @@ const Review = () => (
 
         <li>
           No (#)
+        </li>
+        <li>
+          Report
         </li>
       </ul>
     </div>

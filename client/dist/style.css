@@ -1,0 +1,79 @@
+#app{
+  width: 100%;
+  box-sizing: border-box;
+  display:flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 5px;
+  margin: 5px;
+}
+
+
+
+/* Styling consistent to every widget */
+#widget {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 90%;
+  min-height: 20vh;
+  border: 2px solid #333;
+  padding: 3px;
+}
+
+
+/* Styling for Overview */
+
+
+
+/* Styling for Related and Outfit */
+
+
+
+/* Styling for Ratings/Reviews */
+
+#ratingsAndReviewsContainer {
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#ratings {
+  padding: 5px;
+  margin: 3px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+#reviews {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+#reviews #sortBar {
+  flex-direction: row;
+}
+
+/* ----- Styling for individual review tile ------ */
+#review {
+  padding: 4px;
+  box-shadow: 0 0 3px 3px grey;
+}
+
+#reviewTopBar {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#helpfulAndReport {
+  display: flex;
+  flex-direction: row;
+}
+
+#helpfulAndReport ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
