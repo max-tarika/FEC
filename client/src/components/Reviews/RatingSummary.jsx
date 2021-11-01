@@ -6,7 +6,7 @@ const RatingSummary = () => {
   const context = useContext(ReviewsContext);
 
   useEffect(() => {
-    console.log(context);
+
   }, [context]);
 
   return (
