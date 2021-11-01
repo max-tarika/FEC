@@ -37,16 +37,6 @@ const App = () => {
       });
   }, []);
 
-  // const averageRating = (currentRatings) => {
-  //   let sum = 0;
-  //   let totalRatings = 0;
-  //   Object.keys(currentRatings.ratings).forEach((rating) => {
-  //     sum += rating * currentRatings.ratings[rating];
-  //     totalRatings += Number(currentRatings.ratings[rating]);
-  //   });
-  //   return sum / totalRatings;
-  // };
-
   return (
     <AppContext.Provider value={{
       currentProduct,

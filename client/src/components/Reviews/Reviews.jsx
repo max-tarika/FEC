@@ -7,6 +7,7 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 
 import AppContext from '../../context.js';
+import ReviewsContext from './reviewsContext.js';
 
 const axios = require('axios');
 
@@ -16,8 +17,7 @@ const Reviews = () => {
   const currentProduct = useContext(AppContext);
 
   const getReview = () => {
-    console.log(currentProduct);
-    const productID = currentProduct.currentProduct[0].id;
+    const productID = currentProduct.currentProduct.id;
     axios({
       method: 'GET',
       url: `/reviews/meta/?product_id=${productID}`,
@@ -28,9 +28,9 @@ const Reviews = () => {
   };
 
   useEffect(() => {
-    console.log('bang bang');
+    if (currentProduct.currentProduct.length < 1) { return; }
     getReview();
-  }, []);
+  }, [currentProduct]);
 
   const averageRating = (currentRatings) => {
     let sum = 0;
@@ -43,39 +43,41 @@ const Reviews = () => {
   };
 
   return (
-    <div id="widget">
-      <h4>Ratings &amp; Reviews</h4>
-      <div id="ratingsAndReviewsContainer">
-        <div id="ratings">
-          <RatingSummary />
-          <RatingBreakdown />
-          <ProductBreakdown />
-        </div>
-        <div id="reviews">
-          <div id="sortBar">
-            <label htmlFor="reviewSort">Reviews sorted by:  </label>
-            <select name="reviewSort" id="reviewSort">
-              <option>Helpful</option>
-              <option>Newest</option>
-              <option>Relevant</option>
-            </select>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                console.log('Current Product:', currentProduct);
-                console.log('Average Rating:', averageRating(currentReview).toFixed(2));
-              }}
-            >
-              currentProduct
-            </button>
+    <ReviewsContext.Provider value={{ currentReview, currentProduct }}>
+      <div id="widget">
+        <h4>Ratings &amp; Reviews</h4>
+        <div id="ratingsAndReviewsContainer">
+          <div id="ratings">
+            <RatingSummary />
+            <RatingBreakdown />
+            <ProductBreakdown />
           </div>
-          <div id="reviewList">
-            <Review />
+          <div id="reviews">
+            <div id="sortBar">
+              <label htmlFor="reviewSort">Reviews sorted by:  </label>
+              <select name="reviewSort" id="reviewSort">
+                <option>Helpful</option>
+                <option>Newest</option>
+                <option>Relevant</option>
+              </select>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log('Current Product:', currentProduct);
+                  console.log('Average Rating:', averageRating(currentReview).toFixed(2));
+                }}
+              >
+                currentProduct
+              </button>
+            </div>
+            <div id="reviewList">
+              <Review />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ReviewsContext.Provider>
   );
 };
 
