@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
 
 import Overview from './components/Overview/Overview.jsx';
@@ -19,25 +20,21 @@ const App = () => {
     })
       .then((response) => {
         setProducts(response.data);
-      })
-      .then(
-        axios({
-          method: 'GET',
-          url: '/reviews/meta/?product_id=44388',
-        })
-          .then((res) => {
-            setCurrentReview(res.data);
-          }),
-      )
-      .then(
-        axios({
-          method: 'GET',
-          url: '/products/',
-        })
-          .then((oneMoreRes) => {
-            setCurrentProduct(oneMoreRes.data[0]);
-          }),
-      );
+      });
+    axios({
+      method: 'GET',
+      url: '/reviews/meta/?product_id=44388',
+    })
+      .then((res) => {
+        setCurrentReview(res.data);
+      });
+    axios({
+      method: 'GET',
+      url: '/products/',
+    })
+      .then((oneMoreRes) => {
+        setCurrentProduct(oneMoreRes.data[0]);
+      });
   }, []);
 
   const averageRating = (currentRatings) => {
@@ -53,7 +50,6 @@ const App = () => {
   return (
     <AppContext.Provider value={{
       currentProduct,
-      averageRating,
     }}
     >
       <div>
@@ -71,7 +67,7 @@ const App = () => {
                 console.log('ALL PRODUCTS:', products);
                 console.log('CURRENT REVIEW DEETS:', currentReview);
                 console.log('CURRENT PRODUCT DEETS:', currentProduct);
-                console.log('AVERAGE RATING:', averageRating(currentReview));
+                console.log('AVERAGE RATING:', averageRating(currentReview).toFixed(2));
               }}
             >
               Click me to see some sweet, sweet data...
