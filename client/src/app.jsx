@@ -9,25 +9,25 @@ import AppContext from './context.js';
 const axios = require('axios');
 
 const App = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [currentProduct, setCurrentProduct] = useState([]);
-  const [currentReview, setCurrentReview] = useState([]);
+  // const [currentReview, setCurrentReview] = useState([]);
 
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: '/products/',
-    })
-      .then((response) => {
-        setProducts(response.data);
-      });
-    axios({
-      method: 'GET',
-      url: '/reviews/meta/?product_id=44388',
-    })
-      .then((res) => {
-        setCurrentReview(res.data);
-      });
+    // axios({
+    //   method: 'GET',
+    //   url: '/products/',
+    // })
+    //   .then((response) => {
+    //     setProducts(response.data);
+    //   });
+    // axios({
+    //   method: 'GET',
+    //   url: '/reviews/meta/?product_id=44388',
+    // })
+    //   .then((res) => {
+    //     setCurrentReview(res.data);
+    //   });
     axios({
       method: 'GET',
       url: '/products/',
@@ -37,15 +37,15 @@ const App = () => {
       });
   }, []);
 
-  const averageRating = (currentRatings) => {
-    let sum = 0;
-    let totalRatings = 0;
-    Object.keys(currentRatings.ratings).forEach((rating) => {
-      sum += rating * currentRatings.ratings[rating];
-      totalRatings += Number(currentRatings.ratings[rating]);
-    });
-    return sum / totalRatings;
-  };
+  // const averageRating = (currentRatings) => {
+  //   let sum = 0;
+  //   let totalRatings = 0;
+  //   Object.keys(currentRatings.ratings).forEach((rating) => {
+  //     sum += rating * currentRatings.ratings[rating];
+  //     totalRatings += Number(currentRatings.ratings[rating]);
+  //   });
+  //   return sum / totalRatings;
+  // };
 
   return (
     <AppContext.Provider value={{
@@ -64,10 +64,10 @@ const App = () => {
               onClick={(e) => {
                 e.preventDefault();
 
-                console.log('ALL PRODUCTS:', products);
-                console.log('CURRENT REVIEW DEETS:', currentReview);
+                // console.log('ALL PRODUCTS:', products);
+                // console.log('CURRENT REVIEW DEETS:', currentReview);
                 console.log('CURRENT PRODUCT DEETS:', currentProduct);
-                console.log('AVERAGE RATING:', averageRating(currentReview).toFixed(2));
+                // console.log('AVERAGE RATING:', averageRating(currentReview).toFixed(2));
               }}
             >
               Click me to see some sweet, sweet data...
