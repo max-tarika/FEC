@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Information = () => (
-  <h4>Product Infrmation</h4>
+  <h2>Product Infrmation</h2>
 )
 
 export default Information;
