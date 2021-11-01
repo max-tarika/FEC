@@ -15,22 +15,22 @@ const Reviews = () => {
 
   const currentProduct = useContext(AppContext);
 
-  const getReview = () => {
-    console.log(currentProduct);
-    const productID = currentProduct.currentProduct[0].id;
-    axios({
-      method: 'GET',
-      url: `/reviews/meta/?product_id=${productID}`,
-    })
-      .then((res) => {
-        setCurrentReview(res.data);
-      });
-  };
+  // const getReview = () => {
+  //   console.log(currentProduct);
+  //   const productID = currentProduct.currentProduct[0].id;
+  //   axios({
+  //     method: 'GET',
+  //     url: `/reviews/meta/?product_id=${productID}`,
+  //   })
+  //     .then((res) => {
+  //       setCurrentReview(res.data);
+  //     });
+  // };
 
-  useEffect(() => {
-    console.log('bang bang');
-    getReview();
-  }, []);
+  // useEffect(() => {
+  //   console.log('bang bang');
+  //   getReview();
+  // }, [currentReview]);
 
   const averageRating = (currentRatings) => {
     let sum = 0;

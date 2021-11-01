@@ -2,34 +2,65 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import AppContext from '../../context';
 import RelatedContext from './context';
+import ProductCard from './ProductCard.jsx';
 
 const Related = () => {
-  const [related, setRelated] = useState([]);
-  const [current, setCurrent] = useState([]);
+  const [relatedIds, setRelatedID] = useState([]);
+  const [relatedProducts, setRelatedProducts] = useState([]);
   const currentProduct = useContext(AppContext);
-  console.log('Current in Related: ', currentProduct);
-  console.log('related: ', related);
 
   const relatedItems = () => {
     const productId = currentProduct.currentProduct.id;
-    console.log('id:', productId);
     axios.get(`/products/${productId}/related`)
       .then((res) => {
-        console.log('data: ', res.data);
-        setRelated(res.data);
+        setRelatedID(res.data);
       });
+  };
+
+  const populateRelatedItems = () => {
+    const results = [];
+
+    for (let i = 0; i < relatedIds.length; i++) {
+      axios.get(`/products/${relatedIds[i]}/`).then((res) => {
+        results.push(res.data);
+      });
+    }
+    setRelatedProducts(results);
   };
 
   useEffect(() => {
     relatedItems();
   }, [currentProduct]);
 
+  useEffect(() => {
+    populateRelatedItems();
+  }, [relatedIds]);
+
   return (
-    <div>
-      <RelatedContext.Provider value={{ related }}>
-        <h4>Related Products</h4>
-      </RelatedContext.Provider>
-      <h4>Your Outfit</h4>
+    <div id="widget">
+      <div>
+        <RelatedContext.Provider value={{ relatedIds }}>
+          <div id="relatedProductsContainer">
+            <div id="relatedBar" />
+            <div id="productCards">
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+            </div>
+          </div>
+        </RelatedContext.Provider>
+        <div id="yourOutFitContainer">
+          <h4>Your Outfit</h4>
+          <div id="outfitBar" />
+          <div id="productCards">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

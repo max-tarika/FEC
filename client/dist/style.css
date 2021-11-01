@@ -23,10 +23,25 @@
 /* Styling for Overview */
 
 
-
 /* Styling for Related and Outfit */
 
+#relatedProductsContainer {
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+}
 
+#yourOutFitContainer {
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#productCards {
+  border: 1px, solid, black;
+  display: block;
+  justify-content: space-around;
+}
 
 /* Styling for Ratings/Reviews */
 
