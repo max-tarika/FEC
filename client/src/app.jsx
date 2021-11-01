@@ -35,7 +35,7 @@ const App = () => {
       .then((oneMoreRes) => {
         setCurrentProduct(oneMoreRes.data[0]);
       });
-  }, []);
+  }, [currentProduct]);
 
   return (
     <AppContext.Provider value={{

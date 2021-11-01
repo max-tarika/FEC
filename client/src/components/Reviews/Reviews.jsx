@@ -13,6 +13,7 @@ const axios = require('axios');
 
 const Reviews = () => {
   const [currentReview, setCurrentReview] = useState([]);
+  const [average, setAverage] = useState(0);
 
   const currentProduct = useContext(AppContext);
 
@@ -24,26 +25,23 @@ const Reviews = () => {
     })
       .then((res) => {
         setCurrentReview(res.data);
+        let sum = 0;
+        let count = 0;
+        Object.keys(res.data.ratings).forEach((rating) => {
+          sum += rating * res.data.ratings[rating];
+          count += Number(res.data.ratings[rating]);
+        });
+        setAverage(Number((sum / count).toFixed(2)));
       });
   };
 
   useEffect(() => {
     if (currentProduct.currentProduct.length < 1) { return; }
     getReview();
-  }, [currentProduct]);
-
-  const averageRating = (currentRatings) => {
-    let sum = 0;
-    let totalRatings = 0;
-    Object.keys(currentRatings.ratings).forEach((rating) => {
-      sum += rating * currentRatings.ratings[rating];
-      totalRatings += Number(currentRatings.ratings[rating]);
-    });
-    return sum / totalRatings;
-  };
+  }, [currentProduct, currentReview]);
 
   return (
-    <ReviewsContext.Provider value={{ currentReview, currentProduct }}>
+    <ReviewsContext.Provider value={{ currentReview, currentProduct, average }}>
       <div id="widget">
         <h4>Ratings &amp; Reviews</h4>
         <div id="ratingsAndReviewsContainer">
@@ -60,16 +58,6 @@ const Reviews = () => {
                 <option>Newest</option>
                 <option>Relevant</option>
               </select>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  console.log('Current Product:', currentProduct);
-                  console.log('Average Rating:', averageRating(currentReview).toFixed(2));
-                }}
-              >
-                currentProduct
-              </button>
             </div>
             <div id="reviewList">
               <Review />
