@@ -67,13 +67,21 @@ img.image {
   flex-direction: column;
 }
 
+<<<<<<< HEAD
+=======
 #image {
   display: flex;
 }
 
+>>>>>>> main
 /* Styling for Related and Outfit */
 
-
+#productCard {
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  justify-content: space-between;
+}
 
 /* Styling for Ratings/Reviews */
 

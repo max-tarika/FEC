@@ -7,14 +7,18 @@ const RelatedList = () => {
   const { relatedIds } = useContext(RelatedContext);
 
   // console.log(props.data);
+  console.log('context here ', relatedIds);
 
   useEffect(() => {
 
   }, [relatedIds]);
 
   return (
-    <div id="productCardContainer">{relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)}</div>
-
+    <div>
+      {
+      relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)
+}
+    </div>
   );
 };
 
