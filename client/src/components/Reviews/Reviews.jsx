@@ -16,7 +16,7 @@ const Reviews = () => {
   const [average, setAverage] = useState(0);
 
   const getReviewData = () => {
-    const productID = currentProduct.currentProduct.id;
+    const productID = currentProduct.currentProduct?.id;
     axios({
       method: 'GET',
       url: `/reviews/meta/?product_id=${productID}`,
@@ -34,7 +34,7 @@ const Reviews = () => {
   };
 
   const getReviewsForCurrent = () => {
-    const productID = currentProduct.currentProduct.id;
+    const productID = currentProduct.currentProduct?.id;
     axios({
       method: 'GET',
       url: `/reviews/?product_id=${productID}`,
@@ -45,7 +45,7 @@ const Reviews = () => {
   };
 
   useEffect(() => {
-    if (currentProduct.currentProduct.length < 1) { return; }
+    if (currentProduct.currentProduct?.length < 1) { return; }
     getReviewData();
     getReviewsForCurrent();
   }, [currentProduct]);

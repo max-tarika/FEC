@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/DJ2daMaxX/FEC#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "axios": "^0.24.0",
     "eslint": "^8.1.0",
     "eslint-config-airbnb": "^18.2.1",

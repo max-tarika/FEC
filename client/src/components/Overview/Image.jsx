@@ -7,10 +7,9 @@ const Image = () => {
 
   if (currentStyle?.photos) {
     return (
-      <section id="image">
-        <h4>Sick Image of My Cool Island Style</h4>
-        <img src={currentStyle.photos[0].url} alt={currentStyle.name} />
-      </section>
+      <div id="image">
+        <img className="image" src={currentStyle.photos[0].url} alt={currentStyle.name} />
+      </div>
     );
   }
   return null;

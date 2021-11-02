@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 import OverviewContext from './context.js';
+import Style from './Style.jsx';
 
 const StyleSelector = () => {
-  const { styles, currentStyle } = useContext(OverviewContext);
-
-  console.log('----------------------------');
-  console.log('styles: ', styles);
-  console.log('current style: ', currentStyle);
+  const { styles } = useContext(OverviewContext);
 
   return (
-    <h4>Style Selector</h4>
+    <div id="styleSelector">
+      {styles.map((style) => <Style style={style} />)}
+    </div>
   );
 };
 

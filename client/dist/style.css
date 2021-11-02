@@ -26,8 +26,24 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  clear: both;
 }
 
+img.image {
+  max-height: 800px;
+  max-width: 400px;
+  float: left;
+}
+
+#information {
+  display: flex;
+  float: right;
+}
+
+#image {
+  display: flex;
+  float: left;
+}
 
 /* Styling for Related and Outfit */
 
