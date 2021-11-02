@@ -11,7 +11,7 @@
 
 
 /* Styling consistent to every widget */
-#widget {
+.widget {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 90%;
   min-height: 20vh;
@@ -21,8 +21,59 @@
 
 
 /* Styling for Overview */
+#overview {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
 
+#overviewWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
 
+#styleSelector {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#styleSelectWrapper {
+  margin: auto;
+  width: 50%;
+}
+
+#selectedIcon {
+  position: relative;
+  left: -35px;
+  top: -20px;
+}
+
+#styleName {
+  font-size: 13px;
+  height: 30px;
+  width: 50px;
+  text-align: center;
+}
+
+img.image {
+  max-height: 800px;
+  max-width: 400px;
+  float: left;
+}
+
+#information {
+  display: flex;
+  flex-direction: column;
+}
+
+<<<<<<< HEAD
+=======
+#image {
+  display: flex;
+}
+
+>>>>>>> main
 /* Styling for Related and Outfit */
 
 #productCard {
@@ -87,7 +138,11 @@
 #reviewTopBar {
   display:flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+#reviewTopBar #userAndDate {
+  display: flex;
+  justify-self: flex-end;
 }
 
 #helpfulAndReport {

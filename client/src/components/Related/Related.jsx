@@ -51,6 +51,11 @@ const Related = () => {
     };
     relatedItems();
   }, [currentProduct]);
+<<<<<<< HEAD
+=======
+  console.log('current product ', currentProduct);
+  console.log('related id ', relatedIds);
+>>>>>>> main
 
   // useEffect(() => {
   //   if (currentProduct.currentProduct.length === 0) { return; }
@@ -73,11 +78,18 @@ const Related = () => {
   // }, [relatedProducts]);
 
   return (
+<<<<<<< HEAD
     <div id="widget">
       <div>
         <RelatedContext.Provider value={{ relatedIds }}>
           <div id="relatedProductsContainer">
             <div id="relatedBar" />
+=======
+    <div>
+      <div>
+        <RelatedContext.Provider value={{ relatedIds }}>
+          <div id="relatedProductsContainer">
+>>>>>>> main
             <RelatedList />
           </div>
           <div id="yourOutFitContainer">

@@ -1,9 +1,74 @@
-import React from 'react';
+/* eslint-disable no-console */
+/* eslint-disable no-restricted-syntax */
+import React, { useEffect, useContext, useState } from 'react';
+import axios from 'axios';
+import Image from './Image.jsx';
+import Information from './Information.jsx';
+import StyleSelector from './StyleSelector.jsx';
+import AddToCart from './AddToCart.jsx';
+import AppContext from '../../context.js';
+import OverviewContext from './context.js';
+import Description from './Description.jsx';
 
-const Overview = () => (
-  <div>
-    <h1>Da Overview</h1>
-  </div>
-);
+const Overview = () => {
+  const { currentProduct } = useContext(AppContext);
+  const [styles, setStyles] = useState([]);
+  const [currentStyle, setStyle] = useState({});
+  const [productInfo, setProductInfo] = useState({});
+
+  // console.log('----------------------------');
+  // console.log('product Info', productInfo);
+
+  function setDefaultStyle(stylesArr) {
+    for (const style of stylesArr) {
+      if (style['default?']) {
+        setStyle(style);
+      }
+    }
+  }
+
+  function handleStyleClick(styleId) {
+    for (const style of styles) {
+      if (style.style_id === styleId) {
+        setStyle(style);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (currentProduct?.id) {
+      axios
+        .get(`/products/${currentProduct.id}`)
+        .then((response) => { setProductInfo(response.data); })
+        .catch((err) => { console.error(err); });
+      axios
+        .get(`/products/${currentProduct.id}/styles`)
+        .then((response) => {
+          setStyles(response.data.results);
+          setDefaultStyle(response.data.results);
+        })
+        .catch((err) => { console.error(err); });
+    }
+  }, [currentProduct]);
+
+  return (
+    <OverviewContext.Provider value={{
+      productInfo, styles, currentStyle, handleStyleClick,
+    }}
+    >
+      <section className="widget">
+        <div id="overview">
+          <Image />
+          <div id="overviewWrapper">
+            <Information />
+            <StyleSelector />
+            <AddToCart />
+          </div>
+        </div>
+        <Description />
+      </section>
+    </OverviewContext.Provider>
+  );
+};
 
 export default Overview;
