@@ -88,7 +88,11 @@
 #reviewTopBar {
   display:flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+#reviewTopBar #userAndDate {
+  display: flex;
+  justify-self: flex-end;
 }
 
 #helpfulAndReport {

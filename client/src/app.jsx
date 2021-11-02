@@ -9,6 +9,7 @@ import AppContext from './context.js';
 const axios = require('axios');
 
 const App = () => {
+<<<<<<< HEAD
   // const [products, setProducts] = useState([]);
   const [currentProduct, setCurrentProduct] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -30,10 +31,16 @@ const App = () => {
     //     setCurrentReview(res.data);
     //   });
     setIsLoading(true);
+=======
+  const [currentProduct, setCurrentProduct] = useState([]);
+
+  useEffect(() => {
+>>>>>>> main
     axios({
       method: 'GET',
       url: '/products/',
     })
+<<<<<<< HEAD
       .then((oneMoreRes) => {
         setCurrentProduct(oneMoreRes.data[0]);
         setIsLoading(false);
@@ -49,6 +56,13 @@ const App = () => {
   //   });
   //   return sum / totalRatings;
   // };
+=======
+      .then((res) => {
+        setCurrentProduct(res.data[1]);
+      });
+  }, []);
+
+>>>>>>> main
   return (
     <AppContext.Provider value={{
       currentProduct,
@@ -56,6 +70,7 @@ const App = () => {
     >
       <div>
         <h1>Da Island Bois</h1>
+<<<<<<< HEAD
 
         {isLoading
           ? <div>Da Island is Loading Ja</div>
@@ -84,6 +99,11 @@ const App = () => {
               </div>
             </>
           )}
+=======
+        <Overview />
+        <Related />
+        <Reviews />
+>>>>>>> main
       </div>
     </AppContext.Provider>
   );
