@@ -9,10 +9,6 @@ const ProductCard = ({ id }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
 
-<<<<<<< HEAD
-  console.log('props here, ', id);
-=======
->>>>>>> main
   // console.log('context here ', context);
 
   const getDisplay = () => {
