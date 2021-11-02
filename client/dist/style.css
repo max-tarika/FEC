@@ -5,10 +5,13 @@
   justify-content: space-evenly;
   padding: 5px;
   margin: 5px;
-
+  background-image: url("./img/mimosaBG.png");
 }
 
+h1 {
 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /* Styling consistent to every widget */
 .widget {
@@ -17,6 +20,7 @@
   min-height: 20vh;
   border: 2px solid #333;
   padding: 3px;
+  background-color: aliceblue;
 }
 
 
@@ -73,6 +77,7 @@ img.image {
 }
 
 #productCardContainer {
+  background-color: aliceblue;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -89,6 +94,7 @@ img.image {
 /* Styling for Ratings/Reviews */
 
 #ratingsAndReviewsContainer {
+  background-color: aliceblue;
   padding: 5px;
   display: flex;
   justify-content: space-around;
