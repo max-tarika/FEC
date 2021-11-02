@@ -1,46 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useContext, useState } from 'react';
-
+import axios from 'axios';
 import Review from './Review.jsx';
 import RatingSummary from './RatingSummary.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
-
 import AppContext from '../../context.js';
 import ReviewsContext from './reviewsContext.js';
-
-const axios = require('axios');
 
 const Reviews = () => {
   const currentProduct = useContext(AppContext);
 
-<<<<<<< HEAD
-  // const getReview = () => {
-  //   console.log(currentProduct);
-  //   const productID = currentProduct.currentProduct[0].id;
-  //   axios({
-  //     method: 'GET',
-  //     url: `/reviews/meta/?product_id=${productID}`,
-  //   })
-  //     .then((res) => {
-  //       setCurrentReview(res.data);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   console.log('bang bang');
-  //   getReview();
-  // }, []);
-
-  const averageRating = (currentRatings) => {
-    let sum = 0;
-    let totalRatings = 0;
-    Object.keys(currentRatings.ratings).forEach((rating) => {
-      sum += rating * currentRatings.ratings[rating];
-      totalRatings += Number(currentRatings.ratings[rating]);
-    });
-    return sum / totalRatings;
-=======
   const [currentReview, setCurrentReview] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [average, setAverage] = useState(0);
@@ -72,7 +42,6 @@ const Reviews = () => {
       .then((res) => {
         setReviews(res.data.results);
       });
->>>>>>> main
   };
 
   useEffect(() => {
