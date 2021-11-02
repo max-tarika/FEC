@@ -1,25 +1,26 @@
+/* eslint-disable no-console */
+/* eslint-disable no-restricted-syntax */
 import React, { useEffect, useContext, useState } from 'react';
+import axios from 'axios';
 import Image from './Image.jsx';
 import Information from './Information.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import AppContext from '../../context.js';
-import axios from 'axios';
 import OverviewContext from './context.js';
 import Description from './Description.jsx';
 
 const Overview = () => {
-
   const { currentProduct } = useContext(AppContext);
-  const [ styles, setStyles ] = useState([]);
-  const [ currentStyle, setStyle ] = useState({});
-  const [ productInfo, setProductInfo ] = useState({});
+  const [styles, setStyles] = useState([]);
+  const [currentStyle, setStyle] = useState({});
+  const [productInfo, setProductInfo] = useState({});
 
-  console.log('----------------------------');
-  console.log('product Info', productInfo);
+  // console.log('----------------------------');
+  // console.log('product Info', productInfo);
 
-  function setDefaultStyle(styles) {
-    for (var style of styles) {
+  function setDefaultStyle(stylesArr) {
+    for (const style of stylesArr) {
       if (style['default?']) {
         setStyle(style);
       }
@@ -27,7 +28,7 @@ const Overview = () => {
   }
 
   function handleStyleClick(styleId) {
-    for (var style of styles) {
+    for (const style of styles) {
       if (style.style_id === styleId) {
         setStyle(style);
       }
@@ -38,26 +39,33 @@ const Overview = () => {
     if (currentProduct?.id) {
       axios
         .get(`/products/${currentProduct.id}`)
-        .then((response) => { setProductInfo(response.data) })
-        .catch((err) => {console.error(err)});
+        .then((response) => { setProductInfo(response.data); })
+        .catch((err) => { console.error(err); });
       axios
         .get(`/products/${currentProduct.id}/styles`)
-        .then((response) => { setStyles(response.data.results); setDefaultStyle(response.data.results) })
-        .catch((err) => {console.error(err)});
+        .then((response) => {
+          setStyles(response.data.results);
+          setDefaultStyle(response.data.results);
+        })
+        .catch((err) => { console.error(err); });
     }
   }, [currentProduct]);
 
   return (
-  <OverviewContext.Provider value={{ productInfo, styles, currentStyle, handleStyleClick }}>
-    <section className="overview">
-      <h1>Da Overview</h1>
-      <Image />
-      <Information />
-      <StyleSelector />
-      <AddToCart />
-      <Description />
-    </section>
-  </OverviewContext.Provider>)
+    <OverviewContext.Provider value={{
+      productInfo, styles, currentStyle, handleStyleClick,
+    }}
+    >
+      <section className="overview">
+        <h1>Da Overview</h1>
+        <Image />
+        <Information />
+        <StyleSelector />
+        <AddToCart />
+        <Description />
+      </section>
+    </OverviewContext.Provider>
+  );
 };
 
 export default Overview;

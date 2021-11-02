@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
-import OverviewContext from './context.js';
+import React from 'react';
+// import OverviewContext from './context.js';
 
-const Feature = ({ feature }) => {
-
-  return (
-    <li className="feature">
-      <span>{feature.feature}: {feature.value}</span>
-    </li>
-  );
-};
+const Feature = ({ feature }) => (
+  <li className="feature">
+    <span>
+      {feature.feature}
+      :
+      {' '}
+      {feature.value}
+    </span>
+  </li>
+);
 
 export default Feature;

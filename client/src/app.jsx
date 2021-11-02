@@ -11,7 +11,7 @@ const axios = require('axios');
 const App = () => {
   // const [products, setProducts] = useState([]);
   const [currentProduct, setCurrentProduct] = useState();
-  const [ isLoading, setIsLoading ] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   // const [currentReview, setCurrentReview] = useState([]);
 
   useEffect(() => {
@@ -59,25 +59,31 @@ const App = () => {
 
         {isLoading
           ? <div>Da Island is Loading Ja</div>
-          : <><Overview /><Related /><Reviews /><div>
-            <form>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
+          : (
+            <>
+              <Overview />
+              <Related />
+              <Reviews />
+              <div>
+                <form>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
 
-                  // console.log('ALL PRODUCTS:', products);
-                  // console.log('CURRENT REVIEW DEETS:', currentReview);
-                  console.log('CURRENT PRODUCT DEETS:', currentProduct);
-                  // console.log('AVERAGE RATING:', averageRating(currentReview).toFixed(2));
-                } }
-              >
-                Click me to see some sweet, sweet data...
+                      // console.log('ALL PRODUCTS:', products);
+                      // console.log('CURRENT REVIEW DEETS:', currentReview);
+                      console.log('CURRENT PRODUCT DEETS:', currentProduct);
+                      // console.log('AVERAGE RATING:', averageRating(currentReview).toFixed(2));
+                    }}
+                  >
+                    Click me to see some sweet, sweet data...
 
-              </button>
-            </form>
-          </div></>
-        }
+                  </button>
+                </form>
+              </div>
+            </>
+          )}
       </div>
     </AppContext.Provider>
   );

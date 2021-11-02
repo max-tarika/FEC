@@ -11,12 +11,11 @@ const Description = () => {
         <h3>{productInfo.slogan}</h3>
         <p>{productInfo.description}</p>
         <ul>
-          {productInfo.features.map((feature, index) => {
-            return <Feature feature={feature} key={index} />
-          })}
+          {productInfo.features.map((feature) => <Feature feature={feature} />)}
         </ul>
       </div>
-    )
+    );
+  // eslint-disable-next-line no-else-return
   } else {
     return null;
   }
