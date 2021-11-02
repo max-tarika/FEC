@@ -1,34 +1,61 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 
 import Stars from './Stars.jsx';
+import ReviewsContext from './reviewsContext.js';
 
-const Review = () => (
-  <div id="review">
-    <div id="reviewTopBar">
-      <Stars />
-      <div id="userAndDate">Username&amp;DatePosted</div>
-    </div>
-    <h3 id="reviewTitle">Review title/summary</h3>
-    <p id="reviewBody">
-      Review Body goes here. This is where we will be able to read abaout whether or not
-      a particular reivew is helpful and/or island worthy.
-    </p>
-    <div id="helpfulAndReport">
-      <p>Was this review island worthy, mon?</p>
-      <ul>
-        <li>
-          Yes (#)
-        </li>
+const Review = (props) => {
+  const context = useContext(ReviewsContext);
+  const [review, setReview] = useState([]);
+  const currentReview = props.data;
 
-        <li>
-          No (#)
-        </li>
-        <li>
-          Report
-        </li>
-      </ul>
+  useEffect(() => {
+    if (context.reviews.length === 0) {
+      return;
+    }
+    setReview(context.reviews[0]);
+  }, [context]);
+
+  return (
+    <div id="review">
+      <div id="reviewTopBar">
+        <h3>{currentReview.rating}</h3>
+        <Stars />
+        <div id="userAndDate">
+          {'Posted by: '}
+          <strong>{currentReview.reviewer_name}</strong>
+          {' on '}
+          <em>{currentReview.date}</em>
+        </div>
+      </div>
+      <h3 id="reviewTitle">{currentReview.summary}</h3>
+      <p id="reviewBody">
+        {currentReview.body}
+      </p>
+      <div id="helpfulAndReport">
+        <p>Was this review island worthy, mon?</p>
+        <ul>
+          <li>
+            Yes (
+            {currentReview.helpfulness}
+            )
+          </li>
+
+          <li>
+            Report
+          </li>
+        </ul>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            console.log(context);
+          }}
+        >
+          Test
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Review;

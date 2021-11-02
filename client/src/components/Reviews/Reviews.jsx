@@ -13,11 +13,12 @@ const axios = require('axios');
 
 const Reviews = () => {
   const [currentReview, setCurrentReview] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [average, setAverage] = useState(0);
 
   const currentProduct = useContext(AppContext);
 
-  const getReview = () => {
+  const getReviewData = () => {
     const productID = currentProduct.currentProduct.id;
     axios({
       method: 'GET',
@@ -35,13 +36,28 @@ const Reviews = () => {
       });
   };
 
+  const getReviewsForCurrent = () => {
+    const productID = currentProduct.currentProduct.id;
+    axios({
+      method: 'GET',
+      url: `/reviews/?product_id=${productID}`,
+    })
+      .then((res) => {
+        setReviews(res.data.results);
+      });
+  };
+
   useEffect(() => {
     if (currentProduct.currentProduct.length < 1) { return; }
-    getReview();
-  }, [currentProduct, currentReview]);
+    getReviewData();
+    getReviewsForCurrent();
+  }, [currentProduct]);
 
   return (
-    <ReviewsContext.Provider value={{ currentReview, currentProduct, average }}>
+    <ReviewsContext.Provider value={{
+      currentReview, currentProduct, reviews, average,
+    }}
+    >
       <div id="widget">
         <h4>Ratings &amp; Reviews</h4>
         <div id="ratingsAndReviewsContainer">
@@ -60,7 +76,7 @@ const Reviews = () => {
               </select>
             </div>
             <div id="reviewList">
-              <Review />
+              {reviews.map((review) => <Review data={review} />)}
             </div>
           </div>
         </div>
