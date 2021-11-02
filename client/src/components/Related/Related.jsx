@@ -8,6 +8,7 @@ const Related = () => {
   const [relatedIds, setRelatedID] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const currentProduct = useContext(AppContext);
+  console.log(relatedProducts);
 
   const relatedItems = () => {
     const productId = currentProduct.currentProduct.id;
@@ -44,9 +45,6 @@ const Related = () => {
             <div id="relatedBar" />
             <div id="productCards">
               <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
             </div>
           </div>
         </RelatedContext.Provider>
@@ -54,9 +52,6 @@ const Related = () => {
           <h4>Your Outfit</h4>
           <div id="outfitBar" />
           <div id="productCards">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
             <ProductCard />
           </div>
         </div>

@@ -2,19 +2,15 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import RelatedContext from './context';
 
-const ProductCard = () => {
-  const relatedIds = useContext(RelatedContext);
-  const getRelated = () => {
-    
-  }
+const ProductCard = (props) =>
+  // console.log('here are some props: ', props);
+  (
 
-  return (
     <div>
       <div className="default_image" />
+      <p>Am I rendering anything???</p>
       <div className="product_info" />
       <div className="stars" />
     </div>
   );
-};
-
 export default ProductCard;
