@@ -1,11 +1,10 @@
 #app{
-  width: 100%;
+  /* width: 100%; */
   box-sizing: border-box;
   display:flex;
   justify-content: space-evenly;
-  flex-direction: column;
   padding: 5px;
-  margin: 5px;
+  margin: 0 auto;
 }
 
 
@@ -66,13 +65,10 @@ img.image {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
-=======
 #image {
   display: flex;
 }
 
->>>>>>> main
 /* Styling for Related and Outfit */
 
 #productCard {
