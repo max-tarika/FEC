@@ -23,7 +23,10 @@ const ProductCard = ({ id }) => {
     axios.get(`/products/${id}/styles`).then((res) => {
       for (let i = 0; i < res.data.results.length; i += 1) {
         if (res.data.results[i]['default?'] === true) {
-          const photo_url = res.data.results[i].photos[0].thumbnail_url;
+          let photo_url = res.data.results[i].photos[0].thumbnail_url;
+          if (photo_url === null || photo_url === undefined) {
+            photo_url = 'https://pluspng.com/img-png/loader-png-indicator-loader-spinner-icon-512.png';
+          }
           setImage(photo_url);
         }
       }
@@ -36,8 +39,8 @@ const ProductCard = ({ id }) => {
 
   return (
     <div>
-      <div className="default_image" />
-      <img src={image} alt="loading" width="100" height="150" />
+      <div id="default_image" />
+      <img src={image} width="150" height="150" />
       <div className="product_category">{category}</div>
       <div className="product_name">{name}</div>
       <div className="product_price">{price}</div>
