@@ -65,22 +65,18 @@ img.image {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
-=======
-#image {
-  display: flex;
-}
-
->>>>>>> main
 /* Styling for Related and Outfit */
 
+#productCardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 #productCard {
   display: flex;
   flex-direction: row;
-  flex-basis: auto;
-  justify-content: space-between;
+  justify-content: space-around;
 }
-
 /* Styling for Ratings/Reviews */
 
 #ratingsAndReviewsContainer {
