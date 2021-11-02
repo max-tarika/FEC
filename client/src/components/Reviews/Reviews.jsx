@@ -12,11 +12,11 @@ import ReviewsContext from './reviewsContext.js';
 const axios = require('axios');
 
 const Reviews = () => {
+  const currentProduct = useContext(AppContext);
+
   const [currentReview, setCurrentReview] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [average, setAverage] = useState(0);
-
-  const currentProduct = useContext(AppContext);
 
   const getReviewData = () => {
     const productID = currentProduct.currentProduct.id;
@@ -78,6 +78,16 @@ const Reviews = () => {
             <div id="reviewList">
               {reviews.map((review) => <Review data={review} />)}
             </div>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                console.log('This button will open form to submit a review', currentProduct);
+              }}
+            >
+              Add a Review
+
+            </button>
           </div>
         </div>
       </div>

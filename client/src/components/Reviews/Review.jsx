@@ -1,18 +1,14 @@
-import React, { useEffect, useContext, useState } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useEffect, useContext } from 'react';
 
 import Stars from './Stars.jsx';
 import ReviewsContext from './reviewsContext.js';
 
 const Review = (props) => {
   const context = useContext(ReviewsContext);
-  const [review, setReview] = useState([]);
   const currentReview = props.data;
 
   useEffect(() => {
-    if (context.reviews.length === 0) {
-      return;
-    }
-    setReview(context.reviews[0]);
   }, [context]);
 
   return (
@@ -21,9 +17,12 @@ const Review = (props) => {
         <h3>{currentReview.rating}</h3>
         <Stars />
         <div id="userAndDate">
-          {'Posted by: '}
+          'Posted by:
+          {' '}
           <strong>{currentReview.reviewer_name}</strong>
-          {' on '}
+          {' '}
+          on
+          {' '}
           <em>{currentReview.date}</em>
         </div>
       </div>
