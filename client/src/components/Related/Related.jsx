@@ -2,40 +2,75 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import AppContext from '../../context';
 import RelatedContext from './context';
-import ProductCard from './ProductCard.jsx';
+import RelatedList from './RelatedList.jsx';
 
 const Related = () => {
-  const [relatedIds, setRelatedID] = useState([]);
-  const [relatedProducts, setRelatedProducts] = useState([]);
   const currentProduct = useContext(AppContext);
-  console.log(relatedProducts);
+  const [relatedIds, setRelatedID] = useState([]);
+  // const [relatedProducts, setRelatedProducts] = useState([]);
+  // console.log('here we are ', relatedProducts);
 
-  const relatedItems = () => {
-    const productId = currentProduct.currentProduct.id;
-    axios.get(`/products/${productId}/related`)
-      .then((res) => {
-        setRelatedID(res.data);
-      });
-  };
+  // const relatedItems = () => {
+  //   const productId = currentProduct.currentProduct.id;
+  //   if (currentProduct.currentProduct !== undefined) {
+  //     axios.get(`/products/${productId}/related`)
+  //       .then((res) => {
+  //         setRelatedID(res.data);
+  //       });
+  //   }
+  // };
 
-  const populateRelatedItems = () => {
-    const results = [];
-
-    for (let i = 0; i < relatedIds.length; i++) {
-      axios.get(`/products/${relatedIds[i]}/`).then((res) => {
-        results.push(res.data);
-      });
-    }
-    setRelatedProducts(results);
-  };
+  // const populateRelatedItems = () => {
+  //   const results = [];
+  //   if (relatedIds.length > 0) {
+  //     for (let i = 0; i < relatedIds.length; i += 1) {
+  //       axios.get(`/products/${relatedIds[i]}/`).then((res) => {
+  //         results.push(res.data);
+  //       });
+  //     }
+  //     setRelatedProducts(results);
+  //   }
+  // };
 
   useEffect(() => {
+    // const results = [];
+    if (currentProduct.currentProduct.length === 0) { return; }
+    const relatedItems = () => {
+      const productId = currentProduct.currentProduct.id;
+      if (currentProduct.currentProduct !== undefined) {
+        axios.get(`/products/${productId}/related`)
+          .then((res) => {
+            setRelatedID(res.data);
+            // for (let i = 0; i < res.data.length; i += 1) {
+            //   axios.get(`/products/${res.data[i]}/`).then((response) => {
+            //     results.push(response.data);
+            //   });
+            // } setRelatedProducts(results);
+          });
+      }
+    };
     relatedItems();
   }, [currentProduct]);
 
-  useEffect(() => {
-    populateRelatedItems();
-  }, [relatedIds]);
+  // useEffect(() => {
+  //   if (currentProduct.currentProduct.length === 0) { return; }
+  //   const populateRelatedItems = () => {
+  //     const results = [];
+  //     if (relatedIds.length > 0) {
+  //       for (let i = 0; i < relatedIds.length; i += 1) {
+  //         axios.get(`/products/${relatedIds[i]}/`).then((res) => {
+  //           results.push(res.data);
+  //         });
+  //       }
+  //       setRelatedProducts(results);
+  //     }
+  //   };
+  //   populateRelatedItems();
+  // }, [relatedIds]);
+
+  // useEffect(() => {
+  //   console.log('hellloooo ', relatedProducts.length);
+  // }, [relatedProducts]);
 
   return (
     <div id="widget">
@@ -43,18 +78,13 @@ const Related = () => {
         <RelatedContext.Provider value={{ relatedIds }}>
           <div id="relatedProductsContainer">
             <div id="relatedBar" />
-            <div id="productCards">
-              <ProductCard />
-            </div>
+            <RelatedList />
+          </div>
+          <div id="yourOutFitContainer">
+            <h4>Your Outfit</h4>
+            <div id="outfitBar" />
           </div>
         </RelatedContext.Provider>
-        <div id="yourOutFitContainer">
-          <h4>Your Outfit</h4>
-          <div id="outfitBar" />
-          <div id="productCards">
-            <ProductCard />
-          </div>
-        </div>
       </div>
     </div>
   );
