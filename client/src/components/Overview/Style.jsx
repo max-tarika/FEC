@@ -8,21 +8,13 @@ import OverviewContext from './context.js';
 
 const Style = ({ style }) => {
   const { currentStyle, handleStyleClick } = useContext(OverviewContext);
+  const isSelected = currentStyle.style_id === style.style_id;
 
-  if (currentStyle.style_id === style.style_id) {
-    return (
-      <div>
-        <div>{style.name}</div>
-        <img className="styleThumbnail" id="selectedThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} width="50" height="50" />
-        <div className="overlay">
-          <FontAwesomeIcon icon={faCheck} />
-        </div>
-      </div>
-    );
-  }
   return (
-    <div onClick={() => { handleStyleClick(style.style_id); }}>
-      <img className="styleThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} width="50" height="50" />
+    <div id="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); }}>
+      <div id="styleName">{isSelected ? style.name : ''}</div>
+      <img className="styleThumbnail" id="selectedThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} width="50" height="50" />
+      {isSelected ? <FontAwesomeIcon icon={faCheck} id="selectedIcon" /> : null}
     </div>
   );
 };

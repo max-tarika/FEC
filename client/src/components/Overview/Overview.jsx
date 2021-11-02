@@ -56,12 +56,15 @@ const Overview = () => {
       productInfo, styles, currentStyle, handleStyleClick,
     }}
     >
-      <section className="widget" id="overview">
-        <h1>Da Overview</h1>
-        <Image />
-        <Information />
-        <StyleSelector />
-        <AddToCart />
+      <section className="widget">
+        <div id="overview">
+          <Image />
+          <div id="overviewWrapper">
+            <Information />
+            <StyleSelector />
+            <AddToCart />
+          </div>
+        </div>
         <Description />
       </section>
     </OverviewContext.Provider>

@@ -25,8 +25,35 @@
   padding: 5px;
   display: flex;
   justify-content: space-between;
+}
+
+#overviewWrapper {
+  display: flex;
   flex-direction: column;
-  clear: both;
+  padding: 1.5rem;
+}
+
+#styleSelector {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#styleSelectWrapper {
+  margin: auto;
+  width: 50%;
+}
+
+#selectedIcon {
+  position: relative;
+  left: -35px;
+  top: -20px;
+}
+
+#styleName {
+  font-size: 13px;
+  height: 30px;
+  width: 50px;
+  text-align: center;
 }
 
 img.image {
@@ -37,12 +64,11 @@ img.image {
 
 #information {
   display: flex;
-  float: right;
+  flex-direction: column;
 }
 
 #image {
   display: flex;
-  float: left;
 }
 
 /* Styling for Related and Outfit */
