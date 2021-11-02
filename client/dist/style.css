@@ -11,7 +11,7 @@
 
 
 /* Styling consistent to every widget */
-#widget {
+.widget {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 90%;
   min-height: 20vh;
@@ -21,7 +21,12 @@
 
 
 /* Styling for Overview */
-
+#overview {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
 
 
 /* Styling for Related and Outfit */

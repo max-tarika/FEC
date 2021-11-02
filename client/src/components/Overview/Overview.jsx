@@ -5,27 +5,18 @@ import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import AppContext from '../../context.js';
 import axios from 'axios';
+import OverviewContext from './context.js';
+import Description from './Description.jsx';
 
 const Overview = () => {
-  // states: current style, current product (gotten from useContext), all styles
 
   const { currentProduct } = useContext(AppContext);
   const [ styles, setStyles ] = useState([]);
   const [ currentStyle, setStyle ] = useState({});
   const [ productInfo, setProductInfo ] = useState({});
 
-  // console.log('----------------------------------------')
-  // console.log('current product bissshhh: ', currentProduct);
-  // console.log('product info bissshhh: ', productInfo);
-  // console.log('styles bissshhh: ', styles);
-  // console.log('current style bissshhh: ', currentStyle);
-
-
-
-  /* functions:
-      handleStyleClick (styleId) --> update the current style
-      useEffect() --> update the current style and styles when the current product changes
-  */
+  console.log('----------------------------');
+  console.log('product Info', productInfo);
 
   function setDefaultStyle(styles) {
     for (var style of styles) {
@@ -44,23 +35,28 @@ const Overview = () => {
   }
 
   useEffect(() => {
-    axios
-      .get(`/products/${currentProduct.id}`)
-      .then((response) => { setProductInfo(response.data) });
-    axios
-      .get(`/products/${currentProduct.id}/styles`)
-      .then((response) => { setStyles(response.data.results); setDefaultStyle(response.data.results) })
+    if (currentProduct?.id) {
+      axios
+        .get(`/products/${currentProduct.id}`)
+        .then((response) => { setProductInfo(response.data) })
+        .catch((err) => {console.error(err)});
+      axios
+        .get(`/products/${currentProduct.id}/styles`)
+        .then((response) => { setStyles(response.data.results); setDefaultStyle(response.data.results) })
+        .catch((err) => {console.error(err)});
+    }
   }, [currentProduct]);
 
   return (
   <OverviewContext.Provider value={{ productInfo, styles, currentStyle, handleStyleClick }}>
-    <div>
+    <section className="overview">
       <h1>Da Overview</h1>
       <Image />
       <Information />
       <StyleSelector />
       <AddToCart />
-    </div>
+      <Description />
+    </section>
   </OverviewContext.Provider>)
 };
 

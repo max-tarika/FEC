@@ -10,7 +10,8 @@ const axios = require('axios');
 
 const App = () => {
   // const [products, setProducts] = useState([]);
-  const [currentProduct, setCurrentProduct] = useState([]);
+  const [currentProduct, setCurrentProduct] = useState();
+  const [ isLoading, setIsLoading ] = useState(false);
   // const [currentReview, setCurrentReview] = useState([]);
 
   useEffect(() => {
@@ -28,12 +29,14 @@ const App = () => {
     //   .then((res) => {
     //     setCurrentReview(res.data);
     //   });
+    setIsLoading(true);
     axios({
       method: 'GET',
       url: '/products/',
     })
       .then((oneMoreRes) => {
         setCurrentProduct(oneMoreRes.data[0]);
+        setIsLoading(false);
       });
   }, []);
 
@@ -46,7 +49,6 @@ const App = () => {
   //   });
   //   return sum / totalRatings;
   // };
-
   return (
     <AppContext.Provider value={{
       currentProduct,
@@ -54,27 +56,28 @@ const App = () => {
     >
       <div>
         <h1>Da Island Bois</h1>
-        <Overview />
-        <Related />
-        <Reviews />
-        <div>
-          <form>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
 
-                // console.log('ALL PRODUCTS:', products);
-                // console.log('CURRENT REVIEW DEETS:', currentReview);
-                console.log('CURRENT PRODUCT DEETS:', currentProduct);
-                // console.log('AVERAGE RATING:', averageRating(currentReview).toFixed(2));
-              }}
-            >
-              Click me to see some sweet, sweet data...
+        {isLoading
+          ? <div>Da Island is Loading Ja</div>
+          : <><Overview /><Related /><Reviews /><div>
+            <form>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
 
-            </button>
-          </form>
-        </div>
+                  // console.log('ALL PRODUCTS:', products);
+                  // console.log('CURRENT REVIEW DEETS:', currentReview);
+                  console.log('CURRENT PRODUCT DEETS:', currentProduct);
+                  // console.log('AVERAGE RATING:', averageRating(currentReview).toFixed(2));
+                } }
+              >
+                Click me to see some sweet, sweet data...
+
+              </button>
+            </form>
+          </div></>
+        }
       </div>
     </AppContext.Provider>
   );
