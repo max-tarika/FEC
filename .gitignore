@@ -3,4 +3,5 @@
 **/.DS_Store
 node_modules
 config.js
-client/dist/bundle.js
+.DS_Store
+** bundle.js
