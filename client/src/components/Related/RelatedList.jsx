@@ -11,7 +11,7 @@ const RelatedList = () => {
   }, [relatedIds]);
 
   return (
-    <div>
+    <div id="productCardContainer">
       {
       relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)
 }
