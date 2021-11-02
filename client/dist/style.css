@@ -3,7 +3,6 @@
   box-sizing: border-box;
   display:flex;
   justify-content: space-evenly;
-  flex-direction: column;
   padding: 5px;
   margin: 5px;
 }
@@ -11,7 +10,7 @@
 
 
 /* Styling consistent to every widget */
-#widget {
+.widget {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 90%;
   min-height: 20vh;
@@ -21,12 +20,66 @@
 
 
 /* Styling for Overview */
+#overview {
+  padding: 5px;
+  display: flex;
+}
 
+#overviewWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
 
+#styleSelector {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
+#styleSelectWrapper {
+  margin: auto;
+  width: 50%;
+}
+
+#selectedIcon {
+  position: relative;
+  left: 17px;
+  top: -35px;
+}
+
+#styleName {
+  font-size: 13px;
+  height: 30px;
+  width: 50px;
+  text-align: center;
+}
+
+img.image {
+  max-height: 800px;
+  max-width: 400px;
+  float: left;
+}
+
+#information {
+  display: flex;
+  flex-direction: column;
+}
+
+<<<<<<< HEAD
+=======
+#image {
+  display: flex;
+}
+
+>>>>>>> main
 /* Styling for Related and Outfit */
 
-
+#productCard {
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  justify-content: space-between;
+}
 
 /* Styling for Ratings/Reviews */
 
@@ -106,7 +159,8 @@
 
 #stars li {
   background-image: url("./img/star-regular.svg");
-  width: 23px;
+  background-repeat: no-repeat;
+  width: 20px;
   height: 20px;
   transition: 0.5s;
 }
@@ -118,5 +172,4 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  background-repeat: no-repeat;
 }

@@ -1,15 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useContext, useState } from 'react';
-
+import axios from 'axios';
 import Review from './Review.jsx';
 import RatingSummary from './RatingSummary.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
-
 import AppContext from '../../context.js';
 import ReviewsContext from './reviewsContext.js';
-
-const axios = require('axios');
 
 const Reviews = () => {
   const currentProduct = useContext(AppContext);
@@ -19,7 +16,7 @@ const Reviews = () => {
   const [average, setAverage] = useState(0);
 
   const getReviewData = () => {
-    const productID = currentProduct.currentProduct.id;
+    const productID = currentProduct.currentProduct?.id;
     axios({
       method: 'GET',
       url: `/reviews/meta/?product_id=${productID}`,
@@ -37,7 +34,7 @@ const Reviews = () => {
   };
 
   const getReviewsForCurrent = () => {
-    const productID = currentProduct.currentProduct.id;
+    const productID = currentProduct.currentProduct?.id;
     axios({
       method: 'GET',
       url: `/reviews/?product_id=${productID}`,
@@ -48,7 +45,7 @@ const Reviews = () => {
   };
 
   useEffect(() => {
-    if (currentProduct.currentProduct.length < 1) { return; }
+    if (currentProduct.currentProduct?.length < 1) { return; }
     getReviewData();
     getReviewsForCurrent();
   }, [currentProduct]);
@@ -62,8 +59,8 @@ const Reviews = () => {
         <h4>Ratings &amp; Reviews</h4>
         <div id="ratingsAndReviewsContainer">
           <div id="ratings">
-            <RatingSummary />
-            <RatingBreakdown />
+            <RatingSummary average={average} />
+            <RatingBreakdown ratings={currentReview.ratings} />
             <ProductBreakdown />
           </div>
           <div id="reviews">
@@ -76,7 +73,7 @@ const Reviews = () => {
               </select>
             </div>
             <div id="reviewList">
-              {reviews.map((review) => <Review data={review} />)}
+              {reviews.map((review) => <Review data={review} average={average} />)}
             </div>
             <button
               type="button"
