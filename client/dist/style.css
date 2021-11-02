@@ -5,6 +5,7 @@
   justify-content: space-evenly;
   padding: 5px;
   margin: 5px;
+
 }
 
 
@@ -68,6 +69,10 @@ img.image {
 /* Styling for Related and Outfit */
 
 #productCardContainer {
+  border: 2px solid black;
+}
+
+#productCardContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -76,6 +81,10 @@ img.image {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.product_price {
+  align-self: baseline;
 }
 /* Styling for Ratings/Reviews */
 
