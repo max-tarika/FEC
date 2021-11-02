@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Stars from './Stars.jsx';
+import ReviewsContext from './reviewsContext.js';
 
-const RatingSummary = () => (
-  <div id="ratingSummary">
-    <h3>5.0</h3>
-    <Stars />
-  </div>
-);
+const RatingSummary = () => {
+  const context = useContext(ReviewsContext);
+
+  useEffect(() => {
+
+  }, [context]);
+
+  return (
+    <div id="ratingSummary">
+      <h3>{context.average}</h3>
+      <Stars />
+    </div>
+  );
+};
 
 export default RatingSummary;
