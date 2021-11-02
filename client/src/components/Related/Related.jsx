@@ -51,8 +51,6 @@ const Related = () => {
     };
     relatedItems();
   }, [currentProduct]);
-  console.log('current product ', currentProduct);
-  console.log('related id ', relatedIds);
 
   // useEffect(() => {
   //   if (currentProduct.currentProduct.length === 0) { return; }

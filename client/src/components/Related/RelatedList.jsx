@@ -6,9 +6,6 @@ import ProductCard from './ProductCard.jsx';
 const RelatedList = () => {
   const { relatedIds } = useContext(RelatedContext);
 
-  // console.log(props.data);
-  console.log('context here ', relatedIds);
-
   useEffect(() => {
 
   }, [relatedIds]);
