@@ -66,13 +66,21 @@ img.image {
   flex-direction: column;
 }
 
+<<<<<<< HEAD
+=======
 #image {
   display: flex;
 }
 
+>>>>>>> main
 /* Styling for Related and Outfit */
 
-
+#productCard {
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  justify-content: space-between;
+}
 
 /* Styling for Ratings/Reviews */
 
@@ -152,7 +160,8 @@ img.image {
 
 #stars li {
   background-image: url("./img/star-regular.svg");
-  width: 23px;
+  background-repeat: no-repeat;
+  width: 20px;
   height: 20px;
   transition: 0.5s;
 }
@@ -164,5 +173,4 @@ img.image {
   list-style: none;
   display: flex;
   flex-direction: row;
-  background-repeat: no-repeat;
 }
