@@ -7,6 +7,7 @@ import ReviewsContext from './reviewsContext.js';
 const Review = (props) => {
   const context = useContext(ReviewsContext);
   const currentReview = props.data;
+  const { average } = props;
 
   useEffect(() => {
   }, [context]);
@@ -15,7 +16,7 @@ const Review = (props) => {
     <div id="review">
       <div id="reviewTopBar">
         <h3>{currentReview.rating}</h3>
-        <Stars />
+        <Stars average={average} />
         <div id="userAndDate">
           'Posted by:
           {' '}

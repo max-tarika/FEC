@@ -106,7 +106,8 @@
 
 #stars li {
   background-image: url("./img/star-regular.svg");
-  width: 23px;
+  background-repeat: no-repeat;
+  width: 20px;
   height: 20px;
   transition: 0.5s;
 }
@@ -118,5 +119,4 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  background-repeat: no-repeat;
 }

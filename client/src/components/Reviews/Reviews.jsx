@@ -62,8 +62,8 @@ const Reviews = () => {
         <h4>Ratings &amp; Reviews</h4>
         <div id="ratingsAndReviewsContainer">
           <div id="ratings">
-            <RatingSummary />
-            <RatingBreakdown />
+            <RatingSummary average={average} />
+            <RatingBreakdown ratings={currentReview.ratings} />
             <ProductBreakdown />
           </div>
           <div id="reviews">
@@ -76,7 +76,7 @@ const Reviews = () => {
               </select>
             </div>
             <div id="reviewList">
-              {reviews.map((review) => <Review data={review} />)}
+              {reviews.map((review) => <Review data={review} average={average} />)}
             </div>
             <button
               type="button"
