@@ -67,13 +67,10 @@ img.image {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
-=======
 #image {
   display: flex;
 }
 
->>>>>>> main
 /* Styling for Related and Outfit */
 
 #productCard {
@@ -110,13 +107,59 @@ img.image {
 }
 #ratingBreakdown {
   width: 100%;
-  height: 33%;
+  height: fit-content;
   border: 1px solid #767676;
 }
+
 #productBreakdown {
   width: 100%;
-  height: 33%;
+  height: 350px;
   border: 1px solid #767676;
+  padding: 2px;
+  font-size: 20px;
+  font-variant: small-caps;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+#productBreakdown #comfortReviewBar{
+  width: 100%;
+  height: 20px;
+  border: 1px solid #767676;
+}
+#productBreakdown #fitReviewBar{
+  width: 100%;
+  height: 20px;
+  border: 1px solid #767676;
+}
+#productBreakdown #lengthReviewBar{
+  width: 100%;
+  height: 20px;
+  border: 1px solid #767676;
+}
+#productBreakdown #qualityReviewBar{
+  width: 100%;
+  height: 20px;
+  border: 1px solid #767676;
+}
+
+#productBreakdown #reviewBarFill{
+  height: 20px;
+  border: 2px solid green;
+  border-radius: 20px;
+  offset-position: 25% 75%;
+  position: absolute;
+}
+
+#productBreakdownDesc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#productBreakdownDesc p{
+  font-size: 12px;
+  font-variant: normal;
+  font-style: bold;
 }
 
 #reviews {

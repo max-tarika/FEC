@@ -15,7 +15,7 @@ const App = () => {
       url: '/products/',
     })
       .then((res) => {
-        setCurrentProduct(res.data[1]);
+        setCurrentProduct(res.data[0]);
       });
   }, []);
 

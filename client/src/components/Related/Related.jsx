@@ -7,8 +7,6 @@ import RelatedList from './RelatedList.jsx';
 const Related = () => {
   const currentProduct = useContext(AppContext);
   const [relatedIds, setRelatedID] = useState([]);
-  // const [relatedProducts, setRelatedProducts] = useState([]);
-  // console.log('here we are ', relatedProducts);
 
   // const relatedItems = () => {
   //   const productId = currentProduct.currentProduct.id;
@@ -51,8 +49,6 @@ const Related = () => {
     };
     relatedItems();
   }, [currentProduct]);
-  console.log('current product ', currentProduct);
-  console.log('related id ', relatedIds);
 
   // useEffect(() => {
   //   if (currentProduct.currentProduct.length === 0) { return; }
