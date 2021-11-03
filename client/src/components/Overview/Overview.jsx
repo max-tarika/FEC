@@ -16,8 +16,9 @@ const Overview = () => {
   const [currentStyle, setStyle] = useState({});
   const [productInfo, setProductInfo] = useState({});
 
-  // console.log('----------------------------');
-  // console.log('product Info', productInfo);
+  console.log('----------------------------');
+  console.log('product Info', productInfo);
+  console.log('current style', currentStyle);
 
   function setDefaultStyle(stylesArr) {
     for (const style of stylesArr) {
@@ -56,7 +57,7 @@ const Overview = () => {
       productInfo, styles, currentStyle, handleStyleClick,
     }}
     >
-      <section className="widget">
+      <section id="widget">
         <div id="overview">
           <Image />
           <div id="overviewWrapper">

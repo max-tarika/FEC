@@ -13,8 +13,8 @@ const Style = ({ style }) => {
   return (
     <div id="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); }}>
       <div id="styleName">{isSelected ? style.name : ''}</div>
-      <img className="styleThumbnail" id="selectedThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} width="50" height="50" />
-      {isSelected ? <FontAwesomeIcon icon={faCheck} id="selectedIcon" /> : null}
+      <img className="styleThumbnail" id="selectedThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
+      <div id="selectedIcon">{isSelected ? <FontAwesomeIcon icon={faCheck} /> : null}</div>
     </div>
   );
 };
