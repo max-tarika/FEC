@@ -19,7 +19,7 @@ const AddToCart = () => {
   // console.log('current skus: ', skusArr, Array.isArray(skusArr));
 
   function handleSizeClick(e) {
-    console.log('this is the event', e);
+    console.log('this is the event', e.target.value);
   }
 
   return (
@@ -28,9 +28,9 @@ const AddToCart = () => {
         <div id="sizeSelector">
           {skusArr
             ? (
-              <select name="size" id="size">
+              <select name="size" id="size" onChange={handleSizeClick}>
                 <option selected="selected">Select Size</option>
-                {skusArr.map((sku, index) => <SizeSelector sku={sku} key={index} />)}
+                {skusArr.map((sku, index) => <option value={sku.size}>{sku.size}</option>)}
               </select>
             )
             : (
