@@ -4,7 +4,10 @@ import ReviewsContext from './reviewsContext';
 
 const ProductBreakdown = ({ characteristics }) => {
   const context = useContext(ReviewsContext);
-  const comfortOffset = (characteristics?.Comfort?.value) / 5;
+  const comfortOffset = ((characteristics?.Comfort?.value) / 5) * 100;
+  const fitOffset = ((characteristics?.Fit?.value) / 5) * 100;
+  const lengthOffset = ((characteristics?.Length?.value) / 5) * 100;
+  const qualityOffset = ((characteristics?.Quality?.value) / 5) * 100;
 
   useEffect(() => {
     console.log(comfortOffset);
@@ -13,7 +16,9 @@ const ProductBreakdown = ({ characteristics }) => {
     <div id="productBreakdown">
       <div id="comfortReview">
         Comfort
-        <div id="comfortReviewBar" />
+        <div className="ReviewBar">
+          <span id="reviewBarFill" style={{ left: `${comfortOffset}%` }} />
+        </div>
         <span id="productBreakdownDesc">
           <p>Ouch</p>
           <p>Snug-as-a-bug-in-a-rug</p>
@@ -21,8 +26,8 @@ const ProductBreakdown = ({ characteristics }) => {
       </div>
       <div id="fitReview">
         Fit
-        <div id="fitReviewBar">
-          <span id="reviewBarFill" />
+        <div className="ReviewBar">
+          <span id="reviewBarFill" style={{ left: `${fitOffset}%` }} />
         </div>
         <span id="productBreakdownDesc">
           <p>Too Small</p>
@@ -32,7 +37,9 @@ const ProductBreakdown = ({ characteristics }) => {
       </div>
       <div id="lengthReview">
         Length
-        <div id="lengthReviewBar" />
+        <div className="ReviewBar">
+          <span id="reviewBarFill" style={{ left: `${lengthOffset}%` }} />
+        </div>
         <span id="productBreakdownDesc">
           <p>Poor</p>
           <p>Perfect</p>
@@ -40,7 +47,9 @@ const ProductBreakdown = ({ characteristics }) => {
       </div>
       <div id="qualityReview">
         Quality
-        <div id="qualityReviewBar" />
+        <div className="ReviewBar">
+          <span id="reviewBarFill" style={{ left: `${qualityOffset}%` }} />
+        </div>
         <span id="productBreakdownDesc">
           <p>Poor</p>
           <p>Island Top Shelf</p>

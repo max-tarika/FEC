@@ -4,8 +4,7 @@ import React, { useEffect } from 'react';
 const Stars = (props) => {
   const { average } = props;
   const style = {
-    backgroundColor: 'green',
-    overflow: 'hidden',
+
   };
 
   return (

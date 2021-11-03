@@ -3,12 +3,15 @@
   box-sizing: border-box;
   display:flex;
   justify-content: space-evenly;
-  flex-direction: column;
   padding: 5px;
   margin: 5px;
+  background-image: url("./img/mimosaBG.png");
 }
 
+h1 {
 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /* Styling consistent to every widget */
 .widget {
@@ -17,6 +20,7 @@
   min-height: 20vh;
   border: 2px solid #333;
   padding: 3px;
+  background-color: aliceblue;
 }
 
 
@@ -24,7 +28,6 @@
 #overview {
   padding: 5px;
   display: flex;
-  justify-content: space-between;
 }
 
 #overviewWrapper {
@@ -45,8 +48,8 @@
 
 #selectedIcon {
   position: relative;
-  left: -35px;
-  top: -20px;
+  left: 17px;
+  top: -35px;
 }
 
 #styleName {
@@ -67,28 +70,39 @@ img.image {
   flex-direction: column;
 }
 
-#image {
-  display: flex;
-}
-
 /* Styling for Related and Outfit */
 
+#productCardContainer {
+  border: 2px solid black;
+}
+
+#productCardContainer {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 #productCard {
   display: flex;
   flex-direction: row;
-  flex-basis: auto;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
+.product_price {
+  align-self: baseline;
+}
 /* Styling for Ratings/Reviews */
 
 #ratingsAndReviewsContainer {
+  width: 100%;
+  background-color: aliceblue;
   padding: 5px;
   display: flex;
   justify-content: space-around;
 }
 
 #ratings {
+  width: 50%;
   padding: 5px;
   display: flex;
   justify-content: space-between;
@@ -106,49 +120,34 @@ img.image {
   margin-left: 10px;
 }
 #ratingBreakdown {
-  width: 100%;
-  height: fit-content;
+  max-width: 100%;
   border: 1px solid #767676;
 }
 
 #productBreakdown {
   width: 100%;
-  height: 350px;
   border: 1px solid #767676;
-  padding: 2px;
   font-size: 20px;
   font-variant: small-caps;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
 }
-#productBreakdown #comfortReviewBar{
+
+#productBreakdown .ReviewBar{
   width: 100%;
   height: 20px;
   border: 1px solid #767676;
-}
-#productBreakdown #fitReviewBar{
-  width: 100%;
-  height: 20px;
-  border: 1px solid #767676;
-}
-#productBreakdown #lengthReviewBar{
-  width: 100%;
-  height: 20px;
-  border: 1px solid #767676;
-}
-#productBreakdown #qualityReviewBar{
-  width: 100%;
-  height: 20px;
-  border: 1px solid #767676;
+  position: relative;
 }
 
-#productBreakdown #reviewBarFill{
+#reviewBarFill{
   height: 20px;
+  width: 20px;
+  background: green;
   border: 2px solid green;
   border-radius: 20px;
-  offset-position: 25% 75%;
   position: absolute;
+  transform: translateX(-50%);
 }
 
 #productBreakdownDesc {
@@ -163,6 +162,7 @@ img.image {
 }
 
 #reviews {
+  width: 50%;
   padding: 5px;
   display: flex;
   justify-content: space-between;
@@ -171,6 +171,22 @@ img.image {
 #reviews #sortBar {
   flex-direction: row;
 }
+
+#comfortReview {
+  max-width: 100%;
+}
+#fitReview {
+  max-width: 100%;
+}
+
+#lengthReview {
+  max-width: 100%;
+}
+
+#qualityReview {
+  max-width: 100%;
+}
+
 
 /* ----- Styling for individual review tile ------ */
 #review {
@@ -203,18 +219,22 @@ img.image {
 /* Styling for Stars */
 
 #stars li {
-  background-image: url("./img/star-regular.svg");
+  /* background-image: url("./img/star-regular.svg"); */
   background-repeat: no-repeat;
+  overflow: hidden;
   width: 20px;
   height: 20px;
   transition: 0.5s;
 }
 #stars li:hover {
-  background-image: url("./img/star-solid.svg");
+  /* background-image: url("./img/star-solid.svg"); */
+  background-color: black;
   transition: 0.5s;
+  overflow: hidden;
 }
 .stars {
   list-style: none;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
