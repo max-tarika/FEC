@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
@@ -73,7 +75,7 @@ const Reviews = () => {
               </select>
             </div>
             <div id="reviewList">
-              {reviews.map((review) => <Review data={review} average={average} />)}
+              {reviews.map((review, index) => <Review data={review} average={average} key={index} />)}
             </div>
             <button
               type="button"

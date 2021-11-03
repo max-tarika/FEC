@@ -9,9 +9,9 @@ const OutfitList = () => {
 
   if (!outfitStorage.includes(outfit?.currentProduct?.id)) {
     outfitStorage.push(outfit.currentProduct);
-    console.log(outfitStorage);
+    // console.log(outfitStorage);
   } else {
-    console.log('That Item is Already in your Outfit!');
+    // console.log('That Item is Already in your Outfit!');
   }
   useEffect(() => {
 

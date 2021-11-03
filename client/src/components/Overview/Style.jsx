@@ -4,7 +4,7 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import OverviewContext from './context.js';
+import { OverviewContext } from './context.js';
 
 const Style = ({ style }) => {
   const { currentStyle, handleStyleClick } = useContext(OverviewContext);

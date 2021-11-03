@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import RelatedContext from './context';
@@ -13,7 +14,7 @@ const RelatedList = () => {
   return (
     <div id="productCardContainer">
       {
-      relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)
+      relatedIds.map((id, index) => <div id="productCard"><ProductCard key={index} id={id} /></div>)
 }
     </div>
   );

@@ -7,7 +7,7 @@ import Information from './Information.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import AppContext from '../../context.js';
-import OverviewContext from './context.js';
+import { OverviewContext } from './context.js';
 import Description from './Description.jsx';
 
 const Overview = () => {
@@ -16,9 +16,9 @@ const Overview = () => {
   const [currentStyle, setStyle] = useState({});
   const [productInfo, setProductInfo] = useState({});
 
-  console.log('----------------------------');
-  console.log('product Info', productInfo);
-  console.log('current style', currentStyle);
+  // console.log('----------------------------');
+  // console.log('product Info', productInfo);
+  // console.log('current style', currentStyle);
 
   function setDefaultStyle(stylesArr) {
     for (const style of stylesArr) {
