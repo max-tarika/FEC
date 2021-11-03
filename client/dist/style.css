@@ -5,7 +5,7 @@
   justify-content: space-evenly;
   padding: 5px;
   margin: 5px;
-  background-image: url("./img/mimosaBG.png");
+  background-image: url("./img/y-so-serious.png");
 }
 
 h1 {
@@ -19,7 +19,7 @@ h1 {
   min-height: 20vh;
   border: 2px solid #333;
   padding: 3px;
-  background-color: aliceblue;
+  background-image: url("./img/y-so-serious.png");
 }
 
 
@@ -99,15 +99,21 @@ img.styleThumbnail {
 
 /* Styling for Related and Outfit */
 
+#default_image {
+  border: 2px solid red;
+  height: 150px;
+  width: 150px;
+}
+
 #productCardContainer {
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 #addOutfit {
   height: 150px;
   width: 150px;
   border: 1px solid grey;
-  background-color: aliceblue;
+ background-image: url("./img/y-so-serious-white.png");
 }
 
 #addButton {
@@ -122,15 +128,18 @@ img.styleThumbnail {
 }
 
 #productCardContainer {
-  background-color: aliceblue;
+ background-image: url("./img/y-so-serious-white.png");
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 #productCard {
+  border: 1px solid grey;
+  border-style: double;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background-image: url("../img/double-bubble-outline.png");
 }
 
 .product_price {
@@ -139,7 +148,7 @@ img.styleThumbnail {
 /* Styling for Ratings/Reviews */
 
 #ratingsAndReviewsContainer {
-  background-color: aliceblue;
+ background-image: url("./img/y-so-serious-white.png");
   padding: 5px;
   display: flex;
   justify-content: space-around;
