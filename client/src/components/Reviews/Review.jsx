@@ -44,15 +44,6 @@ const Review = (props) => {
             Report
           </li>
         </ul>
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            console.log(context);
-          }}
-        >
-          Test
-        </button>
       </div>
     </div>
   );
