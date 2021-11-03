@@ -7,18 +7,18 @@ const Description = () => {
 
   if (productInfo.features) {
     return (
-      <div id="description">
-        <h3>{productInfo.slogan}</h3>
-        <p>{productInfo.description}</p>
-        <ul>
+      <div id="descriptionWrapper">
+        <div id="description">
+          <h3>{productInfo.slogan}</h3>
+          <p>{productInfo.description}</p>
+        </div>
+        <ul id="features">
           {productInfo.features.map((feature) => <Feature feature={feature} />)}
         </ul>
       </div>
     );
-  // eslint-disable-next-line no-else-return
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default Description;
