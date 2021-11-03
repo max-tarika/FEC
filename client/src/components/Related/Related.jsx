@@ -26,7 +26,6 @@ const Related = () => {
 
   const addOutfitClick = () => {
     setOutfit(currentProduct);
-    console.log('Clicky click clack');
   };
 
   return (
