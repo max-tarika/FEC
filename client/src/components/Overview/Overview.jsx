@@ -19,6 +19,7 @@ const Overview = () => {
   // console.log('----------------------------');
   // console.log('product Info', productInfo);
   // console.log('current style', currentStyle);
+  // console.log('current styles', styles);
 
   function setDefaultStyle(stylesArr) {
     for (const style of stylesArr) {
