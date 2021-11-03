@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import RelatedContext from './context';
 
-const Outfit = ({ outfit }) => {
+const Outfit = ({ id }) => {
   const context = useContext(RelatedContext);
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
