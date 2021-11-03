@@ -117,6 +117,8 @@ img.styleThumbnail {
   align-items: center;
   text-align: center;
   -ms-text-justify: auto;
+  display: flex;
+  justify-content: space-around;
   font-size: 48px;
   background-color: khaki;
 }
@@ -126,6 +128,8 @@ img.styleThumbnail {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  text-align: center;
+  
 }
 
 #productCardContainer {

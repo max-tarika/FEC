@@ -7,7 +7,8 @@ const OutfitList = () => {
   const { outfit } = useContext(RelatedContext);
   const outfitStorage = [];
 
-  if (!outfitStorage.includes(outfit?.currentProduct?.id)) {
+  if (!outfitStorage.includes(outfit?.currentProduct?.id)
+      && outfit?.currentProduct?.id !== undefined) {
     outfitStorage.push(outfit?.currentProduct?.id);
   }
   useEffect(() => {
@@ -15,12 +16,10 @@ const OutfitList = () => {
   }, [outfit]);
 
   return (
-
     <div>
       {
         outfitStorage.map((id) => <div id="outfitCard"><Outfit key={id} id={id} /></div>)
-  }
-
+      }
     </div>
   );
 };
