@@ -301,15 +301,30 @@ img.styleThumbnail {
   position: absolute;
   top: 0;
   left: 0;
+  transition: 0.5s;
 }
+
+.innerStar img:hover {
+  width: 24px;
+  height: 24px;
+  transition: 0.5s;
+}
+
 
 .starWrapper .outerStar {
   height: 100%;
   width: 100%;
 }
 
+
 .starWrapper {
   width: 20px;
   height: 20px;
   position: relative;
+  transition: 0.5s;
+}
+.starWrapper:hover {
+  width: 22px;
+  height: 22px;
+  transition: 0.5s;
 }
