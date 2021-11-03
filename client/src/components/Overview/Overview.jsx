@@ -57,7 +57,7 @@ const Overview = () => {
       productInfo, styles, currentStyle, handleStyleClick,
     }}
     >
-      <section className="widget">
+      <section id="widget">
         <div id="overview">
           <Image />
           <div id="overviewWrapper">
