@@ -3,10 +3,12 @@ import axios from 'axios';
 import AppContext from '../../context';
 import RelatedContext from './context';
 import RelatedList from './RelatedList.jsx';
+import OutfitList from './OutfitList.jsx';
 
 const Related = () => {
   const currentProduct = useContext(AppContext);
   const [relatedIds, setRelatedID] = useState([]);
+  const [outfit, setOutfit] = useState([]);
 
   useEffect(() => {
     if (currentProduct.currentProduct.length === 0) { return; }
@@ -22,16 +24,20 @@ const Related = () => {
     relatedItems();
   }, [currentProduct]);
 
+  const addOutfitClick = () => {
+    setOutfit(currentProduct);
+  };
+
   return (
     <div>
       <div>
-        <RelatedContext.Provider value={{ relatedIds }}>
+        <RelatedContext.Provider value={{ relatedIds, outfit }}>
           <div id="relatedProductsContainer">
             <RelatedList />
           </div>
-          <div id="yourOutFitContainer">
-            <h4>Your Outfit</h4>
-            <div id="outfitBar" />
+          <div id="outfitContainer">
+            <div id="addOutfit"><div id="addButton" onClick={addOutfitClick}>+</div></div>
+            <OutfitList />
           </div>
         </RelatedContext.Provider>
       </div>
