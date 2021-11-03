@@ -19,7 +19,7 @@ h1 {
   min-height: 20vh;
   border: 2px solid #333;
   padding: 3px;
-  background-image: url("./img/y-so-serious.png");
+  background-image: url("./img/y-so-serious-white.png");
 }
 
 
@@ -130,7 +130,7 @@ img.styleThumbnail {
 }
 #outfitContainer {
   border: 2px solid black;
-  background-color: aliceblue;
+  background-image: url("./img/y-so-serious-white.png");
   display: flex;
   flex-direction: row;
   justify-content: space-around;

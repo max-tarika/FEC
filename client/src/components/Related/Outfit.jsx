@@ -39,8 +39,7 @@ const Outfit = ({ id }) => {
 
   return (
     <div>
-      <div id="default_image" />
-      <img src={image} width="150" height="150" />
+      <div id="default_image"> <img src={image} width="150" height="150" /></div>
       <div className="product_category">{category}</div>
       <div className="product_name">{name}</div>
       <div className="product_price">{price}</div>
