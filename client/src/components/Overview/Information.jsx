@@ -8,9 +8,9 @@ const Information = () => {
 
   return (
     <div id="information">
-      <h4>5 Stars Baby</h4>
-      <h4>{productInfo.category}</h4>
-      <h2>{productInfo.name}</h2>
+      <div id="rating">5 Stars Baby</div>
+      <div id="productCategory">{productInfo.category}</div>
+      <div id="productName">{productInfo.name}</div>
       <Price />
       <Share />
     </div>
