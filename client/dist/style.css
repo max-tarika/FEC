@@ -244,24 +244,13 @@ img.styleThumbnail {
 }
 
 /* Styling for Stars */
-
-#stars li {
-  /* background-image: url("./img/star-regular.svg"); */
-  background-repeat: no-repeat;
-  overflow: hidden;
-  width: 20px;
-  height: 20px;
-  transition: 0.5s;
-}
-#stars li:hover {
-  /* background-image: url("./img/star-solid.svg"); */
-  background-color: black;
-  transition: 0.5s;
-  overflow: hidden;
-}
 .stars {
-  list-style: none;
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+}
+.stars li {
+  list-style: none;
+}
+.stars li img{
+  width: 20px;
 }
