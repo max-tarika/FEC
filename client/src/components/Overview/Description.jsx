@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react';
 import { OverviewContext } from './context.js';
@@ -13,9 +14,11 @@ const Description = () => {
           <h3>{productInfo.slogan}</h3>
           <p>{productInfo.description}</p>
         </div>
-        <ul id="features">
-          {productInfo.features.map((feature, index) => <Feature feature={feature} key={index} />)}
-        </ul>
+        <div id="features">
+          <ul>
+            {productInfo.features.map((feature, index) => <Feature feature={feature} key={index} />)}
+          </ul>
+        </div>
       </div>
     );
   }
