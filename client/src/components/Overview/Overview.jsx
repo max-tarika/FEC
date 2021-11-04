@@ -54,7 +54,7 @@ const Overview = () => {
     }}
     >
       <section id="widget">
-        <div id="overview">
+        <div id="overviewContainer">
           <Image />
           <div id="overviewWrapper">
             <Information />
@@ -62,7 +62,9 @@ const Overview = () => {
             <AddToCart />
           </div>
         </div>
-        <Description />
+        <div id="descriptionContainer">
+          <Description />
+        </div>
       </section>
     </OverviewContext.Provider>
   );
