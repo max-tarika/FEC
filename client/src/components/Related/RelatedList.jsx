@@ -3,13 +3,22 @@ import React, { useState, useEffect, useContext } from 'react';
 import HorizontalGallery from 'react-dynamic-carousel';
 import RelatedContext from './context';
 import ProductCard from './ProductCard.jsx';
+import Compare from './Compare.jsx';
 
 const RelatedList = () => {
-  const { relatedIds } = useContext(RelatedContext);
+  const { relatedIds, currentProduct } = useContext(RelatedContext);
+  const [showCompare, setShowCompare] = useState(false);
+  const [clickedItem, setClickedItem] = useState(0);
 
   useEffect(() => {
 
   }, [relatedIds]);
+
+  const toggleCompare = (e, data) => {
+    console.log('i got clicked ', e.target);
+    setShowCompare(true);
+    setClickedItem(e.target.id);
+  };
 
   return (
     <div id="productCardContainer">

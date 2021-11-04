@@ -16,9 +16,17 @@ h1 {
   letter-spacing: "-0.01562em"
 }
 
+h5 {
+font-weight: 400;
+font-size: "1.5rem";
+line-height: 1.334;
+letter-spacing: "0em";
+}
+
 /* Styling consistent to every widget */
 #widget {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  max-width: 1200px;
   width: 100%;
   border: 2px solid #333;
   border-radius: 4px;
@@ -226,7 +234,7 @@ img.image {
 /* Styling for Related and Outfit */
 
 #default_image {
-  border: 2px solid red;
+  border: 1px solid black;
   height: 150px;
   width: 150px;
 }
@@ -235,24 +243,25 @@ img.image {
   border: 1px solid black;
 }
 
-#addOutfit {
-  height: 150px;
-  width: 150px;
-  border: 1px solid grey;
- background-image: url("./img/y-so-serious-white.png");
+#comparisonModal {
+  border: 1px solid black;
+  background-color: aliceblue;
+  height: 300px;
+  width: 300px;
+  float: right;
+  position: absolute;
+  z-index: 6;
 }
 
 #addButton {
-  height: 75px;
-  width: 75px;
+  height: 200px;
+  width: 150px;
   border: 1px solid grey;
-  align-items: center;
+  align-items: left;
   text-align: center;
-  -ms-text-justify: auto;
-  display: flex;
-  justify-content: space-around;
-  font-size: 48px;
-  background-color: khaki;
+  font-size: 36px;
+  background-color: antiquewhite;
+  float: left;
 }
 #outfitContainer {
   border: 2px solid black;
@@ -260,6 +269,7 @@ img.image {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-content: flex-start;
   text-align: center;
 
 }
@@ -313,7 +323,20 @@ img.image {
   max-width: 100%;
   background: rgba(200, 200, 200, 0.3);
   box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
-
+}
+#ratingBar {
+  height: 10px;
+  width: 100%;
+  background: #767676;
+  border-radius: 16px;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  position: relative;
+}
+.ratingBarFill {
+  height: 10px;
+  border-radius: 16px;
+  background: #33dd33;
+  position: absolute;
 }
 
 #productBreakdown {
