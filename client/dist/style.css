@@ -106,17 +106,22 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-#styleSelectWrapper {
+.styleSelectWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  object-fit: cover;
   margin: 5px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  overflow: hidden;
+  width: 65px;
+  height: 65px;
 }
 
-#selectedIcon {
-  position: relative;
-  top: -35px;
+.icon {
+  position: absolute;
 }
 
 #styleName {
@@ -135,10 +140,8 @@ h1 {
 }
 
 img.styleThumbnail {
-  border-radius: 50%;
-  border: 1px solid grey;
-  width: 65px;
-  height: 65px;
+  max-width: 150%;
+  max-height: 150%;
 }
 
 /* Information */
@@ -174,13 +177,17 @@ img.styleThumbnail {
 
 /* Image */
 img.image {
-  max-height: 800px;
-  max-width: 400px;
+  object-fit: cover;
+  max-height: 600px;
+  max-width: 500px;
 }
 
 #image {
   display: flex;
+  justify-content: center;
   padding-right: 20px;
+  height: 600px;
+  width: 500px;
 }
 
 /* Styling for Related and Outfit */
