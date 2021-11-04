@@ -15,21 +15,22 @@ const RelatedList = () => {
   }, [relatedIds]);
 
   const toggleCompare = (e, data) => {
-    console.log('i got clicked ', e.target);
     setShowCompare(true);
     setClickedItem(e.target.id);
   };
 
   return (
-    <div id="productCardContainer">
-      <HorizontalGallery
-        tiles={
+    <div>
+      <div id="productCardContainer">
+        <HorizontalGallery
+          tiles={
       relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)
 }
-        elementWidth={200}
-        fadeDistance={100}
-        minPadding={10}
-      />
+          elementWidth={200}
+          fadeDistance={100}
+          minPadding={10}
+        />
+      </div>
     </div>
   );
 };
