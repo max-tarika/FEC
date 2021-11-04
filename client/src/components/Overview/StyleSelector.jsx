@@ -1,13 +1,24 @@
-import React, { useContext } from 'react';
-import OverviewContext from './context.js';
+/* eslint-disable react/no-array-index-key */
+import React, { useContext, useState } from 'react';
+import { OverviewContext } from './context.js';
 import Style from './Style.jsx';
 
 const StyleSelector = () => {
-  const { styles } = useContext(OverviewContext);
+  const { styles, currentStyle } = useContext(OverviewContext);
+  const [selectedStyle, setSelectedStyle] = useState();
 
   return (
     <div id="styleSelector">
-      {styles.map((style) => <Style style={style} />)}
+      <div id="currentStyleName">
+        Style
+        {' '}
+        {'>'}
+        {' '}
+        {selectedStyle || currentStyle.name}
+      </div>
+      <div id="stylesWrapper">
+        {styles.map((style, i) => <Style style={style} key={i} setStyle={setSelectedStyle} />)}
+      </div>
     </div>
   );
 };

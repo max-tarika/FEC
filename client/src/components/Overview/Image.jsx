@@ -1,6 +1,6 @@
 /* eslint-disable no-else-return */
 import React, { useContext } from 'react';
-import OverviewContext from './context.js';
+import { OverviewContext } from './context.js';
 
 const Image = () => {
   const { currentStyle } = useContext(OverviewContext);

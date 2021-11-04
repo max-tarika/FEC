@@ -4,15 +4,14 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import OverviewContext from './context.js';
+import { OverviewContext } from './context.js';
 
-const Style = ({ style }) => {
+const Style = ({ style, setStyle }) => {
   const { currentStyle, handleStyleClick } = useContext(OverviewContext);
   const isSelected = currentStyle.style_id === style.style_id;
 
   return (
-    <div id="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); }}>
-      <div id="styleName">{isSelected ? style.name : ''}</div>
+    <div id="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); setStyle(style.name); }}>
       <img className="styleThumbnail" id="selectedThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
       <div id="selectedIcon">{isSelected ? <FontAwesomeIcon icon={faCheck} /> : null}</div>
     </div>

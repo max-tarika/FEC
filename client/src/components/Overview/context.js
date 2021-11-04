@@ -1,5 +1,6 @@
-import React from 'react';
+import { createContext } from 'react';
 
-const OverviewContext = React.createContext();
+const OverviewContext = createContext();
+const AddToCartContext = createContext();
 
-export default OverviewContext;
+export { OverviewContext, AddToCartContext };

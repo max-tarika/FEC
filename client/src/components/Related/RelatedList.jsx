@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect, useContext } from 'react';
 import HorizontalGallery from 'react-dynamic-carousel';
 import RelatedContext from './context';
