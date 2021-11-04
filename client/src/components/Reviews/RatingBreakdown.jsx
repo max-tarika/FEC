@@ -1,18 +1,29 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import ReviewsContext from './reviewsContext.js';
 
-import RatingBar from './RatingBar.jsx';
+import RatingBarList from './RatingBarList.jsx';
 
-const RatingBreakdown = ({ ratings }) => {
-  const context = useContext(ReviewsContext);
+const RatingBreakdown = (props) => {
+  // const context = useContext(ReviewsContext);
 
+  const getTotal = (ratingObj) => {
+    let total = 0;
+    if (ratingObj === null || ratingObj === undefined) {
+      return;
+    }
+    Object.values(ratingObj).forEach((count) => {
+      total += Number(count);
+    });
+    return total;
+  };
   useEffect(() => {
-  }, [context]);
+    if (!props.ratings) { }
+  }, [props]);
 
   return (
     <div id="ratingBreakdown">
       Rating Breakdown
-      <RatingBar ratings={ratings} />
+      <RatingBarList ratings={props?.ratings} total={getTotal(props?.ratings)} />
     </div>
   );
 };
