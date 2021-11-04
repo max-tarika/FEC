@@ -109,15 +109,25 @@ img.styleThumbnail {
   border: 1px solid black;
 }
 
+#comparisonModal {
+  border: 1px solid black;
+  background-color: aliceblue;
+  height: 300px;
+  width: 300px;
+  float: right;
+  position: absolute;
+  z-index: 6;
+}
 
 #addButton {
   height: 200px;
   width: 150px;
   border: 1px solid grey;
-  align-items: center;
+  align-items: left;
   text-align: center;
   font-size: 36px;
   background-color: antiquewhite;
+  float: left;
 }
 #outfitContainer {
   border: 2px solid black;

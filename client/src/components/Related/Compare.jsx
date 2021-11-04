@@ -3,19 +3,73 @@ import characteristics from './characteristics';
 import RelatedContext from './context';
 
 const Compare = () => {
-  const current = null;
-  const { showCompare } = useContext(RelatedContext);
-  console.log('compare values ', showCompare);
-  let a; let b; let c; let d; let e; let f; let g; let h; let i; let j; let k; const
-    l = '';
+  const context = useContext(RelatedContext);
+  const current = context.currentProduct.currentProduct.id;
+  const related = context.clickedItem;
+  let a; let A; let b; let B; let c; let C; let d; let D; let e; let E; let f; let F;
+  let index = -1;
   const checkCurrent = () => {
-    console.log(characteristics);
+    for (let i = 0; i < characteristics.length; i += 1) {
+      if (characteristics[i].id === current) {
+        index = i;
+      }
+    }
+    const char = characteristics[index];
+    console.log('char ', char?.gmo);
+    console.log('index = ', index);
+    if (char?.gmo === true) {
+      a = '√';
+    }
+    if (char?.fairTrade === true) {
+      b = '√';
+      console.log('b = ', b);
+    }
+    if (char?.local === true) {
+      c = '√';
+    }
+    if (char?.recycled === true) {
+      d = '√';
+    }
+    if (char?.charity === true) {
+      e = '√';
+    }
+    if (char?.oneDay === true) {
+      f = '√';
+    }
+  };
+
+  const checkRelated = () => {
+    const index = characteristics.indexOf(related);
+    const char = characteristics[index];
+    if (char?.gmo === true) {
+      A = '√';
+    }
+    if (char?.fairTrade === true) {
+      B = '√';
+    }
+    if (char?.local === true) {
+      C = '√';
+    }
+    if (char?.recycled === true) {
+      D = '√';
+    }
+    if (char?.charity === true) {
+      E = '√';
+    }
+    if (char?.oneDay === true) {
+      F = '√';
+    }
   };
 
   useEffect(() => {
-    console.log('use effect run');
-  });
-  if (showCompare) {
+    console.log('current = ', current, ' related = ', related);
+    checkCurrent();
+    checkRelated();
+  }, [related]);
+
+  console.log('checking b ', b);
+
+  if (context.showCompare) {
     return (
       <div id="comparisonModal">
         <table>
@@ -27,32 +81,32 @@ const Compare = () => {
           <tr>
             <th>{a}</th>
             <th>GMO Free</th>
+            <th>{A}</th>
+          </tr>
+          <tr>
             <th>{b}</th>
+            <th>Fair Trade Certified</th>
+            <th>{B}</th>
           </tr>
           <tr>
             <th>{c}</th>
-            <th>Fair Trade Certified</th>
+            <th>Locally Sourced</th>
+            <th>{C}</th>
+          </tr>
+          <tr>
             <th>{d}</th>
+            <th>Made from Recycled Materials</th>
+            <th>{D}</th>
           </tr>
           <tr>
             <th>{e}</th>
-            <th>Locally Sourced</th>
-            <th>{f}</th>
-          </tr>
-          <tr>
-            <th>{g}</th>
-            <th>Made from Recycled Materials</th>
-            <th>{h}</th>
-          </tr>
-          <tr>
-            <th>{i}</th>
             <th>Contributes to Global Charities</th>
-            <th>{j}</th>
+            <th>{E}</th>
           </tr>
           <tr>
-            <th>{k}</th>
+            <th>{f}</th>
             <th>One Day Shipping</th>
-            <th>{l}</th>
+            <th>{F}</th>
           </tr>
         </table>
       </div>

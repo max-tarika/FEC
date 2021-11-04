@@ -26,12 +26,13 @@ const Related = () => {
 
   const addOutfitClick = () => {
     setOutfit(currentProduct);
+    console.log('outfit ', outfit);
   };
 
   return (
     <div id="widget">
       <div>
-        <RelatedContext.Provider value={{ relatedIds, outfit }}>
+        <RelatedContext.Provider value={{ relatedIds, currentProduct, outfit }}>
           <div id="relatedProductsContainer">
             <RelatedList />
           </div>

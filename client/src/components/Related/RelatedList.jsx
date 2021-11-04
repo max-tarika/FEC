@@ -4,21 +4,28 @@ import ProductCard from './ProductCard.jsx';
 import Compare from './Compare.jsx';
 
 const RelatedList = () => {
-  const { relatedIds } = useContext(RelatedContext);
+  const { relatedIds, currentProduct } = useContext(RelatedContext);
   const [showCompare, setShowCompare] = useState(false);
+  const [clickedItem, setClickedItem] = useState(0);
 
   useEffect(() => {
 
   }, [relatedIds]);
 
+  const toggleCompare = (e, data) => {
+    console.log('i got clicked ', e.target);
+    setShowCompare(true);
+    setClickedItem(e.target.id);
+  };
+
   return (
     <div>
       <div id="productCardContainer">
         {
-      relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)
+      relatedIds.map((id) => <div id="productCard" onClick={toggleCompare}><ProductCard key={id} id={id} /></div>)
       }
       </div>
-      <RelatedContext.Provider value={{ showCompare }}>
+      <RelatedContext.Provider value={{ showCompare, clickedItem, currentProduct }}>
         <div id="compareModal">
           <Compare />
         </div>
