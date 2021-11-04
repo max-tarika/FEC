@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import RelatedContext from './context';
 
-const Outfit = ({ outfit }) => {
+const Outfit = ({ id }) => {
   const context = useContext(RelatedContext);
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
@@ -39,8 +39,7 @@ const Outfit = ({ outfit }) => {
 
   return (
     <div>
-      <div id="default_image" />
-      <img src={image} width="150" height="150" />
+      <div id="default_image"> <img src={image} width="150" height="150" /></div>
       <div className="product_category">{category}</div>
       <div className="product_name">{name}</div>
       <div className="product_price">{price}</div>

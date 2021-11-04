@@ -5,8 +5,10 @@ import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 import Review from './Review.jsx';
 import RatingSummary from './RatingSummary.jsx';
+import RecommendedBy from './RecommendedBy.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
+
 import AppContext from '../../context.js';
 import ReviewsContext from './reviewsContext.js';
 
@@ -62,8 +64,9 @@ const Reviews = () => {
         <div id="ratingsAndReviewsContainer">
           <div id="ratings">
             <RatingSummary average={average} />
+            <RecommendedBy recommended={currentReview.recommended} />
             <RatingBreakdown ratings={currentReview.ratings} />
-            <ProductBreakdown />
+            <ProductBreakdown characteristics={currentReview.characteristics} />
           </div>
           <div id="reviews">
             <div id="sortBar">
@@ -75,7 +78,11 @@ const Reviews = () => {
               </select>
             </div>
             <div id="reviewList">
+<<<<<<< HEAD
               {reviews.map((review, index) => <Review data={review} average={average} key={index} />)}
+=======
+              {reviews.map((review) => <Review data={review} average={review.rating} />)}
+>>>>>>> main
             </div>
             <button
               type="button"

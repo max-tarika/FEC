@@ -5,7 +5,7 @@
   justify-content: space-evenly;
   padding: 5px;
   margin: 5px;
-  background-image: url("./img/mimosaBG.png");
+  background-image: url("./img/y-so-serious.png");
 }
 
 h1 {
@@ -19,7 +19,7 @@ h1 {
   min-height: 20vh;
   border: 2px solid #333;
   padding: 3px;
-  background-color: aliceblue;
+  background-image: url("./img/y-so-serious-white.png");
 }
 
 
@@ -99,15 +99,21 @@ img.styleThumbnail {
 
 /* Styling for Related and Outfit */
 
+#default_image {
+  border: 2px solid red;
+  height: 150px;
+  width: 150px;
+}
+
 #productCardContainer {
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 #addOutfit {
   height: 150px;
   width: 150px;
   border: 1px solid grey;
-  background-color: aliceblue;
+ background-image: url("./img/y-so-serious-white.png");
 }
 
 #addButton {
@@ -117,20 +123,34 @@ img.styleThumbnail {
   align-items: center;
   text-align: center;
   -ms-text-justify: auto;
+  display: flex;
+  justify-content: space-around;
   font-size: 48px;
   background-color: khaki;
 }
+#outfitContainer {
+  border: 2px solid black;
+  background-image: url("./img/y-so-serious-white.png");
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+
+}
 
 #productCardContainer {
-  background-color: aliceblue;
+ background-image: url("./img/y-so-serious-white.png");
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 #productCard {
+  border: 1px solid grey;
+  border-style: double;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background-image: url("../img/double-bubble-outline.png");
 }
 
 .product_price {
@@ -139,13 +159,14 @@ img.styleThumbnail {
 /* Styling for Ratings/Reviews */
 
 #ratingsAndReviewsContainer {
-  background-color: aliceblue;
+ background-image: url("./img/y-so-serious-white.png");
   padding: 5px;
   display: flex;
   justify-content: space-around;
 }
 
 #ratings {
+  width: 50%;
   padding: 5px;
   display: flex;
   justify-content: space-between;
@@ -163,17 +184,50 @@ img.styleThumbnail {
   margin-left: 10px;
 }
 #ratingBreakdown {
-  width: 100%;
-  height: 33%;
-  border: 1px solid #767676;
-}
-#productBreakdown {
-  width: 100%;
-  height: 33%;
+  max-width: 100%;
   border: 1px solid #767676;
 }
 
+#productBreakdown {
+  width: 100%;
+  border: 1px solid #767676;
+  font-size: 20px;
+  font-variant: small-caps;
+  display: flex;
+  flex-direction: column;
+}
+
+#productBreakdown .ReviewBar{
+  width: 100%;
+  height: 20px;
+  border: 1px solid #767676;
+  background: linear-gradient(0.25turn, rgba(200,0,0,0.5), rgba(0,200,0,0.5));
+  position: relative;
+}
+
+#reviewBarFill{
+  height: 20px;
+  width: 20px;
+  background: green;
+  border: 2px solid green;
+  border-radius: 20px;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+#productBreakdownDesc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#productBreakdownDesc p{
+  font-size: 12px;
+  font-variant: normal;
+  font-style: bold;
+}
+
 #reviews {
+  width: 50%;
   padding: 5px;
   display: flex;
   justify-content: space-between;
@@ -182,6 +236,22 @@ img.styleThumbnail {
 #reviews #sortBar {
   flex-direction: row;
 }
+
+#comfortReview {
+  max-width: 100%;
+}
+#fitReview {
+  max-width: 100%;
+}
+
+#lengthReview {
+  max-width: 100%;
+}
+
+#qualityReview {
+  max-width: 100%;
+}
+
 
 /* ----- Styling for individual review tile ------ */
 #review {
@@ -213,19 +283,49 @@ img.styleThumbnail {
 
 /* Styling for Stars */
 
-#stars li {
-  background-image: url("./img/star-regular.svg");
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
-  transition: 0.5s;
-}
-#stars li:hover {
-  background-image: url("./img/star-solid.svg");
-  transition: 0.5s;
-}
-.stars {
-  list-style: none;
+#allStars {
   display: flex;
   flex-direction: row;
+}
+.innerStar {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.innerStar img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+.innerStar img:hover {
+  width: 24px;
+  height: 24px;
+  transition: 0.5s;
+}
+
+
+.starWrapper .outerStar {
+  height: 100%;
+  width: 100%;
+}
+
+
+.starWrapper {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transition: 0.5s;
+}
+.starWrapper:hover {
+  width: 22px;
+  height: 22px;
+  transition: 0.5s;
 }
