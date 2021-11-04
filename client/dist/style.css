@@ -105,10 +105,12 @@ button:hover {
   background-color: white;
   border-radius: 25px;
   font-size: 15px;
+  transition: 0.3s;
 }
 
 #addToCartButton:hover {
   background-color: rgba(0, 0, 0, 0.34);
+  transition: 0.3s;
 }
 
 #selectorContainer {
