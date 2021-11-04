@@ -15,6 +15,7 @@ app.use((req, res) => {
     method: req.method,
     url: req.url,
     baseURL: apiURL,
+    data: req.body,
     headers: {
       Authorization: API_TOKEN,
     },

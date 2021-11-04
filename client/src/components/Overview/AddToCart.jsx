@@ -1,6 +1,9 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/no-array-index-key */
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { OverviewContext, AddToCartContext } from './context.js';
+import { OverviewContext } from './context.js';
+import SizeDropdown from './SizeDropdown.jsx';
 
 const AddToCart = () => {
   const { currentStyle } = useContext(OverviewContext);
@@ -9,12 +12,10 @@ const AddToCart = () => {
   const [sizeSelected, setSizeSelected] = useState(false);
   const [skuQuant, setSkuQuant] = useState();
   const [inStock, setInStock] = useState(false);
-
+  const [selectedSize, setSelectedSize] = useState();
+  const [open, setOpen] = useState(false);
+  const [askForSize, setAskForSize] = useState(false);
   const skusArr = currentStyle?.skus ? Object.entries(currentStyle?.skus) : null;
-
-  // console.log('current style: ', currentStyle);
-  // console.log('current style skus: ', currentStyle?.skus);
-  // console.log('current skus: ', skusArr);
 
   const createQuantsArray = (sku) => {
     const num = currentStyle?.skus[sku].quantity <= 15 ? currentStyle?.skus[sku].quantity : 15;
@@ -27,13 +28,32 @@ const AddToCart = () => {
   };
 
   const handleSizeClick = (e) => {
-    setSku(e.target.value);
+    setSelectedSize(e.target.title);
+    setOpen(!open);
     createQuantsArray(e.target.value);
+    setAskForSize(false);
+    setSku(e.target.value);
+    setSkuQuant(1);
     setSizeSelected(true);
   };
 
   const handleQuantClick = (e) => {
     setSkuQuant(e.target.value);
+  };
+
+  const openSizeSelector = () => {
+    setOpen(!open);
+  };
+
+  const handleAddToBagClick = () => {
+    if (!sizeSelected) {
+      setOpen(true);
+      setAskForSize(true);
+    } else {
+      for (let i = 0; i < skuQuant; i += 1) {
+        axios.post('/cart', { sku_id });
+      }
+    }
   };
 
   useEffect(() => {
@@ -42,43 +62,39 @@ const AddToCart = () => {
     } else {
       setInStock(true);
     }
+    setSizeSelected(false);
   }, [currentStyle]);
 
   return (
-    <AddToCartContext.Provider value={{ handleSizeClick }}>
-      <div>
-        <div id="sizeSelector">
-          {inStock
-            ? (
-              <select name="size" className="size" onChange={handleSizeClick}>
-                <option selected="selected">Select Size</option>
-                {skusArr.map((sku) => <option value={sku[0]} key={sku[0]}>{sku[1].size}</option>)}
-              </select>
-            )
-            : (
-              <select name="size" className="size" disabled="disabled">
-                <option>OUT OF STOCK</option>
-              </select>
-            )}
-        </div>
-        <div id="quantitySelector">
-          {sizeSelected
-            ? (
-              <select name="quantity" className="quantity" onChange={handleQuantClick}>
-                {skuQuants.map((quant) => <option value={quant} key={quant}>{quant}</option>)}
-              </select>
-            )
-            : (
-              <select name="quantity" className="quantity" disabled="disabled">
-                <option>-</option>
-              </select>
-            )}
-        </div>
-        <div id="addToCart">
-          <button type="button">Add To Bag</button>
-        </div>
+    <div>
+      <div id="sizeSelector">
+        {inStock
+          ? (
+            <div>
+              {askForSize && <div id="askForSize">Please Select Size</div>}
+              <button type="button" onClick={openSizeSelector}>{selectedSize || 'Select Size'}</button>
+              {open && <SizeDropdown skusArr={skusArr} handleSizeClick={handleSizeClick} />}
+            </div>
+          )
+          : <div>OUT OF STOCK</div>}
       </div>
-    </AddToCartContext.Provider>
+      <div id="quantitySelector">
+        {sizeSelected
+          ? (
+            <select name="quantity" className="quantity" onChange={handleQuantClick}>
+              {skuQuants.map((quant) => <option value={quant} key={quant}>{quant}</option>)}
+            </select>
+          )
+          : (
+            <select name="quantity" className="quantity" disabled="disabled">
+              <option>-</option>
+            </select>
+          )}
+      </div>
+      <div id="addToCart">
+        {inStock && <button type="button" onClick={handleAddToBagClick}>Add To Bag</button>}
+      </div>
+    </div>
   );
 };
 
