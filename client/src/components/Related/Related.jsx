@@ -36,7 +36,15 @@ const Related = () => {
             <RelatedList />
           </div>
           <div id="outfitContainer">
-            <div id="addOutfit"><div id="addButton" onClick={addOutfitClick}>+</div></div>
+            <div id="addOutfit">
+              <div id="addButton" onClick={addOutfitClick}>
+                <br />
+                +
+                <br />
+                <br />
+                Add Outfit
+              </div>
+            </div>
             <OutfitList />
           </div>
         </RelatedContext.Provider>
