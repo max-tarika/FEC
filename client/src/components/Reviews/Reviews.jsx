@@ -78,11 +78,7 @@ const Reviews = () => {
               </select>
             </div>
             <div id="reviewList">
-<<<<<<< HEAD
-              {reviews.map((review, index) => <Review data={review} average={average} key={index} />)}
-=======
               {reviews.map((review) => <Review data={review} average={review.rating} />)}
->>>>>>> main
             </div>
             <button
               type="button"
