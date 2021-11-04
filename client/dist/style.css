@@ -28,6 +28,10 @@ h1 {
 
 
 /* Styling for Overview */
+button:hover {
+  cursor: pointer;
+}
+
 #overviewContainer {
   padding: 5px;
   display: flex;
@@ -53,6 +57,10 @@ h1 {
   height: 25px;
   background-color: white;
   border: 1px solid black;
+}
+
+#sizeButton:hover {
+  background-color: rgba(0, 0, 0, 0.34);
 }
 
 #sizeSelector{
@@ -91,6 +99,10 @@ h1 {
   font-size: 15px;
 }
 
+#addToCartButton:hover {
+  background-color: rgba(0, 0, 0, 0.34);
+}
+
 #selectorContainer {
   display: flex;
 }
@@ -114,10 +126,14 @@ h1 {
   object-fit: cover;
   margin: 5px;
   border-radius: 50%;
-  border: 1px solid grey;
+  border: 3px solid black;
   overflow: hidden;
   width: 65px;
   height: 65px;
+}
+
+.styleSelectWrapper:hover {
+  cursor: pointer;
 }
 
 .icon {
@@ -183,7 +199,8 @@ img.styleThumbnail {
 }
 
 #description {
-  border-right: 3px solid black;
+  padding-right: 15px;
+  border-right: 3px solid rgba(0, 0, 0, 0.54);
   width: 70%;
 }
 
