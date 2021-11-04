@@ -76,7 +76,7 @@ const Reviews = () => {
               </select>
             </div>
             <div id="reviewList">
-              {reviews.map((review) => <Review data={review} average={average} />)}
+              {reviews.map((review) => <Review data={review} average={review.rating} />)}
             </div>
             <button
               type="button"
