@@ -69,11 +69,11 @@ const ProductCard = ({ id }) => {
 
   return (
     <div>
-      <div id="default_image"><img src={image} width="150" height="150" /></div>
-      <div className="product_category">{category}</div>
-      <div className="product_name">{name}</div>
-      <div className="product_price">{price}</div>
-      <Stars average={relatedAverage} />
+      <div id="default_image"><img id={id} src={image} width="150" height="150" /></div>
+      <div className="product_category" id={id}>{category}</div>
+      <div className="product_name" id={id}>{name}</div>
+      <div className="product_price" id={id}>{price}</div>
+      <div className="stars" />
     </div>
   );
 };
