@@ -10,10 +10,10 @@ const ProductBreakdown = ({ characteristics }) => {
   const qualityOffset = ((characteristics?.Quality?.value) / 5) * 100;
 
   useEffect(() => {
-    console.log(comfortOffset);
   }, [context]);
   return (
     <div id="productBreakdown">
+      <p style={{ fontVariant: 'none' }}>Product Breakdown</p>
       <div id="comfortReview">
         Comfort
         <div className="ReviewBar">
