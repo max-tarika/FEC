@@ -9,26 +9,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./client/src/assets/starFill.png":
-/*!****************************************!*\
-  !*** ./client/src/assets/starFill.png ***!
-  \****************************************/
-/***/ (() => {
-
-eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n(Source code omitted for this binary file)\");\n\n//# sourceURL=webpack://fec/./client/src/assets/starFill.png?");
-
-/***/ }),
-
-/***/ "./client/src/assets/starOutline.png":
-/*!*******************************************!*\
-  !*** ./client/src/assets/starOutline.png ***!
-  \*******************************************/
-/***/ (() => {
-
-eval("throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n(Source code omitted for this binary file)\");\n\n//# sourceURL=webpack://fec/./client/src/assets/starOutline.png?");
-
-/***/ }),
-
 /***/ "./client/src/app.jsx":
 /*!****************************!*\
   !*** ./client/src/app.jsx ***!
@@ -311,7 +291,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/starOutline.png */ \"./client/src/assets/starOutline.png\");\n/* harmony import */ var _assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _assets_starFill_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/starFill.png */ \"./client/src/assets/starFill.png\");\n/* harmony import */ var _assets_starFill_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_starFill_png__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\nvar Star = function Star(props) {\n  var index = props.index;\n  var average = props.average;\n\n  var getFill = function getFill(index, average) {\n    var percent = (average - Math.floor(average)) * 100;\n\n    if (average >= index + 1) {\n      return '100%';\n    }\n\n    if (average > index && average < index + 1) {\n      return \"\".concat(percent, \"%\");\n    }\n\n    return '0%';\n  };\n\n  var fill = getFill(index, average);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"starWrapper\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"innerStar\",\n    style: {\n      width: fill\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    src: (_assets_starFill_png__WEBPACK_IMPORTED_MODULE_2___default())\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    src: (_assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1___default()),\n    className: \"outerStar\"\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Star);\n\n//# sourceURL=webpack://fec/./client/src/components/Reviews/Star.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/starOutline.png */ \"./client/src/assets/starOutline.png\");\n/* harmony import */ var _assets_starFill_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/starFill.png */ \"./client/src/assets/starFill.png\");\n\n\n\n\nvar Star = function Star(props) {\n  var index = props.index;\n  var average = props.average;\n\n  var getFill = function getFill(index, average) {\n    var percent = (average - Math.floor(average)) * 100;\n\n    if (average >= index + 1) {\n      return '100%';\n    }\n\n    if (average > index && average < index + 1) {\n      return \"\".concat(percent, \"%\");\n    }\n\n    return '0%';\n  };\n\n  var fill = getFill(index, average);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"starWrapper\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"innerStar\",\n    style: {\n      width: fill\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    src: _assets_starFill_png__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    src: _assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n    className: \"outerStar\"\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Star);\n\n//# sourceURL=webpack://fec/./client/src/components/Reviews/Star.jsx?");
 
 /***/ }),
 
@@ -322,7 +302,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/starOutline.png */ \"./client/src/assets/starOutline.png\");\n/* harmony import */ var _assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _assets_starFill_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/starFill.png */ \"./client/src/assets/starFill.png\");\n/* harmony import */ var _assets_starFill_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_starFill_png__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _Star_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Star.jsx */ \"./client/src/components/Reviews/Star.jsx\");\n/* harmony import */ var _reviewsContext_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reviewsContext.js */ \"./client/src/components/Reviews/reviewsContext.js\");\nfunction _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }\n\nfunction _nonIterableSpread() { throw new TypeError(\"Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _iterableToArray(iter) { if (typeof Symbol !== \"undefined\" && iter[Symbol.iterator] != null || iter[\"@@iterator\"] != null) return Array.from(iter); }\n\nfunction _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\n/* eslint-disable jsx-a11y/alt-text */\n\n\n\n\n\n\nvar Stars = function Stars(props) {\n  var context = _reviewsContext_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"];\n  var average = props.average;\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, [context]);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    id: \"allStars\"\n  }, _toConsumableArray(new Array(5)).map(function (_, i) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Star_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n      index: i,\n      average: average\n    });\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stars);\n\n//# sourceURL=webpack://fec/./client/src/components/Reviews/Stars.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _assets_starOutline_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/starOutline.png */ \"./client/src/assets/starOutline.png\");\n/* harmony import */ var _assets_starFill_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/starFill.png */ \"./client/src/assets/starFill.png\");\n/* harmony import */ var _Star_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Star.jsx */ \"./client/src/components/Reviews/Star.jsx\");\n/* harmony import */ var _reviewsContext_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reviewsContext.js */ \"./client/src/components/Reviews/reviewsContext.js\");\nfunction _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }\n\nfunction _nonIterableSpread() { throw new TypeError(\"Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _iterableToArray(iter) { if (typeof Symbol !== \"undefined\" && iter[Symbol.iterator] != null || iter[\"@@iterator\"] != null) return Array.from(iter); }\n\nfunction _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\n/* eslint-disable jsx-a11y/alt-text */\n\n\n\n\n\n\nvar Stars = function Stars(props) {\n  var context = _reviewsContext_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"];\n  var average = props.average;\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, [context]);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    id: \"allStars\"\n  }, _toConsumableArray(new Array(5)).map(function (_, i) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Star_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n      index: i,\n      average: average\n    });\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stars);\n\n//# sourceURL=webpack://fec/./client/src/components/Reviews/Stars.jsx?");
 
 /***/ }),
 
@@ -1002,6 +982,28 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 "use strict";
 eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ \"./node_modules/scheduler/cjs/scheduler-tracing.development.js\");\n}\n\n//# sourceURL=webpack://fec/./node_modules/scheduler/tracing.js?");
 
+/***/ }),
+
+/***/ "./client/src/assets/starFill.png":
+/*!****************************************!*\
+  !*** ./client/src/assets/starFill.png ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"fb8c10435ffbe1f7297eaf3736d34a32.png\");\n\n//# sourceURL=webpack://fec/./client/src/assets/starFill.png?");
+
+/***/ }),
+
+/***/ "./client/src/assets/starOutline.png":
+/*!*******************************************!*\
+  !*** ./client/src/assets/starOutline.png ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"421012cc16a9de2fdce5e90998d34f7a.png\");\n\n//# sourceURL=webpack://fec/./client/src/assets/starOutline.png?");
+
 /***/ })
 
 /******/ 	});
@@ -1086,6 +1088,26 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
