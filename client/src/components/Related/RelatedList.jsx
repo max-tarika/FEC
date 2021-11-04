@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import HorizontalGallery from 'react-dynamic-carousel';
 import RelatedContext from './context';
 import ProductCard from './ProductCard.jsx';
 
@@ -13,9 +13,19 @@ const RelatedList = () => {
 
   return (
     <div id="productCardContainer">
+<<<<<<< HEAD
       {
       relatedIds.map((id, index) => <div id="productCard"><ProductCard key={index} id={id} /></div>)
+=======
+      <HorizontalGallery
+        tiles={
+      relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)
+>>>>>>> main
 }
+        elementWidth={200}
+        fadeDistance={100}
+        minPadding={10}
+      />
     </div>
   );
 };

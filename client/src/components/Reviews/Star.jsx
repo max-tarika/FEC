@@ -19,11 +19,9 @@ const Star = (props) => {
     return '0%';
   };
 
-  const fill = getFill(index, average);
-
   return (
     <div className="starWrapper">
-      <div className="innerStar" style={{ width: fill }}>
+      <div className="innerStar" style={{ width: getFill(index, average) }}>
         <img src={starFill} />
       </div>
       <img src={starOutline} className="outerStar" />

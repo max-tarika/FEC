@@ -10,6 +10,29 @@ import AppContext from './context.js';
 
 const App = () => {
   const [currentProduct, setCurrentProduct] = useState([]);
+  const [currentReview, setCurrentReview] = useState([]);
+  const [average, setAverage] = useState(0);
+
+  const getReviewData = () => {
+    const productID = currentProduct?.id;
+    axios({
+      method: 'GET',
+      url: `/reviews/meta/?product_id=${productID}`,
+    })
+      .then((res) => {
+        setCurrentReview(res.data);
+        let sum = 0;
+        let count = 0;
+        Object.keys(res.data.ratings).forEach((rating) => {
+          sum += rating * res.data.ratings[rating];
+          count += Number(res.data.ratings[rating]);
+        });
+        setAverage(Number((sum / count).toFixed(2)));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     axios({
@@ -18,12 +41,16 @@ const App = () => {
     })
       .then((res) => {
         setCurrentProduct(res.data[0]);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-  }, []);
+    getReviewData();
+  }, [currentProduct]);
 
   return (
     <AppContext.Provider value={{
-      currentProduct,
+      currentProduct, currentReview, average,
     }}
     >
       <div>
