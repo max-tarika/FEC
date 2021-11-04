@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
@@ -11,32 +13,15 @@ import AppContext from '../../context.js';
 import ReviewsContext from './reviewsContext.js';
 
 const Reviews = () => {
-  const currentProduct = useContext(AppContext);
+  const context = useContext(AppContext);
+  const { currentProduct } = context;
+  const { average } = context;
+  const { currentReview } = context;
 
-  const [currentReview, setCurrentReview] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [average, setAverage] = useState(0);
-
-  const getReviewData = () => {
-    const productID = currentProduct.currentProduct?.id;
-    axios({
-      method: 'GET',
-      url: `/reviews/meta/?product_id=${productID}`,
-    })
-      .then((res) => {
-        setCurrentReview(res.data);
-        let sum = 0;
-        let count = 0;
-        Object.keys(res.data.ratings).forEach((rating) => {
-          sum += rating * res.data.ratings[rating];
-          count += Number(res.data.ratings[rating]);
-        });
-        setAverage(Number((sum / count).toFixed(2)));
-      });
-  };
 
   const getReviewsForCurrent = () => {
-    const productID = currentProduct.currentProduct?.id;
+    const productID = context.currentProduct?.id;
     axios({
       method: 'GET',
       url: `/reviews/?product_id=${productID}`,
@@ -47,10 +32,9 @@ const Reviews = () => {
   };
 
   useEffect(() => {
-    if (currentProduct.currentProduct?.length < 1) { return; }
-    getReviewData();
+    if (context.currentProduct?.length < 1) { return; }
     getReviewsForCurrent();
-  }, [currentProduct]);
+  }, [context]);
 
   return (
     <ReviewsContext.Provider value={{

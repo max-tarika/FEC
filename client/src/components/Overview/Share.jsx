@@ -3,7 +3,6 @@ import {
   FacebookIcon, PinterestIcon, TwitterIcon,
   FacebookShareButton, PinterestShareButton, TwitterShareButton,
 } from 'react-share';
-// import OverviewContext from './context.js';
 
 const Share = () => (
   <div id="share">

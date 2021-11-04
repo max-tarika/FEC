@@ -1,5 +1,6 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react';
-import OverviewContext from './context.js';
+import { OverviewContext } from './context.js';
 import Feature from './Features.jsx';
 
 const Description = () => {
@@ -13,7 +14,7 @@ const Description = () => {
           <p>{productInfo.description}</p>
         </div>
         <ul id="features">
-          {productInfo.features.map((feature) => <Feature feature={feature} />)}
+          {productInfo.features.map((feature, index) => <Feature feature={feature} key={index} />)}
         </ul>
       </div>
     );

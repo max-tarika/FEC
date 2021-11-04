@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
-import OverviewContext from './context.js';
+import React, { useContext, useEffect } from 'react';
+import { OverviewContext } from './context.js';
+import AppContext from '../../context.js';
+import Stars from '../Reviews/Stars.jsx';
 import Price from './Price.jsx';
 import Share from './Share.jsx';
 
 const Information = () => {
   const { productInfo } = useContext(OverviewContext);
+  const { average } = useContext(AppContext);
 
+  useEffect(() => {
+  }, [average]);
   return (
     <div id="information">
-      <div id="rating">5 Stars Baby</div>
+      <Stars average={average} />
       <div id="productCategory">{productInfo.category}</div>
       <div id="productName">{productInfo.name}</div>
       <Price />

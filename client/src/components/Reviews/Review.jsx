@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useContext } from 'react';
+import AppContext from '../../context.js';
 
 import Stars from './Stars.jsx';
-import ReviewsContext from './reviewsContext.js';
 
 const Review = (props) => {
-  const context = useContext(ReviewsContext);
+  const context = useContext(AppContext);
   const currentReview = props.data;
   const { average } = props;
 
