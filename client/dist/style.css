@@ -31,7 +31,7 @@ h1 {
 #overview {
   padding: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 #overviewWrapper {
@@ -40,6 +40,67 @@ h1 {
   flex-direction: column;
 }
 
+/* Add to Cart */
+#sizeDropdown {
+  position: absolute;
+  background-color: white;
+  width: 200px;
+  border: 1px solid black;
+}
+
+#sizeButton {
+  width: 200px;
+  height: 25px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#sizeSelector{
+  padding: 10px;
+}
+
+#sizeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sizeSelect {
+  padding: 5px;
+}
+
+.sizeSelect:hover {
+  background-color: rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+}
+
+#quantitySelector {
+  padding: 10px;
+}
+
+#addToCart {
+  padding: 10px;
+}
+
+#addToCartButton {
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+#selectorContainer {
+  display: flex;
+}
+
+.quantity {
+  width: 50px;
+  height: 25px;
+}
+
+/* Styles Selector */
 #stylesWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -65,33 +126,12 @@ h1 {
   text-align: center;
 }
 
-#information {
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-#image {
-  display: flex;
-}
-
 #styleSelector {
   padding: 1rem;
 }
 
-#descriptionWrapper {
-  padding: 15px;
-  margin: 5px;
-}
-
-#price {
-  display: flex;
-  padding: 5px;
-}
-
-img.image {
-  max-height: 800px;
-  max-width: 400px;
+#currentStyleName {
+  padding: 10px;
 }
 
 img.styleThumbnail {
@@ -99,6 +139,48 @@ img.styleThumbnail {
   border: 1px solid grey;
   width: 65px;
   height: 65px;
+}
+
+/* Information */
+#information {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#price {
+  display: flex;
+  padding: 5px;
+}
+
+#productName {
+  padding: 5px;
+  font-size: 50px;
+}
+
+#productCategory {
+  padding: 5px;
+}
+
+#allStars {
+  padding: 5px;
+}
+
+/* Description */
+#descriptionWrapper {
+  padding: 15px;
+  margin: 5px;
+}
+
+/* Image */
+img.image {
+  max-height: 800px;
+  max-width: 400px;
+}
+
+#image {
+  display: flex;
+  padding-right: 20px;
 }
 
 /* Styling for Related and Outfit */

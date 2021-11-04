@@ -67,32 +67,34 @@ const AddToCart = () => {
 
   return (
     <div>
-      <div id="sizeSelector">
-        {inStock
-          ? (
-            <div>
-              {askForSize && <div id="askForSize">Please Select Size</div>}
-              <button type="button" onClick={openSizeSelector}>{selectedSize || 'Select Size'}</button>
-              {open && <SizeDropdown skusArr={skusArr} handleSizeClick={handleSizeClick} />}
-            </div>
-          )
-          : <div>OUT OF STOCK</div>}
-      </div>
-      <div id="quantitySelector">
-        {sizeSelected
-          ? (
-            <select name="quantity" className="quantity" onChange={handleQuantClick}>
-              {skuQuants.map((quant) => <option value={quant} key={quant}>{quant}</option>)}
-            </select>
-          )
-          : (
-            <select name="quantity" className="quantity" disabled="disabled">
-              <option>-</option>
-            </select>
-          )}
+      <div id="selectorContainer">
+        <div id="sizeSelector">
+          {inStock
+            ? (
+              <div>
+                {askForSize && <div id="askForSize">Please Select Size</div>}
+                <button id="sizeButton" type="button" onClick={openSizeSelector}>{selectedSize || 'Select Size'}</button>
+                {open && <SizeDropdown skusArr={skusArr} handleSizeClick={handleSizeClick} />}
+              </div>
+            )
+            : <div>OUT OF STOCK</div>}
+        </div>
+        <div id="quantitySelector">
+          {sizeSelected
+            ? (
+              <select name="quantity" className="quantity" onChange={handleQuantClick}>
+                {skuQuants.map((quant) => <option value={quant} key={quant}>{quant}</option>)}
+              </select>
+            )
+            : (
+              <select name="quantity" className="quantity" disabled="disabled">
+                <option>-</option>
+              </select>
+            )}
+        </div>
       </div>
       <div id="addToCart">
-        {inStock && <button type="button" onClick={handleAddToBagClick}>Add To Bag</button>}
+        {inStock && <button id="addToCartButton" type="button" onClick={handleAddToBagClick}>Add To Bag</button>}
       </div>
     </div>
   );
