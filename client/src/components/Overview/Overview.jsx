@@ -7,7 +7,7 @@ import Information from './Information.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import AppContext from '../../context.js';
-import OverviewContext from './context.js';
+import { OverviewContext } from './context.js';
 import Description from './Description.jsx';
 
 const Overview = () => {

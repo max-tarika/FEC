@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -9,23 +11,28 @@ import AppContext from './context.js';
 const App = () => {
   const [currentProduct, setCurrentProduct] = useState([]);
   const [currentReview, setCurrentReview] = useState([]);
-  const [average, setAverage] = useState(0);
+  const [average, setAverage] = useState();
 
-  const getReviewData = () => {
-    const productID = currentProduct?.id;
+  const calcReviewsAverage = (data) => {
+    let sum = 0;
+    let count = 0;
+    Object.keys(data.ratings).forEach((rating) => {
+      sum += rating * data.ratings[rating];
+      count += Number(data.ratings[rating]);
+    });
+    setAverage(Number((sum / count).toFixed(2)));
+  };
+
+  const getReviewData = (id) => {
+    if (id === undefined) { return; }
+    const productID = id;
     axios({
       method: 'GET',
       url: `/reviews/meta/?product_id=${productID}`,
     })
       .then((res) => {
         setCurrentReview(res.data);
-        let sum = 0;
-        let count = 0;
-        Object.keys(res.data.ratings).forEach((rating) => {
-          sum += rating * res.data.ratings[rating];
-          count += Number(res.data.ratings[rating]);
-        });
-        setAverage(Number((sum / count).toFixed(2)));
+        calcReviewsAverage(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -35,16 +42,21 @@ const App = () => {
   useEffect(() => {
     axios({
       method: 'GET',
-      url: '/products/',
+      url: '/products',
     })
       .then((res) => {
+        console.log(res.data);
         setCurrentProduct(res.data[0]);
+        getReviewData(res.data[0].id);
       })
       .catch((err) => {
         console.log(err);
       });
-    getReviewData();
-  }, [currentProduct]);
+  }, []);
+
+  useEffect(() => {
+
+  }, [average]);
 
   return (
     <AppContext.Provider value={{

@@ -18,7 +18,7 @@ const OutfitList = () => {
   return (
     <div>
       {
-        outfitStorage.map((id) => <div id="outfitCard"><Outfit key={id} id={id} /></div>)
+        outfitStorage.map((id) => <div id="productCard"><Outfit key={id} id={id} /></div>)
       }
     </div>
   );

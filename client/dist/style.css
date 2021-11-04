@@ -16,9 +16,17 @@ h1 {
   letter-spacing: "-0.01562em"
 }
 
+h5 {
+font-weight: 400;
+font-size: "1.5rem";
+line-height: 1.334;
+letter-spacing: "0em";
+}
+
 /* Styling consistent to every widget */
 #widget {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  max-width: 1200px;
   width: 100%;
   border: 2px solid #333;
   border-radius: 4px;
@@ -31,7 +39,7 @@ h1 {
 #overview {
   padding: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 #overviewWrapper {
@@ -40,22 +48,88 @@ h1 {
   flex-direction: column;
 }
 
-#styleSelector {
+/* Add to Cart */
+#sizeDropdown {
+  position: absolute;
+  background-color: white;
+  width: 200px;
+  border: 1px solid black;
+}
+
+#sizeButton {
+  width: 200px;
+  height: 25px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#sizeSelector{
+  padding: 10px;
+}
+
+#sizeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sizeSelect {
+  padding: 5px;
+}
+
+.sizeSelect:hover {
+  background-color: rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+}
+
+#quantitySelector {
+  padding: 10px;
+}
+
+#addToCart {
+  padding: 10px;
+}
+
+#addToCartButton {
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+#selectorContainer {
+  display: flex;
+}
+
+.quantity {
+  width: 50px;
+  height: 25px;
+}
+
+/* Styles Selector */
+#stylesWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-#styleSelectWrapper {
+.styleSelectWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  object-fit: cover;
   margin: 5px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  overflow: hidden;
+  width: 65px;
+  height: 65px;
 }
 
-#selectedIcon {
-  position: relative;
-  top: -35px;
+.icon {
+  position: absolute;
 }
 
 #styleName {
@@ -65,23 +139,24 @@ h1 {
   text-align: center;
 }
 
-#information {
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-#image {
-  display: flex;
-}
-
 #styleSelector {
   padding: 1rem;
 }
 
-#descriptionWrapper {
-  padding: 15px;
-  margin: 5px;
+#currentStyleName {
+  padding: 10px;
+}
+
+img.styleThumbnail {
+  max-width: 150%;
+  max-height: 150%;
+}
+
+/* Information */
+#information {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 #price {
@@ -89,22 +164,44 @@ h1 {
   padding: 5px;
 }
 
-img.image {
-  max-height: 800px;
-  max-width: 400px;
+#productName {
+  padding: 5px;
+  font-size: 50px;
 }
 
-img.styleThumbnail {
-  border-radius: 50%;
-  border: 1px solid grey;
-  width: 65px;
-  height: 65px;
+#productCategory {
+  padding: 5px;
+}
+
+#allStars {
+  padding: 5px;
+}
+
+/* Description */
+#descriptionWrapper {
+  padding: 15px;
+  margin: 5px;
+}
+
+/* Image */
+img.image {
+  object-fit: cover;
+  max-height: 600px;
+  max-width: 500px;
+}
+
+#image {
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
+  height: 600px;
+  width: 500px;
 }
 
 /* Styling for Related and Outfit */
 
 #default_image {
-  border: 2px solid red;
+  border: 1px solid black;
   height: 150px;
   width: 150px;
 }
@@ -113,24 +210,25 @@ img.styleThumbnail {
   border: 1px solid black;
 }
 
-#addOutfit {
-  height: 150px;
-  width: 150px;
-  border: 1px solid grey;
- background-image: url("./img/y-so-serious-white.png");
+#comparisonModal {
+  border: 1px solid black;
+  background-color: aliceblue;
+  height: 300px;
+  width: 300px;
+  float: right;
+  position: absolute;
+  z-index: 6;
 }
 
 #addButton {
-  height: 75px;
-  width: 75px;
+  height: 200px;
+  width: 150px;
   border: 1px solid grey;
-  align-items: center;
+  align-items: left;
   text-align: center;
-  -ms-text-justify: auto;
-  display: flex;
-  justify-content: space-around;
-  font-size: 48px;
-  background-color: khaki;
+  font-size: 36px;
+  background-color: antiquewhite;
+  float: left;
 }
 #outfitContainer {
   border: 2px solid black;
@@ -138,6 +236,7 @@ img.styleThumbnail {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-content: flex-start;
   text-align: center;
 
 }
@@ -191,7 +290,20 @@ img.styleThumbnail {
   max-width: 100%;
   background: rgba(200, 200, 200, 0.3);
   box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
-
+}
+#ratingBar {
+  height: 10px;
+  width: 100%;
+  background: #767676;
+  border-radius: 16px;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  position: relative;
+}
+.ratingBarFill {
+  height: 10px;
+  border-radius: 16px;
+  background: #33dd33;
+  position: absolute;
 }
 
 #productBreakdown {
