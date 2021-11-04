@@ -16,14 +16,6 @@ const Overview = () => {
   const [currentStyle, setStyle] = useState({});
   const [productInfo, setProductInfo] = useState({});
 
-<<<<<<< HEAD
-  // console.log('----------------------------');
-  // console.log('product Info', productInfo);
-  // console.log('current style', currentStyle);
-  // console.log('current styles', styles);
-
-=======
->>>>>>> main
   function setDefaultStyle(stylesArr) {
     for (const style of stylesArr) {
       if (style['default?']) {

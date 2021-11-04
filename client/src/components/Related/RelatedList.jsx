@@ -13,14 +13,9 @@ const RelatedList = () => {
 
   return (
     <div id="productCardContainer">
-<<<<<<< HEAD
-      {
-      relatedIds.map((id, index) => <div id="productCard"><ProductCard key={index} id={id} /></div>)
-=======
       <HorizontalGallery
         tiles={
       relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)
->>>>>>> main
 }
         elementWidth={200}
         fadeDistance={100}

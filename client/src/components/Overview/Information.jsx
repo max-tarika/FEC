@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import OverviewContext from './context.js';
+import { OverviewContext } from './context.js';
 import AppContext from '../../context.js';
 import Stars from '../Reviews/Stars.jsx';
 import Price from './Price.jsx';
