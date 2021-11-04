@@ -73,7 +73,7 @@ const ProductCard = ({ id }) => {
       <div className="product_category" id={id}>{category}</div>
       <div className="product_name" id={id}>{name}</div>
       <div className="product_price" id={id}>{price}</div>
-      <div className="stars" />
+      <Stars average={relatedAverage} />
     </div>
   );
 };
