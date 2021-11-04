@@ -11,9 +11,9 @@ const Style = ({ style, setStyle }) => {
   const isSelected = currentStyle.style_id === style.style_id;
 
   return (
-    <div id="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); setStyle(style.name); }}>
+    <div className="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); setStyle(style.name); }}>
       <img className="styleThumbnail" id="selectedThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
-      <div id="selectedIcon">{isSelected ? <FontAwesomeIcon icon={faCheck} /> : null}</div>
+      <div className="icon">{isSelected ? <FontAwesomeIcon icon={faCheck} color="white" size="2x" /> : null}</div>
     </div>
   );
 };
