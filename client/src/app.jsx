@@ -24,6 +24,7 @@ const App = () => {
   };
 
   const getReviewData = (id) => {
+    if (id === undefined) { return; }
     const productID = id;
     axios({
       method: 'GET',
