@@ -28,7 +28,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   const getReviewsForCurrent = () => {
-    const productID = context.currentProduct?.id;
+    const productID = currentProduct?.id;
     axios({
       method: 'GET',
       url: `/reviews/?product_id=${productID}`,
@@ -39,9 +39,9 @@ const Reviews = () => {
   };
 
   useEffect(() => {
-    if (context.currentProduct?.length < 1) { return; }
+    if (currentProduct?.length < 1) { return; }
     getReviewsForCurrent();
-  }, [context]);
+  }, [currentProduct]);
 
   return (
     <>
