@@ -15,6 +15,13 @@ h1 {
   line-height: 1.167;
   letter-spacing: "-0.01562em"
 }
+h3 {
+  font-family: 'Roboto', sans-serif;;
+  font-weight: 400;
+  font-size: "3rem";
+  line-height: 1.167;
+  letter-spacing: "0em";
+}
 
 h5 {
 font-weight: 400;
@@ -25,7 +32,7 @@ letter-spacing: "0em";
 
 /* Styling consistent to every widget */
 #widget {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   max-width: 1200px;
   border: 2px solid #333;
@@ -457,25 +464,37 @@ img.thumbnail {
 #reviews #sortBar {
   flex-direction: row;
 }
-
-#comfortReview {
-  max-width: 100%;
+#addReview {
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-#fitReview {
-  max-width: 100%;
+.addReview {
+  width: 160px;
+  height: 24px;
+  background-color: rgba(200,200,200,0.66);
+  border-radius: 20px;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  font-size: 12px;
+  transition: 0.5s;
+}
+.addReview:hover {
+  background-color: rgba(215, 185, 75, 0.33);
+  box-shadow: 0px 3px 5px -1px rgba(215, 185, 75,0.2),0px 6px 10px 0px rgba(215, 185, 75,0.14),0px 1px 18px 0px rgba(215, 185, 75,0.12);
+
+  transition: 0.5s;
 }
 
-#lengthReview {
-  max-width: 100%;
-}
 
-#qualityReview {
+#comfortReview, #fitReview, #lengthReview, #qualityReview {
   max-width: 100%;
 }
 
 
 /* ----- Styling for individual review tile ------ */
 #review {
+  margin-top: 8px;
   padding: 4px;
   border: 1px solid rgb(233, 233, 233);
   border-radius: 4px;
@@ -558,4 +577,120 @@ img.thumbnail {
   width: 22px;
   height: 22px;
   transition: 0.5s;
+}
+
+/* modal styling for add review */
+
+.modal {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(215,185,75, 0.65);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5em 1em;
+  z-index: 999999;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.modal.modal-fade {
+  animation: fade-in 1s 1 linear;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.modal > .modal-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.33s;
+}
+
+.modal > .modal-close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #767676;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 2px;
+  background: rgba(200, 200, 200, 0.75);
+  box-shadow: 1px gold;
+  border-radius: 8px;
+  width: 60px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  transition: 0.33s;
+}
+
+.modal > .modal-close:hover {
+  background: rgba(215, 185, 75, 0.95);
+  transition: 0.33s;
+}
+
+.modal > .modal-body {
+  z-index: 2;
+  position: relative;
+  margin: 0 auto;
+  background-color: darkgoldenrod;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  border-radius: 3px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-width: 50%;
+  max-width: 75%;
+  max-height: 100%;
+  padding: 15px 20px;
+  color: #deedee;
+}
+
+
+@keyframes fade-in {
+  0% {
+    animation-timing-function: cubic-bezier(0.2242, 0.7499, 0.3142, 0.8148);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* form styling */
+
+#addReviewForm {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  flex-direction: column;
+  padding: 16px;
+}
+.formElement {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  background: radial-gradient(goldenrod, darkgoldenrod);
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+#reviewSummary {
+  width: 50%;
+  height: 1.5em;
+}
+
+#reviewBody {
+  width: 75%;
+  height: 4em;
 }
