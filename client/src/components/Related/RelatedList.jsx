@@ -24,13 +24,18 @@ const RelatedList = () => {
       <div id="productCardContainer">
         <HorizontalGallery
           tiles={
-      relatedIds.map((id) => <div id="productCard"><ProductCard key={id} id={id} /></div>)
+      relatedIds.map((id) => <div id="productCard" onClick={toggleCompare}><ProductCard key={id} id={id} /></div>)
 }
           elementWidth={200}
           fadeDistance={100}
           minPadding={10}
         />
       </div>
+      <RelatedContext.Provider value={{ currentProduct, clickedItem, showCompare }}>
+        <div>
+          <Compare />
+        </div>
+      </RelatedContext.Provider>
     </div>
   );
 };
