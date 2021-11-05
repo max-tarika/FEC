@@ -227,7 +227,7 @@ img.image {
   max-width: 500px;
 }
 
-#image {
+#defaultImage {
   display: flex;
   justify-content: center;
   padding-right: 20px;
@@ -235,7 +235,7 @@ img.image {
   width: 500px;
 }
 
-#defaultCarousel {
+#defaultThumbnailCarousel {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -274,6 +274,26 @@ img.thumbnail:hover {
 
 #thumbnailContainer {
   margin: 5px;
+}
+
+#defaultImageCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+img.active {
+  display: block;
+}
+
+img.inactive {
+  display: none;
+}
+
+.carouselButton {
+  border: none;
+  background-color: black;
+  /* position: absolute; */
 }
 
 /* Styling for Related and Outfit */

@@ -3,18 +3,21 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
 import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
+import DefaultImageCarousel from './DefaultImageCarousel.jsx';
 
 const DefaultView = () => {
-  const { currentStyle, handleImageClick, image } = useContext(OverviewContext);
+  const { currentStyle } = useContext(OverviewContext);
 
   console.log('style photos: ', currentStyle?.photos);
 
   return (
-    <div id="image">
-      <img onClick={handleImageClick} className="image" src={image} alt={currentStyle.name} />
-      <div id="defaultCarousel">
+    <div id="defaultImage">
+      <DefaultImageCarousel />
+      <div id="defaultThumbnailCarousel">
         {currentStyle?.photos?.map((thumbnail) => <DefaultImageThumbnail thumbnail={thumbnail} />)}
       </div>
     </div>
