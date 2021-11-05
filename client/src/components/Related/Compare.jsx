@@ -7,6 +7,8 @@ const Compare = () => {
   const current = context.currentProduct.currentProduct.id;
   const related = context.clickedItem;
   let a; let A; let b; let B; let c; let C; let d; let D; let e; let E; let f; let F;
+  // Go through the styles and get the characteristics
+  // Combine all characteristics into list and map over list
 
   useEffect(() => {
 

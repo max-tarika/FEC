@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import RelatedContext from './context';
 import AppContext from '../../context';
-
+import xIcon from '../../assets/Xicon.png';
 import Stars from '../Reviews/Stars.jsx';
 
 const Outfit = ({ id }) => {
@@ -46,6 +46,7 @@ const Outfit = ({ id }) => {
       <div id="default_image">
         {' '}
         <img src={image} width="150" height="150" />
+        <div id="actionButton"><img src={xIcon} height="20" width="25" /></div>
       </div>
       <div className="product_category">{category}</div>
       <div className="product_name">{name}</div>
