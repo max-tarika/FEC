@@ -12,7 +12,7 @@ import DefaultImageCarousel from './DefaultImageCarousel.jsx';
 const DefaultView = () => {
   const { currentStyle } = useContext(OverviewContext);
 
-  console.log('style photos: ', currentStyle?.photos);
+  // console.log('style photos: ', currentStyle?.photos);
 
   return (
     <div id="defaultImage">

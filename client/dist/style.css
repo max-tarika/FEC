@@ -157,8 +157,14 @@ button:hover {
 
 .icon {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
 }
 
 #styleName {
@@ -295,11 +301,11 @@ img.thumbnail:hover {
   justify-content: center;
 }
 
-img.active {
+.active {
   display: block;
 }
 
-img.inactive {
+.inactive {
   display: none;
 }
 
