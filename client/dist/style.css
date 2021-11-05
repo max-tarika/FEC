@@ -261,7 +261,26 @@ img.thumbnail {
   height: 150px;
   width: 150px;
 }
+#actionButton {
+  top: 0px;
+  right: 0px;
+  color:red;
+  font-size: 22px;
+  z-index: 2;
+  float: right;
+}
+.product_category {
+  font-size: small;
+  color:#767676;
+}
 
+.product_price {
+  font-size: smaller;
+  color:#767676;
+}
+.product_name {
+  font-size: small;
+}
 
 #comparisonModal {
   border: 1px solid black;

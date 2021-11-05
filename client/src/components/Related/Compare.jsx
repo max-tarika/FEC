@@ -7,60 +7,9 @@ const Compare = () => {
   const current = context.currentProduct.currentProduct.id;
   const related = context.clickedItem;
   let a; let A; let b; let B; let c; let C; let d; let D; let e; let E; let f; let F;
-  let index = -1;
-  const checkCurrent = () => {
-    for (let i = 0; i < characteristics.length; i += 1) {
-      if (characteristics[i].id === current) {
-        index = i;
-      }
-    }
-    const char = characteristics[index];
-    if (char?.gmo === true) {
-      a = '√';
-    }
-    if (char?.fairTrade === true) {
-      b = '√';
-    }
-    if (char?.local === true) {
-      c = '√';
-    }
-    if (char?.recycled === true) {
-      d = '√';
-    }
-    if (char?.charity === true) {
-      e = '√';
-    }
-    if (char?.oneDay === true) {
-      f = '√';
-    }
-  };
-
-  const checkRelated = () => {
-    const index = characteristics.indexOf(related);
-    const char = characteristics[index];
-    if (char?.gmo === true) {
-      A = '√';
-    }
-    if (char?.fairTrade === true) {
-      B = '√';
-    }
-    if (char?.local === true) {
-      C = '√';
-    }
-    if (char?.recycled === true) {
-      D = '√';
-    }
-    if (char?.charity === true) {
-      E = '√';
-    }
-    if (char?.oneDay === true) {
-      F = '√';
-    }
-  };
 
   useEffect(() => {
-    checkCurrent();
-    checkRelated();
+
   }, [related]);
 
   if (context.showCompare) {
