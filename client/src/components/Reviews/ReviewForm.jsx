@@ -148,7 +148,7 @@ const ReviewForm = () => {
       <div className="formElement">
         <h3>What is your nickname?: </h3>
         <input type="text" id="reviewSummary" maxLength="60" placeholder="Example: islandBoi123" />
-        <h5>For privacy reasons, do not use your full name or email address</h5>
+        <h5>**For privacy reasons, do not use your full name or email address</h5>
       </div>
     </div>
   );
