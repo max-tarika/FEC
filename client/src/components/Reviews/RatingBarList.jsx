@@ -16,11 +16,11 @@ const RatingBarList = (props) => {
     if (context.currentProduct?.length < 1) { return; }
     if (props.total === null || props.total === undefined) { return; }
 
-    setPercent5((props.ratings['5'] / props.total) * 100);
-    setPercent4((props.ratings['4'] / props.total) * 100);
-    setPercent3((props.ratings['3'] / props.total) * 100);
-    setPercent2((props.ratings['2'] / props.total) * 100);
-    setPercent1((props.ratings['1'] / props.total) * 100);
+    setPercent5(Math.floor((props.ratings['5'] / props.total) * 100));
+    setPercent4(Math.floor((props.ratings['4'] / props.total) * 100));
+    setPercent3(Math.floor((props.ratings['3'] / props.total) * 100));
+    setPercent2(Math.floor((props.ratings['2'] / props.total) * 100));
+    setPercent1(Math.floor((props.ratings['1'] / props.total) * 100));
   }, [context]);
 
   return (

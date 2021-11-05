@@ -9,9 +9,6 @@ const Review = (props) => {
   const currentReview = props.data;
   const { average } = props;
 
-  useEffect(() => {
-  }, [context]);
-
   return (
     <div id="review">
       <div id="reviewTopBar">
@@ -25,7 +22,7 @@ const Review = (props) => {
             {' '}
             on
             {' '}
-            <em>{currentReview.date}</em>
+            <em>{currentReview.date.split('T')[0]}</em>
           </h5>
         </div>
       </div>
@@ -38,7 +35,10 @@ const Review = (props) => {
         <h5>
           Was this review island worthy?
           {' '}
-          <strong>Yes</strong>
+          <strong>
+            Yes
+
+          </strong>
           {' '}
           (
           {currentReview.helpfulness}
