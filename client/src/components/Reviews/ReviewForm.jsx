@@ -145,11 +145,30 @@ const ReviewForm = () => {
 
         </button>
       </div>
+
       <div className="formElement">
         <h3>What is your nickname?: </h3>
-        <input type="text" id="reviewSummary" maxLength="60" placeholder="Example: islandBoi123" />
+        <input type="text" id="userNickname" maxLength="60" placeholder="Example: islandBoi123" />
         <h5>**For privacy reasons, do not use your full name or email address</h5>
       </div>
+
+      <div className="formElement">
+        <h3>What is your nickname?: </h3>
+        <input type="text" id="userEmail" maxLength="60" placeholder="Example: islandBoi123@email.com" />
+        <h5>**For authentication reassons, you will not be emailed</h5>
+      </div>
+
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          alert('Review Submitted.... Just to nowhere');
+        }}
+      >
+        Submit Review
+
+      </button>
+
     </div>
   );
 };
