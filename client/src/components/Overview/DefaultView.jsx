@@ -8,13 +8,12 @@ import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
 
 const DefaultView = () => {
   const { currentStyle, handleImageClick, image } = useContext(OverviewContext);
-  // const [image, setImage] = useState();
 
   console.log('style photos: ', currentStyle?.photos);
 
   return (
     <div id="image">
-      <img onClick={handleImageClick} className="image" src={image || currentStyle?.photos?.[0].url} alt={currentStyle.name} />
+      <img onClick={handleImageClick} className="image" src={image} alt={currentStyle.name} />
       <div id="defaultCarousel">
         {currentStyle?.photos?.map((thumbnail) => <DefaultImageThumbnail thumbnail={thumbnail} />)}
       </div>

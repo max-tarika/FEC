@@ -50,6 +50,7 @@ const Overview = () => {
         .then((response) => {
           setStyles(response.data.results);
           setDefaultStyle(response.data.results);
+          setImage(response.data.results[0].photos[0].url);
         })
         .catch((err) => { console.error(err); });
     }

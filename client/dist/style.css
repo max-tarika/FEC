@@ -246,6 +246,9 @@ img.image {
   width: 40px;
   overflow: hidden;
   transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 img.thumbnail {
@@ -253,15 +256,24 @@ img.thumbnail {
   max-height: 150%;
   max-width: 150%;
   margin: 7px;
-  transition: 0.4s;
+  /* transition: 0.4s; */
 }
 
 img.thumbnail:hover {
   cursor: pointer;
-  position: absolute;
+  /* position: absolute;
   height: 50px;
   width: 50px;
-  transition: 0.4s;
+  transition: 0.4s; */
+}
+
+#selectedThumbnail {
+  border-bottom: 3px solid black;
+  margin-top: 2px;
+}
+
+#thumbnailContainer {
+  margin: 5px;
 }
 
 /* Styling for Related and Outfit */
