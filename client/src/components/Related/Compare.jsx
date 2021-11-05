@@ -67,41 +67,41 @@ const Compare = () => {
     return (
       <div id="comparisonModal">
         <table>
-          <tr id="tableHeaders">
+          <thead id="tableHeaders">
             <th>Current Product</th>
             <th>Characteristics</th>
             <th>Compare With...</th>
-          </tr>
-          <tr>
+          </thead>
+          <tbody>
             <th>{a}</th>
             <th>GMO Free</th>
             <th>{A}</th>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <th>{b}</th>
             <th>Fair Trade Certified</th>
             <th>{B}</th>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <th>{c}</th>
             <th>Locally Sourced</th>
             <th>{C}</th>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <th>{d}</th>
             <th>Made from Recycled Materials</th>
             <th>{D}</th>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <th>{e}</th>
             <th>Contributes to Global Charities</th>
             <th>{E}</th>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <th>{f}</th>
             <th>One Day Shipping</th>
             <th>{F}</th>
-          </tr>
+          </tbody>
         </table>
       </div>
     );

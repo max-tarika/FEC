@@ -26,7 +26,7 @@ const RelatedList = () => {
           tiles={
       relatedIds.map((id) => <div id="productCard" onClick={toggleCompare}><ProductCard key={id} id={id} /></div>)
 }
-          elementWidth={200}
+          elementWidth={185}
           fadeDistance={100}
           minPadding={10}
         />

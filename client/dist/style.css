@@ -262,39 +262,39 @@ img.thumbnail {
   width: 150px;
 }
 
-#productCardContainer {
-  border: 1px solid black;
-}
 
 #comparisonModal {
   border: 1px solid black;
-  background-color: aliceblue;
+  background-color: rgb(252, 252, 252);
   height: 300px;
   width: 300px;
   float: right;
   position: absolute;
   z-index: 6;
 }
-
+.MuiSvgIcon-root {
+  z-index: 2;
+  font-size: larger;
+  height: 40px;
+}
 #addButton {
-  height: 200px;
+  height: 225px;
   width: 150px;
   border: 1px solid grey;
   align-items: left;
   text-align: center;
   font-size: 36px;
-  background-color: antiquewhite;
+  background-color: rgb(252, 252, 252);
   float: left;
 }
 #outfitContainer {
-  border: 2px solid black;
   background-image: url("./img/y-so-serious-white.png");
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-content: flex-start;
   text-align: center;
-
+  
 }
 
 #productCardContainer {
