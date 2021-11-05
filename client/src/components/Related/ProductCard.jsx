@@ -7,7 +7,7 @@ import Stars from '../Reviews/Stars.jsx';
 const ProductCard = ({ id }) => {
   const context = useContext(RelatedContext);
   const appContext = useContext(AppContext);
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState('https://pluspng.com/img-png/loader-png-indicator-loader-spinner-icon-512.png');
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
