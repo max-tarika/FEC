@@ -27,30 +27,39 @@ const RatingBarList = (props) => {
     <div>
       <h5>
         5 stars:
-        {' '}
-        <RatingBar percent={percent5} />
       </h5>
+      {' '}
+      <RatingBar percent={percent5} />
+      {`${percent5}%`}
+
       <h5>
         4 stars:
         {' '}
         <RatingBar percent={percent4} />
+        {`${percent4}% (out of ${props.total})`}
+
       </h5>
       <h5>
         3 stars:
         {' '}
         <RatingBar percent={percent3} />
+        {`${percent3}% (out of ${props.total})`}
       </h5>
 
       <h5>
         2 stars:
         {' '}
         <RatingBar percent={percent2} />
+        {`${percent2}% (out of ${props.total})`}
+
       </h5>
 
       <h5>
         1 star:
         {' '}
         <RatingBar percent={percent1} />
+        {`${percent1}% (out of ${props.total})`}
+
       </h5>
 
     </div>

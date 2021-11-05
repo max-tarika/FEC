@@ -23,6 +23,9 @@ const RatingBreakdown = (props) => {
   return (
     <div id="ratingBreakdown">
       Rating Breakdown
+      {' '}
+      {`(out of ${getTotal(props?.ratings)} reviews)`}
+
       <RatingBarList ratings={props?.ratings} total={getTotal(props?.ratings)} />
     </div>
   );
