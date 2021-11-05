@@ -2,35 +2,41 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
-import Image from './Image.jsx';
 import Information from './Information.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import AppContext from '../../context.js';
 import { OverviewContext } from './context.js';
 import Description from './Description.jsx';
+import ExpandedView from './ExpandedView.jsx';
+import DefaultView from './DefaultView.jsx';
 
 const Overview = () => {
   const { currentProduct } = useContext(AppContext);
   const [styles, setStyles] = useState([]);
   const [currentStyle, setStyle] = useState({});
   const [productInfo, setProductInfo] = useState({});
+  const [imageView, setImageView] = useState(false);
 
-  function setDefaultStyle(stylesArr) {
+  const setDefaultStyle = (stylesArr) => {
     for (const style of stylesArr) {
       if (style['default?']) {
         setStyle(style);
       }
     }
-  }
+  };
 
-  function handleStyleClick(styleId) {
+  const handleStyleClick = (styleId) => {
     for (const style of styles) {
       if (style.style_id === styleId) {
         setStyle(style);
       }
     }
-  }
+  };
+
+  const handleImageClick = () => {
+    setImageView(!imageView);
+  };
 
   useEffect(() => {
     if (currentProduct?.id) {
@@ -50,18 +56,22 @@ const Overview = () => {
 
   return (
     <OverviewContext.Provider value={{
-      productInfo, styles, currentStyle, handleStyleClick,
+      productInfo, styles, currentStyle, handleStyleClick, handleImageClick,
     }}
     >
       <section id="widget">
-        <div id="overviewContainer">
-          <Image />
-          <div id="overviewWrapper">
-            <Information />
-            <StyleSelector />
-            <AddToCart />
-          </div>
-        </div>
+        {imageView
+          ? <ExpandedView />
+          : (
+            <div id="overviewContainer">
+              <DefaultView />
+              <div id="overviewWrapper">
+                <Information />
+                <StyleSelector />
+                <AddToCart />
+              </div>
+            </div>
+          )}
         <div id="descriptionContainer">
           <Description />
         </div>

@@ -235,6 +235,25 @@ img.image {
   width: 500px;
 }
 
+#defaultCarousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#thumbnailWrapper {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+}
+
+img.thumbnail {
+  object-fit: cover;
+  max-height: 150%;
+  max-width: 150%;
+  margin: 7px;
+}
+
 /* Styling for Related and Outfit */
 
 #default_image {

@@ -12,7 +12,7 @@ const Style = ({ style, setStyle }) => {
 
   return (
     <div className="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); setStyle(style.name); }}>
-      <img className="styleThumbnail" id="selectedThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
+      <img className="styleThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
       <div className="icon">{isSelected ? <FontAwesomeIcon icon={faCheck} color="white" size="2x" /> : null}</div>
     </div>
   );
