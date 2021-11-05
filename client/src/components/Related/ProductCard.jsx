@@ -3,6 +3,7 @@ import axios from 'axios';
 import RelatedContext from './context';
 import AppContext from '../../context';
 import Stars from '../Reviews/Stars.jsx';
+import starIcon from '../../assets/starIcon.jpeg';
 
 const ProductCard = ({ id }) => {
   const context = useContext(RelatedContext);
@@ -69,8 +70,11 @@ const ProductCard = ({ id }) => {
 
   return (
     <div>
-      <div id="default_image"><img id={id} src={image} width="150" height="150" />
-      <div id="actionButton">x</div></div>
+      <div id="default_image">
+        <img id={id} src={image} width="150" height="150" />
+        <div id="actionButton"><img src={starIcon} height="20" width="20" /></div>
+
+      </div>
       <div className="product_category" id={id}>{category}</div>
       <div className="product_name" id={id}>{name}</div>
       <div className="product_price" id={id}>{price}</div>
