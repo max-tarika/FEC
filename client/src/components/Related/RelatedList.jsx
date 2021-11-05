@@ -15,7 +15,11 @@ const RelatedList = () => {
   }, [relatedIds]);
 
   const toggleCompare = (e, data) => {
-    setShowCompare(true);
+    if (!showCompare) {
+      setShowCompare(true);
+    } else if (showCompare) {
+      setShowCompare(false);
+    }
     setClickedItem(e.target.id);
   };
 
