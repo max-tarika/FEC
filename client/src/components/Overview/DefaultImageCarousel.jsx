@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
 
 const DefaultImageCarousel = () => {
-  const { currentStyle, handleImageClick, image } = useContext(OverviewContext);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const {
+    currentStyle, handleImageClick, activeIndex, setActiveIndex,
+  } = useContext(OverviewContext);
   const length = currentStyle?.photos?.length;
   // const [currentImage, setCurrentImage] = useState();
   // const [carouselLength, setCarouselLength] = useState(currentStyle?.photos.length);
@@ -25,7 +26,7 @@ const DefaultImageCarousel = () => {
       <button className={activeIndex === 0 ? 'inactive' : 'carouselButton carouselLeft'} onClick={goToPrevSlide} type="button">
         <FontAwesomeIcon icon={faAngleLeft} color="white" />
       </button>
-      <div>
+      <div className="innerCarousel">
         {currentStyle?.photos?.map((photo, i) => (
           <img
             onClick={handleImageClick}

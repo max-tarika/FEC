@@ -305,6 +305,11 @@ img.thumbnail:hover {
   justify-content: center;
 }
 
+.innerCarousel {
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+
 .active {
   display: block;
 }
