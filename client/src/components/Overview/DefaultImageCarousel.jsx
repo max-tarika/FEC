@@ -8,33 +8,21 @@ import { OverviewContext } from './context.js';
 const DefaultImageCarousel = () => {
   const { currentStyle, handleImageClick, image } = useContext(OverviewContext);
   const [activeIndex, setActiveIndex] = useState(0);
+  const length = currentStyle?.photos?.length;
   // const [currentImage, setCurrentImage] = useState();
   // const [carouselLength, setCarouselLength] = useState(currentStyle?.photos.length);
 
   const goToPrevSlide = () => {
-    let index = activeIndex;
-
-    if (index > 0) {
-      index -= 1;
-    }
-
-    setActiveIndex(index);
+    setActiveIndex(activeIndex === 0 ? activeIndex : activeIndex - 1);
   };
 
   const goToNextSlide = () => {
-    let index = activeIndex;
-    const length = currentStyle?.photos?.length;
-
-    if (index < length - 1) {
-      index += 1;
-    }
-
-    setActiveIndex(index);
+    setActiveIndex(activeIndex === length - 1 ? activeIndex : activeIndex + 1);
   };
 
   return (
     <div id="defaultImageCarousel">
-      <button className="carouselButton carouselLeft" onClick={goToPrevSlide} type="button">
+      <button className={activeIndex === 0 ? 'inactive' : 'carouselButton carouselLeft'} onClick={goToPrevSlide} type="button">
         <FontAwesomeIcon icon={faAngleLeft} color="white" />
       </button>
       <div>
@@ -47,7 +35,7 @@ const DefaultImageCarousel = () => {
           />
         ))}
       </div>
-      <button className="carouselButton carouselRight" onClick={goToNextSlide} type="button">
+      <button className={activeIndex === length - 1 ? 'inactive' : 'carouselButton carouselRight'} onClick={goToNextSlide} type="button">
         <FontAwesomeIcon icon={faAngleRight} color="white" />
       </button>
     </div>
@@ -55,3 +43,9 @@ const DefaultImageCarousel = () => {
 };
 
 export default DefaultImageCarousel;
+
+// <div key={i}>
+//   {i === activeIndex && (
+//     <img onClick={handleImageClick} className="image" src={photo.url} alt={currentStyle.name} />
+//   )}
+// </div>
