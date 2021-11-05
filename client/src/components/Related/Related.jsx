@@ -32,9 +32,9 @@ const Related = () => {
     <div id="widget">
       <div>
         <RelatedContext.Provider value={{ relatedIds, currentProduct, outfit }}>
-          <div id="relatedProductsContainer">
-            <RelatedList />
-          </div>
+
+          <RelatedList />
+
           <div id="outfitContainer">
             <div id="addOutfit">
               <div id="addButton" onClick={addOutfitClick}>
