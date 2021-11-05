@@ -4,11 +4,11 @@ import React, { useContext } from 'react';
 import { OverviewContext } from './context.js';
 
 const ExpandedView = () => {
-  const { currentStyle, handleImageClick } = useContext(OverviewContext);
+  const { currentStyle, handleImageClick, image } = useContext(OverviewContext);
 
   return (
-    <div id="image">
-      <img onClick={handleImageClick} className="image" src={currentStyle?.photos?.[0].url} alt={currentStyle.name} />
+    <div id="expandedImage">
+      <img onClick={handleImageClick} className="image" src={image} alt={currentStyle.name} />
     </div>
   );
 };

@@ -17,6 +17,7 @@ const Overview = () => {
   const [currentStyle, setStyle] = useState({});
   const [productInfo, setProductInfo] = useState({});
   const [imageView, setImageView] = useState(false);
+  const [image, setImage] = useState();
 
   const setDefaultStyle = (stylesArr) => {
     for (const style of stylesArr) {
@@ -49,6 +50,7 @@ const Overview = () => {
         .then((response) => {
           setStyles(response.data.results);
           setDefaultStyle(response.data.results);
+          setImage(response.data.results[0].photos[0].url);
         })
         .catch((err) => { console.error(err); });
     }
@@ -56,7 +58,7 @@ const Overview = () => {
 
   return (
     <OverviewContext.Provider value={{
-      productInfo, styles, currentStyle, handleStyleClick, handleImageClick,
+      productInfo, styles, currentStyle, handleStyleClick, handleImageClick, image, setImage,
     }}
     >
       <section id="widget">

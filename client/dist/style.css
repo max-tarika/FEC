@@ -157,6 +157,8 @@ button:hover {
 
 .icon {
   position: absolute;
+  background-color: white;
+  border-radius: 50%;
 }
 
 #styleName {
@@ -231,27 +233,35 @@ img.styleThumbnail {
 img.image {
   object-fit: cover;
   max-height: 600px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
-#image {
+#defaultImage {
   display: flex;
   justify-content: center;
   padding-right: 20px;
   height: 600px;
-  width: 500px;
+  width: 700px;
+  overflow: hidden;
 }
 
-#defaultCarousel {
+#defaultThumbnailCarousel {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  left: 80px;
+  top: 15px;
 }
 
 #thumbnailWrapper {
   height: 40px;
   width: 40px;
   overflow: hidden;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 img.thumbnail {
@@ -259,6 +269,54 @@ img.thumbnail {
   max-height: 150%;
   max-width: 150%;
   margin: 7px;
+  /* transition: 0.4s; */
+}
+
+img.thumbnail:hover {
+  cursor: pointer;
+  /* position: absolute;
+  height: 50px;
+  width: 50px;
+  transition: 0.4s; */
+}
+
+#selectedThumbnail {
+  border-bottom: 3px solid black;
+  margin-top: 2px;
+}
+
+#thumbnailContainer {
+  margin: 5px;
+}
+
+#defaultImageCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img.active {
+  display: block;
+}
+
+img.inactive {
+  display: none;
+}
+
+.carouselButton {
+  border: none;
+  background-color: black;
+  /* position: absolute; */
+}
+
+.carouselLeft {
+  position: relative;
+  left: 40px;
+}
+
+.carouselRight {
+  position: relative;
+  left: -40px;
 }
 
 /* Styling for Related and Outfit */
@@ -325,7 +383,7 @@ img.thumbnail {
   justify-content: space-between;
   align-content: flex-start;
   text-align: center;
-  
+
 }
 
 #productCardContainer {
@@ -333,7 +391,7 @@ img.thumbnail {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  
+
 }
 #productCard {
   display: flex;
