@@ -1,11 +1,7 @@
-import React, { useEffect, useContext, useState } from 'react';
-import ReviewsContext from './reviewsContext.js';
-
+import React from 'react';
 import RatingBarList from './RatingBarList.jsx';
 
 const RatingBreakdown = (props) => {
-  // const context = useContext(ReviewsContext);
-
   const getTotal = (ratingObj) => {
     let total = 0;
     if (ratingObj === null || ratingObj === undefined) {
@@ -16,15 +12,12 @@ const RatingBreakdown = (props) => {
     });
     return total;
   };
-  useEffect(() => {
-    if (!props.ratings) { }
-  }, [props]);
-
   return (
     <div id="ratingBreakdown">
-      Rating Breakdown
-      {' '}
-      {`(out of ${getTotal(props?.ratings)} reviews)`}
+      <h5>
+        <strong>Rating Breakdown: </strong>
+        <em>{`(out of ${getTotal(props?.ratings)} reviews)`}</em>
+      </h5>
 
       <RatingBarList ratings={props?.ratings} total={getTotal(props?.ratings)} />
     </div>

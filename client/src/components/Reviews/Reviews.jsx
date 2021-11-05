@@ -52,12 +52,17 @@ const Reviews = () => {
           </div>
           <div id="reviews">
             <div id="sortBar">
-              <label htmlFor="reviewSort">Reviews sorted by:  </label>
-              <select name="reviewSort" id="reviewSort">
-                <option>Helpful</option>
-                <option>Newest</option>
-                <option>Relevant</option>
-              </select>
+              <h5>
+                Reviews sorted by:
+                {' '}
+                <select name="reviewSort" id="reviewSort">
+                  <option>Helpful</option>
+                  <option>Newest</option>
+                  <option>Relevant</option>
+                </select>
+              </h5>
+              {/* <label htmlFor="reviewSort">Reviews sorted by:  </label> */}
+
             </div>
             <div id="reviewList">
               {reviews.map((review) => <Review data={review} average={review.rating} />)}

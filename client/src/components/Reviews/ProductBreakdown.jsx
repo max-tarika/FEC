@@ -21,7 +21,8 @@ const ProductBreakdown = ({ characteristics }) => {
         </div>
         <span id="productBreakdownDesc">
           <p>Ouch</p>
-          <p>Snug-as-a-bug-in-a-rug</p>
+          <p>-</p>
+          <p>Snug</p>
         </span>
       </div>
       <div id="fitReview">
@@ -31,7 +32,7 @@ const ProductBreakdown = ({ characteristics }) => {
         </div>
         <span id="productBreakdownDesc">
           <p>Too Small</p>
-          <p>Perfect</p>
+          <p>-</p>
           <p>Too Large</p>
         </span>
       </div>
@@ -42,6 +43,7 @@ const ProductBreakdown = ({ characteristics }) => {
         </div>
         <span id="productBreakdownDesc">
           <p>Poor</p>
+          <p>-</p>
           <p>Perfect</p>
         </span>
       </div>
@@ -51,7 +53,8 @@ const ProductBreakdown = ({ characteristics }) => {
           <span id="reviewBarFill" style={{ left: `${qualityOffset}%` }} />
         </div>
         <span id="productBreakdownDesc">
-          <p>Poor</p>
+          <p>Rotten Banana</p>
+          <p>-</p>
           <p>Island Top Shelf</p>
         </span>
       </div>

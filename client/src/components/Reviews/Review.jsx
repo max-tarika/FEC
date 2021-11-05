@@ -18,13 +18,15 @@ const Review = (props) => {
         <h3>{currentReview.rating}</h3>
         <Stars average={average} />
         <div id="userAndDate">
-          'Posted by:
-          {' '}
-          <strong>{currentReview.reviewer_name}</strong>
-          {' '}
-          on
-          {' '}
-          <em>{currentReview.date}</em>
+          <h5>
+            Posted by:
+            {' '}
+            <strong>{currentReview.reviewer_name}</strong>
+            {' '}
+            on
+            {' '}
+            <em>{currentReview.date}</em>
+          </h5>
         </div>
       </div>
       <h3 id="reviewTitle">{currentReview.summary}</h3>
@@ -32,18 +34,18 @@ const Review = (props) => {
         {currentReview.body}
       </p>
       <div id="helpfulAndReport">
-        <p>Was this review island worthy, mon?</p>
-        <ul>
-          <li>
-            Yes (
-            {currentReview.helpfulness}
-            )
-          </li>
 
-          <li>
-            Report
-          </li>
-        </ul>
+        <h5>
+          Was this review island worthy?
+          {' '}
+          <strong>Yes</strong>
+          {' '}
+          (
+          {currentReview.helpfulness}
+          )
+          {' '}
+          Report?
+        </h5>
       </div>
     </div>
   );
