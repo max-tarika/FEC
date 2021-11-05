@@ -4,8 +4,8 @@
 import React, { useContext } from 'react';
 import { OverviewContext } from './context.js';
 
-const DefaultImageThumbnail = ({ thumbnail, setImage }) => {
-  const { currentStyle } = useContext(OverviewContext);
+const DefaultImageThumbnail = ({ thumbnail }) => {
+  const { currentStyle, setImage } = useContext(OverviewContext);
 
   const handleThumbnailClick = () => {
     setImage(thumbnail.url);
