@@ -157,6 +157,8 @@ button:hover {
 
 .icon {
   position: absolute;
+  background-color: white;
+  border-radius: 50%;
 }
 
 #styleName {
@@ -231,7 +233,7 @@ img.styleThumbnail {
 img.image {
   object-fit: cover;
   max-height: 600px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 #defaultImage {
@@ -239,13 +241,17 @@ img.image {
   justify-content: center;
   padding-right: 20px;
   height: 600px;
-  width: 500px;
+  width: 700px;
+  overflow: hidden;
 }
 
 #defaultThumbnailCarousel {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  left: 80px;
+  top: 15px;
 }
 
 #thumbnailWrapper {
@@ -286,7 +292,7 @@ img.thumbnail:hover {
 #defaultImageCarousel {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 img.active {
@@ -301,6 +307,16 @@ img.inactive {
   border: none;
   background-color: black;
   /* position: absolute; */
+}
+
+.carouselLeft {
+  position: relative;
+  left: 40px;
+}
+
+.carouselRight {
+  position: relative;
+  left: -40px;
 }
 
 /* Styling for Related and Outfit */
@@ -367,7 +383,7 @@ img.inactive {
   justify-content: space-between;
   align-content: flex-start;
   text-align: center;
-  
+
 }
 
 #productCardContainer {
@@ -375,7 +391,7 @@ img.inactive {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  
+
 }
 #productCard {
   display: flex;

@@ -12,7 +12,7 @@ import Reviews from './components/Reviews/Reviews.jsx';
 import AppContext from './context.js';
 
 const App = () => {
-  const [currentProduct, setCurrentProduct] = useState([]);
+  const [currentProduct, setCurrentProduct] = useState();
   const [currentReview, setCurrentReview] = useState([]);
   const [average, setAverage] = useState();
 
@@ -26,22 +26,6 @@ const App = () => {
     setAverage(Number((sum / count).toFixed(2)));
   };
 
-  const getReviewData = (id) => {
-    if (id === undefined) { return; }
-    const productID = id;
-    axios({
-      method: 'GET',
-      url: `/reviews/meta/?product_id=${productID}`,
-    })
-      .then((res) => {
-        setCurrentReview(res.data);
-        calcReviewsAverage(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   useEffect(() => {
     axios({
       method: 'GET',
@@ -49,7 +33,6 @@ const App = () => {
     })
       .then((res) => {
         setCurrentProduct(res.data[0]);
-        getReviewData(res.data[0].id);
       })
       .catch((err) => {
         console.log(err);
@@ -57,9 +40,24 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    if (currentProduct) {
+      axios({
+        method: 'GET',
+        url: `/reviews/meta/?product_id=${currentProduct.id}`,
+      })
+        .then((res) => {
+          setCurrentReview(res.data);
+          calcReviewsAverage(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [currentProduct]);
 
-  }, [average]);
-
+  if (!currentProduct) {
+    return <div>Da Island Is LoADing Mon</div>;
+  }
   return (
     <AppContext.Provider value={{
       currentProduct, currentReview, average,

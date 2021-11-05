@@ -16,10 +16,10 @@ const DefaultView = () => {
 
   return (
     <div id="defaultImage">
-      <DefaultImageCarousel />
       <div id="defaultThumbnailCarousel">
         {currentStyle?.photos?.map((thumbnail) => <DefaultImageThumbnail thumbnail={thumbnail} />)}
       </div>
+      <DefaultImageCarousel />
     </div>
   );
 };

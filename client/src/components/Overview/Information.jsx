@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { OverviewContext } from './context.js';
 import AppContext from '../../context.js';
 import Stars from '../Reviews/Stars.jsx';
@@ -9,8 +9,6 @@ const Information = () => {
   const { productInfo } = useContext(OverviewContext);
   const { average } = useContext(AppContext);
 
-  useEffect(() => {
-  }, [average]);
   return (
     <div id="information">
       <Stars average={average} />
