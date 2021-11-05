@@ -17,6 +17,7 @@ const ReviewForm = () => {
         <p>Overall Rating:</p>
         <Stars average={0} />
       </div>
+
       <div className="formElement">
         <p>Do you reccomend this product?</p>
         <div>
@@ -120,9 +121,34 @@ const ReviewForm = () => {
           <label htmlFor="great">Great</label>
         </span>
       </div>
+
       <div className="formElement">
         <h3>Review Summary: </h3>
         <input type="text" id="reviewSummary" maxLength="60" placeholder="Example: Best on the island!" />
+      </div>
+
+      <div className="formElement">
+        <h3>Review Body: </h3>
+        <textarea id="reviewBody" rows="5" cols="44" placeholder="Why did you like (or not like) the product?" />
+      </div>
+
+      <div className="formElement">
+        <h3>User Photos: </h3>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            alert('This feature coming soon...');
+          }}
+        >
+          Add a photo!
+
+        </button>
+      </div>
+      <div className="formElement">
+        <h3>What is your nickname?: </h3>
+        <input type="text" id="reviewSummary" maxLength="60" placeholder="Example: islandBoi123" />
+        <h5>For privacy reasons, do not use your full name or email address</h5>
       </div>
     </div>
   );

@@ -640,3 +640,16 @@ img.thumbnail {
     opacity: 1;
   }
 }
+
+/* form styling */
+
+
+#reviewSummary {
+  width: 50%;
+  height: 1.5em;
+}
+
+#reviewBody {
+  width: 75%;
+  height: 4em;
+}
