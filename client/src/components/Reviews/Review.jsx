@@ -1,22 +1,19 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useContext } from 'react';
-import AppContext from '../../context.js';
+import React from 'react';
 
 import Stars from './Stars.jsx';
 
 const Review = (props) => {
-  const context = useContext(AppContext);
   const currentReview = props.data;
   const { average } = props;
-
-  useEffect(() => {
-  }, [context]);
 
   return (
     <div id="review">
       <div id="reviewTopBar">
-        <h3>{currentReview.rating}</h3>
-        <Stars average={average} />
+        <span className="currentReviewRating">
+          <h3>{currentReview.rating}</h3>
+          <Stars average={average} />
+        </span>
         <div id="userAndDate">
           <h5>
             Posted by:
@@ -25,27 +22,33 @@ const Review = (props) => {
             {' '}
             on
             {' '}
-            <em>{currentReview.date}</em>
+            <em>{currentReview.date.split('T')[0]}</em>
           </h5>
         </div>
       </div>
-      <h3 id="reviewTitle">{currentReview.summary}</h3>
+      <h1 id="reviewTitle">{currentReview.summary}</h1>
       <p id="reviewBody">
-        {currentReview.body}
+        <h3>{currentReview.body}</h3>
       </p>
       <div id="helpfulAndReport">
+        <span className="helpfull">
+          <h5>
+            Was this review island worthy?
+          </h5>
 
-        <h5>
-          Was this review island worthy?
-          {' '}
-          <strong>Yes</strong>
-          {' '}
+          <div id="markHelpfull">
+            <strong>
+              Yes
+            </strong>
+          </div>
           (
           {currentReview.helpfulness}
           )
-          {' '}
-          Report?
-        </h5>
+        </span>
+        <div id="reportReview">
+          <h3>Report?</h3>
+        </div>
+
       </div>
     </div>
   );

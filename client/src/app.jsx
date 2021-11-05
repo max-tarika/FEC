@@ -23,7 +23,7 @@ const App = () => {
       sum += rating * data.ratings[rating];
       count += Number(data.ratings[rating]);
     });
-    setAverage(Number((sum / count).toFixed(2)));
+    setAverage(Number((sum / count).toFixed(1)));
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const App = () => {
   }, [currentProduct]);
 
   if (!currentProduct) {
-    return <div>Da Island Is LoADing Mon</div>;
+    return <div id="loadingScreen">Da Island Is LoADing Mon</div>;
   }
   return (
     <AppContext.Provider value={{
