@@ -16,7 +16,6 @@ const RelatedList = () => {
 
   const toggleCompare = (e, data) => {
     setShowCompare(true);
-    console.log('I clicked');
     setClickedItem(e.target.id);
   };
 
