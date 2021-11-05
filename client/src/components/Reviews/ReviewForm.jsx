@@ -29,7 +29,9 @@ const ReviewForm = () => {
         </div>
       </div>
       <div className="formElement">
+
         <p>Product Characteristics: </p>
+
         <h3>Comfort:</h3>
         <span>
           <input type="radio" id="poor" name="drone" value="poor" />
@@ -95,6 +97,7 @@ const ReviewForm = () => {
           <input type="radio" id="great" name="drone" value="great" />
           <label htmlFor="great">Great</label>
         </span>
+
         <h3>Quality:</h3>
         <span>
           <input type="radio" id="poor" name="drone" value="poor" />
@@ -116,6 +119,10 @@ const ReviewForm = () => {
           <input type="radio" id="great" name="drone" value="great" />
           <label htmlFor="great">Great</label>
         </span>
+      </div>
+      <div className="formElement">
+        <h3>Review Summary: </h3>
+        <input type="text" id="reviewSummary" maxLength="60" placeholder="Example: Best on the island!" />
       </div>
     </div>
   );
