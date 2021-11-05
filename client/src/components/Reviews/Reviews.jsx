@@ -23,11 +23,7 @@ import ReviewsContext from './reviewsContext.js';
 const Reviews = () => {
   const reviewForm = useRef(null);
 
-  const context = useContext(AppContext);
-
-  const { currentProduct } = context;
-  const { average } = context;
-  const { currentReview } = context;
+  const { currentProduct, average, currentReview } = useContext(AppContext);
 
   const [reviews, setReviews] = useState([]);
 
