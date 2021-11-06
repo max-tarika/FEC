@@ -4,12 +4,12 @@
 import React, { useContext } from 'react';
 import { OverviewContext } from './context.js';
 
-const DefaultImageThumbnail = ({ thumbnail }) => {
-  const { currentStyle, setImage, image } = useContext(OverviewContext);
-  const isSelected = image === thumbnail.url;
+const DefaultImageThumbnail = ({ thumbnail, i }) => {
+  const { currentStyle, setActiveIndex, activeIndex } = useContext(OverviewContext);
+  const isSelected = activeIndex === i;
 
   const handleThumbnailClick = () => {
-    setImage(thumbnail.url);
+    setActiveIndex(i);
   };
 
   return (

@@ -18,6 +18,7 @@ const Overview = () => {
   const [productInfo, setProductInfo] = useState({});
   const [imageView, setImageView] = useState(false);
   const [image, setImage] = useState();
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const setDefaultStyle = (stylesArr) => {
     for (const style of stylesArr) {
@@ -58,7 +59,15 @@ const Overview = () => {
 
   return (
     <OverviewContext.Provider value={{
-      productInfo, styles, currentStyle, handleStyleClick, handleImageClick, image, setImage,
+      productInfo,
+      styles,
+      currentStyle,
+      handleStyleClick,
+      handleImageClick,
+      image,
+      setImage,
+      activeIndex,
+      setActiveIndex,
     }}
     >
       <section id="widget">

@@ -12,12 +12,10 @@ import DefaultImageCarousel from './DefaultImageCarousel.jsx';
 const DefaultView = () => {
   const { currentStyle } = useContext(OverviewContext);
 
-  // console.log('style photos: ', currentStyle?.photos);
-
   return (
     <div id="defaultImage">
       <div id="defaultThumbnailCarousel">
-        {currentStyle?.photos?.map((thumbnail) => <DefaultImageThumbnail thumbnail={thumbnail} />)}
+        {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} />)}
       </div>
       <DefaultImageCarousel />
     </div>
