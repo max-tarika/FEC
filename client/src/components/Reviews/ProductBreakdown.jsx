@@ -1,16 +1,11 @@
-import React, { useContext, useEffect } from 'react';
-
-import ReviewsContext from './reviewsContext';
+import React from 'react';
 
 const ProductBreakdown = ({ characteristics }) => {
-  const context = useContext(ReviewsContext);
   const comfortOffset = ((characteristics?.Comfort?.value) / 5) * 100;
   const fitOffset = ((characteristics?.Fit?.value) / 5) * 100;
   const lengthOffset = ((characteristics?.Length?.value) / 5) * 100;
   const qualityOffset = ((characteristics?.Quality?.value) / 5) * 100;
 
-  useEffect(() => {
-  }, [context]);
   return (
     <div id="productBreakdown">
       <p style={{ fontVariant: 'none' }}>Product Breakdown</p>
