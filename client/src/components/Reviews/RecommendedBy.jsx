@@ -1,14 +1,16 @@
-import React, { useEffect, useContext } from 'react';
-import ReviewsContext from './reviewsContext.js';
+import React from 'react';
 
 const RecommendedBy = ({ recommended }) => (
   <div id="recommendedBy">
-    <strong>
-      {Math.floor((recommended?.true + recommended?.false) / recommended?.true)}
-      %
+    <h3>
+      <strong>
+        {Math.floor((recommended?.true + recommended?.false) / recommended?.true)}
+        %
 
-    </strong>
-    of reviewers recommend this product.
+      </strong>
+      {' '}
+      of reviewers recommend this product.
+    </h3>
   </div>
 );
 
