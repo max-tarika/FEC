@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import AppContext from '../../context.js';
 
 import Stars from './Stars.jsx';
 
 const ReviewForm = () => {
-  const placeholder = null;
+  const { currentProduct } = useContext(AppContext);
+  const characteristicRatings = ['poor', 'fair', 'average', 'good', 'great'];
+  const characteristicNames = ['Comfort', 'Fit', 'Length', 'Quality'];
   return (
 
     <div id="addReviewForm">
 
       <h1>Write Your Review</h1>
-      <h3>About the [currentProductName]</h3>
+      <h3>
+        About the
+        {' '}
+        <strong>{currentProduct.name}</strong>
+      </h3>
 
       <div className="formElement overallRating">
         <p>Overall Rating:</p>
@@ -35,101 +41,21 @@ const ReviewForm = () => {
       <div className="formElement characteristics">
 
         <h3>Product Characteristics: </h3>
-        <span className="characteristic">
-          <h3>Comfort:</h3>
-          <span>
-            <input type="radio" id="poor" name="drone" value="poor" />
-            <label htmlFor="poor">Poor</label>
-          </span>
-          <span>
-            <input type="radio" id="fair" name="drone" value="fair" />
-            <label htmlFor="fair">Fair</label>
-          </span>
-          <span>
-            <input type="radio" id="average" name="drone" value="average" />
-            <label htmlFor="average">Average</label>
-          </span>
-          <span>
-            <input type="radio" id="good" name="drone" value="good" />
-            <label htmlFor="good">Good</label>
-          </span>
-          <span>
-            <input type="radio" id="great" name="drone" value="great" />
-            <label htmlFor="great">Great</label>
-          </span>
-        </span>
 
-        <span className="characteristic">
-          <h3>Fit:</h3>
-          <span>
-            <input type="radio" id="poor" name="drone" value="poor" />
-            <label htmlFor="poor">Poor</label>
+        {characteristicNames.map((characteristic) => (
+          <span className="characteristic">
+            <h3>
+              {characteristic}
+              :
+            </h3>
+            {characteristicRatings.map((rating) => (
+              <span>
+                <input type="radio" id={rating} name="drone" value={rating} />
+                <label htmlFor={rating}>{rating[0].toUpperCase() + rating.slice(1)}</label>
+              </span>
+            ))}
           </span>
-          <span>
-            <input type="radio" id="fair" name="drone" value="fair" />
-            <label htmlFor="fair">Fair</label>
-          </span>
-          <span>
-            <input type="radio" id="average" name="drone" value="average" />
-            <label htmlFor="average">Average</label>
-          </span>
-          <span>
-            <input type="radio" id="good" name="drone" value="good" />
-            <label htmlFor="good">Good</label>
-          </span>
-          <span>
-            <input type="radio" id="great" name="drone" value="great" />
-            <label htmlFor="great">Great</label>
-          </span>
-        </span>
-
-        <span className="characteristic">
-          <h3>Length:</h3>
-          <span>
-            <input type="radio" id="poor" name="drone" value="poor" />
-            <label htmlFor="poor">Poor</label>
-          </span>
-          <span>
-            <input type="radio" id="fair" name="drone" value="fair" />
-            <label htmlFor="fair">Fair</label>
-          </span>
-          <span>
-            <input type="radio" id="average" name="drone" value="average" />
-            <label htmlFor="average">Average</label>
-          </span>
-          <span>
-            <input type="radio" id="good" name="drone" value="good" />
-            <label htmlFor="good">Good</label>
-          </span>
-          <span>
-            <input type="radio" id="great" name="drone" value="great" />
-            <label htmlFor="great">Great</label>
-          </span>
-        </span>
-
-        <span className="characteristic">
-          <h3>Quality:</h3>
-          <span>
-            <input type="radio" id="poor" name="drone" value="poor" />
-            <label htmlFor="poor">Poor</label>
-          </span>
-          <span>
-            <input type="radio" id="fair" name="drone" value="fair" />
-            <label htmlFor="fair">Fair</label>
-          </span>
-          <span>
-            <input type="radio" id="average" name="drone" value="average" />
-            <label htmlFor="average">Average</label>
-          </span>
-          <span>
-            <input type="radio" id="good" name="drone" value="good" />
-            <label htmlFor="good">Good</label>
-          </span>
-          <span>
-            <input type="radio" id="great" name="drone" value="great" />
-            <label htmlFor="great">Great</label>
-          </span>
-        </span>
+        ))}
       </div>
 
       <div className="formElement reviewSummary">
