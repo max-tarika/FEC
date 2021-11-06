@@ -61,6 +61,7 @@ const App = () => {
         });
     }
   }, [currentProduct]);
+  console.log('max is a fruitbup');
 
   useEffect(() => {
     if (relatedIds.length > 1) {
