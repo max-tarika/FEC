@@ -61,7 +61,6 @@ const App = () => {
         });
     }
   }, [currentProduct]);
-  console.log('max is a fruitbup');
 
   useEffect(() => {
     if (relatedIds.length > 1) {
@@ -85,8 +84,7 @@ const App = () => {
         });
     }
   }, [relatedIds]);
-  console.log('relatedProducts ', relatedProducts);
-  console.log('related styles ', relatedStyles);
+
   if (!currentProduct) {
     return <div id="loadingScreen">Da Island Is LoADing Mon</div>;
   }
