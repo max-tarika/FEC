@@ -789,6 +789,7 @@ img.thumbnail:hover {
   background: rgba(150,150,150,0.333);
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
   display: flex;
+  justify-content: space-around;
   align-items: center;
   transition: 0.5s;
 }
@@ -806,27 +807,24 @@ img.thumbnail:hover {
   margin-bottom: 8px;
 }
 
-#reviewSummary {
+#reviewInput {
   width: 50%;
   height: 1.5em;
 }
+.textInput {
+  min-width: 350px;
+  margin-right: 24px;
+}
+
 #reviewBody {
   width: 75%;
   height: 4em;
-}
-#userNickname {
-  width: 50%;
-  height: 1.5em;
-}
-
-#userEmail {
-  width: 50%;
-  height: 1.5em;
 }
 
 #addReviewForm button {
   width: 160px;
   height: 24px;
+  margin-top: 32px;
   background-color: rgba(200,200,200,0.66);
   border-radius: 20px;
   box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);

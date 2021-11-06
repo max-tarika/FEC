@@ -39,7 +39,6 @@ const ReviewForm = () => {
       </div>
 
       <div className="formElement characteristics">
-
         <h3>Product Characteristics: </h3>
 
         {characteristicNames.map((characteristic) => (
@@ -58,9 +57,9 @@ const ReviewForm = () => {
         ))}
       </div>
 
-      <div className="formElement reviewSummary">
+      <div className="formElement reviewInput">
         <h3>Review Summary: </h3>
-        <input type="text" id="reviewSummary" maxLength="60" placeholder="Example: Best on the island!" />
+        <input type="text" id="reviewSummary" className="textInput" maxLength="60" placeholder="Example: Best on the island!" />
       </div>
 
       <div className="formElement reviewBody">
@@ -82,20 +81,21 @@ const ReviewForm = () => {
         </button>
       </div>
 
-      <div className="formElement userNickname">
+      <div className="formElement reviewInput">
         <h3>What is your nickname?: </h3>
-        <input type="text" id="userNickname" maxLength="60" placeholder="Example: islandBoi123" />
+        <input type="text" id="userNickname" className="textInput" maxLength="60" placeholder="Example: islandBoi123" />
         <h5>**For privacy reasons, do not use your full name or email address</h5>
       </div>
 
-      <div className="formElement userEmail">
+      <div className="formElement reviewInput">
         <h3>What is your nickname?: </h3>
-        <input type="text" id="userEmail" maxLength="60" placeholder="Example: islandBoi123@email.com" />
+        <input type="text" id="userEmail" className="textInput" maxLength="60" placeholder="Example: islandBoi123@email.com" />
         <h5>**For authentication reassons, you will not be emailed</h5>
       </div>
 
       <button
         type="button"
+        id="submitForm"
         onClick={(e) => {
           e.preventDefault();
           alert('Review Submitted.... Just to nowhere');
