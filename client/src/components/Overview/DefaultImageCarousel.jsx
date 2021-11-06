@@ -10,8 +10,6 @@ const DefaultImageCarousel = () => {
     currentStyle, handleImageClick, activeIndex, setActiveIndex,
   } = useContext(OverviewContext);
   const length = currentStyle?.photos?.length;
-  // const [currentImage, setCurrentImage] = useState();
-  // const [carouselLength, setCarouselLength] = useState(currentStyle?.photos.length);
 
   const goToPrevSlide = () => {
     setActiveIndex(activeIndex === 0 ? activeIndex : activeIndex - 1);
@@ -23,9 +21,12 @@ const DefaultImageCarousel = () => {
 
   return (
     <div id="defaultImageCarousel">
-      <button className={activeIndex === 0 ? 'inactive' : 'carouselButton carouselLeft'} onClick={goToPrevSlide} type="button">
+      {activeIndex > 0
+      && (
+      <button className="carouselButton carouselLeft" onClick={goToPrevSlide} type="button">
         <FontAwesomeIcon icon={faAngleLeft} color="white" />
       </button>
+      )}
       <div className="innerCarousel">
         {currentStyle?.photos?.map((photo, i) => (
           <img
@@ -36,9 +37,12 @@ const DefaultImageCarousel = () => {
           />
         ))}
       </div>
-      <button className={activeIndex === length - 1 ? 'inactive' : 'carouselButton carouselRight'} onClick={goToNextSlide} type="button">
+      {activeIndex < length - 1
+      && (
+      <button className="carouselButton carouselRight" onClick={goToNextSlide} type="button">
         <FontAwesomeIcon icon={faAngleRight} color="white" />
       </button>
+      )}
     </div>
   );
 };

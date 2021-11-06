@@ -35,7 +35,7 @@ const App = () => {
       url: '/products',
     })
       .then((res) => {
-        setCurrentProduct(res.data[0]);
+        setCurrentProduct(res.data[4]);
       })
       .catch((err) => {
         console.log(err);
