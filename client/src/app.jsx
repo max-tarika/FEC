@@ -1,7 +1,7 @@
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-expressions */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import axios from 'axios';
 
@@ -14,7 +14,10 @@ import AppContext from './context.js';
 const App = () => {
   const [currentProduct, setCurrentProduct] = useState();
   const [currentReview, setCurrentReview] = useState([]);
+  const [relatedIds, setRelatedID] = useState([]);
   const [average, setAverage] = useState();
+  const [relatedProducts, setRelatedProducts] = useState([]);
+  const [relatedStyles, setRelatedStyles] = useState([]);
 
   const calcReviewsAverage = (data) => {
     let sum = 0;
@@ -52,9 +55,37 @@ const App = () => {
         .catch((err) => {
           console.log(err);
         });
+      axios.get(`/products/${currentProduct.id}/related`)
+        .then((res) => {
+          setRelatedID(res.data);
+        });
     }
   }, [currentProduct]);
 
+  useEffect(() => {
+    if (relatedIds.length > 1) {
+      const promises = Promise.all(relatedIds.map((id) => axios.get(`/products/${id}`)))
+        .then((values) => {
+          console.log('values = ', values);
+          const array = [];
+          for (let i = 0; i < values.length; i += 1) {
+            array.push(values[i].data);
+          }
+          setRelatedProducts(array);
+        });
+      const yeet = Promise.all(relatedIds.map((id) => axios.get(`/products/${id}/styles`)))
+        .then((values) => {
+          console.log('values = ', values);
+          const arr = [];
+          for (let i = 0; i < values.length; i += 1) {
+            arr.push(values[i].data);
+          }
+          setRelatedStyles(arr);
+        });
+    }
+  }, [relatedIds]);
+  console.log('relatedProducts ', relatedProducts);
+  console.log('related styles ', relatedStyles);
   if (!currentProduct) {
     return <div id="loadingScreen">Da Island Is LoADing Mon</div>;
   }
@@ -66,7 +97,7 @@ const App = () => {
       <div>
         <h1>Da Island Bois</h1>
         <Overview />
-        <Related />
+        {/* <Related /> */}
         <Reviews />
       </div>
     </AppContext.Provider>
