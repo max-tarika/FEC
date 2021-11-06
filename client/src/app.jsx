@@ -54,6 +54,7 @@ const App = () => {
         });
     }
   }, [currentProduct]);
+  console.log('max is a fruitbup');
 
   if (!currentProduct) {
     return <div id="loadingScreen">Da Island Is LoADing Mon</div>;
