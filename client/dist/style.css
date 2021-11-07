@@ -242,11 +242,11 @@ img.styleThumbnail {
 /* Image */
 img.image {
   object-fit: cover;
-  max-height: 600px;
-  max-width: 600px;
+  min-width: 100%;
+  min-height: 100%;
 }
 
-#defaultImage {
+#defaultImageContainer {
   display: flex;
   justify-content: center;
   padding-right: 20px;
@@ -260,8 +260,9 @@ img.image {
   flex-direction: column;
   align-items: center;
   position: relative;
-  left: 80px;
+  left: 65px;
   top: 15px;
+  z-index: 1;
 }
 
 #thumbnailWrapper {
@@ -279,19 +280,14 @@ img.thumbnail {
   max-height: 150%;
   max-width: 150%;
   margin: 7px;
-  /* transition: 0.4s; */
 }
 
 img.thumbnail:hover {
   cursor: pointer;
-  /* position: absolute;
-  height: 50px;
-  width: 50px;
-  transition: 0.4s; */
 }
 
 #selectedThumbnail {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid silver;
   margin-top: 2px;
 }
 
@@ -299,39 +295,55 @@ img.thumbnail:hover {
   margin: 5px;
 }
 
-#defaultImageCarousel {
+#carouselContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
-.innerCarousel {
+.carouselContent {
   white-space: nowrap;
   transition: transform 0.3s;
 }
 
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 600px;
+}
+
 .active {
-  display: block;
+  display: flex;
 }
 
 .inactive {
   display: none;
 }
 
-.carouselButton {
-  border: none;
-  background-color: black;
-  /* position: absolute; */
+.leftArrow, .rightArrow {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #ddd;
 }
 
-.carouselLeft {
-  position: relative;
-  left: 40px;
+.leftArrow {
+  left: 80px;
 }
 
-.carouselRight {
-  position: relative;
-  left: -40px;
+.rightArrow {
+  right: 20px;
 }
 
 /* Styling for Related and Outfit */

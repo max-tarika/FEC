@@ -8,15 +8,18 @@ import React, { useContext } from 'react';
 import { OverviewContext } from './context.js';
 import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
 import DefaultImageCarousel from './DefaultImageCarousel.jsx';
+import ThumbnailCarousel from './ThumbnailCarousel.jsx';
 
 const DefaultView = () => {
   const { currentStyle } = useContext(OverviewContext);
 
   return (
-    <div id="defaultImage">
-      <div id="defaultThumbnailCarousel">
-        {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} />)}
-      </div>
+    <div id="defaultImageContainer">
+      <ThumbnailCarousel>
+        <div id="defaultThumbnailCarousel">
+          {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} />)}
+        </div>
+      </ThumbnailCarousel>
       <DefaultImageCarousel />
     </div>
   );

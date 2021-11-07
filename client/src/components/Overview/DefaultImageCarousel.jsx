@@ -20,27 +20,29 @@ const DefaultImageCarousel = () => {
   };
 
   return (
-    <div id="defaultImageCarousel">
+    <div id="carouselContainer">
       {activeIndex > 0
       && (
-      <button className="carouselButton carouselLeft" onClick={goToPrevSlide} type="button">
-        <FontAwesomeIcon icon={faAngleLeft} color="white" />
+      <button className="leftArrow" onClick={goToPrevSlide} type="button">
+        <FontAwesomeIcon icon={faAngleLeft} />
       </button>
       )}
-      <div className="innerCarousel">
+      <div className="carouselContent">
         {currentStyle?.photos?.map((photo, i) => (
-          <img
-            onClick={handleImageClick}
-            className={i === activeIndex ? 'active image' : 'inactive image'}
-            src={photo.url}
-            alt={currentStyle.name}
-          />
+          <div className={i === activeIndex ? 'active imageWrapper' : 'inactive imageWrapper'}>
+            <img
+              onClick={handleImageClick}
+              className="image"
+              src={photo.url}
+              alt={currentStyle.name}
+            />
+          </div>
         ))}
       </div>
       {activeIndex < length - 1
       && (
-      <button className="carouselButton carouselRight" onClick={goToNextSlide} type="button">
-        <FontAwesomeIcon icon={faAngleRight} color="white" />
+      <button className="rightArrow" onClick={goToNextSlide} type="button">
+        <FontAwesomeIcon icon={faAngleRight} />
       </button>
       )}
     </div>
