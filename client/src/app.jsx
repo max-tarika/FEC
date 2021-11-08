@@ -3,13 +3,11 @@
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
-
 import Overview from './components/Overview/Overview.jsx';
 import Related from './components/Related/Related.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
-
+import Header from './components/Header/Header.jsx';
 import AppContext from './context.js';
 
 const App = () => {
@@ -20,6 +18,7 @@ const App = () => {
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [relatedStyles, setRelatedStyles] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
+  const [products, setProducts] = useState([]);
 
   const calcReviewsAverage = (data) => {
     let sum = 0;
@@ -38,6 +37,7 @@ const App = () => {
     })
       .then((res) => {
         setCurrentProduct(res.data[0]);
+        setProducts(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -83,7 +83,6 @@ const App = () => {
         });
       Promise.all(relatedIds.map((id) => axios.get(`/products/${id}/styles`)))
         .then((values) => {
-          console.log('values = ', values);
           const arr = [];
           for (let i = 0; i < values.length; i += 1) {
             arr.push(values[i].data);
@@ -103,11 +102,11 @@ const App = () => {
   }
   return (
     <AppContext.Provider value={{
-      currentProduct, currentReview, average, relatedProducts, relatedStyles, totalReviews,
+      currentProduct, currentReview, average, relatedProducts, relatedStyles, totalReviews, products, setCurrentProduct,
     }}
     >
       <div>
-        <h1>Da Island Bois</h1>
+        <Header />
         <Overview />
         <Related />
         <Reviews />

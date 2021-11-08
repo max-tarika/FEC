@@ -5,7 +5,7 @@
   justify-content: space-evenly;
   padding: 5px;
   margin: 5px;
-  background-image: url("./img/y-so-serious.png");
+  /* background-image: url("./img/y-so-serious.png"); */
 }
 
 #loadingScreen {
@@ -32,6 +32,31 @@ font-weight: 400;
 font-size: "1.5rem";
 line-height: 1.334;
 letter-spacing: "0em";
+}
+
+#header {
+  font-family: 'Roboto', sans-serif;
+}
+
+.productHeaderContainer {
+  display: flex;
+  align-items: center;
+}
+
+.productHeaderWrapper {
+  display: flex;
+  margin-left: 10px;
+}
+
+.productChoiceHeader {
+  margin-left: 10px;
+}
+
+.productChoice {
+  border: 2px solid black;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
 }
 
 /* Styling consistent to every widget */
