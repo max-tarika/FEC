@@ -484,7 +484,6 @@ img.thumbnail:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-content: flex-start;
   text-align: center;
 
 }

@@ -1,27 +1,38 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import RelatedContext from './context';
 import Outfit from './Outfit.jsx';
+import AppContext from '../../context';
 
 const OutfitList = () => {
-  const { outfit } = useContext(RelatedContext);
-  const outfitStorage = [];
+  const { outfit, productData } = useContext(RelatedContext);
+  const { products } = useContext(AppContext);
+  const [outfitStorage, setOutfitStorage] = useState([]);
+  const store = [];
 
-  if (!outfitStorage.includes(outfit?.currentProduct?.id)
-      && outfit?.currentProduct?.id !== undefined) {
-    outfitStorage.push(outfit?.currentProduct?.id);
-  }
   useEffect(() => {
-
+    if (!outfitStorage.includes(outfit?.currentProduct?.id)
+    && outfit?.currentProduct?.id !== undefined) {
+      if (outfitStorage.length > 0) {
+        store.push(outfitStorage);
+      }
+      store.push(outfit?.currentProduct?.id);
+    }
+    const setter = store.flat();
+    setOutfitStorage(setter);
   }, [outfit]);
 
-  return (
-    <div>
-      {
+  console.log('product data ', productData);
+
+  if (outfitStorage) {
+    return (
+      <div id="outfitContainer">
+        {
         outfitStorage.map((id) => <div id="productCard"><Outfit key={id} id={id} /></div>)
       }
-    </div>
-  );
+      </div>
+    );
+  }
+  return null;
 };
 
 export default OutfitList;
