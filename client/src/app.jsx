@@ -33,7 +33,7 @@ const App = () => {
             sum += rating * productsReviewData.ratings[rating];
             count += Number(productsReviewData.ratings[rating]);
           });
-          totalProductAverages[productsReviewData.product_id] = { averageReview: Number((sum / count).toFixed(1)) };
+          totalProductAverages[productsReviewData.product_id] = Number((sum / count).toFixed(1));
         }
         setProductAvgs(totalProductAverages);
       });
@@ -75,7 +75,7 @@ const App = () => {
 
   useEffect(() => {
     if (currentProduct && productAvgs) {
-      setAverage(productAvgs[currentProduct.id].averageReview);
+      setAverage(productAvgs[currentProduct.id]);
     }
   }, [productAvgs]);
 
