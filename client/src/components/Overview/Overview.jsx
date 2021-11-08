@@ -21,7 +21,7 @@ const Overview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [slider, setSlider] = useState(0);
   const photosLength = currentStyle?.photos?.length;
-  const thumbnailHeight = document.querySelector('.thumbnailContainer')?.offsetHeight + 5;
+  const thumbnailHeight = document.querySelector('.thumbnailContainer')?.offsetHeight + 6;
   const hiddenThumbnails = photosLength - 7;
   const hiddenThumbnailsLength = hiddenThumbnails * thumbnailHeight;
 

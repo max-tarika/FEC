@@ -10,10 +10,10 @@ const DefaultImageThumbnail = ({ thumbnail, i }) => {
   } = useContext(OverviewContext);
   const isSelected = activeIndex === i;
   const isSelectedValues = {
-    borderBottomWidth: '3px', borderBottomColor: 'white', borderBottomStyle: 'solid', marginTop: '2px',
+    borderBottomWidth: '3px', borderBottomColor: 'white', borderBottomStyle: 'solid', marginTop: '3px',
   };
   const nonSelectedValues = {
-    borderBottomWidth: '3px', borderBottomColor: 'black', borderBottomStyle: 'solid', marginTop: '2px',
+    marginTop: '3px', paddingBottom: '3px',
   };
 
   const handleThumbnailClick = () => {
