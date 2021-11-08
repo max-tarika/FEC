@@ -19,7 +19,11 @@ const Related = () => {
       for (let i = 0; i < relatedStyles.length; i += 1) {
         for (let j = 0; j < relatedStyles[i].results.length; j += 1) {
           if (relatedStyles[i].results[j]['default?'] === true) {
-            store.push(relatedStyles[i].results[j].photos[0].thumbnail_url);
+            const obj = {
+              id: relatedStyles[i].product_id,
+              photo: relatedStyles[i].results[j].photos[0].thumbnail_url,
+            };
+            store.push(obj);
           }
         }
       }
@@ -32,7 +36,11 @@ const Related = () => {
     if (photos.length > 1) {
       for (let i = 0; i < relatedProducts.length; i += 1) {
         if (!('photo' in relatedProducts[i])) {
-          relatedProducts[i].photo = photos[i] || null;
+          for (let j = 0; j < photos.length; j += 1) {
+            if (relatedProducts[i].id === Number(photos[j].id)) {
+              relatedProducts[i].photo = photos[j].photo || null;
+            }
+          }
         }
         store.push(relatedProducts[i]);
       }
