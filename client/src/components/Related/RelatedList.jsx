@@ -6,13 +6,13 @@ import ProductCard from './ProductCard.jsx';
 import Compare from './Compare.jsx';
 
 const RelatedList = () => {
-  const { relatedIds, currentProduct } = useContext(RelatedContext);
+  const { productData, currentProduct } = useContext(RelatedContext);
   const [showCompare, setShowCompare] = useState(false);
   const [clickedItem, setClickedItem] = useState(0);
 
   useEffect(() => {
-
-  }, [relatedIds]);
+    console.log('checking product data ', productData);
+  }, [productData]);
 
   const toggleCompare = (e, data) => {
     if (!showCompare) {
@@ -25,17 +25,21 @@ const RelatedList = () => {
 
   return (
     <div>
-      <div id="productCardContainer">
-        <HorizontalGallery
-          tiles={
-      relatedIds.map((id) => <div id="productCard" onClick={toggleCompare}><ProductCard key={id} id={id} /></div>)
+      <RelatedContext.Provider value={{
+        currentProduct, clickedItem, showCompare, productData,
+      }}
+      >
+        <div id="productCardContainer">
+          <HorizontalGallery
+            tiles={
+              productData.map((product) => <div id="productCard" onClick={toggleCompare}><ProductCard key={product.id} product={product} /></div>)
 }
-          elementWidth={185}
-          fadeDistance={100}
-          minPadding={10}
-        />
-      </div>
-      <RelatedContext.Provider value={{ currentProduct, clickedItem, showCompare }}>
+            elementWidth={165}
+            fadeDistance={100}
+            minPadding={10}
+          />
+        </div>
+
         <div>
           <Compare />
         </div>

@@ -7,22 +7,45 @@ import OutfitList from './OutfitList.jsx';
 
 const Related = () => {
   const currentProduct = useContext(AppContext);
-  const [relatedIds, setRelatedID] = useState([]);
+  const { relatedProducts } = useContext(AppContext);
+  const { relatedStyles } = useContext(AppContext);
   const [outfit, setOutfit] = useState([]);
+  const [photos, setPhotos] = useState([]);
+  const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    if (currentProduct.currentProduct.length === 0) { return; }
-    const relatedItems = () => {
-      const productId = currentProduct.currentProduct.id;
-      if (currentProduct.currentProduct !== undefined) {
-        axios.get(`/products/${productId}/related`)
-          .then((res) => {
-            setRelatedID(res.data);
-          });
+    const store = [];
+    if (relatedStyles.length > 1) {
+      for (let i = 0; i < relatedStyles.length; i += 1) {
+        for (let j = 0; j < relatedStyles[i].results.length; j += 1) {
+          if (relatedStyles[i].results[j]['default?'] === true) {
+            store.push(relatedStyles[i].results[j].photos[0].thumbnail_url);
+          }
+        }
       }
-    };
-    relatedItems();
-  }, [currentProduct]);
+      setPhotos(store);
+    }
+  }, [currentProduct, relatedStyles]);
+
+  useEffect(() => {
+    const store = [];
+    if (photos.length > 1) {
+      for (let i = 0; i < relatedProducts.length; i += 1) {
+        if (!('photo' in relatedProducts[i])) {
+          relatedProducts[i].photo = photos[i] || null;
+        }
+        store.push(relatedProducts[i]);
+      }
+      for (let i = 0; i < store.length - 1; i += 1) {
+        let j = i + 1;
+        if (store[i].id === store[j].id) {
+          store.splice(i, 1);
+        }
+        j += 1;
+      }
+      setProductData(store);
+    }
+  }, [photos]);
 
   const addOutfitClick = () => {
     setOutfit(currentProduct);
@@ -31,7 +54,10 @@ const Related = () => {
   return (
     <div id="widget">
       <div>
-        <RelatedContext.Provider value={{ relatedIds, currentProduct, outfit }}>
+        <RelatedContext.Provider value={{
+          productData, currentProduct, outfit,
+        }}
+        >
 
           <RelatedList />
 
