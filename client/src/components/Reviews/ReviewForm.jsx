@@ -19,21 +19,25 @@ const ReviewForm = () => {
   const handleChange = (e) => {
     setNewReview({ ...newReview, [e.target.name]: e.target.value });
   };
+  const handleChangeInt = (e) => {
+    setNewReview({ ...newReview, [e.target.name]: Number(e.target.value) });
+  };
+  const handleChangeBool = (e) => {
+    if (e.target.value === 'true') {
+      setNewReview({ ...newReview, [e.target.name]: true });
+    } else {
+      setNewReview({ ...newReview, [e.target.name]: false });
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault(e);
-    axios({
-      method: 'POST',
-      url: '/reviews',
-      data: newReview,
-      headers: {
-        'Access-Control-Allow-Origin': 'http://127.0.0.1:3000',
-        'Access-Control-Allow-Credentials': true,
-        'Content-type': 'application/x-www-form-urlencoded',
-      },
-    })
-      .then((res) => console.log(res))
-      .catch((err) => console.log('api Error: ', err));
+    axios.post('/reviews', (newReview)).then((res) => console.log(res))
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+        }
+      });
   };
   return (
 
@@ -50,7 +54,7 @@ const ReviewForm = () => {
         <div className="formElement overallRating">
           <p>Overall Rating:</p>
           <span className="chooseStars">
-            <input type="number" id="chooseStars" name="rating" value={Number(newReview.rating)} onChange={handleChange} />
+            <input type="number" id="chooseStars" name="rating" value={Number(newReview.rating)} onChange={handleChangeInt} />
             <label htmlFor="rating">Choose # of Stars: </label>
           </span>
         </div>
@@ -58,11 +62,11 @@ const ReviewForm = () => {
         <div className="formElement doYouRec">
           <p>Do you reccomend this product?</p>
           <div>
-            <input type="radio" id="true" name="recommend" value="true" onChange={handleChange} />
+            <input type="radio" id="true" name="recommend" value="true" onChange={handleChangeBool} />
             <label htmlFor="true">Yes, absolutely!</label>
           </div>
           <div>
-            <input type="radio" id="false" name="recommend" value="false" onChange={handleChange} />
+            <input type="radio" id="false" name="recommend" value="false" onChange={handleChangeBool} />
             <label htmlFor="false">No way...</label>
           </div>
         </div>
@@ -88,12 +92,12 @@ const ReviewForm = () => {
 
         <div className="formElement reviewInput">
           <h3>Review Summary: </h3>
-          <input type="text" id="reviewSummary" className="textInput" name="summary" value={newReview.summary} maxLength="60" placeholder="Example: Best on the island!" onChange={handleChange} />
+          <input type="text" id="reviewSummary" className="textInput" name="summary" value={newReview.summary} maxLength="60" placeholder="Example: Best on the island!" onChange={handleChange} required />
         </div>
 
         <div className="formElement reviewBody">
           <h3>Review Body: </h3>
-          <textarea id="reviewBody" rows="5" cols="44" name="body" value={newReview.body} placeholder="Why did you like (or not like) the product?" onChange={handleChange} />
+          <textarea id="reviewBody" rows="5" cols="44" name="body" value={newReview.body} placeholder="Why did you like (or not like) the product?" onChange={handleChange} required />
         </div>
 
         <div className="formElement addPhoto">
@@ -112,13 +116,13 @@ const ReviewForm = () => {
 
         <div className="formElement reviewInput">
           <h3>What is your nickname?: </h3>
-          <input type="text" id="userNickname" className="textInput" name="name" value={newReview.name} maxLength="60" placeholder="Example: islandBoi123" onChange={handleChange} />
+          <input type="text" id="userNickname" className="textInput" name="name" value={newReview.name} maxLength="60" placeholder="Example: islandBoi123" onChange={handleChange} required />
           <h5>**For privacy reasons, do not use your full name or email address</h5>
         </div>
 
         <div className="formElement reviewInput">
           <h3>What is your nickname?: </h3>
-          <input type="text" id="userEmail" className="textInput" name="email" value={newReview.email} maxLength="60" placeholder="Example: islandBoi123@email.com" onChange={handleChange} />
+          <input type="text" id="userEmail" className="textInput" name="email" value={newReview.email} maxLength="60" placeholder="Example: islandBoi123@email.com" onChange={handleChange} required />
           <h5>**For authentication reassons, you will not be emailed</h5>
         </div>
 
