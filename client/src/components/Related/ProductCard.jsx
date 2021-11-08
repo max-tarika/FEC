@@ -14,7 +14,6 @@ const ProductCard = ({ product }) => {
   const [price, setPrice] = useState(0);
   const [relatedAverage, setRelatedAverage] = useState(0);
 
-  console.log('checking product ', product);
   // console.log('does the id work? ', id);
 
   const getRelatedAverage = () => {
