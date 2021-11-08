@@ -29,11 +29,15 @@ const Reviews = () => {
   const getReviewsForCurrent = (id) => {
     axios({
       method: 'GET',
-      url: `/reviews/?product_id=${id}`,
+      url: `/reviews/?product_id=${id}&sort=helpful&count=2`,
     })
       .then((res) => {
         setReviews(res.data.results);
       });
+  };
+  const getSelected = (string) => {
+    const capital = string[0].toLowerCase();
+    return capital + string.slice(1);
   };
 
   useEffect(() => {
@@ -61,7 +65,21 @@ const Reviews = () => {
                 <h5>
                   Reviews sorted by:
                   {' '}
-                  <select name="reviewSort" id="reviewSort">
+                  <select
+                    name="reviewSort"
+                    id="reviewSort"
+                    onChange={(e) => {
+                      const selected = getSelected(e.target.value);
+                      axios({
+                        method: 'GET',
+                        url: `/reviews/?product_id=${currentProduct?.id}&sort=${selected}`,
+                      })
+                        .then((res) => {
+                          setReviews(res.data.results);
+                        });
+                    }}
+                  >
+                    <option>---</option>
                     <option>Helpful</option>
                     <option>Newest</option>
                     <option>Relevant</option>

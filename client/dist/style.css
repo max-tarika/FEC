@@ -624,6 +624,11 @@ img.thumbnail:hover {
 #reviews #sortBar {
   flex-direction: row;
 }
+
+#reviewList {
+  max-height: 100vh;
+  overflow: scroll;
+}
 #addReview {
   margin-top: 16px;
   width: 100%;
