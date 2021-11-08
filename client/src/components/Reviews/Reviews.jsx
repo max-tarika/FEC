@@ -15,7 +15,6 @@ import RatingSummary from './RatingSummary.jsx';
 import RecommendedBy from './RecommendedBy.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
-import Stars from './Stars.jsx';
 
 import AppContext from '../../context.js';
 import ReviewsContext from './reviewsContext.js';
@@ -27,11 +26,10 @@ const Reviews = () => {
 
   const [reviews, setReviews] = useState([]);
 
-  const getReviewsForCurrent = () => {
-    const productID = currentProduct?.id;
+  const getReviewsForCurrent = (id) => {
     axios({
       method: 'GET',
-      url: `/reviews/?product_id=${productID}`,
+      url: `/reviews/?product_id=${id}`,
     })
       .then((res) => {
         setReviews(res.data.results);
@@ -40,7 +38,7 @@ const Reviews = () => {
 
   useEffect(() => {
     if (currentProduct?.length < 1) { return; }
-    getReviewsForCurrent();
+    getReviewsForCurrent(currentProduct?.id);
   }, [currentProduct]);
 
   return (
