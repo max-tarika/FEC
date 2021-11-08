@@ -244,6 +244,7 @@ img.image {
   object-fit: cover;
   min-width: 100%;
   min-height: 100%;
+  cursor: zoom-in;
 }
 
 #defaultImageContainer {
@@ -324,7 +325,7 @@ img.image {
 }
 
 .thumbnailCarousel-content-wrapper {
-  height: 350px;
+  height: 358px;
   overflow: hidden;
 }
 
@@ -343,7 +344,7 @@ img.image {
 }
 
 .upArrow {
-  top: -20px;
+  top: -25px;
 }
 
 .downArrow {
