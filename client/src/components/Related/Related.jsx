@@ -57,7 +57,7 @@ const Related = () => {
     }
   }, [photos]);
 
-  console.log('product data ', productData);
+
   const addOutfitClick = () => {
     setOutfit(currentProduct);
   };

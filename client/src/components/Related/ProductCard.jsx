@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
 
-  console.log('here is the product ', product);
+
 
   // console.log('does the id work? ', id);
 
