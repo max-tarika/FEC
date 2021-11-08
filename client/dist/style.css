@@ -328,10 +328,6 @@ img.image {
   overflow: hidden;
 }
 
-.thumbnailCarousel-content {
-
-}
-
 .upArrow, .downArrow {
   position: absolute;
   z-index: 1;
