@@ -36,10 +36,16 @@ const Related = () => {
         }
         store.push(relatedProducts[i]);
       }
+      for (let i = 0; i < store.length - 1; i += 1) {
+        let j = i + 1;
+        if (store[i].id === store[j].id) {
+          store.splice(i, 1);
+        }
+        j += 1;
+      }
       setProductData(store);
     }
   }, [photos]);
-  console.log('checking combined data ', productData);
 
   const addOutfitClick = () => {
     setOutfit(currentProduct);

@@ -11,7 +11,7 @@ const RelatedList = () => {
   const [clickedItem, setClickedItem] = useState(0);
 
   useEffect(() => {
-
+    console.log('checking product data ', productData);
   }, [productData]);
 
   const toggleCompare = (e, data) => {
@@ -34,7 +34,7 @@ const RelatedList = () => {
             tiles={
               productData.map((product) => <div id="productCard" onClick={toggleCompare}><ProductCard key={product.id} product={product} /></div>)
 }
-            elementWidth={185}
+            elementWidth={165}
             fadeDistance={100}
             minPadding={10}
           />
