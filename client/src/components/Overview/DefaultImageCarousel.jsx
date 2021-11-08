@@ -7,40 +7,41 @@ import { OverviewContext } from './context.js';
 
 const DefaultImageCarousel = () => {
   const {
-    currentStyle, handleImageClick, activeIndex, setActiveIndex,
+    currentStyle, handleImageClick, activeIndex, setActiveIndex, photosLength,
   } = useContext(OverviewContext);
-  const length = currentStyle?.photos?.length;
 
   const goToPrevSlide = () => {
     setActiveIndex(activeIndex === 0 ? activeIndex : activeIndex - 1);
   };
 
   const goToNextSlide = () => {
-    setActiveIndex(activeIndex === length - 1 ? activeIndex : activeIndex + 1);
+    setActiveIndex(activeIndex === photosLength - 1 ? activeIndex : activeIndex + 1);
   };
 
   return (
-    <div id="defaultImageCarousel">
+    <div id="carouselContainer">
       {activeIndex > 0
       && (
-      <button className="carouselButton carouselLeft" onClick={goToPrevSlide} type="button">
-        <FontAwesomeIcon icon={faAngleLeft} color="white" />
+      <button className="leftArrow" onClick={goToPrevSlide} type="button">
+        <FontAwesomeIcon icon={faAngleLeft} />
       </button>
       )}
-      <div className="innerCarousel">
+      <div className="carouselContent">
         {currentStyle?.photos?.map((photo, i) => (
-          <img
-            onClick={handleImageClick}
-            className={i === activeIndex ? 'active image' : 'inactive image'}
-            src={photo.url}
-            alt={currentStyle.name}
-          />
+          <div className={i === activeIndex ? 'active imageWrapper' : 'inactive imageWrapper'}>
+            <img
+              onClick={handleImageClick}
+              className="image"
+              src={photo.url}
+              alt={currentStyle.name}
+            />
+          </div>
         ))}
       </div>
-      {activeIndex < length - 1
+      {activeIndex < photosLength - 1
       && (
-      <button className="carouselButton carouselRight" onClick={goToNextSlide} type="button">
-        <FontAwesomeIcon icon={faAngleRight} color="white" />
+      <button className="rightArrow" onClick={goToNextSlide} type="button">
+        <FontAwesomeIcon icon={faAngleRight} />
       </button>
       )}
     </div>
@@ -48,9 +49,3 @@ const DefaultImageCarousel = () => {
 };
 
 export default DefaultImageCarousel;
-
-// <div key={i}>
-//   {i === activeIndex && (
-//     <img onClick={handleImageClick} className="image" src={photo.url} alt={currentStyle.name} />
-//   )}
-// </div>
