@@ -7,8 +7,7 @@ import OutfitList from './OutfitList.jsx';
 
 const Related = () => {
   const currentProduct = useContext(AppContext);
-  const { relatedProducts } = useContext(AppContext);
-  const { relatedStyles } = useContext(AppContext);
+  const { relatedProducts, productAvgs, relatedStyles } = useContext(AppContext);
   const [outfit, setOutfit] = useState([]);
   const [photos, setPhotos] = useState([]);
   const [productData, setProductData] = useState([]);
@@ -42,6 +41,8 @@ const Related = () => {
             }
           }
         }
+        const index = relatedProducts[i].id;
+        relatedProducts[i].avg = productAvgs[index];
         store.push(relatedProducts[i]);
       }
       for (let i = 0; i < store.length - 1; i += 1) {
@@ -51,9 +52,11 @@ const Related = () => {
         }
         j += 1;
       }
+
       setProductData(store);
     }
   }, [photos]);
+
 
   const addOutfitClick = () => {
     setOutfit(currentProduct);
