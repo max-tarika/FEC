@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -43,7 +44,7 @@ const ThumbnailCarousel = () => {
         </div>
         <div className="thumbnailCarousel-content-wrapper">
           <div style={{ transform: `translateY(${slider}px)` }}>
-            {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} />)}
+            {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} key={i} />)}
           </div>
         </div>
       </div>

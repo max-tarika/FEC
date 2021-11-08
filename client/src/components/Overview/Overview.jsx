@@ -9,7 +9,7 @@ import AddToCart from './AddToCart.jsx';
 import AppContext from '../../context.js';
 import { OverviewContext } from './context.js';
 import Description from './Description.jsx';
-import ExpandedView from './ExpandedView.jsx';
+// import ExpandedView from './ExpandedView.jsx';
 import DefaultView from './DefaultView.jsx';
 
 const Overview = () => {
@@ -108,7 +108,7 @@ const Overview = () => {
     >
       <section className="widget">
         {imageView
-          ? <ExpandedView />
+          ? <DefaultView />
           : (
             <div id="overviewContainer">
               <DefaultView />

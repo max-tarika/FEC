@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -29,7 +30,7 @@ const DefaultImageCarousel = () => {
       )}
       <div className="carouselContent">
         {currentStyle?.photos?.map((photo, i) => (
-          <div className={i === activeIndex ? 'active imageWrapper' : 'inactive imageWrapper'}>
+          <div className={i === activeIndex ? 'active imageWrapper' : 'inactive imageWrapper'} key={i}>
             <img
               onClick={handleImageClick}
               className="image"
