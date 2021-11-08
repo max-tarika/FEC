@@ -7,13 +7,13 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
 
 const Style = ({ style, setStyle }) => {
-  const { currentStyle, handleStyleClick, setImage } = useContext(OverviewContext);
+  const { currentStyle, handleStyleClick } = useContext(OverviewContext);
   const isSelected = currentStyle.style_id === style.style_id;
 
   return (
     <div>
       {isSelected ? <div className="icon"><FontAwesomeIcon icon={faCheck} size="xs" /></div> : null}
-      <div className="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); setStyle(style.name); setImage(style.photos[0].url); }}>
+      <div className="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); setStyle(style.name); }}>
         <img className="styleThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
       </div>
     </div>

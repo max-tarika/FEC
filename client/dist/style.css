@@ -306,7 +306,6 @@ img.image {
 }
 
 .imageWrapper {
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 700px;
@@ -414,9 +413,26 @@ img.thumbnail:hover {
   margin-top: 2px;
 }
 
-/* #thumbnailContainer {
-  margin: 5px;
-} */
+/* Expanded View */
+
+.expandedView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#expandedViewContainer {
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#expandedImageWrapper {
+  width: 900px;
+}
 
 /* Styling for Related and Outfit */
 

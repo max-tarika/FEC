@@ -18,7 +18,6 @@ const Overview = () => {
   const [currentStyle, setStyle] = useState({});
   const [productInfo, setProductInfo] = useState({});
   const [imageView, setImageView] = useState(false);
-  const [image, setImage] = useState();
   const [activeIndex, setActiveIndex] = useState(0);
   const [slider, setSlider] = useState(0);
   const [photosLength, setPhotosLength] = useState(0);
@@ -59,7 +58,6 @@ const Overview = () => {
         .then((response) => {
           setStyles(response.data.results);
           setDefaultStyle(response.data.results);
-          setImage(response.data.results[0].photos[0].url);
         })
         .catch((err) => { console.error(err); });
     }
@@ -91,8 +89,6 @@ const Overview = () => {
       currentStyle,
       handleStyleClick,
       handleImageClick,
-      image,
-      setImage,
       activeIndex,
       setActiveIndex,
       slider,
@@ -104,11 +100,12 @@ const Overview = () => {
       carouselHeight,
       thumbnailsShown,
       setThumbnailsShown,
+      imageView,
     }}
     >
       <section className="widget">
         {imageView
-          ? <DefaultView />
+          ? <div className="expandedView"><DefaultView /></div>
           : (
             <div id="overviewContainer">
               <DefaultView />
