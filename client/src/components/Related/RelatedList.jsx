@@ -11,7 +11,6 @@ const RelatedList = () => {
   const [clickedItem, setClickedItem] = useState(0);
 
   useEffect(() => {
-    console.log('checking product data ', productData);
   }, [productData]);
 
   const toggleCompare = (e, data) => {

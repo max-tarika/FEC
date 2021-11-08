@@ -64,6 +64,13 @@ const App = () => {
 
   useEffect(() => {
     if (relatedIds.length > 1) {
+      for (let i = 0; i < relatedIds.length - 1; i += 1) {
+        let j = i + 1;
+        if (relatedIds[i] === relatedIds[j]) {
+          relatedIds.splice(i, 1);
+        }
+        j += 1;
+      }
       Promise.all(relatedIds.map((id) => axios.get(`/products/${id}`)))
         .then((values) => {
           const array = [];
