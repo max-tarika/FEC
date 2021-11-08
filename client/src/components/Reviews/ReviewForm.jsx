@@ -124,7 +124,7 @@ const ReviewForm = () => {
         </div>
 
         <div className="formElement reviewInput">
-          <h3>What is your nickname?: </h3>
+          <h3>What is your email address?: </h3>
           <input type="text" id="userEmail" className="textInput" name="email" value={newReview.email} maxLength="60" placeholder="Example: islandBoi123@email.com" onChange={handleChange} required />
           <h5>**For authentication reassons, you will not be emailed</h5>
         </div>
