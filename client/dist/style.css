@@ -411,10 +411,13 @@ img.thumbnail:hover {
 #comparisonModal {
   border: 1px solid black;
   background-color: rgb(252, 252, 252);
-  height: 300px;
-  width: 300px;
-  float: right;
+  height: 400px;
+  width: 400px;
   position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -50px;
   z-index: 6;
 }
 .MuiSvgIcon-root {
