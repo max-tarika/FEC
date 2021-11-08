@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import axios from 'axios';
 import React from 'react';
 
 import Stars from './Stars.jsx';
@@ -7,6 +8,22 @@ const Review = (props) => {
   const currentReview = props.data;
   const { average } = props;
 
+  const markHelpful = (id) => {
+    axios.put(`/reviews/${id}/helpful`)
+      .then((res) => console.log('Thanks for letting us know!', res))
+      .catch((err) => console.log(err));
+  };
+  const reportReview = (id) => {
+    axios.put(`/reviews/${id}/report`)
+      .then((res) => console.log('Thanks for helping us keep the island clean!', res))
+      .catch((err) => console.log(err));
+  };
+
+  if (!currentReview) {
+    return (
+      <div>Loading Review...</div>
+    );
+  }
   return (
     <div id="review">
       <div id="reviewTopBar">
@@ -36,7 +53,13 @@ const Review = (props) => {
             Was this review island worthy?
           </h5>
 
-          <div id="markHelpfull">
+          <div
+            id="markHelpfull"
+            onClick={(e) => {
+              e.preventDefault();
+              markHelpful(currentReview.review_id);
+            }}
+          >
             <strong>
               Yes
             </strong>
@@ -45,7 +68,13 @@ const Review = (props) => {
           {currentReview.helpfulness}
           )
         </span>
-        <div id="reportReview">
+        <div
+          id="reportReview"
+          onClick={(e) => {
+            e.preventDefault();
+            reportReview(currentReview.review_id);
+          }}
+        >
           <h3>Report?</h3>
         </div>
 
