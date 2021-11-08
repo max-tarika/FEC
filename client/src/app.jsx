@@ -71,6 +71,9 @@ const App = () => {
           setRelatedID(res.data);
         });
     }
+    if (productAvgs) {
+      setAverage(productAvgs[currentProduct.id]);
+    }
   }, [currentProduct]);
 
   useEffect(() => {
