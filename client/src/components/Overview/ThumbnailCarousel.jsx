@@ -1,0 +1,48 @@
+/* eslint-disable max-len */
+import React, { useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { OverviewContext } from './context.js';
+import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
+
+const ThumbnailCarousel = () => {
+  const {
+    currentStyle, slider, setSlider, thumbnailHeight, hiddenThumbnailsLength,
+  } = useContext(OverviewContext);
+
+  const goToPrevSlide = () => {
+    setSlider(slider === 0 ? slider : slider + thumbnailHeight);
+  };
+
+  const goToNextSlide = () => {
+    setSlider(slider === -hiddenThumbnailsLength ? slider : slider - thumbnailHeight);
+  };
+
+  return (
+    <div className="thumbnailCarousel-container">
+      <div className="thumbnailCarousel-wrapper">
+        <div>
+          {slider < 0
+          && (
+          <button className="upArrow" onClick={goToPrevSlide} type="button">
+            <FontAwesomeIcon icon={faAngleUp} />
+          </button>
+          )}
+          {slider > -hiddenThumbnailsLength
+          && (
+          <button className="downArrow" onClick={goToNextSlide} type="button">
+            <FontAwesomeIcon icon={faAngleDown} />
+          </button>
+          )}
+        </div>
+        <div className="thumbnailCarousel-content-wrapper">
+          <div style={{ transform: `translateY(${slider}px)` }}>
+            {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} />)}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ThumbnailCarousel;

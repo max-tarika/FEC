@@ -12,6 +12,7 @@ const RatingBreakdown = (props) => {
     });
     return total;
   };
+
   return (
     <div id="ratingBreakdown">
       <h5>

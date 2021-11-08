@@ -12,7 +12,7 @@ const AddToCart = () => {
   const [sizeSelected, setSizeSelected] = useState(false);
   const [skuQuant, setSkuQuant] = useState();
   const [inStock, setInStock] = useState(false);
-  const [selectedSize, setSelectedSize] = useState();
+  const [selectedSize, setSelectedSize] = useState('Select Size');
   const [open, setOpen] = useState(false);
   const [askForSize, setAskForSize] = useState(false);
   const skusArr = currentStyle?.skus ? Object.entries(currentStyle?.skus) : null;
@@ -63,6 +63,7 @@ const AddToCart = () => {
       setInStock(true);
     }
     setSizeSelected(false);
+    setSelectedSize('Select Size');
   }, [currentStyle]);
 
   return (
@@ -73,7 +74,7 @@ const AddToCart = () => {
             ? (
               <div>
                 {askForSize && <div id="askForSize">Please Select Size</div>}
-                <button id="sizeButton" type="button" onClick={openSizeSelector}>{selectedSize || 'Select Size'}</button>
+                <button id="sizeButton" type="button" onClick={openSizeSelector}>{selectedSize}</button>
                 {open && <SizeDropdown skusArr={skusArr} handleSizeClick={handleSizeClick} />}
               </div>
             )

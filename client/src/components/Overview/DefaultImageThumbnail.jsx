@@ -4,20 +4,30 @@
 import React, { useContext } from 'react';
 import { OverviewContext } from './context.js';
 
-const DefaultImageThumbnail = ({ thumbnail }) => {
-  const { currentStyle, setImage, image } = useContext(OverviewContext);
-  const isSelected = image === thumbnail.url;
+const DefaultImageThumbnail = ({ thumbnail, i }) => {
+  const {
+    currentStyle, setActiveIndex, activeIndex, setSlider, thumbnailHeight, hiddenThumbnailsLength,
+  } = useContext(OverviewContext);
+  const isSelected = activeIndex === i;
+  const isSelectedValues = {
+    borderBottomWidth: '3px', borderBottomColor: 'white', borderBottomStyle: 'solid', marginTop: '2px',
+  };
+  const nonSelectedValues = {
+    borderBottomWidth: '3px', borderBottomColor: 'black', borderBottomStyle: 'solid', marginTop: '2px',
+  };
 
   const handleThumbnailClick = () => {
-    setImage(thumbnail.url);
+    setActiveIndex(i);
+    const sliderWindow = -(i * thumbnailHeight);
+    setSlider(sliderWindow >= -hiddenThumbnailsLength ? sliderWindow : -hiddenThumbnailsLength);
   };
 
   return (
-    <div id="thumbnailContainer">
+    <div className="thumbnailContainer" style={{ margin: 5 }}>
       <div id="thumbnailWrapper">
         <img className="thumbnail" onClick={handleThumbnailClick} src={thumbnail.thumbnail_url} alt={currentStyle.name} />
       </div>
-      {isSelected ? <div id="selectedThumbnail" /> : null}
+      {isSelected ? <div style={isSelectedValues} /> : <div style={nonSelectedValues} />}
     </div>
   );
 };

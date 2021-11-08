@@ -18,6 +18,12 @@ const Overview = () => {
   const [productInfo, setProductInfo] = useState({});
   const [imageView, setImageView] = useState(false);
   const [image, setImage] = useState();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [slider, setSlider] = useState(0);
+  const photosLength = currentStyle?.photos?.length;
+  const thumbnailHeight = document.querySelector('.thumbnailContainer')?.offsetHeight + 5;
+  const hiddenThumbnails = photosLength - 7;
+  const hiddenThumbnailsLength = hiddenThumbnails * thumbnailHeight;
 
   const setDefaultStyle = (stylesArr) => {
     for (const style of stylesArr) {
@@ -58,7 +64,21 @@ const Overview = () => {
 
   return (
     <OverviewContext.Provider value={{
-      productInfo, styles, currentStyle, handleStyleClick, handleImageClick, image, setImage,
+      productInfo,
+      styles,
+      currentStyle,
+      handleStyleClick,
+      handleImageClick,
+      image,
+      setImage,
+      activeIndex,
+      setActiveIndex,
+      slider,
+      setSlider,
+      photosLength,
+      thumbnailHeight,
+      hiddenThumbnails,
+      hiddenThumbnailsLength,
     }}
     >
       <section id="widget">

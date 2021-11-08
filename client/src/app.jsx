@@ -35,7 +35,7 @@ const App = () => {
       url: '/products',
     })
       .then((res) => {
-        setCurrentProduct(res.data[0]);
+        setCurrentProduct(res.data[4]);
       })
       .catch((err) => {
         console.log(err);
@@ -83,6 +83,7 @@ const App = () => {
         });
     }
   }, [relatedIds]);
+
   if (!currentProduct) {
     return <div id="loadingScreen">Da Island Is LoADing Mon</div>;
   }
