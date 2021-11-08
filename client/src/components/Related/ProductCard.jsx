@@ -12,31 +12,13 @@ const ProductCard = ({ product }) => {
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
-  const [relatedAverage, setRelatedAverage] = useState(0);
+
+  console.log('here is the product ', product);
 
   // console.log('does the id work? ', id);
 
-  const getRelatedAverage = () => {
-    axios({
-      method: 'GET',
-      url: `/reviews/meta/?product_id=${product.id}`,
-    })
-      .then((res) => {
-        let sum = 0;
-        let count = 0;
-        Object.keys(res.data.ratings).forEach((rating) => {
-          sum += rating * res.data.ratings[rating];
-          count += Number(res.data.ratings[rating]);
-        });
-        setRelatedAverage(Number((sum / count).toFixed(2)));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   useEffect(() => {
-    getRelatedAverage();
+
   }, [context]);
 
   return (
@@ -49,7 +31,7 @@ const ProductCard = ({ product }) => {
       <div className="product_category" id={product.id}>{product.category}</div>
       <div className="product_name" id={product.id}>{product.name}</div>
       <div className="product_price" id={product.id}>{product.price}</div>
-      <Stars average={relatedAverage} />
+      <Stars average={product.avg} />
     </div>
   );
 };
