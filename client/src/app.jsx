@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-expressions */
@@ -18,6 +19,7 @@ const App = () => {
   const [average, setAverage] = useState();
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [relatedStyles, setRelatedStyles] = useState([]);
+  const [totalReviews, setTotalReviews] = useState(0);
 
   const calcReviewsAverage = (data) => {
     let sum = 0;
@@ -84,12 +86,17 @@ const App = () => {
     }
   }, [relatedIds]);
 
+  useEffect(() => {
+    const reviews = Number(currentReview?.recommended?.true) + Number(currentReview?.recommended?.false);
+    setTotalReviews(reviews);
+  }, [currentReview]);
+
   if (!currentProduct) {
     return <div id="loadingScreen">Da Island Is LoADing Mon</div>;
   }
   return (
     <AppContext.Provider value={{
-      currentProduct, currentReview, average, relatedProducts, relatedStyles,
+      currentProduct, currentReview, average, relatedProducts, relatedStyles, totalReviews,
     }}
     >
       <div>

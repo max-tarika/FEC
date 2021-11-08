@@ -22,17 +22,11 @@ const Overview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [slider, setSlider] = useState(0);
   const [photosLength, setPhotosLength] = useState(0);
-  // const [carouselWindow, setCarouselWindow] = useState(358);
   const [thumbnailsShown, setThumbnailsShown] = useState([0, 6]);
   const carouselHeight = document.querySelector('.thumbnailCarousel-content-wrapper')?.offsetHeight;
   const thumbnailHeight = document.querySelector('.thumbnailContainer')?.offsetHeight;
   const hiddenThumbnails = photosLength - 7;
   const hiddenThumbnailsLength = hiddenThumbnails * thumbnailHeight;
-  console.log('slider: ', slider);
-  console.log('thumbnails shown: ', thumbnailsShown);
-  console.log('photos length: ', photosLength);
-  console.log('active Index: ', activeIndex);
-  // console.log('carousel height', carouselHeight);
 
   const setDefaultStyle = (stylesArr) => {
     for (const style of stylesArr) {
@@ -112,7 +106,7 @@ const Overview = () => {
       setThumbnailsShown,
     }}
     >
-      <section id="widget">
+      <section className="widget">
         {imageView
           ? <ExpandedView />
           : (
