@@ -19,15 +19,24 @@ const App = () => {
   const [relatedStyles, setRelatedStyles] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
   const [products, setProducts] = useState([]);
+  const [productAvgs, setProductAvgs] = useState();
 
-  const calcReviewsAverage = (data) => {
-    let sum = 0;
-    let count = 0;
-    Object.keys(data.ratings).forEach((rating) => {
-      sum += rating * data.ratings[rating];
-      count += Number(data.ratings[rating]);
-    });
-    setAverage(Number((sum / count).toFixed(1)));
+  const calcReviewsAverages = (data) => {
+    Promise.all(data.map((product) => axios.get(`/reviews/meta/?product_id=${product.id}`)))
+      .then((resData) => {
+        const totalProductAverages = {};
+        for (let i = 0; i < data.length; i += 1) {
+          const productsReviewData = resData[i].data;
+          let sum = 0;
+          let count = 0;
+          Object.keys(productsReviewData.ratings).forEach((rating) => {
+            sum += rating * productsReviewData.ratings[rating];
+            count += Number(productsReviewData.ratings[rating]);
+          });
+          totalProductAverages[productsReviewData.product_id] = { averageReview: Number((sum / count).toFixed(1)) };
+        }
+        setProductAvgs(totalProductAverages);
+      });
   };
 
   useEffect(() => {
@@ -38,6 +47,7 @@ const App = () => {
       .then((res) => {
         setCurrentProduct(res.data[0]);
         setProducts(res.data);
+        calcReviewsAverages(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -52,7 +62,6 @@ const App = () => {
       })
         .then((res) => {
           setCurrentReview(res.data);
-          calcReviewsAverage(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -63,6 +72,12 @@ const App = () => {
         });
     }
   }, [currentProduct]);
+
+  useEffect(() => {
+    if (currentProduct && productAvgs) {
+      setAverage(productAvgs[currentProduct.id].averageReview);
+    }
+  }, [productAvgs]);
 
   useEffect(() => {
     if (relatedIds.length > 1) {
@@ -102,7 +117,7 @@ const App = () => {
   }
   return (
     <AppContext.Provider value={{
-      currentProduct, currentReview, average, relatedProducts, relatedStyles, totalReviews, products, setCurrentProduct,
+      currentProduct, currentReview, average, relatedProducts, relatedStyles, totalReviews, products, setCurrentProduct, productAvgs,
     }}
     >
       <div>
