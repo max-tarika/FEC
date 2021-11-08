@@ -6,24 +6,22 @@ import { OverviewContext } from './context.js';
 
 const DefaultImageThumbnail = ({ thumbnail, i }) => {
   const {
-    currentStyle, setActiveIndex, activeIndex, setSlider, thumbnailHeight, hiddenThumbnailsLength,
+    currentStyle, setActiveIndex, activeIndex,
   } = useContext(OverviewContext);
   const isSelected = activeIndex === i;
   const isSelectedValues = {
     borderBottomWidth: '3px', borderBottomColor: 'white', borderBottomStyle: 'solid', marginTop: '2px',
   };
   const nonSelectedValues = {
-    borderBottomWidth: '3px', borderBottomColor: 'black', borderBottomStyle: 'solid', marginTop: '2px',
+    marginTop: '2px', paddingBottom: '3px',
   };
 
   const handleThumbnailClick = () => {
     setActiveIndex(i);
-    const sliderWindow = -(i * thumbnailHeight);
-    setSlider(sliderWindow >= -hiddenThumbnailsLength ? sliderWindow : -hiddenThumbnailsLength);
   };
 
   return (
-    <div className="thumbnailContainer" style={{ margin: 5 }}>
+    <div className="thumbnailContainer" style={{ padding: '3px' }}>
       <div id="thumbnailWrapper">
         <img className="thumbnail" onClick={handleThumbnailClick} src={thumbnail.thumbnail_url} alt={currentStyle.name} />
       </div>

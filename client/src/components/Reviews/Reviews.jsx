@@ -47,7 +47,7 @@ const Reviews = () => {
         currentReview, currentProduct, reviews, average,
       }}
       >
-        <div id="widget">
+        <div id="reviewsWidget" className="widget">
           <h4>Ratings &amp; Reviews</h4>
           <div id="ratingsAndReviewsContainer">
             <div id="ratings">

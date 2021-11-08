@@ -7,15 +7,21 @@ import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
 
 const ThumbnailCarousel = () => {
   const {
-    currentStyle, slider, setSlider, thumbnailHeight, hiddenThumbnailsLength,
+    currentStyle, slider, setSlider, thumbnailHeight, hiddenThumbnailsLength, photosLength, thumbnailsShown, setThumbnailsShown,
   } = useContext(OverviewContext);
 
   const goToPrevSlide = () => {
     setSlider(slider === 0 ? slider : slider + thumbnailHeight);
+    if (thumbnailsShown[0] > 0) {
+      setThumbnailsShown([thumbnailsShown[0] - 1, thumbnailsShown[1] - 1]);
+    }
   };
 
   const goToNextSlide = () => {
     setSlider(slider === -hiddenThumbnailsLength ? slider : slider - thumbnailHeight);
+    if (thumbnailsShown[1] < photosLength) {
+      setThumbnailsShown([thumbnailsShown[0] + 1, thumbnailsShown[1] + 1]);
+    }
   };
 
   return (

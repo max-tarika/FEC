@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect, useContext, useState } from 'react';
@@ -20,8 +21,10 @@ const Overview = () => {
   const [image, setImage] = useState();
   const [activeIndex, setActiveIndex] = useState(0);
   const [slider, setSlider] = useState(0);
-  const photosLength = currentStyle?.photos?.length;
-  const thumbnailHeight = document.querySelector('.thumbnailContainer')?.offsetHeight + 5;
+  const [photosLength, setPhotosLength] = useState(0);
+  const [thumbnailsShown, setThumbnailsShown] = useState([0, 6]);
+  const carouselHeight = document.querySelector('.thumbnailCarousel-content-wrapper')?.offsetHeight;
+  const thumbnailHeight = document.querySelector('.thumbnailContainer')?.offsetHeight;
   const hiddenThumbnails = photosLength - 7;
   const hiddenThumbnailsLength = hiddenThumbnails * thumbnailHeight;
 
@@ -62,6 +65,25 @@ const Overview = () => {
     }
   }, [currentProduct]);
 
+  useEffect(() => {
+    if (currentStyle?.photos) {
+      setPhotosLength(currentStyle?.photos?.length);
+    }
+  }, [currentStyle]);
+
+  useEffect(() => {
+    if (activeIndex < thumbnailsShown[0]) {
+      const lowerBound = activeIndex - thumbnailsShown[0];
+      setSlider(slider - (lowerBound * thumbnailHeight));
+      setThumbnailsShown([thumbnailsShown[0] - 1, thumbnailsShown[1] - 1]);
+    }
+    if (activeIndex > thumbnailsShown[1]) {
+      const upperBound = activeIndex - thumbnailsShown[1];
+      setSlider(slider - (upperBound * thumbnailHeight));
+      setThumbnailsShown([thumbnailsShown[0] + 1, thumbnailsShown[1] + 1]);
+    }
+  }, [activeIndex]);
+
   return (
     <OverviewContext.Provider value={{
       productInfo,
@@ -79,9 +101,12 @@ const Overview = () => {
       thumbnailHeight,
       hiddenThumbnails,
       hiddenThumbnailsLength,
+      carouselHeight,
+      thumbnailsShown,
+      setThumbnailsShown,
     }}
     >
-      <section id="widget">
+      <section className="widget">
         {imageView
           ? <ExpandedView />
           : (
