@@ -61,20 +61,18 @@ const App = () => {
         });
     }
   }, [currentProduct]);
-  console.log('max is a fruitbup');
 
   useEffect(() => {
     if (relatedIds.length > 1) {
-      const promises = Promise.all(relatedIds.map((id) => axios.get(`/products/${id}`)))
+      Promise.all(relatedIds.map((id) => axios.get(`/products/${id}`)))
         .then((values) => {
-          console.log('values = ', values);
           const array = [];
           for (let i = 0; i < values.length; i += 1) {
             array.push(values[i].data);
           }
           setRelatedProducts(array);
         });
-      const yeet = Promise.all(relatedIds.map((id) => axios.get(`/products/${id}/styles`)))
+      Promise.all(relatedIds.map((id) => axios.get(`/products/${id}/styles`)))
         .then((values) => {
           console.log('values = ', values);
           const arr = [];
@@ -85,20 +83,18 @@ const App = () => {
         });
     }
   }, [relatedIds]);
-  console.log('relatedProducts ', relatedProducts);
-  console.log('related styles ', relatedStyles);
   if (!currentProduct) {
     return <div id="loadingScreen">Da Island Is LoADing Mon</div>;
   }
   return (
     <AppContext.Provider value={{
-      currentProduct, currentReview, average,
+      currentProduct, currentReview, average, relatedProducts, relatedStyles,
     }}
     >
       <div>
         <h1>Da Island Bois</h1>
         <Overview />
-        {/* <Related /> */}
+        <Related />
         <Reviews />
       </div>
     </AppContext.Provider>
