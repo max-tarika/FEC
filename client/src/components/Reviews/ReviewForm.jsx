@@ -12,7 +12,7 @@ const ReviewForm = () => {
 
   const [newReview, setNewReview] = useState(
     {
-      product_id: currentProduct.id, rating: 0, summary: '', body: '', recommend: false, name: '', email: '', photos: [], characteristics: {},
+      product_id: currentProduct.id, rating: '', summary: '', body: '', recommend: false, name: '', email: '', photos: [], characteristics: {},
     },
   );
 
@@ -32,7 +32,11 @@ const ReviewForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(e);
-    axios.post('/reviews', (newReview)).then((res) => console.log(res))
+    axios.post('/reviews', (newReview))
+      .then((res) => console.log(res))
+      .then(setNewReview({
+        product_id: currentProduct.id, rating: 0, summary: '', body: '', recommend: false, name: '', email: '', photos: [], characteristics: {},
+      }))
       .catch((error) => {
         if (error.response) {
           console.log(error.response);
@@ -106,7 +110,6 @@ const ReviewForm = () => {
             type="button"
             onClick={(e) => {
               e.preventDefault();
-              console.log('Current Product: ', currentProduct);
               console.log('New Review: ', newReview);
             }}
           >
