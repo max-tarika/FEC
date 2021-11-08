@@ -441,7 +441,7 @@ img.thumbnail:hover {
   background-image: url("./img/y-so-serious-white.png");
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: flex-start;
   text-align: center;
 
