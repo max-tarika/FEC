@@ -21,8 +21,6 @@ const OutfitList = () => {
     setOutfitStorage(setter);
   }, [outfit]);
 
-  console.log('product data ', productData);
-
   if (outfitStorage) {
     return (
       <div id="outfitContainer">
