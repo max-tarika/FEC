@@ -7,16 +7,15 @@ import { OverviewContext } from './context.js';
 
 const DefaultImageCarousel = () => {
   const {
-    currentStyle, handleImageClick, activeIndex, setActiveIndex,
+    currentStyle, handleImageClick, activeIndex, setActiveIndex, photosLength,
   } = useContext(OverviewContext);
-  const length = currentStyle?.photos?.length;
 
   const goToPrevSlide = () => {
     setActiveIndex(activeIndex === 0 ? activeIndex : activeIndex - 1);
   };
 
   const goToNextSlide = () => {
-    setActiveIndex(activeIndex === length - 1 ? activeIndex : activeIndex + 1);
+    setActiveIndex(activeIndex === photosLength - 1 ? activeIndex : activeIndex + 1);
   };
 
   return (
@@ -39,7 +38,7 @@ const DefaultImageCarousel = () => {
           </div>
         ))}
       </div>
-      {activeIndex < length - 1
+      {activeIndex < photosLength - 1
       && (
       <button className="rightArrow" onClick={goToNextSlide} type="button">
         <FontAwesomeIcon icon={faAngleRight} />
@@ -50,9 +49,3 @@ const DefaultImageCarousel = () => {
 };
 
 export default DefaultImageCarousel;
-
-// <div key={i}>
-//   {i === activeIndex && (
-//     <img onClick={handleImageClick} className="image" src={photo.url} alt={currentStyle.name} />
-//   )}
-// </div>

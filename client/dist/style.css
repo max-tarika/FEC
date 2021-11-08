@@ -255,46 +255,6 @@ img.image {
   overflow: hidden;
 }
 
-#defaultThumbnailCarousel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  left: 65px;
-  top: 15px;
-  z-index: 1;
-}
-
-#thumbnailWrapper {
-  height: 40px;
-  width: 40px;
-  overflow: hidden;
-  transition: 0.4s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-img.thumbnail {
-  object-fit: cover;
-  max-height: 150%;
-  max-width: 150%;
-  margin: 7px;
-}
-
-img.thumbnail:hover {
-  cursor: pointer;
-}
-
-#selectedThumbnail {
-  border-bottom: 3px solid silver;
-  margin-top: 2px;
-}
-
-#thumbnailContainer {
-  margin: 5px;
-}
-
 #carouselContainer {
   display: flex;
   align-items: center;
@@ -345,6 +305,84 @@ img.thumbnail:hover {
 .rightArrow {
   right: 20px;
 }
+
+.thumbnailCarousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  left: 65px;
+  top: 40px;
+  z-index: 1;
+}
+
+.thumbnailCarousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.thumbnailCarousel-content-wrapper {
+  height: 350px;
+  overflow: hidden;
+}
+
+.thumbnailCarousel-content {
+
+}
+
+.upArrow, .downArrow {
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upArrow {
+  top: -20px;
+}
+
+.downArrow {
+  bottom: -25px;
+}
+
+#thumbnailWrapper {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img.thumbnail {
+  object-fit: cover;
+  max-height: 150%;
+  max-width: 150%;
+  margin: 7px;
+}
+
+img.thumbnail:hover {
+  cursor: pointer;
+}
+
+#selectedThumbnail {
+  border-bottom: 3px solid silver;
+  margin-top: 2px;
+}
+
+/* #thumbnailContainer {
+  margin: 5px;
+} */
 
 /* Styling for Related and Outfit */
 
