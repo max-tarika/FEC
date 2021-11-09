@@ -22,10 +22,18 @@ const Overview = () => {
   const [slider, setSlider] = useState(0);
   const [photosLength, setPhotosLength] = useState(0);
   const [thumbnailsShown, setThumbnailsShown] = useState([0, 6]);
-  const carouselHeight = document.querySelector('.thumbnailCarousel-content-wrapper')?.offsetHeight;
-  const thumbnailHeight = document.querySelector('.thumbnailContainer')?.offsetHeight;
+  const [iconSlider, setIconSlider] = useState(0);
+  const thumbnailHeight = 51;
   const hiddenThumbnails = photosLength - 7;
   const hiddenThumbnailsLength = hiddenThumbnails * thumbnailHeight;
+  const iconHeight = 25;
+  console.log('---------------------------');
+  console.log('thumbnail height: ', thumbnailHeight);
+  console.log('iconHeight: ', iconHeight);
+  console.log('slider: ', slider);
+  console.log('icon slider: ', iconSlider);
+  console.log('activeIndex: ', activeIndex);
+  console.log('thumbnailsShown: ', thumbnailsShown);
 
   const handleStyleClick = (styleId) => {
     for (const style of styles) {
@@ -58,11 +66,13 @@ const Overview = () => {
     if (activeIndex < thumbnailsShown[0]) {
       const lowerBound = activeIndex - thumbnailsShown[0];
       setSlider(slider - (lowerBound * thumbnailHeight));
+      setIconSlider(iconSlider - (lowerBound * iconHeight));
       setThumbnailsShown([thumbnailsShown[0] - 1, thumbnailsShown[1] - 1]);
     }
     if (activeIndex > thumbnailsShown[1]) {
       const upperBound = activeIndex - thumbnailsShown[1];
       setSlider(slider - (upperBound * thumbnailHeight));
+      setIconSlider(iconSlider - (upperBound * iconHeight));
       setThumbnailsShown([thumbnailsShown[0] + 1, thumbnailsShown[1] + 1]);
     }
   }, [activeIndex]);
@@ -80,10 +90,12 @@ const Overview = () => {
       thumbnailHeight,
       hiddenThumbnails,
       hiddenThumbnailsLength,
-      carouselHeight,
       thumbnailsShown,
       setThumbnailsShown,
       imageView,
+      iconSlider,
+      setIconSlider,
+      iconHeight,
     }}
     >
       <section className="widget">

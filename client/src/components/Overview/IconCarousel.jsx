@@ -1,19 +1,17 @@
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
-import React, { useContext, useState, useEffect } from 'react';
+/* eslint-disable react/no-array-index-key */
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
-import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
+import Icon from './Icon.jsx';
 import AppContext from '../../context.js';
 
-const ThumbnailCarousel = () => {
+const IconCarousel = () => {
   const {
-    slider, setSlider, thumbnailHeight, photosLength, thumbnailsShown, setThumbnailsShown, iconHeight, iconSlider, setIconSlider, imageView,
+    slider, setSlider, thumbnailHeight, photosLength, thumbnailsShown, setThumbnailsShown, iconHeight, iconSlider, setIconSlider,
   } = useContext(OverviewContext);
   const { currentStyle } = useContext(AppContext);
-  // const [carouselType, setCarouselType] = useState('thumbnail');
-  // const carouselType = imageView ? 'icon' : 'thumbnail';
 
   const goToPrevSlide = () => {
     if (thumbnailsShown[0] > 0) {
@@ -31,13 +29,9 @@ const ThumbnailCarousel = () => {
     }
   };
 
-  // useEffect(() => {
-  //   imageView ? setCarouselType('icon') : setCarouselType('thumbnail');
-  // }, [imageView]);
-
   return (
-    <div className="thumbnailCarousel-container">
-      <div className="thumbnailCarousel-wrapper">
+    <div className="iconCarousel-container">
+      <div className="iconCarousel-wrapper">
         <div>
           {thumbnailsShown[0] > 0
           && (
@@ -52,9 +46,9 @@ const ThumbnailCarousel = () => {
           </button>
           )}
         </div>
-        <div className="thumbnailCarousel-content-wrapper">
-          <div style={{ transform: `translateY(${slider}px)` }}>
-            {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} key={i} />)}
+        <div className="iconCarousel-content-wrapper">
+          <div style={{ transform: `translateY(${iconSlider}px)` }}>
+            {currentStyle?.photos?.map((icon, i) => <Icon i={i} key={i} />)}
           </div>
         </div>
       </div>
@@ -62,4 +56,4 @@ const ThumbnailCarousel = () => {
   );
 };
 
-export default ThumbnailCarousel;
+export default IconCarousel;

@@ -6,14 +6,26 @@ import React, { useContext } from 'react';
 import DefaultImageCarousel from './DefaultImageCarousel.jsx';
 import ThumbnailCarousel from './ThumbnailCarousel.jsx';
 import { OverviewContext } from './context.js';
+import IconCarousel from './IconCarousel.jsx';
 
 const DefaultView = () => {
   const { imageView } = useContext(OverviewContext);
 
   return (
-    <div id={imageView ? 'expandedViewContainer' : 'defaultImageContainer'}>
-      <ThumbnailCarousel />
-      <DefaultImageCarousel />
+    <div>
+      {imageView
+        ? (
+          <div id="expandedViewContainer">
+            <IconCarousel />
+            <DefaultImageCarousel />
+          </div>
+        )
+        : (
+          <div id="defaultImageContainer">
+            <ThumbnailCarousel />
+            <DefaultImageCarousel />
+          </div>
+        )}
     </div>
   );
 };
