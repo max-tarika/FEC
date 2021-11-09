@@ -4,11 +4,26 @@ import Outfit from './Outfit.jsx';
 import AppContext from '../../context';
 
 const OutfitList = () => {
-  const { outfit, productData } = useContext(RelatedContext);
+  const { outfit } = useContext(RelatedContext);
   const { products } = useContext(AppContext);
   const [outfitStorage, setOutfitStorage] = useState([]);
   const [count, setCount] = useState(0);
   const store = [];
+  const session = window.sessionStorage;
+
+  useEffect(() => {
+    const cache = JSON.parse(session.getItem('data'));
+    if (cache && cache.length) {
+      setOutfitStorage(cache);
+    }
+  }, [products]);
+
+  useEffect(() => {
+    if (outfitStorage.length) {
+      const stringData = JSON.stringify(outfitStorage);
+      session.setItem('data', stringData);
+    }
+  }, [outfitStorage, count]);
 
   useEffect(() => {
     if (outfitStorage.indexOf(outfit?.currentProduct?.id) === -1
