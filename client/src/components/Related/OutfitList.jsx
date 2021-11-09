@@ -10,7 +10,7 @@ const OutfitList = () => {
   const store = [];
 
   useEffect(() => {
-    if (!outfitStorage.includes(outfit?.currentProduct?.id)
+    if (outfitStorage.indexOf(outfit?.currentProduct?.id) === -1
     && outfit?.currentProduct?.id !== undefined) {
       if (outfitStorage.length > 0) {
         store.push(outfitStorage);
@@ -18,7 +18,9 @@ const OutfitList = () => {
       if (outfit.photo) {
         outfit.currentProduct.photo = outfit.photo;
       }
-      store.push(outfit?.currentProduct);
+      if (!outfitStorage.some((obj) => obj.id === outfit?.currentProduct?.id)) {
+        store.push(outfit?.currentProduct);
+      }
     }
     const setter = store.flat();
     setOutfitStorage(setter);
