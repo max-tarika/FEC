@@ -8,14 +8,14 @@ const OutfitList = () => {
   const { products } = useContext(AppContext);
   const [outfitStorage, setOutfitStorage] = useState([]);
   const store = [];
-
+  console.log('checking outfit ', outfit.photo);
   useEffect(() => {
     if (!outfitStorage.includes(outfit?.currentProduct?.id)
     && outfit?.currentProduct?.id !== undefined) {
       if (outfitStorage.length > 0) {
         store.push(outfitStorage);
       }
-      store.push(outfit?.currentProduct?.id);
+      store.push(outfit?.currentProduct);
     }
     const setter = store.flat();
     setOutfitStorage(setter);
@@ -25,7 +25,7 @@ const OutfitList = () => {
     return (
       <div id="outfitContainer">
         {
-        outfitStorage.map((id) => <div id="productCard"><Outfit key={id} id={id} /></div>)
+        outfitStorage.map((product) => <div id="productCard"><Outfit key={product.id} id={product.id} product={product} /></div>)
       }
       </div>
     );
