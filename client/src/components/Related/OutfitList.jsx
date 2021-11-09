@@ -8,12 +8,15 @@ const OutfitList = () => {
   const { products } = useContext(AppContext);
   const [outfitStorage, setOutfitStorage] = useState([]);
   const store = [];
-  console.log('checking outfit ', outfit.photo);
+
   useEffect(() => {
     if (!outfitStorage.includes(outfit?.currentProduct?.id)
     && outfit?.currentProduct?.id !== undefined) {
       if (outfitStorage.length > 0) {
         store.push(outfitStorage);
+      }
+      if (outfit.photo) {
+        outfit.currentProduct.photo = outfit.photo;
       }
       store.push(outfit?.currentProduct);
     }
