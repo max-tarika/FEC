@@ -19,7 +19,7 @@ const ProductBreakdown = () => {
     <div id="productBreakdown">
       <p style={{ fontVariant: 'none' }}>Product Breakdown</p>
 
-      {chars?.map((charKey) => <BreakdownBar characteristic={charKey} offset={currentReview.characteristics.charKey?.value} total={chars.length} />)}
+      {chars?.map((charKey) => <BreakdownBar characteristic={charKey} offset={currentReview.characteristics.charKey?.value} />)}
 
     </div>
   );

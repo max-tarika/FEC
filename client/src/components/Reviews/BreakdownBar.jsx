@@ -8,7 +8,7 @@ const BreakdownBar = (props) => {
   const { currentProduct } = context;
   const { characteristics } = context.currentReview;
 
-  const calcOffset = (num) => (num / props.total) * 100;
+  const calcOffset = (num) => (num / 5) * 100;
 
   if (!characteristics) return (<h3>Loading...</h3>);
 
