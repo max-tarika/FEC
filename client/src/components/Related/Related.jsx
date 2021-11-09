@@ -58,7 +58,10 @@ const Related = () => {
     }
   }, [photos]);
 
-  const addOutfitClick = () => {
+  const addOutfitClick = (e) => {
+    if (!e) var e = window.event;
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
     if (currentStyle?.photos?.length > 1) {
       currentProduct.photo = currentStyle?.photos[0].thumbnail_url;
     }
