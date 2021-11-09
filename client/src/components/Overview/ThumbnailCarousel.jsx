@@ -5,11 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
 import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
+import AppContext from '../../context.js';
 
 const ThumbnailCarousel = () => {
   const {
-    currentStyle, slider, setSlider, thumbnailHeight, hiddenThumbnailsLength, photosLength, thumbnailsShown, setThumbnailsShown,
+    slider, setSlider, thumbnailHeight, hiddenThumbnailsLength, photosLength, thumbnailsShown, setThumbnailsShown,
   } = useContext(OverviewContext);
+  const { currentStyle } = useContext(AppContext);
 
   const goToPrevSlide = () => {
     setSlider(slider === 0 ? slider : slider + thumbnailHeight);

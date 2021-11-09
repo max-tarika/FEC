@@ -2,11 +2,12 @@
 /* eslint-disable react/no-array-index-key */
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { OverviewContext } from './context.js';
+// import { OverviewContext } from './context.js';
 import SizeDropdown from './SizeDropdown.jsx';
+import AppContext from '../../context.js';
 
 const AddToCart = () => {
-  const { currentStyle } = useContext(OverviewContext);
+  const { currentStyle } = useContext(AppContext);
   const [sku_id, setSku] = useState();
   const [skuQuants, setSkuQuants] = useState();
   const [sizeSelected, setSizeSelected] = useState(false);

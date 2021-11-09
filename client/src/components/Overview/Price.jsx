@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { OverviewContext } from './context.js';
+import AppContext from '../../context.js';
 
 const Price = () => {
-  const { currentStyle } = useContext(OverviewContext);
+  const { currentStyle } = useContext(AppContext);
 
   if (currentStyle.sale_price) {
     return (

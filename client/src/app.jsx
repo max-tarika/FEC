@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
@@ -20,6 +21,8 @@ const App = () => {
   const [totalReviews, setTotalReviews] = useState(0);
   const [products, setProducts] = useState([]);
   const [productAvgs, setProductAvgs] = useState();
+  const [styles, setStyles] = useState([]);
+  const [currentStyle, setStyle] = useState({});
 
   const calcReviewsAverages = (data) => {
     Promise.all(data.map((product) => axios.get(`/reviews/meta/?product_id=${product.id}`)))
@@ -37,6 +40,14 @@ const App = () => {
         }
         setProductAvgs(totalProductAverages);
       });
+  };
+
+  const setDefaultStyle = (stylesArr) => {
+    for (const style of stylesArr) {
+      if (style['default?']) {
+        setStyle(style);
+      }
+    }
   };
 
   useEffect(() => {
@@ -115,12 +126,35 @@ const App = () => {
     setTotalReviews(reviews);
   }, [currentReview]);
 
+  useEffect(() => {
+    if (currentProduct?.id) {
+      axios
+        .get(`/products/${currentProduct.id}/styles`)
+        .then((response) => {
+          setStyles(response.data.results);
+          setDefaultStyle(response.data.results);
+        })
+        .catch((err) => { console.error(err); });
+    }
+  }, [currentProduct]);
+
   if (!currentProduct) {
     return <div id="loadingScreen">Da Island Is LoADing Mon</div>;
   }
   return (
     <AppContext.Provider value={{
-      currentProduct, currentReview, average, relatedProducts, relatedStyles, totalReviews, products, setCurrentProduct, productAvgs,
+      currentProduct,
+      currentReview,
+      average,
+      relatedProducts,
+      relatedStyles,
+      totalReviews,
+      products,
+      setCurrentProduct,
+      productAvgs,
+      styles,
+      currentStyle,
+      setStyle,
     }}
     >
       <div>

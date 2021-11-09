@@ -6,11 +6,13 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
+import AppContext from '../../context.js';
 
 const DefaultImageCarousel = () => {
   const {
-    currentStyle, handleImageClick, activeIndex, setActiveIndex, photosLength, imageView,
+    handleImageClick, activeIndex, setActiveIndex, photosLength, imageView,
   } = useContext(OverviewContext);
+  const { currentStyle } = useContext(AppContext);
 
   const goToPrevSlide = () => {
     setActiveIndex(activeIndex === 0 ? activeIndex : activeIndex - 1);

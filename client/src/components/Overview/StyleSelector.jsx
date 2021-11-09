@@ -1,10 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useContext, useState } from 'react';
-import { OverviewContext } from './context.js';
+import AppContext from '../../context.js';
 import Style from './Style.jsx';
 
 const StyleSelector = () => {
-  const { styles, currentStyle } = useContext(OverviewContext);
+  const { styles, currentStyle } = useContext(AppContext);
   const [selectedStyle, setSelectedStyle] = useState();
 
   return (

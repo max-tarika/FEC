@@ -63,7 +63,7 @@ letter-spacing: "0em";
 .widget {
   font-family: 'Roboto', sans-serif;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   border: 2px solid #333;
   border-radius: 4px;
   padding: 3px;
@@ -431,7 +431,7 @@ img.thumbnail:hover {
 }
 
 #expandedImageWrapper {
-  width: 900px;
+  width: 1000px;
 }
 
 /* Styling for Related and Outfit */

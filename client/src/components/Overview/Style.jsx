@@ -5,9 +5,11 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
+import AppContext from '../../context.js';
 
 const Style = ({ style, setStyle }) => {
-  const { currentStyle, handleStyleClick } = useContext(OverviewContext);
+  const { handleStyleClick } = useContext(OverviewContext);
+  const { currentStyle } = useContext(AppContext);
   const isSelected = currentStyle.style_id === style.style_id;
 
   return (
