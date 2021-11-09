@@ -1,19 +1,19 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
 import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
 import AppContext from '../../context.js';
+import Icon from './Icon.jsx';
 
 const ThumbnailCarousel = () => {
   const {
     slider, setSlider, thumbnailHeight, photosLength, thumbnailsShown, setThumbnailsShown, iconHeight, iconSlider, setIconSlider, imageView,
   } = useContext(OverviewContext);
   const { currentStyle } = useContext(AppContext);
-  // const [carouselType, setCarouselType] = useState('thumbnail');
-  // const carouselType = imageView ? 'icon' : 'thumbnail';
+  const carouselType = imageView ? 'icon' : 'thumbnail';
 
   const goToPrevSlide = () => {
     if (thumbnailsShown[0] > 0) {
@@ -31,13 +31,9 @@ const ThumbnailCarousel = () => {
     }
   };
 
-  // useEffect(() => {
-  //   imageView ? setCarouselType('icon') : setCarouselType('thumbnail');
-  // }, [imageView]);
-
   return (
-    <div className="thumbnailCarousel-container">
-      <div className="thumbnailCarousel-wrapper">
+    <div className={`${carouselType}Carousel-container`}>
+      <div className={`${carouselType}Carousel-wrapper`}>
         <div>
           {thumbnailsShown[0] > 0
           && (
@@ -52,10 +48,18 @@ const ThumbnailCarousel = () => {
           </button>
           )}
         </div>
-        <div className="thumbnailCarousel-content-wrapper">
-          <div style={{ transform: `translateY(${slider}px)` }}>
-            {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} key={i} />)}
-          </div>
+        <div className={`${carouselType}Carousel-content-wrapper`}>
+          {imageView
+            ? (
+              <div style={{ transform: `translateY(${iconSlider}px)` }}>
+                {currentStyle?.photos?.map((icon, i) => <Icon i={i} key={i} />)}
+              </div>
+            )
+            : (
+              <div style={{ transform: `translateY(${slider}px)` }}>
+                {currentStyle?.photos?.map((thumbnail, i) => <DefaultImageThumbnail thumbnail={thumbnail} i={i} key={i} />)}
+              </div>
+            )}
         </div>
       </div>
     </div>

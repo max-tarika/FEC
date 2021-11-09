@@ -9,7 +9,6 @@ import AddToCart from './AddToCart.jsx';
 import AppContext from '../../context.js';
 import { OverviewContext } from './context.js';
 import Description from './Description.jsx';
-// import ExpandedView from './ExpandedView.jsx';
 import DefaultView from './DefaultView.jsx';
 
 const Overview = () => {
@@ -24,16 +23,9 @@ const Overview = () => {
   const [thumbnailsShown, setThumbnailsShown] = useState([0, 6]);
   const [iconSlider, setIconSlider] = useState(0);
   const thumbnailHeight = 51;
+  const iconHeight = 25;
   const hiddenThumbnails = photosLength - 7;
   const hiddenThumbnailsLength = hiddenThumbnails * thumbnailHeight;
-  const iconHeight = 25;
-  console.log('---------------------------');
-  console.log('thumbnail height: ', thumbnailHeight);
-  console.log('iconHeight: ', iconHeight);
-  console.log('slider: ', slider);
-  console.log('icon slider: ', iconSlider);
-  console.log('activeIndex: ', activeIndex);
-  console.log('thumbnailsShown: ', thumbnailsShown);
 
   const handleStyleClick = (styleId) => {
     for (const style of styles) {
@@ -67,13 +59,13 @@ const Overview = () => {
       const lowerBound = activeIndex - thumbnailsShown[0];
       setSlider(slider - (lowerBound * thumbnailHeight));
       setIconSlider(iconSlider - (lowerBound * iconHeight));
-      setThumbnailsShown([thumbnailsShown[0] - 1, thumbnailsShown[1] - 1]);
+      setThumbnailsShown([activeIndex, activeIndex + 6]);
     }
     if (activeIndex > thumbnailsShown[1]) {
       const upperBound = activeIndex - thumbnailsShown[1];
       setSlider(slider - (upperBound * thumbnailHeight));
       setIconSlider(iconSlider - (upperBound * iconHeight));
-      setThumbnailsShown([thumbnailsShown[0] + 1, thumbnailsShown[1] + 1]);
+      setThumbnailsShown([activeIndex - 6, activeIndex]);
     }
   }, [activeIndex]);
 

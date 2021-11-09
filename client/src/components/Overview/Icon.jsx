@@ -13,6 +13,7 @@ const Icon = ({ i }) => {
     setActiveIndex, activeIndex,
   } = useContext(OverviewContext);
   const isSelected = activeIndex === i;
+  // console.log(i, activeIndex, isSelected);
 
   const handleIconClick = () => {
     setActiveIndex(i);
