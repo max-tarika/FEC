@@ -1,14 +1,16 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 import AppContext from '../../context.js';
 
 import Stars from './Stars.jsx';
 
 const ReviewForm = () => {
-  const { currentProduct } = useContext(AppContext);
+  const { currentProduct, currentReview } = useContext(AppContext);
+
   const characteristicRatings = ['poor', 'fair', 'average', 'good', 'great'];
-  const characteristicNames = ['Comfort', 'Fit', 'Length', 'Quality'];
+
+  const [charIDs, setCharIDs] = useState();
 
   const [newReview, setNewReview] = useState(
     {
@@ -29,6 +31,19 @@ const ReviewForm = () => {
       setNewReview({ ...newReview, [e.target.name]: false });
     }
   };
+  const handleChangeChar = (e) => {
+    if (e.target.value === 'great') {
+      setNewReview({ ...newReview, characteristics: { [e.target.name]: 5 } });
+    } else if (e.target.value === 'good') {
+      setNewReview({ ...newReview, characteristics: { [e.target.name]: 4 } });
+    } else if (e.target.value === 'average') {
+      setNewReview({ ...newReview, characteristics: { [e.target.name]: 3 } });
+    } else if (e.target.value === 'fair') {
+      setNewReview({ ...newReview, characteristics: { [e.target.name]: 2 } });
+    } else if (e.target.value === 'poor') {
+      setNewReview({ ...newReview, characteristics: { [e.target.name]: 1 } });
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault(e);
@@ -43,10 +58,31 @@ const ReviewForm = () => {
         }
       });
   };
+
+  useEffect(() => {
+    if (currentReview.characteristics) {
+      const ids = [];
+      Object.keys(currentReview.characteristics).forEach((key) => {
+        ids.push([currentReview.characteristics[key]?.id, key]);
+      });
+      setCharIDs(ids);
+    }
+  }, [currentReview]);
+
+  if (!charIDs) { return (<h1>Loading form</h1>); }
+
   return (
 
     <div id="addReviewForm">
 
+      <h1 onClick={(e) => {
+        e.preventDefault();
+        console.log(charIDs);
+      }}
+      >
+        Test
+
+      </h1>
       <h1>Write Your Review</h1>
       <h3>
         About the
@@ -78,20 +114,25 @@ const ReviewForm = () => {
         <div className="formElement characteristics">
           <h3>Product Characteristics: </h3>
 
-          {characteristicNames.map((characteristic) => (
-            <span className="characteristic">
-              <h3>
-                {characteristic}
-                :
-              </h3>
-              {characteristicRatings.map((rating) => (
-                <span>
-                  <input type="radio" id={rating} name={characteristic} value={newReview.characteristics} onChange={handleChange} />
-                  <label htmlFor={rating}>{rating[0].toUpperCase() + rating.slice(1)}</label>
-                </span>
-              ))}
-            </span>
-          ))}
+          {charIDs.map((tuple) => {
+            const id = tuple[0];
+            const name = tuple[1];
+            return (
+              <span className="characteristic">
+                <h3>
+                  {name}
+                  :
+                </h3>
+                {characteristicRatings.map((rating) => (
+                  <span>
+                    <input type="radio" id={rating} name={id} value={rating} onChange={handleChangeChar} />
+                    <label htmlFor={rating}>{rating[0].toUpperCase() + rating.slice(1)}</label>
+                  </span>
+                ))}
+              </span>
+            );
+          })}
+
         </div>
 
         <div className="formElement reviewInput">
