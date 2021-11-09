@@ -75,14 +75,7 @@ const ReviewForm = () => {
 
     <div id="addReviewForm">
 
-      <h1 onClick={(e) => {
-        e.preventDefault();
-        console.log(charIDs);
-      }}
-      >
-        Test
 
-      </h1>
       <h1>Write Your Review</h1>
       <h3>
         About the
