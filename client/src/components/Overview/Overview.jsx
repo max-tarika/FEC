@@ -9,7 +9,6 @@ import AddToCart from './AddToCart.jsx';
 import AppContext from '../../context.js';
 import { OverviewContext } from './context.js';
 import Description from './Description.jsx';
-// import ExpandedView from './ExpandedView.jsx';
 import DefaultView from './DefaultView.jsx';
 
 const Overview = () => {
@@ -22,10 +21,10 @@ const Overview = () => {
   const [slider, setSlider] = useState(0);
   const [photosLength, setPhotosLength] = useState(0);
   const [thumbnailsShown, setThumbnailsShown] = useState([0, 6]);
-  const carouselHeight = document.querySelector('.thumbnailCarousel-content-wrapper')?.offsetHeight;
-  const thumbnailHeight = document.querySelector('.thumbnailContainer')?.offsetHeight;
+  const [iconSlider, setIconSlider] = useState(0);
+  const thumbnailHeight = 51;
+  const iconHeight = 25;
   const hiddenThumbnails = photosLength - 7;
-  const hiddenThumbnailsLength = hiddenThumbnails * thumbnailHeight;
 
   const handleStyleClick = (styleId) => {
     for (const style of styles) {
@@ -58,12 +57,14 @@ const Overview = () => {
     if (activeIndex < thumbnailsShown[0]) {
       const lowerBound = activeIndex - thumbnailsShown[0];
       setSlider(slider - (lowerBound * thumbnailHeight));
-      setThumbnailsShown([thumbnailsShown[0] - 1, thumbnailsShown[1] - 1]);
+      setIconSlider(iconSlider - (lowerBound * iconHeight));
+      setThumbnailsShown([activeIndex, activeIndex + 6]);
     }
     if (activeIndex > thumbnailsShown[1]) {
       const upperBound = activeIndex - thumbnailsShown[1];
       setSlider(slider - (upperBound * thumbnailHeight));
-      setThumbnailsShown([thumbnailsShown[0] + 1, thumbnailsShown[1] + 1]);
+      setIconSlider(iconSlider - (upperBound * iconHeight));
+      setThumbnailsShown([activeIndex - 6, activeIndex]);
     }
   }, [activeIndex]);
 
@@ -79,11 +80,12 @@ const Overview = () => {
       photosLength,
       thumbnailHeight,
       hiddenThumbnails,
-      hiddenThumbnailsLength,
-      carouselHeight,
       thumbnailsShown,
       setThumbnailsShown,
       imageView,
+      iconSlider,
+      setIconSlider,
+      iconHeight,
     }}
     >
       <section className="widget">

@@ -9,11 +9,14 @@ import { OverviewContext } from './context.js';
 
 const DefaultView = () => {
   const { imageView } = useContext(OverviewContext);
+  const viewType = imageView ? 'expandedViewContainer' : 'defaultImageContainer';
 
   return (
-    <div id={imageView ? 'expandedViewContainer' : 'defaultImageContainer'}>
-      <ThumbnailCarousel />
-      <DefaultImageCarousel />
+    <div>
+      <div id={viewType}>
+        <ThumbnailCarousel />
+        <DefaultImageCarousel />
+      </div>
     </div>
   );
 };
