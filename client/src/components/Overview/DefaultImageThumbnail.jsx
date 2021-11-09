@@ -3,11 +3,13 @@
 /* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
 import { OverviewContext } from './context.js';
+import AppContext from '../../context.js';
 
 const DefaultImageThumbnail = ({ thumbnail, i }) => {
   const {
-    currentStyle, setActiveIndex, activeIndex,
+    setActiveIndex, activeIndex,
   } = useContext(OverviewContext);
+  const { currentStyle } = useContext(AppContext);
   const isSelected = activeIndex === i;
   const isSelectedValues = {
     borderBottomWidth: '3px', borderBottomColor: 'white', borderBottomStyle: 'solid', marginTop: '2px',

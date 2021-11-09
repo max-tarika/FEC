@@ -6,11 +6,13 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
+import AppContext from '../../context.js';
 
 const DefaultImageCarousel = () => {
   const {
-    currentStyle, handleImageClick, activeIndex, setActiveIndex, photosLength,
+    handleImageClick, activeIndex, setActiveIndex, photosLength, imageView,
   } = useContext(OverviewContext);
+  const { currentStyle } = useContext(AppContext);
 
   const goToPrevSlide = () => {
     setActiveIndex(activeIndex === 0 ? activeIndex : activeIndex - 1);
@@ -19,6 +21,8 @@ const DefaultImageCarousel = () => {
   const goToNextSlide = () => {
     setActiveIndex(activeIndex === photosLength - 1 ? activeIndex : activeIndex + 1);
   };
+
+  const imgStyles = imageView ? { cursor: 'crosshair' } : null;
 
   return (
     <div id="carouselContainer">
@@ -30,8 +34,13 @@ const DefaultImageCarousel = () => {
       )}
       <div className="carouselContent">
         {currentStyle?.photos?.map((photo, i) => (
-          <div className={i === activeIndex ? 'active imageWrapper' : 'inactive imageWrapper'} key={i}>
+          <div
+            className={i === activeIndex ? 'active imageWrapper' : 'inactive imageWrapper'}
+            key={i}
+            id={imageView && 'expandedImageWrapper'}
+          >
             <img
+              style={imgStyles}
               onClick={handleImageClick}
               className="image"
               src={photo.url}
