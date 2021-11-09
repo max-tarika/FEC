@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import AppContext from '../../context';
 import RelatedContext from './context';
 import RelatedList from './RelatedList.jsx';
@@ -7,10 +6,13 @@ import OutfitList from './OutfitList.jsx';
 
 const Related = () => {
   const currentProduct = useContext(AppContext);
-  const { relatedProducts, productAvgs, relatedStyles } = useContext(AppContext);
+  const {
+    relatedProducts, productAvgs, relatedStyles, currentStyle,
+  } = useContext(AppContext);
   const [outfit, setOutfit] = useState([]);
   const [photos, setPhotos] = useState([]);
   const [productData, setProductData] = useState([]);
+  let [trigger, setTrigger] = useState(0);
 
   useEffect(() => {
     const store = [];
@@ -57,10 +59,17 @@ const Related = () => {
     }
   }, [photos]);
 
-
   const addOutfitClick = () => {
+    if (currentStyle?.photos?.length > 1) {
+      currentProduct.photo = currentStyle?.photos[0].thumbnail_url;
+    }
     setOutfit(currentProduct);
+    setTrigger(trigger += 1);
   };
+
+  useEffect(() => {
+
+  }, [trigger]);
 
   return (
     <div className="widget">

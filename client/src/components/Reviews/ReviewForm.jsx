@@ -12,7 +12,7 @@ const ReviewForm = () => {
 
   const [newReview, setNewReview] = useState(
     {
-      product_id: currentProduct.id, rating: 0, summary: '', body: '', recommend: false, name: '', email: '', photos: [], characteristics: {},
+      product_id: currentProduct.id, rating: '', summary: '', body: '', recommend: false, name: '', email: '', photos: [], characteristics: {},
     },
   );
 
@@ -32,7 +32,11 @@ const ReviewForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(e);
-    axios.post('/reviews', (newReview)).then((res) => console.log(res))
+    axios.post('/reviews', (newReview))
+      .then((res) => console.log(res))
+      .then(setNewReview({
+        product_id: currentProduct.id, rating: 0, summary: '', body: '', recommend: false, name: '', email: '', photos: [], characteristics: {},
+      }))
       .catch((error) => {
         if (error.response) {
           console.log(error.response);
@@ -106,7 +110,6 @@ const ReviewForm = () => {
             type="button"
             onClick={(e) => {
               e.preventDefault();
-              console.log('Current Product: ', currentProduct);
               console.log('New Review: ', newReview);
             }}
           >
@@ -121,7 +124,7 @@ const ReviewForm = () => {
         </div>
 
         <div className="formElement reviewInput">
-          <h3>What is your nickname?: </h3>
+          <h3>What is your email address?: </h3>
           <input type="text" id="userEmail" className="textInput" name="email" value={newReview.email} maxLength="60" placeholder="Example: islandBoi123@email.com" onChange={handleChange} required />
           <h5>**For authentication reassons, you will not be emailed</h5>
         </div>
