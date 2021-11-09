@@ -666,7 +666,8 @@ img.thumbnail:hover {
 }
 
 #reviewList {
-
+  max-height: 200vh;
+  overflow: scroll;
 }
 #addReview {
   margin-top: 16px;

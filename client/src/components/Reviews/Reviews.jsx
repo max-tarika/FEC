@@ -72,7 +72,7 @@ const Reviews = () => {
                       const selected = getSelected(e.target.value);
                       axios({
                         method: 'GET',
-                        url: `/reviews/?product_id=${currentProduct?.id}&sort=${selected}`,
+                        url: `/reviews/?product_id=${currentProduct?.id}&sort=${selected}&count=25`,
                       })
                         .then((res) => {
                           setReviews(res.data.results);
