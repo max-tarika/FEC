@@ -18,7 +18,7 @@ const ThumbnailCarousel = () => {
   const goToPrevSlide = () => {
     if (thumbnailsShown[0] > 0) {
       setSlider(slider + thumbnailHeight);
-      setIconSlider(slider + iconHeight);
+      setIconSlider(iconSlider + iconHeight);
       setThumbnailsShown([thumbnailsShown[0] - 1, thumbnailsShown[1] - 1]);
     }
   };

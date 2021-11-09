@@ -25,7 +25,6 @@ const Overview = () => {
   const thumbnailHeight = 51;
   const iconHeight = 25;
   const hiddenThumbnails = photosLength - 7;
-  const hiddenThumbnailsLength = hiddenThumbnails * thumbnailHeight;
 
   const handleStyleClick = (styleId) => {
     for (const style of styles) {
@@ -81,7 +80,6 @@ const Overview = () => {
       photosLength,
       thumbnailHeight,
       hiddenThumbnails,
-      hiddenThumbnailsLength,
       thumbnailsShown,
       setThumbnailsShown,
       imageView,
