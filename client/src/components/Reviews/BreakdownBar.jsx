@@ -10,10 +10,6 @@ const BreakdownBar = (props) => {
 
   const calcOffset = (num) => (num / props.total) * 100;
 
-  useEffect(() => {
-
-  }, [currentProduct]);
-
   if (!characteristics) return (<h3>Loading...</h3>);
 
   return (

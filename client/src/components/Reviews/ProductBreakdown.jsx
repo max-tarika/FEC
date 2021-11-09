@@ -10,7 +10,6 @@ const ProductBreakdown = () => {
   useEffect(() => {
     if (currentProduct.length < 1) { return; }
     if (!currentReview.characteristics) { return; }
-    console.log('check');
     setChars(Object.keys(currentReview.characteristics));
   }, [currentReview]);
 
