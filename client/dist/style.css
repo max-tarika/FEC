@@ -497,9 +497,10 @@ img.thumbnail:hover {
 
 #outfitContainer {
   background-image: url("./img/y-so-serious-white.png");
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
   text-align: center;
 
 }

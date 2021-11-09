@@ -12,6 +12,7 @@ const Related = () => {
   const [outfit, setOutfit] = useState([]);
   const [photos, setPhotos] = useState([]);
   const [productData, setProductData] = useState([]);
+  let [trigger, setTrigger] = useState(0);
 
   useEffect(() => {
     const store = [];
@@ -58,15 +59,17 @@ const Related = () => {
     }
   }, [photos]);
 
-  const addOutfitClick = (e) => {
-    if (!e) var e = window.event;
-    e.cancelBubble = true;
-    if (e.stopPropagation) e.stopPropagation();
+  const addOutfitClick = () => {
     if (currentStyle?.photos?.length > 1) {
       currentProduct.photo = currentStyle?.photos[0].thumbnail_url;
     }
     setOutfit(currentProduct);
+    setTrigger(trigger += 1);
   };
+
+  useEffect(() => {
+
+  }, [trigger]);
 
   return (
     <div className="widget">
