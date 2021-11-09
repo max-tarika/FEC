@@ -16,7 +16,7 @@ const OutfitList = () => {
       if (outfitStorage.length > 0) {
         store.push(outfitStorage);
       }
-      if (outfit.photo) {
+      if (outfit.photo && !outfit.currentProduct.photo) {
         outfit.currentProduct.photo = outfit.photo;
       }
       if (!outfitStorage.some((obj) => obj.id === outfit?.currentProduct?.id)) {
