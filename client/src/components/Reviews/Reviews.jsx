@@ -87,7 +87,7 @@ const Reviews = () => {
                 </h5>
               </div>
               <div id="reviewList">
-                {reviews.map((review) => <Review data={review} average={review.rating} />)}
+                {reviews.map((review, i) => <Review key={i} data={review} average={review.rating} />)}
               </div>
               <div id="addReview">
                 <button
