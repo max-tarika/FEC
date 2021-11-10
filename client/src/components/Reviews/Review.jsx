@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import Stars from './Stars.jsx';
 
@@ -8,16 +8,27 @@ const Review = (props) => {
   const currentReview = props.data;
   const { average } = props;
 
+  const [marks, setMarks] = useState();
+  const [total, setTotal] = useState();
+
   const markHelpful = (id) => {
+    if (!marks){
     axios.put(`/reviews/${id}/helpful`)
       .then((res) => console.log('Thanks for letting us know!', res))
+      .then(setTotal(total + 1))
+      .then(setMarks('marked'))
       .catch((err) => console.log(err));
+    } else {console.log('Already marked as helpful!!')}
   };
   const reportReview = (id) => {
     axios.put(`/reviews/${id}/report`)
       .then((res) => console.log('Thanks for helping us keep the island clean!', res))
       .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    if (!total){setTotal(currentReview.helpfulness)}
+  }, [currentReview.helpfulness])
 
   if (!currentReview) {
     return (
@@ -65,7 +76,7 @@ const Review = (props) => {
             </strong>
           </div>
           (
-          {currentReview.helpfulness}
+          {total}
           )
         </span>
         <div
