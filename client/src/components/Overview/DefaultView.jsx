@@ -8,13 +8,14 @@ import ThumbnailCarousel from './ThumbnailCarousel.jsx';
 import { OverviewContext } from './context.js';
 
 const DefaultView = () => {
-  const { imageView } = useContext(OverviewContext);
+  const { imageView, zoomedView } = useContext(OverviewContext);
   const viewType = imageView ? 'expandedViewContainer' : 'defaultImageContainer';
 
   return (
     <div>
       <div id={viewType}>
-        <ThumbnailCarousel />
+        {!zoomedView
+        && <ThumbnailCarousel />}
         <DefaultImageCarousel />
       </div>
     </div>

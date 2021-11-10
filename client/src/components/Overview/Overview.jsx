@@ -1,7 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
-import React, { useEffect, useContext, useState } from 'react';
+import React, {
+  useEffect, useContext, useState,
+} from 'react';
 import axios from 'axios';
 import Information from './Information.jsx';
 import StyleSelector from './StyleSelector.jsx';
@@ -17,11 +19,13 @@ const Overview = () => {
   } = useContext(AppContext);
   const [productInfo, setProductInfo] = useState({});
   const [imageView, setImageView] = useState(false);
+  const [zoomedView, setZoomedView] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [slider, setSlider] = useState(0);
   const [photosLength, setPhotosLength] = useState(0);
   const [thumbnailsShown, setThumbnailsShown] = useState([0, 6]);
   const [iconSlider, setIconSlider] = useState(0);
+  const [zoomedStyles, setZoomedStyles] = useState({});
   const thumbnailHeight = 51;
   const iconHeight = 25;
   const hiddenThumbnails = photosLength - 7;
@@ -34,8 +38,23 @@ const Overview = () => {
     }
   };
 
-  const handleImageClick = () => {
-    setImageView(!imageView);
+  const handleImageClick = (e) => {
+    if (imageView) {
+      const x = ((e.pageX - e.target.offsetLeft) / parseInt(e.target.width, 10)) * 100;
+      const y = ((e.pageY - e.target.offsetTop) / parseInt(e.target.height, 10)) * 100;
+      setZoomedView(!zoomedView);
+      setZoomedStyles({ transform: 'scale(2.5)', transformOrigin: `${x}% ${y}%` });
+    } else {
+      setImageView(true);
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (zoomedView) {
+      const x = ((e.pageX - e.target.offsetLeft) / parseInt(e.target.width, 10)) * 100;
+      const y = ((e.pageY - e.target.offsetTop) / parseInt(e.target.height, 10)) * 100;
+      setZoomedStyles({ transform: 'scale(2.5)', transformOrigin: `${x}% ${y}%` });
+    }
   };
 
   useEffect(() => {
@@ -86,6 +105,11 @@ const Overview = () => {
       iconSlider,
       setIconSlider,
       iconHeight,
+      setImageView,
+      zoomedView,
+      setZoomedView,
+      zoomedStyles,
+      handleMouseMove,
     }}
     >
       <section className="widget">

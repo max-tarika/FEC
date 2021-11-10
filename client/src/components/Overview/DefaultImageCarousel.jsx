@@ -10,9 +10,10 @@ import AppContext from '../../context.js';
 
 const DefaultImageCarousel = () => {
   const {
-    handleImageClick, activeIndex, setActiveIndex, photosLength, imageView,
+    handleImageClick, activeIndex, setActiveIndex, photosLength, imageView, setImageView, zoomedView, handleMouseMove, zoomedStyles,
   } = useContext(OverviewContext);
   const { currentStyle } = useContext(AppContext);
+  const zoomStyles = zoomedView ? zoomedStyles : {};
 
   const goToPrevSlide = () => {
     setActiveIndex(activeIndex === 0 ? activeIndex : activeIndex - 1);
@@ -22,11 +23,9 @@ const DefaultImageCarousel = () => {
     setActiveIndex(activeIndex === photosLength - 1 ? activeIndex : activeIndex + 1);
   };
 
-  const imgStyles = imageView ? { cursor: 'crosshair' } : null;
-
   return (
     <div id="carouselContainer">
-      {activeIndex > 0
+      {activeIndex > 0 && !zoomedView
       && (
       <button className="leftArrow" onClick={goToPrevSlide} type="button">
         <FontAwesomeIcon icon={faAngleLeft} />
@@ -40,21 +39,24 @@ const DefaultImageCarousel = () => {
             id={imageView && 'expandedImageWrapper'}
           >
             <img
-              style={imgStyles}
+              style={zoomStyles}
               onClick={handleImageClick}
-              className="image"
+              className={imageView ? 'expandedImage' : 'image'}
+              id={zoomedView && 'zoomedImage'}
+              onMouseMove={handleMouseMove}
               src={photo.url}
               alt={currentStyle.name}
             />
           </div>
         ))}
       </div>
-      {activeIndex < photosLength - 1
+      {activeIndex < photosLength - 1 && !zoomedView
       && (
       <button className="rightArrow" onClick={goToNextSlide} type="button">
         <FontAwesomeIcon icon={faAngleRight} />
       </button>
       )}
+      {imageView && !zoomedView && <button type="button" id="exitExpandedView" onClick={() => { setImageView(false); }}>X</button>}
     </div>
   );
 };
