@@ -1,10 +1,12 @@
 import axios from 'axios';
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, {
+  useContext, useState, useEffect, useRef,
+} from 'react';
 
 import AppContext from '../../context.js';
 import { NewReview } from './NewReview.jsx';
 
-import Stars from './Stars.jsx';
+import Star from './Star.jsx';
 
 const ReviewForm = () => {
   const { currentProduct, currentReview } = useContext(AppContext);
@@ -76,7 +78,6 @@ const ReviewForm = () => {
 
     <div id="addReviewForm">
 
-
       <h1>Write Your Review</h1>
       <h3>
         About the
@@ -86,10 +87,11 @@ const ReviewForm = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="formElement overallRating">
-          <p>Overall Rating:</p>
           <span className="chooseStars">
+            <p>Overall Rating:</p>
+            <Star index={1} average={5} />
             <input type="number" id="chooseStars" name="rating" value={Number(newReview.rating)} onChange={handleChangeInt} />
-            <label htmlFor="rating">Choose # of Stars: </label>
+
           </span>
         </div>
 
@@ -106,7 +108,7 @@ const ReviewForm = () => {
         </div>
 
         <div className="formElement characteristics">
-          <h3>Product Characteristics: </h3>
+          <h3>Product Characteristic Ratings: </h3>
 
           {charIDs.map((tuple) => {
             const id = tuple[0];
