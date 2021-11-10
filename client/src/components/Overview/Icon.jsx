@@ -13,7 +13,6 @@ const Icon = ({ i }) => {
     setActiveIndex, activeIndex,
   } = useContext(OverviewContext);
   const isSelected = activeIndex === i;
-  // console.log(i, activeIndex, isSelected);
 
   const handleIconClick = () => {
     setActiveIndex(i);
@@ -22,7 +21,7 @@ const Icon = ({ i }) => {
   return (
     <div className="iconContainer" style={{ padding: '3px' }}>
       <div className="iconWrapper" onClick={handleIconClick}>
-        {isSelected ? <FontAwesomeIcon icon={solidCircle} /> : <FontAwesomeIcon icon={emptyCircle} />}
+        {isSelected ? <FontAwesomeIcon icon={solidCircle} color="white" /> : <FontAwesomeIcon icon={emptyCircle} color="white" />}
       </div>
     </div>
   );
