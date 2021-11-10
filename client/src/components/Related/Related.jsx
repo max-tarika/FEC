@@ -18,15 +18,11 @@ const Related = () => {
     const store = [];
     if (relatedStyles.length > 1) {
       for (let i = 0; i < relatedStyles.length; i += 1) {
-        for (let j = 0; j < relatedStyles[i].results.length; j += 1) {
-          if (relatedStyles[i].results[j]['default?'] === true) {
-            const obj = {
-              id: relatedStyles[i].product_id,
-              photo: relatedStyles[i].results[j].photos[0].thumbnail_url,
-            };
-            store.push(obj);
-          }
-        }
+        const obj = {
+          id: relatedStyles[i].product_id,
+          photo: relatedStyles[i].results[0].photos[0].thumbnail_url,
+        };
+        store.push(obj);
       }
       setPhotos(store);
     }

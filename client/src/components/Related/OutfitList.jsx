@@ -47,6 +47,8 @@ const OutfitList = () => {
       if (outfitStorage[i].id === id) {
         outfitStorage.splice(i, 1);
         setOutfitStorage(outfitStorage);
+        const stringData = JSON.stringify(outfitStorage);
+        session.setItem('data', stringData);
         setCount(count + 1);
       }
     }
@@ -60,7 +62,7 @@ const OutfitList = () => {
       <div id="outfitContainer">
         {
         outfitStorage.map((product) => (
-          <div id="productCard">
+          <div key={Math.random()} id="productCard">
             <Outfit key={product.id} removeEntry={removeEntry} id={product.id} product={product} />
           </div>
 
