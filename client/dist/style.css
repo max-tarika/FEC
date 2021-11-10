@@ -36,6 +36,7 @@ letter-spacing: "0em";
 
 #header {
   font-family: 'Roboto', sans-serif;
+  padding-bottom: 5px;
 }
 
 .productHeaderContainer {
@@ -215,7 +216,7 @@ button:hover {
 }
 
 #currentStyleName {
-  padding: 10px;
+  padding: 10px 10px 10px 5px;
 }
 
 img.styleThumbnail {
@@ -474,10 +475,18 @@ img.thumbnail:hover {
   position: absolute;
   top: 2%;
   right: 2%;
-  border: none;
-  font-size: 20px;
-  border-radius: 5%;
-  background-color: rgba(211, 211, 211, 0.4);
+  color: white;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#exitExpandedView:hover {
+  background-color: rgba(219, 219, 219, 0.5);
 }
 
 .iconCarousel-container {
