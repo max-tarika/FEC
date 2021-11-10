@@ -1,7 +1,8 @@
 import axios from 'axios';
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 
 import AppContext from '../../context.js';
+import { NewReview } from './NewReview.jsx';
 
 import Stars from './Stars.jsx';
 

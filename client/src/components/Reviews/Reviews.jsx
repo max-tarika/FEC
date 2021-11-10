@@ -74,9 +74,7 @@ const Reviews = () => {
                         method: 'GET',
                         url: `/reviews/?product_id=${currentProduct?.id}&sort=${selected}&count=25`,
                       })
-                        .then((res) => {
-                          setReviews(res.data.results);
-                        });
+                        .then((res) => { setReviews(res.data.results); });
                     }}
                   >
                     <option>---</option>
@@ -106,6 +104,7 @@ const Reviews = () => {
           </div>
         </div>
       </ReviewsContext.Provider>
+
       <NewReview ref={reviewForm}>
         <ReviewForm />
       </NewReview>
