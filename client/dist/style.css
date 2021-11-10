@@ -13,7 +13,7 @@
 }
 
 h1 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: "6rem";
   line-height: 1.167;
@@ -53,10 +53,16 @@ letter-spacing: "0em";
 }
 
 .productChoice {
-  border: 2px solid black;
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
   padding: 5px;
   margin: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: 0.33s;
+}
+.productChoice:hover {
+  color: gold;
+  transition: 0.33s;
 }
 
 /* Styling consistent to every widget */
@@ -64,9 +70,10 @@ letter-spacing: "0em";
   font-family: 'Roboto', sans-serif;
   width: 100%;
   max-width: 1200px;
-  border: 2px solid #333;
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
   border-radius: 4px;
   padding: 3px;
+  margin-bottom: 16px;
   background-image: url("./img/y-so-serious-white.png");
 }
 
@@ -93,14 +100,15 @@ button:hover {
   position: absolute;
   background-color: white;
   width: 200px;
-  border: 1px solid black;
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
 }
 
 #sizeButton {
   width: 200px;
   height: 25px;
+  border-radius: 4px;
   background-color: white;
-  border: 1px solid black;
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
   transition: 0.3212s;
 }
 
@@ -139,7 +147,7 @@ button:hover {
 #addToCartButton {
   width: 200px;
   height: 50px;
-  border: 1px solid black;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
   background-color: white;
   border-radius: 25px;
   font-size: 15px;
@@ -193,7 +201,7 @@ button:hover {
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
 }
 
 #styleName {
@@ -332,7 +340,7 @@ img.image {
   height: 30px;
   border-radius: 50%;
   background-color: white;
-  border: 1px solid #ddd;
+  box-shadow: 0px 3px 5px -1px rgba(255,255,255,0.2),0px 5px 8px 0px rgba(255,255,250,0.14),0px 1px 14px 0px rgba(250,250,250,0.12);
 }
 
 .leftArrow {
@@ -373,7 +381,7 @@ img.image {
   height: 20px;
   border-radius: 50%;
   background-color: white;
-  border: 1px solid #ddd;
+  box-shadow: 0px 3px 5px -1px rgba(255,255,255,0.2),0px 5px 8px 0px rgba(255,255,250,0.14),0px 1px 14px 0px rgba(250,250,250,0.12);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -459,9 +467,11 @@ img.thumbnail:hover {
 }
 
 /* Styling for Related and Outfit */
-
+.relatedWidget {
+  padding: 8px;
+}
 #default_image {
-  border: 1px solid black;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
   height: 150px;
   width: 150px;
 }
@@ -487,7 +497,7 @@ img.thumbnail:hover {
 }
 
 #comparisonModal {
-  border: 1px solid black;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
   background: rgb(238, 235, 235);
   box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
   height: 400px;
@@ -510,6 +520,7 @@ img.thumbnail:hover {
   align-items: left;
   text-align: center;
   font-size: 36px;
+  border-radius: 4px;
   background: rgba(200, 200, 200, 0.3);
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
 }
@@ -758,15 +769,10 @@ img.thumbnail:hover {
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255,255,255,0.25);
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
-  transition: 0.2s;
-}
-#review:hover {
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
   background-color: rgba(255,255,255,0.75);
-  transition: 0.2s;
 }
+
 
 #reviewTopBar {
   display:flex;

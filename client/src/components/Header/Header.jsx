@@ -8,9 +8,9 @@ const Header = () => {
 
   return (
     <div id="header">
-      <h1 className="appTitle">Da Island Bois</h1>
+      <h1 className="appTitle">Project Islandwalk</h1>
       <div className="productHeaderContainer">
-        <div className="productChoiceHeader">Choose Your Product:</div>
+        <div className="productChoiceHeader">Popular Products:</div>
         <div className="productHeaderWrapper">
           {products?.map((product) => <div className="productChoice" onClick={() => { setCurrentProduct(product); }} key={product.id}>{product.name}</div>)}
         </div>
