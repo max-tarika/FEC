@@ -554,6 +554,10 @@ img.thumbnail:hover {
 }
 /* Styling for Ratings/Reviews */
 
+#reviewsWidget h4 {
+  margin: 2px;
+}
+
 #ratingsAndReviewsContainer {
   padding: 5px;
   display: flex;
@@ -578,19 +582,54 @@ img.thumbnail:hover {
   text-align: center;
   margin-left: 10px;
 }
+
+#recommendedBy h3 {
+  margin: 0px;
+}
 #ratingBreakdown {
+  padding: 4px;
   max-width: 100%;
   background: rgba(200, 200, 200, 0.3);
   box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
 }
+.ratingBarList {
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+
 #ratingBar {
   height: 10px;
   width: 100%;
+  margin-left: 2px;
   background: #767676;
   border-radius: 16px;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
   position: relative;
 }
+.ratingBarRow {
+  margin: 2px;
+}
+.ratingBarRow .percentOfReviewers {
+  text-align: end;
+  color: #333;
+  font-size: 10px;
+  margin: 0px;
+}
+#rowRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#rowRow strong {
+  color: darkgoldenrod;
+  font-size: 2em;
+}
+
 .ratingBarFill {
   height: 10px;
   border-radius: 16px;
@@ -601,6 +640,7 @@ img.thumbnail:hover {
 
 #productBreakdown {
   width: 100%;
+  padding: 4px;
   background: rgba(200,200,200,0.3);
   box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
   font-size: 20px;
@@ -609,10 +649,12 @@ img.thumbnail:hover {
   flex-direction: column;
 }
 
+#productBreakdown h5 {
+  margin: 4px;
+}
 #productBreakdown .ReviewBar{
   width: 100%;
   height: 20px;
-  border: 1px solid #767676;
   border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
   background: linear-gradient(0.25turn, rgba(184, 134, 11,0.5), rgba(218,165,32, 0.5), rgba(255, 215, 0, 0.5));
@@ -634,14 +676,14 @@ img.thumbnail:hover {
   transform: translateX(-50%);
   transition: 0.5s;
 }
-#reviewBarFill:hover {
+/* #reviewBarFill:hover {
   height: 28px;
   width: 28px;
   border-radius: 28px;
   background: palegoldenrod;
   box-shadow: 0px 5px 5px -3px rgba(255, 255, 255, 0.5),0px 8px 10px 1px rgba(255,255,255,0.4),0px 3px 14px 2px rgba(255,255,155,0.3);
   transition: 0.5s;
-}
+} */
 
 #productBreakdownDesc {
   display: flex;
@@ -663,6 +705,18 @@ img.thumbnail:hover {
 }
 #reviews #sortBar {
   flex-direction: row;
+}
+#sortBar h5 {
+  margin: 4px;
+}
+#sortBar select {
+  width: 100px;
+  height: 20px;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
 }
 
 #reviewList {
@@ -729,12 +783,17 @@ img.thumbnail:hover {
   justify-self: flex-end;
 }
 
+#reviewTitle {
+  margin: 0px;
+}
+#reviewBody {
+  margin-left: 24px;
+}
 #helpfulAndReport {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  margin-bottom: 20px;
 }
 .helpfull {
   display: flex;

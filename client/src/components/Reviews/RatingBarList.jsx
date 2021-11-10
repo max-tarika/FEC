@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Star from './Star.jsx';
 import RatingBar from './RatingBar.jsx';
 
 const RatingBarList = (props) => {
@@ -18,15 +19,16 @@ const RatingBarList = (props) => {
     );
   }
   return (
-    <div>
+    <div className="ratingBarList">
       {getCountArray(props?.ratings).map((rating, i) => (
-        <h5>
-          <strong>{matchIndex(i)}</strong>
-          {' '}
-          star(s):
-          {' '}
-          <RatingBar key={i} percent={getPercent(rating)} />
-          {`${getPercent(rating)}% of reviewers`}
+        <h5 className="ratingBarRow">
+          <span id="rowRow">
+            <strong>{`${matchIndex(i)} `}</strong>
+            <Star index={0} average={5} />
+            <RatingBar key={i} percent={getPercent(rating)} />
+          </span>
+          <p className="percentOfReviewers">{`${getPercent(rating)}% of reviewers`}</p>
+
         </h5>
       ))}
 
