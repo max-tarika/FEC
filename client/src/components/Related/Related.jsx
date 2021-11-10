@@ -73,7 +73,7 @@ const Related = () => {
 
   return (
     <div className="widget">
-      <div>
+      <div className="relatedWidget">
         <RelatedContext.Provider value={{
           productData, currentProduct, outfit,
         }}
