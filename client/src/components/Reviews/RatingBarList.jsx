@@ -20,7 +20,6 @@ const RatingBarList = (props) => {
   return (
     <div>
       {getCountArray(props?.ratings).map((rating, i) => (
-
         <h5>
           <strong>{matchIndex(i)}</strong>
           {' '}

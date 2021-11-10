@@ -8,7 +8,6 @@ const ProductBreakdown = () => {
   const [chars, setChars] = useState();
 
   useEffect(() => {
-    if (currentProduct.length < 1) { return; }
     if (!currentReview.characteristics) { return; }
     setChars(Object.keys(currentReview.characteristics));
   }, [currentReview]);
