@@ -1,8 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import AppContext from '../../context.js';
 
-const BreakdownBar = (props) => {
-  const { characteristic } = props;
+const BreakdownBar = ({characteristic}) => {
 
   const context = useContext(AppContext);
   const { currentProduct } = context;

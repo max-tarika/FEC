@@ -19,14 +19,13 @@ const RatingBarList = (props) => {
   }
   return (
     <div>
-      {getCountArray(props?.ratings).map((rating, index) => (
-
+      {getCountArray(props?.ratings).map((rating, i) => (
         <h5>
-          <strong>{matchIndex(index)}</strong>
+          <strong>{matchIndex(i)}</strong>
           {' '}
           star(s):
           {' '}
-          <RatingBar percent={getPercent(rating)} />
+          <RatingBar key={i} percent={getPercent(rating)} />
           {`${getPercent(rating)}% of reviewers`}
         </h5>
       ))}

@@ -72,11 +72,9 @@ const Reviews = () => {
                       const selected = getSelected(e.target.value);
                       axios({
                         method: 'GET',
-                        url: `/reviews/?product_id=${currentProduct?.id}&sort=${selected}`,
+                        url: `/reviews/?product_id=${currentProduct?.id}&sort=${selected}&count=25`,
                       })
-                        .then((res) => {
-                          setReviews(res.data.results);
-                        });
+                        .then((res) => { setReviews(res.data.results); });
                     }}
                   >
                     <option>---</option>
@@ -87,7 +85,7 @@ const Reviews = () => {
                 </h5>
               </div>
               <div id="reviewList">
-                {reviews.map((review) => <Review data={review} average={review.rating} />)}
+                {reviews.map((review, i) => <Review key={i} data={review} average={review.rating} />)}
               </div>
               <div id="addReview">
                 <button
@@ -106,6 +104,7 @@ const Reviews = () => {
           </div>
         </div>
       </ReviewsContext.Provider>
+
       <NewReview ref={reviewForm}>
         <ReviewForm />
       </NewReview>

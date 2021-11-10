@@ -8,7 +8,6 @@ const ProductBreakdown = () => {
   const [chars, setChars] = useState();
 
   useEffect(() => {
-    if (currentProduct.length < 1) { return; }
     if (!currentReview.characteristics) { return; }
     setChars(Object.keys(currentReview.characteristics));
   }, [currentReview]);
@@ -19,7 +18,7 @@ const ProductBreakdown = () => {
     <div id="productBreakdown">
       <p style={{ fontVariant: 'none' }}>Product Breakdown</p>
 
-      {chars?.map((charKey) => <BreakdownBar characteristic={charKey} offset={currentReview.characteristics.charKey?.value} />)}
+      {chars?.map((charKey, index) => <BreakdownBar key={index} characteristic={charKey} offset={currentReview.characteristics.charKey?.value} />)}
 
     </div>
   );

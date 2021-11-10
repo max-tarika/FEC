@@ -7,7 +7,7 @@ const Stars = (props) => {
 
   return (
     <div id="allStars">
-      { [...new Array(5)].map((_, i) => <Star index={i} average={average} />)}
+      { [...new Array(5)].map((_, i) => <Star key={i} index={i} average={average} />)}
     </div>
   );
 };
