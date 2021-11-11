@@ -177,11 +177,13 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 ---
 
-## Languages Used
+## Languages and Frameworks Used
+
+* Vanilla [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://www.w3.org/Style/CSS/Overview.en.html), and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 * [React](https://reactjs.org/)
 
-  * _[React Hooks](https://reactjs.org/docs/hooks-intro.html)_ and class-less components
+  * _Including_ [React Hooks](https://reactjs.org/docs/hooks-intro.html) _and class-less components_
 
 
 * [NodeJS](https://nodejs.org/en/)
