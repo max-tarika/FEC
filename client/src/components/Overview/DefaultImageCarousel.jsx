@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { OverviewContext } from './context.js';
 import AppContext from '../../context.js';
 
@@ -28,7 +29,7 @@ const DefaultImageCarousel = () => {
       {activeIndex > 0 && !zoomedView
       && (
       <button className="leftArrow" onClick={goToPrevSlide} type="button">
-        <FontAwesomeIcon icon={faAngleLeft} />
+        <FontAwesomeIcon icon={faAngleLeft} color="white" size="lg" />
       </button>
       )}
       <div className="carouselContent">
@@ -42,7 +43,7 @@ const DefaultImageCarousel = () => {
               style={zoomStyles}
               onClick={handleImageClick}
               className={imageView ? 'expandedImage' : 'image'}
-              id={zoomedView && 'zoomedImage'}
+              id={zoomedView ? 'zoomedImage' : null}
               onMouseMove={handleMouseMove}
               src={photo.url}
               alt={currentStyle.name}
@@ -53,10 +54,10 @@ const DefaultImageCarousel = () => {
       {activeIndex < photosLength - 1 && !zoomedView
       && (
       <button className="rightArrow" onClick={goToNextSlide} type="button">
-        <FontAwesomeIcon icon={faAngleRight} />
+        <FontAwesomeIcon icon={faAngleRight} color="white" size="lg" />
       </button>
       )}
-      {imageView && !zoomedView && <button type="button" id="exitExpandedView" onClick={() => { setImageView(false); }}>X</button>}
+      {imageView && !zoomedView && <div id="exitExpandedView" onClick={() => { setImageView(false); }}><FontAwesomeIcon icon={faTimes} color="white" /></div>}
     </div>
   );
 };

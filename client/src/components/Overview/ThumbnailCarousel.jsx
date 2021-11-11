@@ -38,13 +38,13 @@ const ThumbnailCarousel = () => {
           {thumbnailsShown[0] > 0
           && (
           <button className="upArrow" onClick={goToPrevSlide} type="button">
-            <FontAwesomeIcon icon={faAngleUp} />
+            <FontAwesomeIcon icon={faAngleUp} color="white" />
           </button>
           )}
           {thumbnailsShown[1] < photosLength - 1
           && (
           <button className="downArrow" onClick={goToNextSlide} type="button">
-            <FontAwesomeIcon icon={faAngleDown} />
+            <FontAwesomeIcon icon={faAngleDown} color="white" />
           </button>
           )}
         </div>

@@ -36,6 +36,7 @@ letter-spacing: "0em";
 
 #header {
   font-family: 'Roboto', sans-serif;
+  padding-bottom: 5px;
 }
 
 .productHeaderContainer {
@@ -110,11 +111,13 @@ button:hover {
   background-color: white;
   box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
   transition: 0.3212s;
+  border-style: none;
 }
 
 #sizeButton:hover {
-  background-color: rgba(0, 0, 0, 0.34);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: 0.3212s;
+  color: white;
 }
 
 #sizeSelector{
@@ -132,8 +135,9 @@ button:hover {
 }
 
 .sizeSelect:hover {
-  background-color: rgba(0, 0, 0, 0.14);
+  background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  color: white;
 }
 
 #quantitySelector {
@@ -152,11 +156,13 @@ button:hover {
   border-radius: 25px;
   font-size: 15px;
   transition: 0.3212s;
+  border-style: none;
 }
 
 #addToCartButton:hover {
-  background-color: rgba(0, 0, 0, 0.34);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: 0.3212s;
+  color: white;
 }
 
 #selectorContainer {
@@ -166,6 +172,8 @@ button:hover {
 .quantity {
   width: 50px;
   height: 25px;
+  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%);
+  border: none;
 }
 
 /* Styles Selector */
@@ -193,14 +201,16 @@ button:hover {
 
 .icon {
   position: absolute;
+  top: 3px;
+  right: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+  width: 16px;
+  height: 16px;
+  border: 1px solid black;
 }
 
 #styleName {
@@ -215,7 +225,7 @@ button:hover {
 }
 
 #currentStyleName {
-  padding: 10px;
+  padding: 10px 10px 10px 5px;
 }
 
 img.styleThumbnail {
@@ -248,12 +258,6 @@ img.styleThumbnail {
   display: flex;
   align-items: center;
 }
-
-/* .shareButtons {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-} */
 
 .shareText {
   padding: 5px;
@@ -353,8 +357,12 @@ img.image {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: white;
-  box-shadow: 0px 3px 5px -1px rgba(255,255,255,0.2),0px 5px 8px 0px rgba(255,255,250,0.14),0px 1px 14px 0px rgba(250,250,250,0.12);
+  background-color: transparent;
+  border-style: none;
+}
+
+.leftArrow:hover, .rightArrow:hover, .upArrow:hover, .downArrow:hover{
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .leftArrow {
@@ -394,11 +402,11 @@ img.image {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: white;
-  box-shadow: 0px 3px 5px -1px rgba(255,255,255,0.2),0px 5px 8px 0px rgba(255,255,250,0.14),0px 1px 14px 0px rgba(250,250,250,0.12);
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
+  border-style: none;
 }
 
 .upArrow {
@@ -438,7 +446,6 @@ img.thumbnail:hover {
 /* Expanded View */
 
 #zoomedImage {
-  /* transform: scale(2.5); */
   transition: transform 0.25s ease;
 }
 
@@ -446,6 +453,7 @@ img.thumbnail:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 10px;
 }
 
 .expandedImage {
@@ -473,10 +481,17 @@ img.thumbnail:hover {
   position: absolute;
   top: 2%;
   right: 2%;
-  border: none;
-  font-size: 20px;
-  border-radius: 5%;
-  background-color: rgba(211, 211, 211, 0.4);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#exitExpandedView:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .iconCarousel-container {
