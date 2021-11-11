@@ -538,20 +538,30 @@ img.thumbnail:hover {
 table {
   border: 1px solid black;
   table-layout: fixed;
-  width: 200px;
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+  background: rgb(253, 251, 251);
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
 }
-
-th,
-td {
+th
+{
   border: 1px solid black;
-  width: 100px;
+  table-layout: auto;
+  width: 33%;
   overflow: hidden;
+}
+.tableRow {
+  table-layout: auto;
+  width: 320px;
+}
+.tableCell {
+  width: 107px;
+  text-align: center;
 }
 
 #comparisonModal {
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
-  background: rgb(238, 235, 235);
-  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+
   height: 350px;
   width: 320px;
   position: absolute;

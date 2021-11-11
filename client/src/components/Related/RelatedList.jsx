@@ -25,7 +25,7 @@ const RelatedList = () => {
   return (
     <div>
       <RelatedContext.Provider value={{
-        currentProduct, clickedItem, showCompare, productData,
+        currentProduct, clickedItem, showCompare, productData, toggleCompare,
       }}
       >
         <div id="productCardContainer">
