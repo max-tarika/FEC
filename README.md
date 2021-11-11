@@ -8,7 +8,7 @@
 
 Welcome to the year 2021. We are living in a crazy time, where the **present** and the **future** are _synonymous_...
 
-Companies are now being increasingly tasked with **upkeeping** their products to use modern _trends_, _styles_, and _characteristics_. This incredible amount of ever-evolving workload can create an incredibly challenging and **stressful** daily life for the engineers assigned to completing these tasks... That is where we come in.
+Companies are now being increasingly tasked with **upkeeping** their products to use modern _trends_, _styles_, and _characteristics_. This sizeable amount of constantly-evolving workload can create an incredibly challenging and **stressful** daily life for the engineers assigned to completing these tasks... _That is where we come in_.
 
 _**Da Island Bois**_, established November 2021, jumped into this project with two missions:
 
@@ -22,15 +22,22 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 ## Table of contents:
 
 * Description
+  * Project Islandwalk
+  * Overview Widget
+  * Related Items & Outfit Widget
+  * Ratings & Reviews Widget
 * Installation
-* Usage
+* Project Details
+  * Team Members
+  * Languages Used
+  * Additional Info
 
 ---
 ---
 
 # Description
 
-## __Overview__ Component
+## __Overview__ Widget
 
 
 **Product Overview**:
@@ -58,7 +65,7 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 ---
 
-## __Related Items and Outfit__ Component
+## __Related Items and Outfit__ Widget
 
 **Related Products**:
 
@@ -74,7 +81,7 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 ---
 
-## __Ratings and Reviews__ Component
+## __Ratings and Reviews__ Widget
 
 **Review Summary**:
 
@@ -115,9 +122,88 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 # Installation
 
-1. Connect to island...
+## From Github,
 
-2. Open localhost:3000
+1) **Fork** our repo in the top right corner of the screen:
+
+  * <img src="./client/dist/img/forkRepo.png" width="80%">
+
+2) Clone new fork to you local directory:
+
+  * <img src="./client/dist/img/cloneRepo.png" width="80%">
+
+## From local directory,
+
+1) Install dependencies by running `npm install`
+
+  * <img src="./client/dist/img/packageJSON.png" width="50%">
+
+2) You'll need to use your own **access token** and create your own **config.js** file:
+
+  * _See [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to get started with a free github token_
+
+  * _Next you'll just need to add the token and your campus code to config.js_
+
+  <img src="./client/dist/img/config.png" width="80%">
+
+3) Almost ready! Now that you've installed dependencies and set up authorization you can start the server:
+
+  * _Make sure you compile the .jsx files with webpack. Run_ `npm run pack` _in a terminal window..._
+
+  <img src="./client/dist/img/webpack.png" width="50%">
+
+  * _In another terminal window, start the server by running_ `npm run server`
+
+  <img src="./client/dist/img/server.png" width="50%">
+
+4) With webpack and the server running, open [**http://localhost:3000**](http://localhost:3000) in your favorite browser and enjoy!
+
+<img src="./client/dist/img/landing.png" width="90%">
+
+---
+---
+
+# Project Details
+
+---
+
+## Team **Da Island Bois** Members:
+
+ > * **[Max Tarika](https://www.linkedin.com/in/max-tarika-025402137/)** _AKA_ Master of the **Overview** Components
+
+ > * **[Jack Dowling](https://www.linkedin.com/in/jack-dowling-121290a5/)** _AKA_ Creater of the **Related Items & Outfit** Components
+
+ > * **[Derek Mason](https://www.linkedin.com/in/3derekmason/)** _AKA_ The guy behind the **Ratings & Reviews** Components
+
+---
+
+## Languages Used
+
+* [React](https://reactjs.org/)
+
+  * _[React Hooks](https://reactjs.org/docs/hooks-intro.html)_ and class-less components
+
+
+* [NodeJS](https://nodejs.org/en/)
+
+* [ExpressJS](https://expressjs.com/)
+
+* [Axios](https://axios-http.com/)
+
+* [Babel](https://babeljs.io/)
+
+---
+
+## Additional Info
+
+* Banana Theme also available upon request.
+
+---
+---
+
+
+
+
 
 
 
