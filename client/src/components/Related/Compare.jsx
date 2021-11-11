@@ -1,27 +1,60 @@
+/* eslint-disable no-restricted-syntax */
 import React, { useState, useContext, useEffect } from 'react';
-import { ContextExclusionPlugin } from 'webpack';
 import AppContext from '../../context';
-import characteristics from './characteristics';
 import RelatedContext from './context';
 
 const Compare = () => {
   const { currentFeature, relatedProducts } = useContext(AppContext);
   const { showCompare, clickedItem } = useContext(RelatedContext);
   const [comparisonModal, setComparisonModal] = useState([]);
+  const [compareItem, setCompareItem] = useState('');
 
   useEffect(() => {
     for (const entry of relatedProducts) {
-      console.log('entry ', entry);
-      if (Number(entry.id) === clickedItem) {
-        let compareItem = entry;
-        console.log('compare item, ', compareItem);
+      if (entry.id === Number(clickedItem)) {
+        setCompareItem(entry);
       }
     }
-  }, [clickedItem]);
+    const store = [];
+    if (currentFeature && compareItem) {
+      let { features } = currentFeature;
+      for (let i = 0; i < features?.length; i += 1) {
+        const obj = {};
+        obj.a = '√';
+        const key = features[i].feature;
+        obj[key] = features[i].value;
+        obj.b = '';
+        store.push(obj);
+      }
+      features = compareItem;
+      for (let i = 0; i < features?.length; i += 1) {
+        const obj = {};
+        obj.a = '';
+        const key = features[i].feature;
+        obj[key] = features[i].value;
+        obj.b = '√';
+        store.push(obj);
+      }
+    }
+    setComparisonModal(store);
+  }, [showCompare]);
 
-  if (showCompare) {
+  if (showCompare && compareItem) {
     return (
-      <div id="comparisonModal" />
+      <div id="comparisonModal">
+        <table>
+          <tr>
+            <th>
+              Comparing
+              <br />
+              {' '}
+              {currentFeature.name}
+            </th>
+            <th>With</th>
+            <th>{compareItem.name}</th>
+          </tr>
+        </table>
+      </div>
     );
   } return null;
 };

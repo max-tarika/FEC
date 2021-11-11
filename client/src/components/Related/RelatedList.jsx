@@ -19,7 +19,7 @@ const RelatedList = () => {
     } else if (showCompare) {
       setShowCompare(false);
     }
-    setClickedItem(e.target.id);
+    setClickedItem(e.target.title);
   };
 
   return (

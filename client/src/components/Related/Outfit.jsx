@@ -16,12 +16,12 @@ const Outfit = ({ product, removeEntry }) => {
       <div id="default_image">
         {' '}
         <img src={product.photo} width="150" height="150" />
-        <div id="actionButton" onClick={() => { removeEntry(product.id); }}><img src={xIcon} height="20" width="25" /></div>
+        <div className="actionButton" onClick={() => { removeEntry(product.id); }}><img src={xIcon} height="20" width="25" /></div>
       </div>
       <div className="product_category">{product.category}</div>
       <div className="product_name">{product.name}</div>
       <div className="product_price">{product.price}</div>
-      <Stars average={appContext.average} />
+      <Stars average={product.average} />
     </div>
   );
 };
