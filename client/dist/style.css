@@ -439,7 +439,6 @@ img.thumbnail:hover {
 /* Expanded View */
 
 #zoomedImage {
-  /* transform: scale(2.5); */
   transition: transform 0.25s ease;
 }
 

@@ -43,7 +43,7 @@ const DefaultImageCarousel = () => {
               style={zoomStyles}
               onClick={handleImageClick}
               className={imageView ? 'expandedImage' : 'image'}
-              id={zoomedView && 'zoomedImage'}
+              id={zoomedView ? 'zoomedImage' : null}
               onMouseMove={handleMouseMove}
               src={photo.url}
               alt={currentStyle.name}
