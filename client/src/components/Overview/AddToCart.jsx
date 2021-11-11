@@ -67,13 +67,22 @@ const AddToCart = () => {
   }, [currentStyle]);
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <div id="selectorContainer">
         <div id="sizeSelector">
           {inStock
             ? (
               <div>
-                {askForSize && <div id="askForSize">Please Select Size</div>}
+                {askForSize && (
+                <div
+                  id="askForSize"
+                  style={{
+                    color: 'red', fontSize: '13px', position: 'absolute', top: '-12px',
+                  }}
+                >
+                  Please Select Size
+                </div>
+                )}
                 <button id="sizeButton" type="button" onClick={openSizeSelector}>{selectedSize}</button>
                 {open && <SizeDropdown skusArr={skusArr} handleSizeClick={handleSizeClick} />}
               </div>

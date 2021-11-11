@@ -111,11 +111,13 @@ button:hover {
   background-color: white;
   box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
   transition: 0.3212s;
+  border-style: none;
 }
 
 #sizeButton:hover {
-  background-color: rgba(0, 0, 0, 0.34);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: 0.3212s;
+  color: white;
 }
 
 #sizeSelector{
@@ -133,8 +135,9 @@ button:hover {
 }
 
 .sizeSelect:hover {
-  background-color: rgba(0, 0, 0, 0.14);
+  background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  color: white;
 }
 
 #quantitySelector {
@@ -153,11 +156,13 @@ button:hover {
   border-radius: 25px;
   font-size: 15px;
   transition: 0.3212s;
+  border-style: none;
 }
 
 #addToCartButton:hover {
-  background-color: rgba(0, 0, 0, 0.34);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: 0.3212s;
+  color: white;
 }
 
 #selectorContainer {
@@ -194,13 +199,16 @@ button:hover {
 
 .icon {
   position: absolute;
+  top: 3px;
+  right: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid black;
 }
 
 #styleName {
