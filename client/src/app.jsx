@@ -23,6 +23,7 @@ const App = () => {
   const [productAvgs, setProductAvgs] = useState();
   const [styles, setStyles] = useState([]);
   const [currentStyle, setStyle] = useState({});
+  const [currentFeature, setCurrentFeature] = useState([]);
 
   const calcReviewsAverages = (data) => {
     Promise.all(data.map((product) => axios.get(`/reviews/meta/?product_id=${product.id}`)))
@@ -80,6 +81,10 @@ const App = () => {
       axios.get(`/products/${currentProduct.id}/related`)
         .then((res) => {
           setRelatedID(res.data);
+        });
+      axios.get(`/products/${currentProduct.id}`)
+        .then((res) => {
+          setCurrentFeature(res.data);
         });
     }
     if (productAvgs) {
@@ -155,6 +160,7 @@ const App = () => {
       styles,
       currentStyle,
       setStyle,
+      currentFeature,
     }}
     >
       <div>

@@ -1,58 +1,85 @@
-import React, { useContext, useEffect } from 'react';
-import characteristics from './characteristics';
+/* eslint-disable no-restricted-syntax */
+import React, { useState, useContext, useEffect } from 'react';
+import AppContext from '../../context';
 import RelatedContext from './context';
 
 const Compare = () => {
-  const context = useContext(RelatedContext);
-  const current = context.currentProduct.currentProduct.id;
-  const related = context.clickedItem;
-  let a; let A; let b; let B; let c; let C; let d; let D; let e; let E; let f; let F;
-  // Go through the styles and get the characteristics
-  // Combine all characteristics into list and map over list
+  const { currentFeature, relatedProducts } = useContext(AppContext);
+  const { showCompare, clickedItem, toggleCompare } = useContext(RelatedContext);
+  const [comparisonModal, setComparisonModal] = useState([]);
+  const [compareItem, setCompareItem] = useState();
 
   useEffect(() => {
+    for (const entry of relatedProducts) {
+      if (entry.id === Number(clickedItem)) {
+        setCompareItem(entry);
+      }
+    }
+  }, [showCompare]);
 
-  }, [related]);
+  useEffect(() => {
+    if (compareItem) {
+      const store = [];
+      const currentArray = currentFeature.features;
+      const compareArray = compareItem?.features;
+      let array = currentArray.concat(compareArray);
+      array = [...new Set([...currentArray, ...compareArray])];
+      for (const val of array) {
+        const obj = {};
+        if (val.value === null) {
+          val.value = '';
+        }
+        if (val.feature === null) {
+          val.feature = '';
+        }
+        const phrase = `${val.value} ${val.feature}`;
+        obj = {};
+        obj.a = '';
+        obj.b = phrase;
+        obj.c = '';
+        obj.val = val.value;
+        obj.feat = val.feature;
+        store.push(obj);
+      }
+      for (const obj of store) {
+        for (const prop of currentArray) {
+          if (prop.value === obj.val || prop.feature === obj.feat) {
+            obj.a = '√';
+          }
+        }
+        for (const prop of compareArray) {
+          if (prop.value === obj.val || prop.feature === obj.feat) {
+            obj.c = '√';
+          }
+        }
+      }
+      setComparisonModal(store);
+    }
+  }, [compareItem]);
 
-  if (context.showCompare) {
+  if (showCompare && comparisonModal.length) {
     return (
       <div id="comparisonModal">
-        <table>
-          <thead id="tableHeaders">
-            <th>Current Product</th>
-            <th>Characteristics</th>
-            <th>Compare With...</th>
-          </thead>
-          <tbody>
-            <th>{a}</th>
-            <th>GMO Free</th>
-            <th>{A}</th>
-          </tbody>
-          <tbody>
-            <th>{b}</th>
-            <th>Fair Trade Certified</th>
-            <th>{B}</th>
-          </tbody>
-          <tbody>
-            <th>{c}</th>
-            <th>Locally Sourced</th>
-            <th>{C}</th>
-          </tbody>
-          <tbody>
-            <th>{d}</th>
-            <th>Made from Recycled Materials</th>
-            <th>{D}</th>
-          </tbody>
-          <tbody>
-            <th>{e}</th>
-            <th>Contributes to Global Charities</th>
-            <th>{E}</th>
-          </tbody>
-          <tbody>
-            <th>{f}</th>
-            <th>One Day Shipping</th>
-            <th>{F}</th>
-          </tbody>
+        <table onClick={toggleCompare}>
+          <tr>
+            <th>
+              Comparing
+              <br />
+              {' '}
+              {currentFeature.name}
+            </th>
+            <th>With</th>
+            <th>{compareItem.name}</th>
+          </tr>
+          {comparisonModal.map((item) => (
+            <div className="tableRow">
+              <tr>
+                <td className="tableCell">{item.a}</td>
+                <td className="tableCell">{item.b}</td>
+                <td className="tableCell">{item.c}</td>
+              </tr>
+            </div>
+          ))}
         </table>
       </div>
     );

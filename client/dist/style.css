@@ -530,7 +530,7 @@ img.thumbnail:hover {
   height: 150px;
   width: 150px;
 }
-#actionButton {
+.actionButton {
   top: 0px;
   right: 0px;
   color:red;
@@ -550,13 +550,35 @@ img.thumbnail:hover {
 .product_name {
   font-size: small;
 }
+table {
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+  background: rgb(253, 251, 251);
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+th
+{
+  border: 1px solid black;
+  table-layout: auto;
+  width: 33%;
+  overflow: hidden;
+}
+.tableRow {
+  table-layout: auto;
+  width: 320px;
+}
+.tableCell {
+  width: 107px;
+  text-align: center;
+}
 
 #comparisonModal {
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
-  background: rgb(238, 235, 235);
-  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
-  height: 400px;
-  width: 400px;
+
+  height: 350px;
+  width: 320px;
   position: absolute;
   top: 100%;
   left: 50%;
@@ -588,9 +610,9 @@ img.thumbnail:hover {
 #outfitContainer {
   background-image: url("./img/y-so-serious-white.png");
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(5, 2fr);
+  gap: 20px;
+  grid-auto-rows: minmax(200px);
   text-align: center;
 
 }
@@ -605,7 +627,7 @@ img.thumbnail:hover {
 #productCard {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   background: rgba(200, 200, 200, 0.3);
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
 }
