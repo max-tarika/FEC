@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons';
 import RelatedContext from './context';
 import AppContext from '../../context';
 import Stars from '../Reviews/Stars.jsx';
-import starIcon from '../../assets/starIcon.jpeg';
+// import starIcon from '../../assets/starIcon.jpeg';
 
 const ProductCard = ({ product }) => {
   const context = useContext(RelatedContext);
@@ -25,7 +27,7 @@ const ProductCard = ({ product }) => {
     <div>
       <div id="default_image">
         <img title={product.id} id={product.id} src={product.photo} width="150" height="150" />
-        <div className="actionButton" title={product.id} id={product.id}><img src={starIcon} height="20" width="20" /></div>
+        <div className="actionButton" title={product.id} id={product.id}><FontAwesomeIcon icon={starSolid} size="sm" /></div>
 
       </div>
       <div className="product_category" title={product.id} id={product.id}>{product.category}</div>

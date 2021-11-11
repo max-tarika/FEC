@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle as xIcon } from '@fortawesome/free-regular-svg-icons';
 import RelatedContext from './context';
 import AppContext from '../../context';
-import xIcon from '../../assets/Xicon.png';
+// import xIcon from '../../assets/Xicon.png';
 import Stars from '../Reviews/Stars.jsx';
 
 const Outfit = ({ product, removeEntry }) => {
@@ -16,7 +18,7 @@ const Outfit = ({ product, removeEntry }) => {
       <div id="default_image">
         {' '}
         <img src={product.photo} width="150" height="150" />
-        <div className="actionButton" onClick={() => { removeEntry(product.id); }}><img src={xIcon} height="20" width="25" /></div>
+        <div className="actionButton" onClick={() => { removeEntry(product.id); }}><FontAwesomeIcon icon={xIcon} size="sm" /></div>
       </div>
       <div className="product_category">{product.category}</div>
       <div className="product_name">{product.name}</div>

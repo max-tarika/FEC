@@ -1,7 +1,9 @@
 import React from 'react';
-
-import starOutline from '../../assets/starOutline.png';
-import starFill from '../../assets/starFill.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons';
+import { faStar as starOutline } from '@fortawesome/free-regular-svg-icons';
+// import starOutline from '../../assets/starOutline.png';
+// import starFill from '../../assets/starFill.png';
 
 const Star = (props) => {
   const { index } = props;
@@ -22,11 +24,18 @@ const Star = (props) => {
   return (
     <div className="starWrapper">
       <div className="innerStar" style={{ width: getFill(index, average) }}>
-        <img src={starFill} />
+        <FontAwesomeIcon icon={starSolid} />
       </div>
-      <img src={starOutline} className="outerStar" />
+      <FontAwesomeIcon icon={starOutline} className="outerStar" />
     </div>
   );
 };
 
 export default Star;
+
+{ /* <div className="starWrapper">
+      <div className="innerStar" style={{ width: getFill(index, average) }}>
+        <img src={starFill} />
+      </div>
+      <img src={starOutline} className="outerStar" />
+    </div> */ }
