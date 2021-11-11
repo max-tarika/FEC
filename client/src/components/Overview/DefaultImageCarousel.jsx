@@ -29,7 +29,7 @@ const DefaultImageCarousel = () => {
       {activeIndex > 0 && !zoomedView
       && (
       <button className="leftArrow" onClick={goToPrevSlide} type="button">
-        <FontAwesomeIcon icon={faAngleLeft} />
+        <FontAwesomeIcon icon={faAngleLeft} color="white" size="lg" />
       </button>
       )}
       <div className="carouselContent">
@@ -54,7 +54,7 @@ const DefaultImageCarousel = () => {
       {activeIndex < photosLength - 1 && !zoomedView
       && (
       <button className="rightArrow" onClick={goToNextSlide} type="button">
-        <FontAwesomeIcon icon={faAngleRight} />
+        <FontAwesomeIcon icon={faAngleRight} color="white" size="lg" />
       </button>
       )}
       {imageView && !zoomedView && <div id="exitExpandedView" onClick={() => { setImageView(false); }}><FontAwesomeIcon icon={faTimes} color="white" /></div>}
