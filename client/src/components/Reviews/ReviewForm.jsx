@@ -90,7 +90,7 @@ const ReviewForm = () => {
           <span className="chooseStars">
             <p>Overall Rating:</p>
             <Star index={1} average={5} />
-            <input type="number" id="chooseStars" name="rating" value={Number(newReview.rating)} onChange={handleChangeInt} />
+            <input type="number" id="chooseStars" name="rating" min="1" max="5" value={Number(newReview.rating)} onChange={handleChangeInt} />
 
           </span>
         </div>
