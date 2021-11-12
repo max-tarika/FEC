@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Stars from './Stars.jsx';
 
@@ -12,13 +12,13 @@ const Review = (props) => {
   const [total, setTotal] = useState();
 
   const markHelpful = (id) => {
-    if (!marks){
-    axios.put(`/reviews/${id}/helpful`)
-      .then((res) => console.log('Thanks for letting us know!', res))
-      .then(setTotal(total + 1))
-      .then(setMarks('marked'))
-      .catch((err) => console.log(err));
-    } else {console.log('Already marked as helpful!!')}
+    if (!marks) {
+      axios.put(`/reviews/${id}/helpful`)
+        .then((res) => console.log('Thanks for letting us know!', res))
+        .then(setTotal(total + 1))
+        .then(setMarks('marked'))
+        .catch((err) => console.log(err));
+    } else { console.log('Already marked as helpful!!'); }
   };
   const reportReview = (id) => {
     axios.put(`/reviews/${id}/report`)
@@ -27,8 +27,8 @@ const Review = (props) => {
   };
 
   useEffect(() => {
-    if (!total){setTotal(currentReview.helpfulness)}
-  }, [currentReview.helpfulness])
+    if (!total) { setTotal(currentReview.helpfulness); }
+  }, [currentReview.helpfulness]);
 
   if (!currentReview) {
     return (
@@ -55,9 +55,9 @@ const Review = (props) => {
         </div>
       </div>
       <h1 id="reviewTitle">{currentReview.summary}</h1>
-      <p id="reviewBody">
-        <h3>{currentReview.body}</h3>
-      </p>
+
+      <h3 id="reviewBody">{currentReview.body}</h3>
+
       <div id="helpfulAndReport">
         <span className="helpfull">
           <h5>
