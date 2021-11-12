@@ -25,7 +25,6 @@ const App = () => {
   const [currentStyle, setStyle] = useState({});
   const [currentFeature, setCurrentFeature] = useState([]);
   const [stone, setTheStone] = useState();
-  // console.log(products);
 
   const calcReviewsAverages = (data) => {
     Promise.all(data.map((product) => axios.get(`/reviews/meta/?product_id=${product.id}`)))
