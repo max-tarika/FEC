@@ -313,7 +313,6 @@ img.image {
 #defaultImageContainer {
   display: flex;
   justify-content: center;
-  padding-right: 20px;
   height: 600px;
   width: 700px;
   overflow: hidden;
@@ -533,11 +532,12 @@ img.thumbnail:hover {
 .actionButton {
   top: 0px;
   right: 0px;
-  color:red;
-  font-size: 22px;
+  color:goldenrod;
   z-index: 2;
   float: right;
+  cursor: pointer;
 }
+
 .product_category {
   font-size: small;
   color:#767676;
@@ -926,20 +926,6 @@ th
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-.innerStar img {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: 0.5s;
-}
-
-.innerStar img:hover {
-  width: 24px;
-  height: 24px;
   transition: 0.5s;
 }
 
@@ -948,15 +934,14 @@ th
   width: 100%;
 }
 
+.innerStar, .outerStar {
+  color: goldenrod;
+}
+
 .starWrapper {
   width: 20px;
   height: 20px;
   position: relative;
-  transition: 0.5s;
-}
-.starWrapper:hover {
-  width: 22px;
-  height: 22px;
   transition: 0.5s;
 }
 

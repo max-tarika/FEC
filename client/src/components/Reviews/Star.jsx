@@ -26,16 +26,11 @@ const Star = (props) => {
       <div className="innerStar" style={{ width: getFill(index, average) }}>
         <FontAwesomeIcon icon={starSolid} />
       </div>
-      <FontAwesomeIcon icon={starOutline} className="outerStar" />
+      <div className="outerStar">
+        <FontAwesomeIcon icon={starOutline} />
+      </div>
     </div>
   );
 };
 
 export default Star;
-
-{ /* <div className="starWrapper">
-      <div className="innerStar" style={{ width: getFill(index, average) }}>
-        <img src={starFill} />
-      </div>
-      <img src={starOutline} className="outerStar" />
-    </div> */ }
