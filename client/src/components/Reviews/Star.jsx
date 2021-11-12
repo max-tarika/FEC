@@ -2,8 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as starOutline } from '@fortawesome/free-regular-svg-icons';
-// import starOutline from '../../assets/starOutline.png';
-// import starFill from '../../assets/starFill.png';
 
 const Star = (props) => {
   const { index } = props;
