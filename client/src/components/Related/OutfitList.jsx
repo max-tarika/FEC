@@ -35,6 +35,7 @@ const OutfitList = () => {
         outfit.currentProduct.photo = outfit.photo;
       }
       if (!outfitStorage.some((obj) => obj.id === outfit?.currentProduct?.id)) {
+        outfit.currentProduct.average = outfit.average;
         store.push(outfit?.currentProduct);
       }
     }
