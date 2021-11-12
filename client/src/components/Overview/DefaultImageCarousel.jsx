@@ -37,7 +37,7 @@ const DefaultImageCarousel = () => {
           <div
             className={i === activeIndex ? 'active imageWrapper' : 'inactive imageWrapper'}
             key={i}
-            id={imageView && 'expandedImageWrapper'}
+            id={imageView ? 'expandedImageWrapper' : null}
           >
             <img
               style={zoomStyles}
