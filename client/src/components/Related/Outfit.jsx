@@ -18,7 +18,7 @@ const Outfit = ({ product, removeEntry }) => {
     <div>
       <div id="default_image">
         {' '}
-        <img src={product.photo} width="150" height="150" />
+        <img src={product.photo} width="150" height="150" alt="outfit added" />
         <div className="actionButton" style={{ paddingRight: '5px' }} onClick={() => { removeEntry(product.id); }}><FontAwesomeIcon icon={xIcon} /></div>
       </div>
       <div className="product_category">{product.category}</div>

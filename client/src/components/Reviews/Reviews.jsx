@@ -21,11 +21,8 @@ import ReviewsContext from './reviewsContext.js';
 
 const Reviews = () => {
   const reviewForm = useRef(null);
-
   const { currentProduct, average, currentReview } = useContext(AppContext);
-
   const [reviews, setReviews] = useState([]);
-
   const getReviewsForCurrent = (id) => {
     axios({
       method: 'GET',
@@ -39,12 +36,10 @@ const Reviews = () => {
     const capital = string[0].toLowerCase();
     return capital + string.slice(1);
   };
-
   useEffect(() => {
     if (currentProduct?.length < 1) { return; }
     getReviewsForCurrent(currentProduct?.id);
   }, [currentProduct]);
-
   return (
     <>
       <ReviewsContext.Provider value={{

@@ -21,17 +21,15 @@ const RatingBarList = (props) => {
   return (
     <div className="ratingBarList">
       {getCountArray(props?.ratings).map((rating, i) => (
-        <h5 className="ratingBarRow">
+        <h5 className="ratingBarRow" key={Math.random()}>
           <span id="rowRow">
             <strong>{`${matchIndex(i)} `}</strong>
             <Star index={0} average={5} />
-            <RatingBar key={i} percent={getPercent(rating)} />
+            <RatingBar key={Math.random()} percent={getPercent(rating)} />
           </span>
           <p className="percentOfReviewers">{`${getPercent(rating)}% of reviewers`}</p>
-
         </h5>
       ))}
-
     </div>
   );
 };

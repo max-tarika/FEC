@@ -1,10 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import AppContext from '../../context.js';
 
-const BreakdownBar = ({characteristic}) => {
-
+const BreakdownBar = ({ characteristic }) => {
   const context = useContext(AppContext);
-  const { currentProduct } = context;
   const { characteristics } = context.currentReview;
 
   const calcOffset = (num) => (num / 5) * 100;
