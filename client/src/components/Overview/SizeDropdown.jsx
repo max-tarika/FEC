@@ -7,7 +7,7 @@ import React from 'react';
 const SizeDropdown = ({ skusArr, handleSizeClick }) => (
   <div id="sizeDropdown">
     <ul id="sizeList">
-      {skusArr.map((sku) => <li className="sizeSelect" value={sku[0]} title={sku[1].size} key={sku[0]} onClick={handleSizeClick}>{sku[1].size}</li>)}
+      {skusArr?.map((sku) => <li className="sizeSelect" value={sku[0]} title={sku[1].size} key={sku[0]} onClick={handleSizeClick}>{sku[1].size}</li>)}
     </ul>
   </div>
 );

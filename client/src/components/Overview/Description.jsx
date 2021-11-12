@@ -7,22 +7,25 @@ import Feature from './Features.jsx';
 const Description = () => {
   const { productInfo } = useContext(OverviewContext);
 
-  if (productInfo.features) {
-    return (
-      <div id="descriptionWrapper">
-        <div id="description">
-          <h3>{productInfo.slogan}</h3>
-          <p>{productInfo.description}</p>
-        </div>
-        <div id="features">
-          <ul>
-            {productInfo.features.map((feature, index) => <Feature feature={feature} key={index} />)}
-          </ul>
-        </div>
-      </div>
-    );
-  }
-  return null;
+  return (
+    <div id="descriptionWrapper">
+      {productInfo?.features
+        ? (
+          <>
+            <div id="description">
+              <h3>{productInfo?.slogan}</h3>
+              <p>{productInfo?.description}</p>
+            </div>
+            <div id="features">
+              <ul>
+                {productInfo?.features.map((feature, index) => <Feature feature={feature} key={index} />)}
+              </ul>
+            </div>
+          </>
+        )
+        : null}
+    </div>
+  );
 };
 
 export default Description;

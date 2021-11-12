@@ -14,10 +14,10 @@ const StyleSelector = () => {
         {' '}
         {'>'}
         {' '}
-        {selectedStyle || currentStyle.name}
+        {selectedStyle || currentStyle?.name}
       </div>
       <div id="stylesWrapper">
-        {styles.map((style, i) => <Style style={style} key={i} setStyle={setSelectedStyle} />)}
+        {styles?.map((style, i) => <Style style={style} key={i} setStyle={setSelectedStyle} />)}
       </div>
     </div>
   );

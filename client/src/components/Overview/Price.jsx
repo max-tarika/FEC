@@ -3,27 +3,21 @@ import AppContext from '../../context.js';
 
 const Price = () => {
   const { currentStyle } = useContext(AppContext);
+  const saleStyles = currentStyle?.sale_price ? { textDecoration: 'line-through' } : null;
 
-  if (currentStyle.sale_price) {
-    return (
-      <div id="price">
-        <div style={{ textDecoration: 'line-through' }}>
-          $
-          {currentStyle.original_price}
-        </div>
-        <div style={{ color: 'red' }}>
-          $
-          {currentStyle.sale_price}
-        </div>
-      </div>
-    );
-  }
   return (
     <div id="price">
-      <div>
+      <div style={saleStyles}>
         $
-        {currentStyle.original_price}
+        {currentStyle?.original_price}
       </div>
+      {currentStyle?.sale_price
+      && (
+      <div style={{ color: 'red', paddingLeft: '5px' }}>
+        $
+        {currentStyle?.sale_price}
+      </div>
+      )}
     </div>
   );
 };
