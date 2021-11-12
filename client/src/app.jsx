@@ -24,6 +24,7 @@ const App = () => {
   const [styles, setStyles] = useState([]);
   const [currentStyle, setStyle] = useState({});
   const [currentFeature, setCurrentFeature] = useState([]);
+  const [stone, setTheStone] = useState();
 
   const calcReviewsAverages = (data) => {
     Promise.all(data.map((product) => axios.get(`/reviews/meta/?product_id=${product.id}`)))
@@ -63,6 +64,10 @@ const App = () => {
       })
       .catch((err) => {
         console.log(err);
+      });
+    axios.get('/products/44397')
+      .then((res) => {
+        setTheStone(res.data);
       });
   }, []);
 
@@ -161,6 +166,7 @@ const App = () => {
       currentStyle,
       setStyle,
       currentFeature,
+      stone,
     }}
     >
       <div>
