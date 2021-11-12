@@ -1,5 +1,5 @@
 const path = require('path');
-const express = require('express'); // npm installed
+const express = require('express');
 const axios = require('axios');
 const { API_TOKEN, CAMPUS } = require('../config.js');
 
@@ -24,7 +24,6 @@ app.use((req, res) => {
       res.status(response.status).send(response.data);
     })
     .catch((err) => {
-      // console.log(err);
       res.status(400).send(err);
     });
 });
