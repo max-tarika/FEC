@@ -20,7 +20,7 @@ const RatingBreakdown = (props) => {
         <em>{`(out of ${getTotal(props?.ratings)} reviews)`}</em>
       </h5>
 
-      <RatingBarList ratings={props?.ratings} total={getTotal(props?.ratings)} />
+      <RatingBarList key={Math.random()} ratings={props?.ratings} total={getTotal(props?.ratings)} />
     </div>
   );
 };

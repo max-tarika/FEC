@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, {
-  useContext, useState, useEffect, useRef,
+  useContext, useState, useEffect,
 } from 'react';
 
 import AppContext from '../../context.js';
-import { NewReview } from './NewReview.jsx';
 
 import Star from './Star.jsx';
 
@@ -35,17 +34,11 @@ const ReviewForm = () => {
     }
   };
   const handleChangeChar = (e) => {
-    if (e.target.value === 'great') {
-      setNewReview({ ...newReview, characteristics: { [e.target.name]: 5 } });
-    } else if (e.target.value === 'good') {
-      setNewReview({ ...newReview, characteristics: { [e.target.name]: 4 } });
-    } else if (e.target.value === 'average') {
-      setNewReview({ ...newReview, characteristics: { [e.target.name]: 3 } });
-    } else if (e.target.value === 'fair') {
-      setNewReview({ ...newReview, characteristics: { [e.target.name]: 2 } });
-    } else if (e.target.value === 'poor') {
-      setNewReview({ ...newReview, characteristics: { [e.target.name]: 1 } });
-    }
+    characteristicRatings.forEach((rating) => {
+      if (e.target.value === rating) {
+        setNewReview({ ...newReview, characteristics: { [e.target.name]: (characteristicRatings.indexOf(rating) + 1) } });
+      }
+    });
   };
 
   const handleSubmit = (e) => {
@@ -77,24 +70,20 @@ const ReviewForm = () => {
   return (
 
     <div id="addReviewForm">
-
       <h1>Write Your Review</h1>
       <h3>
         About the
         {' '}
         <strong>{currentProduct.name}</strong>
       </h3>
-
       <form onSubmit={handleSubmit}>
         <div className="formElement overallRating">
           <span className="chooseStars">
             <p>Overall Rating:</p>
             <Star index={1} average={5} />
             <input type="number" id="chooseStars" name="rating" min="1" max="5" value={Number(newReview.rating)} onChange={handleChangeInt} />
-
           </span>
         </div>
-
         <div className="formElement doYouRec">
           <p>Do you reccomend this product?</p>
           <div>
@@ -106,21 +95,19 @@ const ReviewForm = () => {
             <label htmlFor="false">No way...</label>
           </div>
         </div>
-
         <div className="formElement characteristics">
           <h3>Product Characteristic Ratings: </h3>
-
           {charIDs.map((tuple) => {
             const id = tuple[0];
             const name = tuple[1];
             return (
-              <span className="characteristic">
+              <span className="characteristic" key={Math.random()}>
                 <h3>
                   {name}
                   :
                 </h3>
                 {characteristicRatings.map((rating) => (
-                  <span>
+                  <span key={Math.random()}>
                     <input type="radio" id={rating} name={id} value={rating} onChange={handleChangeChar} />
                     <label htmlFor={rating}>{rating[0].toUpperCase() + rating.slice(1)}</label>
                   </span>
@@ -128,47 +115,33 @@ const ReviewForm = () => {
               </span>
             );
           })}
-
         </div>
-
         <div className="formElement reviewInput">
           <h3>Review Summary: </h3>
           <input type="text" id="reviewSummary" className="textInput" name="summary" value={newReview.summary} maxLength="60" placeholder="Example: Best on the island!" onChange={handleChange} required />
         </div>
-
         <div className="formElement reviewBody">
           <h3>Review Body: </h3>
           <textarea id="reviewBody" rows="5" cols="44" name="body" value={newReview.body} placeholder="Why did you like (or not like) the product?" onChange={handleChange} required />
         </div>
-
         <div className="formElement addPhoto">
           <h3>User Photos: </h3>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              console.log('New Review: ', newReview);
-            }}
-          >
+          <button type="button">
             Add a photo!
           </button>
         </div>
-
         <div className="formElement reviewInput">
           <h3>What is your nickname?: </h3>
           <input type="text" id="userNickname" className="textInput" name="name" value={newReview.name} maxLength="60" placeholder="Example: islandBoi123" onChange={handleChange} required />
           <h5>**For privacy reasons, do not use your full name or email address</h5>
         </div>
-
         <div className="formElement reviewInput">
           <h3>What is your email address?: </h3>
           <input type="text" id="userEmail" className="textInput" name="email" value={newReview.email} maxLength="60" placeholder="Example: islandBoi123@email.com" onChange={handleChange} required />
           <h5>**For authentication reassons, you will not be emailed</h5>
         </div>
-
         <button type="submit" id="submitForm">
           Submit Review
-
         </button>
       </form>
     </div>

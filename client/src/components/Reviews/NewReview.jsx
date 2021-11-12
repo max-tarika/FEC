@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, {
-  useState, useRef, useImperativeHandle, forwardRef, useCallback, useEffect,
+  useState, useImperativeHandle, forwardRef, useCallback, useEffect,
 } from 'react';
 import { createPortal } from 'react-dom';
 
