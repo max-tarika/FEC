@@ -9,6 +9,8 @@ const Outfit = ({ product, removeEntry }) => {
   const context = useContext(RelatedContext);
   const appContext = useContext(AppContext);
 
+  // console.log(product);
+
   useEffect(() => {
   }, [context]);
 
