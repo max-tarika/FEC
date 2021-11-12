@@ -92,6 +92,7 @@ button:hover {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  width: 385px
 }
 
 /* Add to Cart */
@@ -199,8 +200,8 @@ button:hover {
 
 .icon {
   position: absolute;
-  top: 3px;
-  right: 7px;
+  top: 5px;
+  right: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,7 +246,7 @@ img.styleThumbnail {
 
 #productName {
   padding: 5px;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 #productCategory {

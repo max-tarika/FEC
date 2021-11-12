@@ -13,7 +13,10 @@ const Style = ({ style, setStyle }) => {
   const isSelected = currentStyle.style_id === style.style_id;
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{
+      position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center',
+    }}
+    >
       {isSelected ? <div className="icon" style={{ fontSize: '0.5rem' }}><FontAwesomeIcon icon={faCheck} size="lg" /></div> : null}
       <div className="styleSelectWrapper" onClick={() => { handleStyleClick(style.style_id); setStyle(style.name); }}>
         <img className="styleThumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
