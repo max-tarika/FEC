@@ -6,7 +6,7 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { OverviewContext } from './context.js';
+import OverviewContext from './context.js';
 import AppContext from '../../context.js';
 
 const DefaultImageCarousel = () => {
@@ -45,7 +45,7 @@ const DefaultImageCarousel = () => {
               className={imageView ? 'expandedImage' : 'image'}
               id={zoomedView ? 'zoomedImage' : null}
               onMouseMove={handleMouseMove}
-              src={photo.url}
+              src={photo.url || 'https://pluspng.com/img-png/loader-png-indicator-loader-spinner-icon-512.png'}
               alt={currentStyle.name}
             />
           </div>
