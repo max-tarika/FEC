@@ -5,7 +5,6 @@
   justify-content: space-evenly;
   padding: 5px;
   margin: 5px;
-  /* background-image: url("./img/y-so-serious.png"); */
 }
 
 #loadingScreen {
@@ -75,7 +74,6 @@ letter-spacing: "0em";
   border-radius: 4px;
   padding: 3px;
   margin-bottom: 16px;
-  background-image: url("./img/y-so-serious-white.png");
 }
 
 
@@ -608,7 +606,7 @@ th
 }
 
 #outfitContainer {
-  background-image: url("./img/y-so-serious-white.png");
+  /* background-image: url("./img/y-so-serious-white.png"); */
   display: grid;
   grid-template-columns: repeat(5, 2fr);
   gap: 20px;
@@ -618,7 +616,7 @@ th
 }
 
 #productCardContainer {
- background-image: url("./img/y-so-serious-white.png");
+ /* background-image: url("./img/y-so-serious-white.png"); */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
