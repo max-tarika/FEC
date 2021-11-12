@@ -12,7 +12,7 @@ const DefaultView = () => {
   const viewType = imageView ? 'expandedViewContainer' : 'defaultImageContainer';
 
   return (
-    <div>
+    <div style={{ paddingTop: '10px' }}>
       <div id={viewType}>
         {!zoomedView
         && <ThumbnailCarousel />}
