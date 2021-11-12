@@ -1,11 +1,10 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import AppContext from '../../context.js';
 import Style from './Style.jsx';
 
 const StyleSelector = () => {
   const { styles, currentStyle } = useContext(AppContext);
-  const [selectedStyle, setSelectedStyle] = useState();
 
   return (
     <div id="styleSelector">
@@ -14,10 +13,10 @@ const StyleSelector = () => {
         {' '}
         {'>'}
         {' '}
-        {selectedStyle || currentStyle?.name}
+        {currentStyle?.name}
       </div>
       <div id="stylesWrapper">
-        {styles?.map((style, i) => <Style style={style} key={i} setStyle={setSelectedStyle} />)}
+        {styles?.map((style, i) => <Style style={style} key={i} />)}
       </div>
     </div>
   );
