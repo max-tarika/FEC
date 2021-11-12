@@ -25,8 +25,8 @@ const Information = () => {
           </a>
         </span>
       </div>
-      <div id="productCategory">{productInfo.category}</div>
-      <div id="productName">{productInfo.name}</div>
+      <div id="productCategory">{productInfo?.category}</div>
+      <div id="productName">{productInfo?.name}</div>
       <Price />
       <Share />
     </div>
