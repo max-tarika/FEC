@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react';
-import { OverviewContext } from './context.js';
+import OverviewContext from './context.js';
 import Feature from './Features.jsx';
 
 const Description = () => {

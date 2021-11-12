@@ -3,7 +3,7 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { OverviewContext } from './context.js';
+import OverviewContext from './context.js';
 import DefaultImageThumbnail from './DefaultImageThumbnail.jsx';
 import AppContext from '../../context.js';
 import Icon from './Icon.jsx';

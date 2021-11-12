@@ -6,7 +6,7 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle as solidCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCircle as emptyCircle } from '@fortawesome/free-regular-svg-icons';
-import { OverviewContext } from './context.js';
+import OverviewContext from './context.js';
 
 const Icon = ({ i }) => {
   const {
