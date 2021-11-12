@@ -66,6 +66,7 @@ const Review = (props) => {
 
           <div
             id="markHelpfull"
+            role="button"
             onClick={(e) => {
               e.preventDefault();
               markHelpful(currentReview.review_id);
@@ -81,6 +82,7 @@ const Review = (props) => {
         </span>
         <div
           id="reportReview"
+          role="button"
           onClick={(e) => {
             e.preventDefault();
             reportReview(currentReview.review_id);

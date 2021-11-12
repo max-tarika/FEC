@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
   return (
     <div>
       <div id="default_image">
-        <img title={product.id} id={product.id} src={product.photo} width="150" height="150" />
+        <img title={product.id} id={product.id} src={product.photo} width="150" height="150" alt="product image" />
         <div className="actionButton" title={product.id} id={product.id}><FontAwesomeIcon icon={starSolid} /></div>
 
       </div>
