@@ -18,7 +18,7 @@ const Review = (props) => {
         .then(setTotal(total + 1))
         .then(setMarks('marked'))
         .catch((err) => console.log(err));
-    } else { console.log('Already marked as helpful!!'); }
+    } else { alert('Already marked as helpful!!'); }
   };
   const reportReview = (id) => {
     axios.put(`/reviews/${id}/report`)
@@ -88,7 +88,6 @@ const Review = (props) => {
         >
           <h3>Report?</h3>
         </div>
-
       </div>
     </div>
   );

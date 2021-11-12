@@ -3,7 +3,7 @@ import AppContext from '../../context.js';
 import BreakdownBar from './BreakdownBar.jsx';
 
 const ProductBreakdown = () => {
-  const { currentProduct, currentReview } = useContext(AppContext);
+  const { currentReview } = useContext(AppContext);
 
   const [chars, setChars] = useState();
 
