@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div id="header">
-      <h1 className="appTitle">Project Islandwalk</h1>
+      <h1 className="appTitle">IslandWalk</h1>
       <div className="productHeaderContainer">
         <div className="productChoiceHeader">Popular Products:</div>
         <div className="productHeaderWrapper">
