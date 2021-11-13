@@ -1,5 +1,5 @@
 /*
-    App.jsx
+----------- App.jsx -----------
 */
 #app{
   width: 100%;
@@ -12,6 +12,14 @@
 }
 #loadingScreen {
   color: #dedede;
+}
+.widget {
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+  border-radius: 4px;
+  padding: 3px;
+  margin-bottom: 16px;
 }
 h1 {
   font-weight: 300;
@@ -31,25 +39,26 @@ font-size: "1.5rem";
 line-height: 1.334;
 letter-spacing: "0em";
 }
-
+button:hover {
+  cursor: pointer;
+}
+/*
+---------- Header -----------
+*/
 #header {
   padding-bottom: 5px;
 }
-
 .productHeaderContainer {
   display: flex;
   align-items: center;
 }
-
 .productHeaderWrapper {
   display: flex;
   margin-left: 10px;
 }
-
 .productChoiceHeader {
   margin-left: 10px;
 }
-
 .productChoice {
   box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
   padding: 5px;
@@ -62,44 +71,27 @@ letter-spacing: "0em";
   color: gold;
   transition: 0.33s;
 }
-
-/* Styling consistent to every widget */
-.widget {
-  width: 100%;
-  max-width: 1200px;
-  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
-  border-radius: 4px;
-  padding: 3px;
-  margin-bottom: 16px;
-}
-
-
-/* Styling for Overview */
-button:hover {
-  cursor: pointer;
-}
-
+/*
+---------- Overview -----------
+*/
 #overviewContainer {
   padding: 5px;
   display: flex;
   justify-content: center;
 }
-
 #overviewWrapper {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   width: 385px
 }
-
-/* Add to Cart */
+/* -----Add to Cart------ */
 #sizeDropdown {
   position: absolute;
   background-color: white;
   width: 200px;
   box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
 }
-
 #sizeButton {
   width: 200px;
   height: 25px;
@@ -109,41 +101,27 @@ button:hover {
   transition: 0.3212s;
   border-style: none;
 }
-
 #sizeButton:hover {
   background-color: rgba(0, 0, 0, 0.5);
   transition: 0.3212s;
   color: white;
 }
-
-#sizeSelector{
+#quantitySelector, #addToCart, #sizeSelector {
   padding: 10px;
 }
-
 #sizeList {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .sizeSelect {
   padding: 5px;
 }
-
 .sizeSelect:hover {
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   color: white;
 }
-
-#quantitySelector {
-  padding: 10px;
-}
-
-#addToCart {
-  padding: 10px;
-}
-
 #addToCartButton {
   width: 200px;
   height: 50px;
@@ -154,30 +132,25 @@ button:hover {
   transition: 0.3212s;
   border-style: none;
 }
-
 #addToCartButton:hover {
   background-color: rgba(0, 0, 0, 0.5);
   transition: 0.3212s;
   color: white;
 }
-
 #selectorContainer {
   display: flex;
 }
-
 .quantity {
   width: 50px;
   height: 25px;
   box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%);
   border: none;
 }
-
-/* Styles Selector */
+/* -----Styles Selector------*/
 #stylesWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-
 .styleSelectWrapper {
   display: flex;
   flex-direction: column;
@@ -190,11 +163,9 @@ button:hover {
   width: 65px;
   height: 65px;
 }
-
 .styleSelectWrapper:hover {
   cursor: pointer;
 }
-
 .icon {
   position: absolute;
   top: 5px;
@@ -208,96 +179,68 @@ button:hover {
   height: 16px;
   border: 1px solid black;
 }
-
 #styleName {
   font-size: 13px;
   height: 30px;
   width: 70px;
   text-align: center;
 }
-
 #styleSelector {
   padding: 1rem;
 }
-
 #currentStyleName {
   padding: 10px 10px 10px 5px;
 }
-
 img.styleThumbnail {
   max-width: 150%;
   max-height: 150%;
 }
-
-/* Information */
+/* -----Information------ */
 #information {
   padding: 10px;
   display: flex;
   flex-direction: column;
 }
-
 #price {
   display: flex;
   padding: 5px;
 }
-
 #productName {
   padding: 5px;
   font-size: 40px;
 }
-
-#productCategory {
+#productCategory, #allStars, .shareText {
   padding: 5px;
 }
-
-#share {
+#share, .rating {
   display: flex;
   align-items: center;
 }
-
-.shareText {
-  padding: 5px;
-}
-
-#allStars {
-  padding: 5px;
-}
-
-.rating {
-  display: flex;
-  align-items: center;
-}
-
 .readReviewsText {
   color: black;
   font-size: 14px;
   text-decoration: none;
   border-bottom: 1px solid black;
 }
-
-/* Description */
+/* -----Description----- */
 #descriptionContainer {
   display: flex;
   justify-content: center;
 }
-
 #descriptionWrapper {
   display: flex;
   padding: 10px;
   margin: 5px;
   width: 75%;
 }
-
 #description {
   padding-right: 15px;
   border-right: 3px solid rgba(0, 0, 0, 0.54);
   width: 70%;
 }
-
 #features {
   width: 30%;
 }
-
 /* Image */
 img.image {
   object-fit: cover;
@@ -305,7 +248,6 @@ img.image {
   min-height: 100%;
   cursor: zoom-in;
 }
-
 #defaultImageContainer {
   display: flex;
   justify-content: center;
@@ -313,34 +255,28 @@ img.image {
   width: 700px;
   overflow: hidden;
 }
-
 #carouselContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
-
 .carouselContent {
   white-space: nowrap;
   transition: transform 0.3s;
 }
-
 .imageWrapper {
   justify-content: center;
   align-items: center;
   width: 700px;
   height: 600px;
 }
-
 .active {
   display: flex;
 }
-
 .inactive {
   display: none;
 }
-
 .leftArrow, .rightArrow {
   position: absolute;
   z-index: 1;
@@ -355,26 +291,21 @@ img.image {
   background-color: transparent;
   border-style: none;
 }
-
 .leftArrow:hover, .rightArrow:hover, .upArrow:hover, .downArrow:hover{
   background-color: rgba(0, 0, 0, 0.3);
 }
-
 .leftArrow {
   left: 80px;
 }
-
 .rightArrow {
   right: 20px;
 }
-
 .thumbnailCarousel-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
-
 .thumbnailCarousel-wrapper {
   display: flex;
   flex-direction: column;
@@ -384,12 +315,10 @@ img.image {
   top: 38px;
   z-index: 1;
 }
-
 .thumbnailCarousel-content-wrapper {
   height: 358px;
   overflow: hidden;
 }
-
 .upArrow, .downArrow {
   position: absolute;
   z-index: 1;
@@ -403,15 +332,12 @@ img.image {
   background-color: transparent;
   border-style: none;
 }
-
 .upArrow {
   top: -25px;
 }
-
 .downArrow {
   bottom: -25px;
 }
-
 #thumbnailWrapper {
   height: 40px;
   width: 40px;
@@ -421,36 +347,29 @@ img.image {
   align-items: center;
   justify-content: center;
 }
-
 img.thumbnail {
   object-fit: cover;
   max-height: 150%;
   max-width: 150%;
   margin: 7px;
 }
-
 img.thumbnail:hover {
   cursor: pointer;
 }
-
 #selectedThumbnail {
   border-bottom: 3px solid silver;
   margin-top: 2px;
 }
-
-/* Expanded View */
-
+/* -----Expanded View----- */
 #zoomedImage {
   transition: transform 0.25s ease;
 }
-
 .expandedView {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 10px;
 }
-
 .expandedImage {
   object-fit: cover;
   min-width: 100%;
@@ -458,7 +377,6 @@ img.thumbnail:hover {
   cursor: crosshair;
   transition: transform 0.25s ease;
 }
-
 #expandedViewContainer {
   display: flex;
   justify-content: center;
@@ -466,11 +384,9 @@ img.thumbnail:hover {
   width: 100%;
   overflow: hidden;
 }
-
 #expandedImageWrapper {
   width: 1000px;
 }
-
 #exitExpandedView {
   position: absolute;
   top: 2%;
@@ -483,18 +399,15 @@ img.thumbnail:hover {
   align-items: center;
   justify-content: center;
 }
-
 #exitExpandedView:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
-
 .iconCarousel-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
-
 .iconCarousel-wrapper {
   display: flex;
   flex-direction: column;
@@ -505,17 +418,16 @@ img.thumbnail:hover {
   transform: translateY(-50%);
   z-index: 1;
 }
-
 .iconCarousel-content-wrapper {
   height: 175px;
   overflow: hidden;
 }
-
 .iconWrapper:hover {
   cursor: pointer;
 }
-
-/* Styling for Related and Outfit */
+/*
+---------- Related Items and Outfit -------------
+*/
 .relatedWidget {
   padding: 8px;
 }
@@ -532,12 +444,10 @@ img.thumbnail:hover {
   float: right;
   cursor: pointer;
 }
-
 .product_category {
   font-size: small;
   color:#767676;
 }
-
 .product_price {
   font-size: smaller;
   color:#767676;
@@ -569,9 +479,7 @@ th
   width: 107px;
   text-align: center;
 }
-
 #comparisonModal {
-
   height: 350px;
   width: 320px;
   position: absolute;
@@ -596,28 +504,21 @@ th
   background: rgba(200, 200, 200, 0.3);
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
 }
-
 #addButton:hover {
   box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
   transition: 0.2s;
 }
-
 #outfitContainer {
-  /* background-image: url("./img/y-so-serious-white.png"); */
   display: grid;
   grid-template-columns: repeat(5, 2fr);
   gap: 20px;
   grid-auto-rows: minmax(200px);
   text-align: center;
-
 }
-
 #productCardContainer {
- /* background-image: url("./img/y-so-serious-white.png"); */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
 }
 #productCard {
   display: flex;
@@ -636,18 +537,17 @@ th
 .product_category {
   color: #333;
 }
-/* Styling for Ratings/Reviews */
-
+/*
+---------- Ratings and Reviews -----------
+*/
 #reviewsWidget h4 {
   margin: 2px;
 }
-
 #ratingsAndReviewsContainer {
   padding: 5px;
   display: flex;
   justify-content: space-around;
 }
-
 #ratings {
   width: 25%;
   padding: 5px;
@@ -666,7 +566,6 @@ th
   text-align: center;
   margin-left: 10px;
 }
-
 #recommendedBy h3 {
   margin: 0px;
 }
@@ -681,9 +580,7 @@ th
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
 }
-
 #ratingBar {
   height: 10px;
   width: 100%;
@@ -708,12 +605,10 @@ th
   justify-content: space-around;
   align-items: center;
 }
-
 #rowRow strong {
   color: darkgoldenrod;
   font-size: 2em;
 }
-
 .ratingBarFill {
   height: 10px;
   border-radius: 16px;
@@ -721,7 +616,6 @@ th
   box-shadow: 0px 4px 4px -3px rgba(240,220,130,0.4),0px 8px 10px 1px rgba(240,220,130,0.3),0px 3px 14px 2px rgba(240,220,130,0.2);
   position: absolute;
 }
-
 #productBreakdown {
   width: 100%;
   padding: 4px;
@@ -732,7 +626,6 @@ th
   display: flex;
   flex-direction: column;
 }
-
 #productBreakdown h5 {
   margin: 4px;
 }
@@ -749,7 +642,6 @@ th
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
   transition: 0.2s;
 }
-
 #reviewBarFill{
   height: 20px;
   width: 20px;
@@ -760,7 +652,6 @@ th
   transform: translateX(-50%);
   transition: 0.5s;
 }
-
 #productBreakdownDesc {
   display: flex;
   flex-direction: row;
@@ -771,7 +662,6 @@ th
   font-variant: normal;
   font-style: bold;
 }
-
 #reviews {
   width: 75%;
   padding: 5px;
@@ -793,7 +683,6 @@ th
   border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
 }
-
 #reviewList {
   max-height: 200vh;
   overflow: scroll;
@@ -820,13 +709,9 @@ th
   box-shadow: 0px 3px 5px -1px rgba(215, 185, 75,0.2),0px 6px 10px 0px rgba(215, 185, 75,0.14),0px 1px 18px 0px rgba(215, 185, 75,0.12);
   transition: 0.5s;
 }
-
-
 #comfortReview, #fitReview, #lengthReview, #qualityReview {
   max-width: 100%;
 }
-
-
 /* ----- Styling for individual review tile ------ */
 #review {
   box-sizing: border-box;
@@ -839,8 +724,6 @@ th
   box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
   background-color: rgba(255,255,255,0.75);
 }
-
-
 #reviewTopBar {
   display:flex;
   flex-direction: row;
@@ -855,7 +738,6 @@ th
   display: flex;
   justify-self: flex-end;
 }
-
 #reviewTitle {
   margin: 0px;
 }
@@ -890,19 +772,15 @@ th
   cursor: pointer;
   text-decoration: underline;
   background-color: rgba(100,0,0,0.5);
-  border-radius: 25%;
   transition: 0.5s;
 }
-
 #helpfulAndReport ul {
   list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-
 /* Styling for Stars */
-
 #allStars {
   display: flex;
   flex-direction: row;
@@ -916,25 +794,20 @@ th
   overflow: hidden;
   transition: 0.5s;
 }
-
 .starWrapper .outerStar {
   height: 100%;
   width: 100%;
 }
-
 .innerStar, .outerStar {
   color: goldenrod;
 }
-
 .starWrapper {
   width: 20px;
   height: 20px;
   position: relative;
   transition: 0.5s;
 }
-
-/* modal styling for add review */
-
+/* ----- ADD REVIEW -----*/
 .modal {
   position: fixed;
   overflow: hidden;
@@ -953,13 +826,11 @@ th
   box-sizing: border-box;
   transition: 0.5s;
 }
-
 .modal.modal-fade {
   animation: fade-in 1s 1 linear;
   animation-fill-mode: forwards;
   opacity: 0;
 }
-
 .modal > .modal-overlay {
   width: 100%;
   height: 100%;
@@ -968,7 +839,6 @@ th
   left: 0;
   transition: 0.33s;
 }
-
 .modal > .modal-close {
   position: absolute;
   right: 15px;
@@ -991,12 +861,10 @@ th
   text-align: center;
   transition: 0.33s;
 }
-
 .modal > .modal-close:hover {
   background: rgba(215, 185, 75, 0.95);
   transition: 0.33s;
 }
-
 .modal > .modal-body {
   z-index: 2;
   position: relative;
@@ -1012,8 +880,6 @@ th
   padding: 15px 20px;
   color: #444;
 }
-
-
 @keyframes fade-in {
   0% {
     animation-timing-function: cubic-bezier(0.2242, 0.7499, 0.3142, 0.8148);
@@ -1023,21 +889,17 @@ th
     opacity: 1;
   }
 }
-
 /* form styling */
-
 #addReviewForm {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 16px;
 }
-
 #addReviewForm strong{
   color: gold;
   letter-spacing: 2px;
 }
-
 form .overallRating {
   display: flex;
   justify-content: center;
@@ -1081,7 +943,6 @@ form .overallRating {
   display: flex;
   justify-content: space-around;
 }
-
 .characteristics {
   height: fit-content;
   display: flex;
@@ -1098,12 +959,10 @@ form .overallRating {
   color: #eee;
   font-style: italic;
 }
-
 #reviewInput {
   width: 50%;
   height: 1.5em;
 }
-
 .textInput {
   min-width: 350px;
   height: 28px;
@@ -1118,7 +977,6 @@ form .overallRating {
   color: #333;
   border-radius: 8px;
 }
-
 #reviewBody {
   width: 75%;
   height: 4em;
@@ -1131,7 +989,6 @@ form .overallRating {
   margin-top: 0px;
   margin-right: 40px;
 }
-
 #addReviewForm button {
   width: 240px;
   height: 36px;
