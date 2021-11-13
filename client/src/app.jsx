@@ -26,6 +26,16 @@ const App = () => {
   const [currentFeature, setCurrentFeature] = useState([]);
   const [stone, setTheStone] = useState();
 
+  const clickTracker = (widget) => {
+    const click = {
+      element: event.target,
+      date: new Date(),
+      module: widget,
+    };
+
+    console.log(click);
+  };
+
   const calcReviewsAverages = (data) => {
     Promise.all(data.map((product) => axios.get(`/reviews/meta/?product_id=${product.id}`)))
       .then((resData) => {
@@ -167,6 +177,7 @@ const App = () => {
       setStyle,
       currentFeature,
       stone,
+      clickTracker,
     }}
     >
       <div>

@@ -21,7 +21,9 @@ import ReviewsContext from './reviewsContext.js';
 
 const Reviews = () => {
   const reviewForm = useRef(null);
-  const { currentProduct, average, currentReview } = useContext(AppContext);
+  const {
+    currentProduct, average, currentReview, clickTracker,
+  } = useContext(AppContext);
   const [reviews, setReviews] = useState([]);
   const getReviewsForCurrent = (id) => {
     axios({
@@ -46,7 +48,7 @@ const Reviews = () => {
         currentReview, currentProduct, reviews, average,
       }}
       >
-        <div id="reviewsWidget" className="widget">
+        <div id="reviewsWidget" className="widget" onClick={() => { clickTracker('Reviews'); }}>
           <h4>Ratings &amp; Reviews</h4>
           <div id="ratingsAndReviewsContainer">
             <div id="ratings">

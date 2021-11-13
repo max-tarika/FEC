@@ -15,7 +15,7 @@ import DefaultView from './DefaultView.jsx';
 
 const Overview = () => {
   const {
-    currentProduct, setStyle, styles, currentStyle,
+    currentProduct, setStyle, styles, currentStyle, clickTracker,
   } = useContext(AppContext);
   const [productInfo, setProductInfo] = useState({});
   const [imageView, setImageView] = useState(false);
@@ -112,7 +112,7 @@ const Overview = () => {
       handleMouseMove,
     }}
     >
-      <section className="widget">
+      <section className="widget" onClick={() => { clickTracker('Overview'); }}>
         {imageView
           ? <div className="expandedView"><DefaultView /></div>
           : (

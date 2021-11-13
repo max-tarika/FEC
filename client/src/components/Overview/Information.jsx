@@ -8,8 +8,7 @@ import Share from './Share.jsx';
 
 const Information = () => {
   const { productInfo } = useContext(OverviewContext);
-  const { average } = useContext(AppContext);
-  const { totalReviews } = useContext(AppContext);
+  const { average, totalReviews } = useContext(AppContext);
 
   return (
     <div id="information">

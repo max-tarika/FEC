@@ -7,7 +7,7 @@ import OutfitList from './OutfitList.jsx';
 const Related = () => {
   const currentProduct = useContext(AppContext);
   const {
-    relatedProducts, productAvgs, relatedStyles, currentStyle,
+    relatedProducts, productAvgs, relatedStyles, currentStyle, clickTracker,
   } = useContext(AppContext);
   const [outfit, setOutfit] = useState([]);
   const [photos, setPhotos] = useState([]);
@@ -68,7 +68,7 @@ const Related = () => {
   }, [trigger]);
 
   return (
-    <div className="widget">
+    <div className="widget" onClick={() => { clickTracker('Related'); }}>
       <div className="relatedWidget">
         <RelatedContext.Provider value={{
           productData, currentProduct, outfit,
