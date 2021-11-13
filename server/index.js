@@ -1,11 +1,14 @@
 const path = require('path');
 const express = require('express');
+const compression = require('compression');
 const axios = require('axios');
 const { API_TOKEN, CAMPUS } = require('../config.js');
 
 const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/${CAMPUS}/`;
 
 const app = express();
+
+app.use(compression());
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
