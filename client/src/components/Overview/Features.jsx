@@ -4,10 +4,10 @@ import React from 'react';
 const Feature = ({ feature }) => (
   <li className="feature">
     <span>
-      {feature.feature}
+      {feature?.feature}
       :
       {' '}
-      {feature.value}
+      {feature?.value}
     </span>
   </li>
 );

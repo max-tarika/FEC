@@ -14,13 +14,9 @@ const Icon = ({ i }) => {
   } = useContext(OverviewContext);
   const isSelected = activeIndex === i;
 
-  const handleIconClick = () => {
-    setActiveIndex(i);
-  };
-
   return (
     <div className="iconContainer" style={{ padding: '3px' }}>
-      <div className="iconWrapper" onClick={handleIconClick}>
+      <div className="iconWrapper" onClick={() => { setActiveIndex(i); }}>
         {isSelected ? <FontAwesomeIcon icon={solidCircle} color="white" /> : <FontAwesomeIcon icon={emptyCircle} color="white" />}
       </div>
     </div>
