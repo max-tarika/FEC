@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable max-len */
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../../context.js';
 import BreakdownBar from './BreakdownBar.jsx';

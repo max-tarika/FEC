@@ -16,14 +16,6 @@ const ReviewForm = () => {
 
   const [newReview, setNewReview] = useState();
 
-  const getChars = (characteristicsObj) => {
-    const result = {};
-    charIDs.forEach((tuple) => {
-      result[tuple[0]] = null;
-    });
-    return result;
-  };
-
   const handleChange = (e) => {
     setNewReview({ ...newReview, [e.target.name]: e.target.value });
   };

@@ -1,4 +1,5 @@
-import React, { useEffect, useContext } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useContext } from 'react';
 import AppContext from '../../context.js';
 
 const BreakdownBar = ({ characteristic }) => {

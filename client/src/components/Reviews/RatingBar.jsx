@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-const RatingBar = (props) => (
+const RatingBar = ({ percent }) => (
   <div id="ratingBar">
-    <div className="ratingBarFill" style={{ width: `${props?.percent}%` }} />
+    <div className="ratingBarFill" style={{ width: `${percent}%` }} />
   </div>
 );
 

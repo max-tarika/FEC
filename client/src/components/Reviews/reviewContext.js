@@ -1,5 +1,5 @@
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 
-const ReviewContext = React.createContext({});
+const ReviewContext = createContext({});
 
 export default ReviewContext;

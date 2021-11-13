@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -19,9 +22,11 @@ import ProductBreakdown from './ProductBreakdown.jsx';
 import AppContext from '../../context.js';
 import ReviewsContext from './reviewsContext.js';
 
-const Reviews = () => {
+const Reviews = ({ captureClickData }) => {
   const reviewForm = useRef(null);
-  const { currentProduct, average, currentReview } = useContext(AppContext);
+  const {
+    currentProduct, average, currentReview,
+  } = useContext(AppContext);
   const [reviews, setReviews] = useState([]);
   const getReviewsForCurrent = (id) => {
     axios({
@@ -46,7 +51,7 @@ const Reviews = () => {
         currentReview, currentProduct, reviews, average,
       }}
       >
-        <div id="reviewsWidget" className="widget">
+        <div id="reviewsWidget" className="widget" onClick={(e) => { captureClickData(e, 'Reviews'); }}>
           <h4>Ratings &amp; Reviews</h4>
           <div id="ratingsAndReviewsContainer">
             <div id="ratings">

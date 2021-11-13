@@ -10,6 +10,7 @@ import Related from './components/Related/Related.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
 import Header from './components/Header/Header.jsx';
 import AppContext from './context.js';
+import MetaData from './MetaData.jsx';
 
 const App = () => {
   const [currentProduct, setCurrentProduct] = useState();
@@ -170,10 +171,12 @@ const App = () => {
     }}
     >
       <div>
-        <Header />
-        <Overview />
-        <Related />
-        <Reviews />
+        <MetaData>
+          <Header key={1} />
+          <Overview key={2} />
+          <Related key={3} />
+          <Reviews key={4} />
+        </MetaData>
       </div>
     </AppContext.Provider>
   );
