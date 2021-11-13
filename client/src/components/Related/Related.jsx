@@ -1,13 +1,16 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../../context';
 import RelatedContext from './context';
 import RelatedList from './RelatedList.jsx';
 import OutfitList from './OutfitList.jsx';
 
-const Related = () => {
+const Related = ({ captureClickData }) => {
   const currentProduct = useContext(AppContext);
   const {
-    relatedProducts, productAvgs, relatedStyles, currentStyle, clickTracker,
+    relatedProducts, productAvgs, relatedStyles, currentStyle,
   } = useContext(AppContext);
   const [outfit, setOutfit] = useState([]);
   const [photos, setPhotos] = useState([]);
@@ -68,7 +71,7 @@ const Related = () => {
   }, [trigger]);
 
   return (
-    <div className="widget" onClick={() => { clickTracker('Related'); }}>
+    <div className="widget" onClick={(e) => { captureClickData(e, 'Related'); }}>
       <div className="relatedWidget">
         <RelatedContext.Provider value={{
           productData, currentProduct, outfit,

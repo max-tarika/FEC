@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import RatingBarList from './RatingBarList.jsx';
 
-const RatingBreakdown = (props) => {
+const RatingBreakdown = ({ ratings }) => {
   const getTotal = (ratingObj) => {
     let total = 0;
     if (ratingObj === null || ratingObj === undefined) {
@@ -17,10 +18,10 @@ const RatingBreakdown = (props) => {
     <div id="ratingBreakdown">
       <h5>
         <strong>Rating Breakdown: </strong>
-        <em>{`(out of ${getTotal(props?.ratings)} reviews)`}</em>
+        <em>{`(out of ${getTotal(ratings)} reviews)`}</em>
       </h5>
 
-      <RatingBarList key={Math.random()} ratings={props?.ratings} total={getTotal(props?.ratings)} />
+      <RatingBarList key={Math.random()} ratings={ratings} total={getTotal(ratings)} />
     </div>
   );
 };

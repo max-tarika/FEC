@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 import Star from './Star.jsx';
 import RatingBar from './RatingBar.jsx';
 
-const RatingBarList = (props) => {
-  const getPercent = (ratingCount) => Math.floor((ratingCount / props?.total) * 100);
+const RatingBarList = ({ ratings, total }) => {
+  const getPercent = (ratingCount) => Math.floor((ratingCount / total) * 100);
 
   const getCountArray = (ratingObj) => Object.values(ratingObj);
 
@@ -13,14 +14,14 @@ const RatingBarList = (props) => {
     return starValues[index];
   };
 
-  if (!props.ratings) {
+  if (!ratings) {
     return (
       <h1>Loading Barz</h1>
     );
   }
   return (
     <div className="ratingBarList">
-      {getCountArray(props?.ratings).map((rating, i) => (
+      {getCountArray(ratings).map((rating, i) => (
         <h5 className="ratingBarRow" key={Math.random()}>
           <span id="rowRow">
             <strong>{`${matchIndex(i)} `}</strong>

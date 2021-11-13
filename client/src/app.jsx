@@ -10,6 +10,7 @@ import Related from './components/Related/Related.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
 import Header from './components/Header/Header.jsx';
 import AppContext from './context.js';
+import MetaData from './MetaData.jsx';
 
 const App = () => {
   const [currentProduct, setCurrentProduct] = useState();
@@ -25,16 +26,6 @@ const App = () => {
   const [currentStyle, setStyle] = useState({});
   const [currentFeature, setCurrentFeature] = useState([]);
   const [stone, setTheStone] = useState();
-
-  const clickTracker = (widget) => {
-    const click = {
-      element: event.target,
-      date: new Date(),
-      module: widget,
-    };
-
-    console.log(click);
-  };
 
   const calcReviewsAverages = (data) => {
     Promise.all(data.map((product) => axios.get(`/reviews/meta/?product_id=${product.id}`)))
@@ -177,14 +168,15 @@ const App = () => {
       setStyle,
       currentFeature,
       stone,
-      clickTracker,
     }}
     >
       <div>
-        <Header />
-        <Overview />
-        <Related />
-        <Reviews />
+        <MetaData>
+          <Header key={1} />
+          <Overview key={2} />
+          <Related key={3} />
+          <Reviews key={4} />
+        </MetaData>
       </div>
     </AppContext.Provider>
   );

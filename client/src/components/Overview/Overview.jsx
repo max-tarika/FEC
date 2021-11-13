@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
@@ -13,9 +16,9 @@ import OverviewContext from './context.js';
 import Description from './Description.jsx';
 import DefaultView from './DefaultView.jsx';
 
-const Overview = () => {
+const Overview = ({ captureClickData }) => {
   const {
-    currentProduct, setStyle, styles, currentStyle, clickTracker,
+    currentProduct, setStyle, styles, currentStyle,
   } = useContext(AppContext);
   const [productInfo, setProductInfo] = useState({});
   const [imageView, setImageView] = useState(false);
@@ -112,7 +115,7 @@ const Overview = () => {
       handleMouseMove,
     }}
     >
-      <section className="widget" onClick={() => { clickTracker('Overview'); }}>
+      <section className="widget" onClick={(e) => { captureClickData(e, 'Overview'); }}>
         {imageView
           ? <div className="expandedView"><DefaultView /></div>
           : (
