@@ -31,7 +31,6 @@ const Overview = ({ captureClickData }) => {
   const [zoomedStyles, setZoomedStyles] = useState({});
   const thumbnailHeight = 51;
   const iconHeight = 25;
-  const hiddenThumbnails = photosLength - 7;
 
   const handleStyleClick = (styleId) => {
     for (const style of styles) {
@@ -101,7 +100,6 @@ const Overview = ({ captureClickData }) => {
       setSlider,
       photosLength,
       thumbnailHeight,
-      hiddenThumbnails,
       thumbnailsShown,
       setThumbnailsShown,
       imageView,
