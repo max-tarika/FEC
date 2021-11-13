@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "pack": "webpack --config ./webpack.config.js --mode development -w",
+    "pack": "webpack --config ./webpack.config.js --mode production -w",
     "server": "nodemon server/index.js"
   },
   "repository": {
