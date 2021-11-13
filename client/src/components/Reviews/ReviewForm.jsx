@@ -14,11 +14,15 @@ const ReviewForm = () => {
 
   const [charIDs, setCharIDs] = useState();
 
-  const [newReview, setNewReview] = useState(
-    {
-      product_id: currentProduct.id, rating: '', summary: '', body: '', recommend: false, name: '', email: '', photos: [], characteristics: {},
-    },
-  );
+  const [newReview, setNewReview] = useState();
+
+  const getChars = (characteristicsObj) => {
+    const result = {};
+    charIDs.forEach((tuple) => {
+      result[tuple[0]] = null;
+    });
+    return result;
+  };
 
   const handleChange = (e) => {
     setNewReview({ ...newReview, [e.target.name]: e.target.value });
@@ -34,11 +38,8 @@ const ReviewForm = () => {
     }
   };
   const handleChangeChar = (e) => {
-    characteristicRatings.forEach((rating) => {
-      if (e.target.value === rating) {
-        setNewReview({ ...newReview, characteristics: { [e.target.name]: (characteristicRatings.indexOf(rating) + 1) } });
-      }
-    });
+    const ratingNum = characteristicRatings.indexOf(e.target.id) + 1;
+    newReview.characteristics[e.target.name] = ratingNum;
   };
 
   const handleSubmit = (e) => {
@@ -61,7 +62,14 @@ const ReviewForm = () => {
       Object.keys(currentReview.characteristics).forEach((key) => {
         ids.push([currentReview.characteristics[key]?.id, key]);
       });
+
       setCharIDs(ids);
+
+      setNewReview(
+        {
+          product_id: currentProduct.id, rating: '', summary: '', body: '', recommend: false, name: '', email: '', photos: [], characteristics: {},
+        },
+      );
     }
   }, [currentReview]);
 
@@ -108,7 +116,7 @@ const ReviewForm = () => {
                 </h3>
                 {characteristicRatings.map((rating) => (
                   <span key={Math.random()}>
-                    <input type="radio" id={rating} name={id} value={rating} onChange={handleChangeChar} />
+                    <input type="radio" id={rating} name={id} value={name} onChange={handleChangeChar} />
                     <label htmlFor={rating}>{rating[0].toUpperCase() + rating.slice(1)}</label>
                   </span>
                 ))}
