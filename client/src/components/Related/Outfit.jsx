@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle as xIcon } from '@fortawesome/free-regular-svg-icons';
 import RelatedContext from './context';
