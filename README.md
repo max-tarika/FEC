@@ -2,7 +2,7 @@
 ## __by__ Da Island Bois
 
 ---
-<img src="./client/dist/img/overview.png" width="90%">
+<img src="./client/dist/img/header.png" width="90%">
 
 ## Project Overview:
 
@@ -50,18 +50,21 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 * Product description and specifications.
 
-<img src="./client/dist/img/overviewNorm.png" width="90%">
+<img src="./client/dist/img/overview.png" width="90%">
 
 
 **Expanded View**:
 
 * Click anywhere on image to toggle expanded view.
 
+<img src="./client/dist/img/expanded.png" width="90%">
+
 * Includes zoom feature that follows mouse around image.
+
+<img src="./client/dist/img/zoom.png" width="90%">
 
 * Click through carousel of images in exanded or default view.
 
-<img src="./client/dist/img/overviewExpanded.png" width="90%">
 
 ---
 
@@ -95,15 +98,19 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 * A rating number and bar filled with the percentage of total reviews given that rating.
 
+<img src="./client/dist/img/ratings.png" width="40%">
+
 **Product Breakdown**:
 
 * Displays characteristics of shown product
 
+<img src="./client/dist/img/characteristics.png" width="40%">
+
 * Visual representation of rating _(1-5)_
 
-<img src="./client/dist/img/ratingsReviews.png" width="90%">
-
 **Reviews**:
+
+<img src="./client/dist/img/reviews.png" width="80%">
 
 * Two reviews are displayed by default, selecting different sorting options in the drop-down list will re-render the page with a list of reviews sorted accordingly
 
@@ -115,7 +122,18 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 * Clicking _Add a Review_ will open a modal window with input fields appropriate for the current product.
 
-<img src="./client/dist/img/reviewForm.png" width="80%">
+<img src="./client/dist/img/newReview.png" width="80%">
+
+---
+---
+
+## [NEW] Light/Dark Theme Toggle
+
+* Easliy toggle between light and dark backgrounds with a toggle button that always appears in the top-right of the screen.
+
+<img src="./client/dist/img/light.png" width="90%">
+---
+<img src="./client/dist/img/dark.png" width="90%">
 
 ---
 ---
@@ -126,8 +144,7 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 1) **Fork** our repo in the top right corner of the screen:
 
-  * <img src="./client/dist/img/forkRepo.png" width="80%">
-
+<img src="./client/dist/img/ratingsReviews.png" width="90%">
 2) Clone new fork to you local directory:
 
   * <img src="./client/dist/img/cloneRepo.png" width="80%">
@@ -158,7 +175,7 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 4) With webpack and the server running, open [**http://localhost:3000**](http://localhost:3000) in your favorite browser and enjoy!
 
-<img src="./client/dist/img/landing.png" width="90%">
+<img src="./client/dist/img/landing.png" width="60%">
 
 ---
 ---
@@ -200,6 +217,7 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 * Banana Theme also available upon request.
 
+
 ---
 ---
 
@@ -209,3 +227,26 @@ _**Da Island Bois**_, established November 2021, jumped into this project with t
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+> Heyo fellas, just wanted to add a note saying that it has been a really a great time working with each of you, what a fun project! _-Derek_
+---
