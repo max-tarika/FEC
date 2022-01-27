@@ -31,4 +31,4 @@ app.use((req, res) => {
     });
 });
 
-app.listen(3000, console.log('Connected to the island'));
+app.listen(3000, console.log('Connected!'));
