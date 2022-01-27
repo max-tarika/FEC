@@ -1,5 +1,5 @@
 # Project Catwalk
-## __by__ Da Island Bois
+## __by__ The Island Boys
 
 ---
 <img src="./client/dist/img/header.png" width="90%">
@@ -10,7 +10,7 @@ Welcome to the year 2021. We are living in a crazy time, where the **present** a
 
 Companies are now being increasingly tasked with **upkeeping** their products to use modern _trends_, _styles_, and _characteristics_. This sizeable amount of constantly-evolving workload can create an incredibly challenging and **stressful** daily life for the engineers assigned to completing these tasks... _That is where we come in_.
 
-_**Da Island Bois**_, established November 2021, jumped into this project with two missions:
+_**The Island Boys**_, established November 2021, jumped into this project with two missions:
 
 * To **modernize** an out-of-date web application.
 * To do this in a fashion that **destroys** the perception that working today has to be a stressful event. _Catch some waves as you go!_
